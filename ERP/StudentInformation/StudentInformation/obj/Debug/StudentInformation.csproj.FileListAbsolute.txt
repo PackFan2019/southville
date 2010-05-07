@@ -1,0 +1,13 @@
+C:\Users\Wallen_Tan\Documents\Visual Studio 2008\Projects\StudentInformation\StudentInformation\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Wallen_Tan\Documents\Visual Studio 2008\Projects\StudentInformation\StudentInformation\obj\Debug\StudentInformation.Properties.Resources.resources
+C:\Users\Wallen_Tan\Documents\Visual Studio 2008\Projects\StudentInformation\StudentInformation\obj\Debug\StudentInformation.csproj.GenerateResource.Cache
+C:\Users\Wallen_Tan\Documents\Visual Studio 2008\Projects\StudentInformation\StudentInformation\bin\Debug\StudentInformation.exe
+C:\Users\Wallen_Tan\Documents\Visual Studio 2008\Projects\StudentInformation\StudentInformation\bin\Debug\StudentInformation.pdb
+C:\Users\Wallen_Tan\Documents\Visual Studio 2008\Projects\StudentInformation\StudentInformation\obj\Debug\StudentInformation.exe
+C:\Users\Wallen_Tan\Documents\Visual Studio 2008\Projects\StudentInformation\StudentInformation\obj\Debug\StudentInformation.pdb
+C:\Users\Wallen_Tan\Documents\Visual Studio 2008\Projects\StudentInformation\StudentInformation\obj\Debug\StudentInformation.Forms.AddNewStudent.resources
+C:\Users\Wallen_Tan\Documents\Visual Studio 2008\Projects\StudentInformation\StudentInformation\obj\Debug\StudentInformation.Forms.Loading.resources
+C:\Users\Wallen_Tan\Documents\Visual Studio 2008\Projects\StudentInformation\StudentInformation\obj\Debug\StudentInformation.Forms.Main.resources
+C:\Users\Wallen_Tan\Documents\Visual Studio 2008\Projects\StudentInformation\StudentInformation\bin\Debug\Properties\Resources.resx
+C:\Users\Wallen_Tan\Documents\Visual Studio 2008\Projects\StudentInformation\StudentInformation\bin\Debug\Properties\Resources.Designer.cs
+C:\Users\Wallen_Tan\Documents\Visual Studio 2008\Projects\StudentInformation\StudentInformation\obj\Debug\StudentInformation.Forms.SelectStudents.resources
