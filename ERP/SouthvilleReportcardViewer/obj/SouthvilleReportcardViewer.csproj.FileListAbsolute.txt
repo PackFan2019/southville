@@ -1,7 +1,0 @@
-C:\Documents and Settings\Administrator\My Documents\Visual Studio 2005\Projects\SouthvilleReportcardViewer\SouthvilleReportcardViewer\bin\Debug\SouthvilleReportcardViewer.exe
-C:\Documents and Settings\Administrator\My Documents\Visual Studio 2005\Projects\SouthvilleReportcardViewer\SouthvilleReportcardViewer\bin\Debug\SouthvilleReportcardViewer.pdb
-C:\Documents and Settings\Administrator\My Documents\Visual Studio 2005\Projects\SouthvilleReportcardViewer\SouthvilleReportcardViewer\obj\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\Administrator\My Documents\Visual Studio 2005\Projects\SouthvilleReportcardViewer\SouthvilleReportcardViewer\obj\Debug\SouthvilleReportcardViewer.Properties.Resources.resources
-C:\Documents and Settings\Administrator\My Documents\Visual Studio 2005\Projects\SouthvilleReportcardViewer\SouthvilleReportcardViewer\obj\Debug\SouthvilleReportcardViewer.csproj.GenerateResource.Cache
-C:\Documents and Settings\Administrator\My Documents\Visual Studio 2005\Projects\SouthvilleReportcardViewer\SouthvilleReportcardViewer\obj\Debug\SouthvilleReportcardViewer.exe
-C:\Documents and Settings\Administrator\My Documents\Visual Studio 2005\Projects\SouthvilleReportcardViewer\SouthvilleReportcardViewer\obj\Debug\SouthvilleReportcardViewer.pdb
