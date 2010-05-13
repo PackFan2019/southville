@@ -611,5 +611,11 @@ namespace StuffshopPOS
         {
             printOptionpanel.Visible = false;
         }
+
+        private void reportViewerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReportViewer viiew = new ReportViewer();
+            viiew.Show();
+        }
     }
 }

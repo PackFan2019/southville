@@ -77,6 +77,7 @@ namespace StuffshopPOS
             this.button2 = new System.Windows.Forms.Button();
             this.savebtn = new System.Windows.Forms.Button();
             this.PnSbtn = new System.Windows.Forms.Button();
+            this.reportViewerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.quantityPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -195,34 +196,35 @@ namespace StuffshopPOS
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(146, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
             this.toolStripMenuItem1.Text = "Page Set&up";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(146, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(135, 22);
             this.toolStripMenuItem2.Text = "Print Pre&vew";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(146, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(135, 22);
             this.toolStripMenuItem3.Text = "&Print";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             // 
             // optionToolStripMenuItem
             // 
             this.optionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.refreshToolStripMenuItem});
+            this.refreshToolStripMenuItem,
+            this.reportViewerToolStripMenuItem});
             this.optionToolStripMenuItem.Name = "optionToolStripMenuItem";
             this.optionToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.optionToolStripMenuItem.Text = "&Option";
@@ -230,7 +232,7 @@ namespace StuffshopPOS
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.refreshToolStripMenuItem.Text = "&Refresh";
             // 
             // quantityPanel
@@ -543,6 +545,13 @@ namespace StuffshopPOS
             this.PnSbtn.UseVisualStyleBackColor = true;
             this.PnSbtn.Click += new System.EventHandler(this.PnSbtn_Click);
             // 
+            // reportViewerToolStripMenuItem
+            // 
+            this.reportViewerToolStripMenuItem.Name = "reportViewerToolStripMenuItem";
+            this.reportViewerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reportViewerToolStripMenuItem.Text = "Report Viewer";
+            this.reportViewerToolStripMenuItem.Click += new System.EventHandler(this.reportViewerToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -642,6 +651,7 @@ namespace StuffshopPOS
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button savebtn;
         private System.Windows.Forms.Button PnSbtn;
+        private System.Windows.Forms.ToolStripMenuItem reportViewerToolStripMenuItem;
     }
 }
 
