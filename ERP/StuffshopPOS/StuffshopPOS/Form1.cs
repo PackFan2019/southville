@@ -614,7 +614,7 @@ namespace StuffshopPOS
 
         private void reportViewerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ReportViewer viiew = new ReportViewer();
+            Report_Viewer viiew = new Report_Viewer();
             viiew.Show();
         }
     }

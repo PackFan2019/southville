@@ -17,3 +17,15 @@ C:\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.Properties.Resources.resourc
 C:\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.Receipt.resources
 C:\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.csproj.GenerateResource.Cache
 C:\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.Print_Option.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2005\Projects\Updated\StuffshopPOS\obj\Debug\StuffshopPOS.exe
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2005\Projects\Updated\StuffshopPOS\obj\Debug\StuffshopPOS.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2005\Projects\Updated\StuffshopPOS\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2005\Projects\Updated\StuffshopPOS\obj\Debug\StuffshopPOS.CrystalReport1.rpt
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2005\Projects\Updated\StuffshopPOS\obj\Debug\StuffshopPOS.Form1.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2005\Projects\Updated\StuffshopPOS\obj\Debug\StuffshopPOS.Print_Option.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2005\Projects\Updated\StuffshopPOS\obj\Debug\StuffshopPOS.Properties.Resources.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2005\Projects\Updated\StuffshopPOS\obj\Debug\StuffshopPOS.Receipt.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2005\Projects\Updated\StuffshopPOS\obj\Debug\StuffshopPOS.Report_Viewer.resources
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2005\Projects\Updated\StuffshopPOS\obj\Debug\StuffshopPOS.csproj.GenerateResource.Cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2005\Projects\Updated\StuffshopPOS\bin\Debug\StuffshopPOS.exe
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2005\Projects\Updated\StuffshopPOS\bin\Debug\StuffshopPOS.pdb

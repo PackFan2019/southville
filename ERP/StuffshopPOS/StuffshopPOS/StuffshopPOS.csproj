@@ -50,6 +50,12 @@
     <Compile Include="Beans\Item.cs" />
     <Compile Include="Beans\Price.cs" />
     <Compile Include="Beans\Pricelist.cs" />
+    <Compile Include="CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Data\FileData.cs" />
     <Compile Include="Data\GPData.cs" />
     <Compile Include="Form1.cs">
@@ -66,6 +72,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Form1.cs</DependentUpon>
@@ -83,13 +93,9 @@
       <SubType>Designer</SubType>
       <DependentUpon>Receipt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportView.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ReportView.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReportViewer.resx">
+    <EmbeddedResource Include="Report_Viewer.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>ReportViewer.cs</DependentUpon>
+      <DependentUpon>Report_Viewer.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -115,17 +121,11 @@
     <Compile Include="Receipt.Designer.cs">
       <DependentUpon>Receipt.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportView.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReportView.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ReportViewer.cs">
+    <Compile Include="Report_Viewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportViewer.Designer.cs">
-      <DependentUpon>ReportViewer.cs</DependentUpon>
+    <Compile Include="Report_Viewer.Designer.cs">
+      <DependentUpon>Report_Viewer.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
