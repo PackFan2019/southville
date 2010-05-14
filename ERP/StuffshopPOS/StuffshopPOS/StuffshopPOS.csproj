@@ -107,6 +107,17 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="TWODataSet.xsc">
+      <DependentUpon>TWODataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TWODataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TWODataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TWODataSet.xss">
+      <DependentUpon>TWODataSet.xsd</DependentUpon>
+    </None>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -126,6 +137,11 @@
     </Compile>
     <Compile Include="Report_Viewer.Designer.cs">
       <DependentUpon>Report_Viewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TWODataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TWODataSet.xsd</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
