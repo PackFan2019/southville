@@ -79,11 +79,11 @@ namespace StuffshopPOS
         private void itemList_SelectedIndexChanged(object sender, EventArgs e)
         {
            
-            UOFMlist.Refresh();
+            UOFMlist.Refresh(); //Refreshes the list
             try
             {
                 int index = itemList.SelectedIndex;
-                if (index >= 0)
+                if (index >= 0)//ItemList Checker
                 {
                     UOFMlist.Items.Clear();
                     string sample = index.ToString();
@@ -100,7 +100,7 @@ namespace StuffshopPOS
                     {
                         UOFMlist.Enabled = true;
                         quantityPanel.Enabled = true;
-                        if (i.priceList.prices.Count == 0)
+                        if (i.priceList.prices.Count == 0) //This Adds "N/A" as a UOFM in items that contains no UOFM
                         {
                             UOFMlist.Items.Add("N/A");
                         }
@@ -125,7 +125,7 @@ namespace StuffshopPOS
                     MessageBox.Show("No item is selected", "Ooops!!!");
                 }
             }
-            catch
+            catch (Exception e)
             {
             }
         }
