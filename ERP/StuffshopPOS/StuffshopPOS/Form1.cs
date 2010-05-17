@@ -270,6 +270,7 @@ namespace StuffshopPOS
         {
             try
             {
+                //refreshing the list in SalesEntry after the item was removed
                 SalesEntry se = new SalesEntry();
 
                 int i = dataGridView1.CurrentCell.RowIndex;
@@ -303,6 +304,7 @@ namespace StuffshopPOS
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            //page setup menu
             PageSetupDialog pageSetupDialog = new PageSetupDialog();
             pageSetupDialog.PageSettings = pgSettings;
             pageSetupDialog.PrinterSettings = prtSettings;
@@ -315,18 +317,18 @@ namespace StuffshopPOS
         {
             try
             {
-                File.Delete("itemPrint.txt");
-                itemWriter = new StreamWriter("itemPrint.txt", true);
-                itemWriter.WriteLine("{0,-5}{1,-18}{2,-5}{3,-3}{4,-10}{5,-8}", "Qty", "Item Code", "UOFM", " ", "Price", "Total");
+                File.Delete("itemPrint.txt");//deleting the current text file
+                itemWriter = new StreamWriter("itemPrint.txt", true);//setting up textfile to append the data
+                itemWriter.WriteLine("{0,-5}{1,-18}{2,-5}{3,-3}{4,-10}{5,-8}", "Qty", "Item Code", "UOFM", " ", "Price", "Total");//setting up header positioning
                 itemWriter.WriteLine("------------------------------------------------");
-                foreach (SalesEntry se1 in Session.Cart.getSalesList())
+                foreach (SalesEntry se1 in Session.Cart.getSalesList())//getting all the entry in Session.Cart.getSalesList() list
                 {
                     itemCode = se1.ItemCode;
                     itemPrice = se1.Price;
                     quantity = se1.Quantity;
                     UOFM = se1.UOFM;
                     total = se1.Total;
-
+                    //setting up item positioning to print as receipt
                     itemWriter.WriteLine("{0,-5}{1,-18}{2,-5}{3,-3}{4,-10:C}{5,-8:C}", quantity.ToString(), itemCode, UOFM, "@", itemPrice.ToString("0.00"), total.ToString("0.00"));
                 }
                 itemWriter.Close();
@@ -339,6 +341,7 @@ namespace StuffshopPOS
         }
         private void getTransId()
         {
+            //setting up the transactionId/TransID
             SalesEntry.transId = DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Year.ToString() + "-" + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second;
         }
         private void printDoc_PrintPage(Object sender, PrintPageEventArgs e)
@@ -348,13 +351,15 @@ namespace StuffshopPOS
                 getTransId();
                 int quantityCount = 0;
                 printItem();
-                 foreach(SalesEntry se in Session.Cart.getSalesList())
+                foreach (SalesEntry se in Session.Cart.getSalesList())//getting all the quantity entry in Session.Cart.getSalesList() list
                 {
                     quantityCount += se.Quantity;
                 }
+                //getting all the entries in a textfile named itemPrint.txt
                 itemReader = new StreamReader("itemPrint.txt");
-                String printReader = itemReader.ReadToEnd();
+                String printReader = itemReader.ReadToEnd();//reading all item in the textfile until the bottom part
                 itemReader.Close();
+                //setting up the format and output of the receipt to be printed
                 String textToPrint =
                     "  SOUTHVILLE INTERNATIONAL SCHOOL AND COLLEGES" + "\n" +
                     "    1281 Tropical Ave., Cor Luxembourg St.," + "\n" +
@@ -372,7 +377,7 @@ namespace StuffshopPOS
                 "CHANGE     :" + "\t\t\t" + change.ToString("0.00") + "\n" +
                 DateTime.Now.ToLongDateString() + "\n" +
                 "Thank you! Come Again.";
-                Font printFont = new Font("Courier New", 7);
+                Font printFont = new Font("Courier New", 7);//setting up the font type and font size of the text in receipt
                 int leftMargin = 0;
                 int topMargin = 0;
                 e.Graphics.DrawString(textToPrint, printFont, Brushes.Black,
@@ -426,13 +431,13 @@ namespace StuffshopPOS
             se.ItemCode = itemCode;
             se.Price = itemPrice;
             se.Quantity = quantity;
-            FileData.saveToFile(SalesEntry.transId, se);
+            FileData.saveToFile(SalesEntry.transId, se);//calling other function to save the file(transId, SalesEntry se)
         }
 
         private void printReceiptbtn_Click(object sender, EventArgs e)
         {
-                if (cashTb.Text == "") MessageBox.Show("Please Input Payment Value", "Ooops");
-                if (Convert.ToDouble(cashTb.Text) < grandTotal) MessageBox.Show("Insuffecient Payment", "Ooops");
+                if (cashTb.Text == "") MessageBox.Show("Please Input Payment Value", "Ooops");//if cash textbox is not empty or null
+                if (Convert.ToDouble(cashTb.Text) < grandTotal) MessageBox.Show("Insuffecient Payment", "Ooops");//if cash paid is less than the total bill/grandtotal 
                 else
                 {
                     DialogResult result = MessageBox.Show("Are you sure you want to print the receipt?", "Print Receipt", MessageBoxButtons.YesNo);
@@ -481,9 +486,9 @@ namespace StuffshopPOS
                 int index = itemList.SelectedIndex;
                 Item i = GPData.items[index];
                 Price p = new Price();
-                SalesEntry se = new SalesEntry();
+                SalesEntry se = new SalesEntry();//new SalesEntry method
                 se.UOFM = UOFMlist.SelectedItem.ToString();
-                p = i.priceList.prices.Find(delegate(Price er) { return er.uofm.Equals(se.UOFM); });
+                p = i.priceList.prices.Find(delegate(Price er) { return er.uofm.Equals(se.UOFM); });//searching uofm from prices in i.priceList.prices list entries
                 itemPriceLabel.Text = p.Uomprice.ToString();
             }
             catch
@@ -569,7 +574,7 @@ namespace StuffshopPOS
         }
         private void saveTrans()
         {
-
+            //saving the filename of the text file and it's transaction info
             itemWriter = new StreamWriter("sales-" + DateTime.Now.ToString("MMMM") + "-" + DateTime.Now.Day.ToString() + "-link.txt", true);
             itemWriter.WriteLine(SalesEntry.transId.ToString() + "," + DateTime.Now.ToShortDateString());
             itemWriter.Close();
