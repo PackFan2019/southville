@@ -125,7 +125,7 @@ namespace StuffshopPOS
                     MessageBox.Show("No item is selected", "Ooops!!!");
                 }
             }
-            catch (Exception e)
+            catch (Exception er)
             {
             }
         }
