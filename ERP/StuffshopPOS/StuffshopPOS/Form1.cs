@@ -269,10 +269,7 @@ namespace StuffshopPOS
             {
                 grandTotal = 0;
                 removeItem();
-                refreshDataGrid();
-
-                //MessageBox.Show("Test", "Test",MessageBoxButtons.OKCancel + MessageBoxDefaultButton.Button1);
-                
+                refreshDataGrid();        
             }
 
             catch (System.Exception error)
@@ -404,7 +401,7 @@ namespace StuffshopPOS
                 dlg.Width = 445;
                 dlg.PrintPreviewControl.Zoom = zoomValue / 100f;
                 dlg.ShowDialog();
-                //dlg.Controls.Add();
+
             }
             catch
             {
@@ -519,15 +516,6 @@ namespace StuffshopPOS
                 }
                 toolStripMenuItem2_Click(sender, e);
                 printOptionpanel.Visible = true;
-                //Print_Option menu = new Print_Option();
-                //menu.ShowDialog();
-
-                //amounttoprint = Double.Parse(totalLbl.Text);
-                //changetoprint = Double.Parse(changeLbl.Text);
-                //paymentoprint = Double.Parse(cashTb.Text);
-
-                //toolStripMenuItem3_Click(sender, e);
-                //salesReportentry();
                 itemList.Enabled = true;
                 UOFMlist.Enabled = true;
                 quantityPanel.Enabled = true;
@@ -616,6 +604,11 @@ namespace StuffshopPOS
         {
             Report_Viewer viiew = new Report_Viewer();
             viiew.Show();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

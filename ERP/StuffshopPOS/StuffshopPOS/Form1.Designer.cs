@@ -45,6 +45,7 @@ namespace StuffshopPOS
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportViewerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quantityPanel = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.quantityTb = new System.Windows.Forms.TextBox();
@@ -77,7 +78,6 @@ namespace StuffshopPOS
             this.button2 = new System.Windows.Forms.Button();
             this.savebtn = new System.Windows.Forms.Button();
             this.PnSbtn = new System.Windows.Forms.Button();
-            this.reportViewerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.quantityPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -232,8 +232,15 @@ namespace StuffshopPOS
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.refreshToolStripMenuItem.Text = "&Refresh";
+            // 
+            // reportViewerToolStripMenuItem
+            // 
+            this.reportViewerToolStripMenuItem.Name = "reportViewerToolStripMenuItem";
+            this.reportViewerToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.reportViewerToolStripMenuItem.Text = "Report Viewer";
+            this.reportViewerToolStripMenuItem.Click += new System.EventHandler(this.reportViewerToolStripMenuItem_Click);
             // 
             // quantityPanel
             // 
@@ -485,6 +492,7 @@ namespace StuffshopPOS
             this.label6.Size = new System.Drawing.Size(130, 13);
             this.label6.TabIndex = 6;
             this.label6.Text = "Please input Desired price";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // prctb
             // 
@@ -544,13 +552,6 @@ namespace StuffshopPOS
             this.PnSbtn.Text = "Print && Save";
             this.PnSbtn.UseVisualStyleBackColor = true;
             this.PnSbtn.Click += new System.EventHandler(this.PnSbtn_Click);
-            // 
-            // reportViewerToolStripMenuItem
-            // 
-            this.reportViewerToolStripMenuItem.Name = "reportViewerToolStripMenuItem";
-            this.reportViewerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.reportViewerToolStripMenuItem.Text = "Report Viewer";
-            this.reportViewerToolStripMenuItem.Click += new System.EventHandler(this.reportViewerToolStripMenuItem_Click);
             // 
             // Form1
             // 
