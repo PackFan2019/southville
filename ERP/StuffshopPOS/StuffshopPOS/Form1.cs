@@ -20,7 +20,6 @@ namespace StuffshopPOS
         private PrintDocument printDoc = new PrintDocument();
         private PageSettings pgSettings = new PageSettings();
         private PrinterSettings prtSettings = new PrinterSettings();
-        private String transId = "aldjfo123";
         private Double amountDue = 0;
         private Double cash = 0;
         private Double change = 0;
@@ -59,25 +58,15 @@ namespace StuffshopPOS
                     itemList.Items.Add(i.ToString());
                 }
                 itemList.SelectedIndex = 0;
-                createSales();
-                createSalesHeader();
+                FileData fd = new FileData();
+                fd.createSales();
+                fd.createSalesHeader();
             }
             catch
             {
             }
         }
-        private void createSales()
-        {
-            itemWriter = new StreamWriter("sales-" + DateTime.Now.ToString("MMMM") + "-" + DateTime.Now.Day.ToString() + ".txt", true);
-            itemWriter.WriteLine("TransId,ItemCode,Price,Quantity,UOFM");
-            itemWriter.Close();
-        }
-        private void createSalesHeader()
-        {
-            itemWriter = new StreamWriter("sales-" + DateTime.Now.ToString("MMMM") + "-" + DateTime.Now.Day.ToString() + "-link.txt", true);
-            itemWriter.WriteLine("TransId,Date");
-            itemWriter.Close();
-        }
+
         private void priceGroupBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<Item> stuff = GPData.getItems(priceGroupBox.Text);
@@ -303,6 +292,10 @@ namespace StuffshopPOS
                 MessageBox.Show("What is your error");
             }
         }
+
+        /*
+         * This function ....
+         */ 
         private void Cancelbtn_Click(object sender, EventArgs e)
         {
             quantityPanel.Enabled = false;

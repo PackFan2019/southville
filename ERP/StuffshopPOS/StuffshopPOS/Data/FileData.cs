@@ -11,7 +11,7 @@ namespace StuffshopPOS.Data
     {
 
         private static StreamWriter itemWriter;
-        private static StreamWriter itemWriter2;
+
 
         public static void saveToFile(String TransactionNumber, SalesEntry se)
         {
@@ -29,6 +29,18 @@ namespace StuffshopPOS.Data
                     counter++;
                 }
             }
+        }
+        public void createSales()
+        {
+            itemWriter = new StreamWriter("sales-" + DateTime.Now.ToString("MMMM") + "-" + DateTime.Now.Day.ToString() + ".txt", true);
+            itemWriter.WriteLine("TransId,ItemCode,Price,Quantity,UOFM");
+            itemWriter.Close();
+        }
+        public void createSalesHeader()
+        {
+            itemWriter = new StreamWriter("sales-" + DateTime.Now.ToString("MMMM") + "-" + DateTime.Now.Day.ToString() + "-link.txt", true);
+            itemWriter.WriteLine("TransId,Date");
+            itemWriter.Close();
         }
     }
 
