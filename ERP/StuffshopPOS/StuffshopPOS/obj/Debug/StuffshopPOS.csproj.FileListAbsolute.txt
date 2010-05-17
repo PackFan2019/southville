@@ -1,0 +1,11 @@
+C:\Sville Project\ERP\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.exe
+C:\Sville Project\ERP\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.pdb
+C:\Sville Project\ERP\StuffshopPOS\StuffshopPOS\obj\Debug\ResolveAssemblyReference.cache
+C:\Sville Project\ERP\StuffshopPOS\StuffshopPOS\bin\Debug\StuffshopPOS.exe
+C:\Sville Project\ERP\StuffshopPOS\StuffshopPOS\bin\Debug\StuffshopPOS.pdb
+C:\Sville Project\ERP\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.Form1.resources
+C:\Sville Project\ERP\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.Print_Option.resources
+C:\Sville Project\ERP\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.Properties.Resources.resources
+C:\Sville Project\ERP\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.Receipt.resources
+C:\Sville Project\ERP\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.Report_Viewer.resources
+C:\Sville Project\ERP\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.csproj.GenerateResource.Cache
