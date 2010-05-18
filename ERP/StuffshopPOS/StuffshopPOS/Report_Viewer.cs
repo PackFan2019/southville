@@ -19,8 +19,8 @@ namespace StuffshopPOS
 
         private void Report_Viewer_Load(object sender, EventArgs e)
         {
-            GPData.ReportData();
 
+            GPData.ReportData();
             ReportView rv = new ReportView();
             ReportSet ds = new ReportSet();
             DataTable RPtable = ds.Tables.Add("ReportViewer");

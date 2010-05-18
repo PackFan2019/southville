@@ -92,6 +92,7 @@ namespace StuffshopPOS.Data
             {
                 Console.WriteLine("Oops! " + e.ToString());
             }
+
         }
 
 
@@ -111,8 +112,8 @@ namespace StuffshopPOS.Data
                     rc.itemDescription = reader["ITEMDESC"].ToString().Trim();
                     rc.itemnumber = reader["ITEMNMBR"].ToString();
                     rc.price = Convert.ToDecimal(reader["XTNDPRCE"].ToString());
-                    rc.quantity = Convert.ToInt32(reader["QUANTITY"].ToString());
-                    rc.sopnumber = reader["SOPNUMBE"].ToString().Trim();
+                    rc.quantity = Convert.ToInt32(reader["QUANTITY"]);
+                    rc.sopnumber = Convert.ToString(reader["SOPNUMBE"].ToString().Trim());
                     reportlist.Add(rc);        
 
 
@@ -121,7 +122,7 @@ namespace StuffshopPOS.Data
             }
             catch (Exception e)
             {
-                Console.WriteLine("Oops! " + e.ToString());
+                Console.WriteLine(e);
             }
         }
 
