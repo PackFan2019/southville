@@ -23,18 +23,19 @@ namespace StuffshopPOS
             GPData.ReportData();
             ReportView rv = new ReportView();
             ReportSet ds = new ReportSet();
-            DataTable RPtable = ds.Tables.Add("ReportViewer");
+            
+            /*DataTable RPtable = ds.Tables.Add("ReportViewer");
             RPtable.Columns.Add("SOPNUMBER", Type.GetType("System.String"));
             RPtable.Columns.Add("ITEMNUMBER", Type.GetType("System.String"));
             RPtable.Columns.Add("ITEMDESCRIPTION", Type.GetType("System.String"));
             RPtable.Columns.Add("CUSTOMERNAME", Type.GetType("System.String"));
             RPtable.Columns.Add("QUANTITY", Type.GetType("System.Int32"));
             RPtable.Columns.Add("DOCDATE", Type.GetType("System.DateTime"));
-            RPtable.Columns.Add("PRICE", Type.GetType("System.Decimal"));
+            RPtable.Columns.Add("PRICE", Type.GetType("System.Decimal"));*/
 
             foreach (ReportContainerClass rc in GPData.reportlist)
             {
-                DataRow cRow = RPtable.NewRow();
+                DataRow cRow = ds.ReportViewer.NewRow();
                 cRow["SOPNUMBER"] = rc.sopnumber;
                 cRow["ITEMNUMBER"] = rc.itemnumber;
                 cRow["ITEMDESCRIPTION"] = rc.itemDescription;
@@ -42,7 +43,7 @@ namespace StuffshopPOS
                 cRow["QUANTITY"] = rc.quantity;
                 cRow["DOCDATE"] = rc.docdate;
                 cRow["PRICE"] = rc.price;
-                RPtable.Rows.Add(cRow);
+                ds.ReportViewer.Rows.Add(cRow);
 
             }
             rv.SetDataSource(ds);
