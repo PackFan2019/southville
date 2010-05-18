@@ -1,0 +1,2 @@
+ItemCode,Warehouse
+3-C2924A,WC1
