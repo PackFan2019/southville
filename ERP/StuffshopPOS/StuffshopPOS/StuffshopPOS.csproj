@@ -70,6 +70,7 @@
     <Compile Include="Beans\Item.cs" />
     <Compile Include="Beans\Price.cs" />
     <Compile Include="Beans\Pricelist.cs" />
+    <Compile Include="Beans\ReportContainerClass.cs" />
     <Compile Include="Data\FileData.cs" />
     <Compile Include="Data\GPData.cs" />
     <Compile Include="Form1.cs">
@@ -122,6 +123,17 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="ReportSet.xsc">
+      <DependentUpon>ReportSet.xsd</DependentUpon>
+    </None>
+    <None Include="ReportSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ReportSet.xss">
+      <DependentUpon>ReportSet.xsd</DependentUpon>
+    </None>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -135,6 +147,15 @@
     </Compile>
     <Compile Include="Receipt.Designer.cs">
       <DependentUpon>Receipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportSet.cs">
+      <DependentUpon>ReportSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="ReportView.cs">
       <AutoGen>True</AutoGen>

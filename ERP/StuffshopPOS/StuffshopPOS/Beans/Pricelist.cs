@@ -19,9 +19,8 @@ namespace StuffshopPOS.Beans
 
         }
 
+        
 
-
-
-       
+    
     }
 }

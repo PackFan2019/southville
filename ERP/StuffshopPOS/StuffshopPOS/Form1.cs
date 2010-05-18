@@ -127,6 +127,7 @@ namespace StuffshopPOS
             }
             catch (Exception er)
             {
+                Console.Write(er);
             }
         }
         private void addCartbtn_Click(object sender, EventArgs e)

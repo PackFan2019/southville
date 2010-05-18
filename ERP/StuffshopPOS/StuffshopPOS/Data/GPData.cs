@@ -13,6 +13,7 @@ namespace StuffshopPOS.Data
         private static string connectionString = "server=sisc-crusaders.sville.edu.ph;user id=sa;password=southville;database=TWO;Trusted_Connection=false";
         private static SqlConnection connection = new SqlConnection(connectionString);
         public static List<Item> items = new List<Item>();
+        public static List<ReportContainerClass> reportlist = new List<ReportContainerClass>();
         private static Dictionary<String, Int32> table = new Dictionary<String, Int32>();
         //private static Item findItemInList(Item i)
         //{
@@ -54,7 +55,7 @@ namespace StuffshopPOS.Data
                     items.Add(i);
                     table.Add(i.ToString(), index);
                     index++;
-                   
+
 
                 }
                 reader.Close();
@@ -64,7 +65,7 @@ namespace StuffshopPOS.Data
                 Console.WriteLine("Oops! " + e.ToString());
             }
 
-            //Put pricelist refresh here
+
             try
             {
                 SqlCommand cmd2 = new SqlCommand("SELECT * FROM dbo.IV00108 WHERE PRCLEVEL = 'RETAIL' ORDER BY ITEMNMBR", connection);
@@ -83,15 +84,7 @@ namespace StuffshopPOS.Data
                     p.Qtybsoum = Convert.ToDouble(reader2["QTYBSUOM"].ToString().Trim());
                     Item found = items.Find(delegate(Item it) { return it.itemcode.Equals(tempItemNumber); });
                     found.priceList.prices.Add(p);
-                    //Item tempItem = new Item();
-                    //tempItem.itemcode = tempItemNumber;
-                    //found = findItemInList(tempItem);
-                    //if (found != null) found.priceList.prices.Add(p);//Price should be an object with TO,FROM,UOFM,PRICE
-                    //Pricelist plist = new Pricelist();
-                    //plist.add(p);
-                    //Item.PriceList.Add(found.priceList);
-                    //System.Windows.Forms.MessageBox.Show(Item.PriceList.Count.ToString());
-                   
+
                 }
                 reader2.Close();
             }
@@ -100,6 +93,39 @@ namespace StuffshopPOS.Data
                 Console.WriteLine("Oops! " + e.ToString());
             }
         }
+
+
+        public static void ReportData()
+        {
+            
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select a.SOPNUMBE,a.ITEMNMBR, a.ITEMDESC, a.XTNDPRCE, a.QUANTITY, b.DOCDATE, b.CUSTNAME from SOP30300 a, SOP30200 b where a.SOPNUMBE = b.SOPNUMBE", connection);
+                SqlDataReader reader = null;
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    ReportContainerClass rc = new ReportContainerClass();
+                    rc.custname = reader["CUSTNAME"].ToString().Trim();
+                    rc.docdate  = Convert.ToDateTime(reader["DOCDATE"].ToString());
+                    rc.itemDescription = reader["ITEMDESC"].ToString().Trim();
+                    rc.itemnumber = reader["ITEMNMBR"].ToString();
+                    rc.price = Convert.ToDecimal(reader["XTNDPRCE"].ToString());
+                    rc.quantity = Convert.ToInt32(reader["QUANTITY"].ToString());
+                    rc.sopnumber = reader["SOPNUMBE"].ToString().Trim();
+                    reportlist.Add(rc);        
+
+
+                }
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Oops! " + e.ToString());
+            }
+        }
+
+
 
         public static List<Item> getAllItems()
         {
