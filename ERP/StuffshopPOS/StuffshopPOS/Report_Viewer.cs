@@ -40,9 +40,6 @@ namespace StuffshopPOS
         {
             ReportView rv = new ReportView();
             ReportSet ds = new ReportSet();
-            rv.DataDefinition.FormulaFields["startDate"].Text = "\"" + date1 + "\"";
-            rv.DataDefinition.FormulaFields["End Date"].Text = "\"" + date2 + "\"";
-            rv.DataDefinition.FormulaFields["Customer"].Text = "\"" + customer + "\"";
             foreach (ReportContainerClass rc in GPData.reportlist)
             {
                 if (rc.soptype == 4)
@@ -64,6 +61,9 @@ namespace StuffshopPOS
                 ds.ReportViewer.Rows.Add(cRow);
 
             }
+            rv.DataDefinition.FormulaFields["startDate"].Text = "\"" + date1 + "\"";
+            rv.DataDefinition.FormulaFields["End Date"].Text = "\"" + date2 + "\"";
+            rv.DataDefinition.FormulaFields["Customer"].Text = "\"" + customer + "\"";
             rv.SetDataSource(ds);
             crystalReportViewer1.ReportSource = rv;
             crystalReportViewer1.Refresh();
