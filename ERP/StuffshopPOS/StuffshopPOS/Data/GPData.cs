@@ -136,7 +136,7 @@ namespace StuffshopPOS.Data
                 SqlCommand cmd = new SqlCommand("select a.SOPNUMBE,a.ITEMNMBR, a.ITEMDESC, a.XTNDPRCE," +
                     "a.QUANTITY, b.DOCDATE, b.CUSTNAME from SOP30300 a, SOP30200 b where a.SOPNUMBE = "+
                     "b.SOPNUMBE and b.DOCDATE >= \'" + date1 + "\'"+
-                    "and b.DOCDATE <= \'" + date2 + "\' and b.CUSTNAME = '" + custname +"'", connection);
+                    "and b.DOCDATE <= \'" + date2 + "\' and b.CUSTNAME = '" + custname +"' order by SOPNUMBE", connection);
                 SqlDataReader reader = null;
                 reader = cmd.ExecuteReader();
                 while (reader.Read())

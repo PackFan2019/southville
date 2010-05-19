@@ -35,7 +35,6 @@ namespace StuffshopPOS
 
         private void Report_Viewer_Load(object sender, EventArgs e)
         {
-         
 
             ReportView rv = new ReportView();
             ReportSet ds = new ReportSet();
@@ -55,6 +54,9 @@ namespace StuffshopPOS
             rv.SetDataSource(ds);
             crystalReportViewer1.ReportSource = rv;
             crystalReportViewer1.Refresh();
+            rv.DataDefinition.FormulaFields["startDate"].Text = "\"" + date1 + "\"";
+            rv.DataDefinition.FormulaFields["End Date"].Text = "\"" + date2 + "\"";
+            rv.DataDefinition.FormulaFields["Customer"].Text = "\"" + customer + "\"";
         }
 
     }
