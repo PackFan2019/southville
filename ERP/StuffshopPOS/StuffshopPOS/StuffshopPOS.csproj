@@ -72,19 +72,19 @@
     <Compile Include="Beans\Price.cs" />
     <Compile Include="Beans\Pricelist.cs" />
     <Compile Include="Beans\ReportContainerClass.cs" />
-    <Compile Include="customselect.cs">
+    <Compile Include="FormView\CustomerSelectDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="customselect.Designer.cs">
-      <DependentUpon>customselect.cs</DependentUpon>
+    <Compile Include="FormView\CustomerSelectDialog.Designer.cs">
+      <DependentUpon>CustomerSelectDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\FileData.cs" />
     <Compile Include="Data\GPData.cs" />
-    <Compile Include="dateselect.cs">
+    <Compile Include="FormView\DateDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="dateselect.Designer.cs">
-      <DependentUpon>dateselect.cs</DependentUpon>
+    <Compile Include="FormView\DateDialog.Designer.cs">
+      <DependentUpon>DateDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -100,12 +100,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="customselect.resx">
-      <DependentUpon>customselect.cs</DependentUpon>
+    <EmbeddedResource Include="FormView\CustomerSelectDialog.resx">
+      <DependentUpon>CustomerSelectDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="dateselect.resx">
-      <DependentUpon>dateselect.cs</DependentUpon>
+    <EmbeddedResource Include="FormView\DateDialog.resx">
+      <DependentUpon>DateDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">

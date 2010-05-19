@@ -19,13 +19,13 @@ namespace StuffshopPOS
 
         public Report_Viewer()
         {
-            dateselect start = new dateselect("Enter Start Date");
+            DateDialog start = new DateDialog("Enter Start Date");
             start.ShowDialog();
             date1 = start.dateselected;
-            dateselect end = new dateselect("Enter End Date");
+            DateDialog end = new DateDialog("Enter End Date");
             end.ShowDialog();
             date2 = end.dateselected;
-            customselect custtt = new customselect("Please Select Customer");
+            CustomerSelectDialog custtt = new CustomerSelectDialog("Please Select Customer");
             custtt.ShowDialog();
             customer = custtt.custselected;
 
