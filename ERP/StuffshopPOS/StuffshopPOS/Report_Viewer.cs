@@ -12,27 +12,33 @@ namespace StuffshopPOS
 {
     public partial class Report_Viewer : Form
     {
+
+        private string date1 = "none";
+        private string date2 = "none";
+        private string customer = "none";
+
         public Report_Viewer()
         {
+            dateselect start = new dateselect("Enter Start Date");
+            start.ShowDialog();
+            date1 = start.dateselected;
+            dateselect end = new dateselect("Enter End Date");
+            end.ShowDialog();
+            date2 = end.dateselected;
+            customselect custtt = new customselect("Please Select Customer");
+            custtt.ShowDialog();
+            customer = custtt.custselected;
+
             InitializeComponent();
+            GPData.ReportData(date1,date2,customer);
         }
 
         private void Report_Viewer_Load(object sender, EventArgs e)
         {
+         
 
-            GPData.ReportData();
             ReportView rv = new ReportView();
             ReportSet ds = new ReportSet();
-            
-            /*DataTable RPtable = ds.Tables.Add("ReportViewer");
-            RPtable.Columns.Add("SOPNUMBER", Type.GetType("System.String"));
-            RPtable.Columns.Add("ITEMNUMBER", Type.GetType("System.String"));
-            RPtable.Columns.Add("ITEMDESCRIPTION", Type.GetType("System.String"));
-            RPtable.Columns.Add("CUSTOMERNAME", Type.GetType("System.String"));
-            RPtable.Columns.Add("QUANTITY", Type.GetType("System.Int32"));
-            RPtable.Columns.Add("DOCDATE", Type.GetType("System.DateTime"));
-            RPtable.Columns.Add("PRICE", Type.GetType("System.Decimal"));*/
-
             foreach (ReportContainerClass rc in GPData.reportlist)
             {
                 DataRow cRow = ds.ReportViewer.NewRow();

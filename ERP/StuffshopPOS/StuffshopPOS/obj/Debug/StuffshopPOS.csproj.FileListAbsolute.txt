@@ -53,3 +53,5 @@ C:\Documents and Settings\Jun\My Documents\Southville project\ERP\StuffshopPOS\S
 C:\Documents and Settings\Jun\My Documents\Southville project\ERP\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.Receipt.resources
 C:\Documents and Settings\Jun\My Documents\Southville project\ERP\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.Report_Viewer.resources
 C:\Documents and Settings\Jun\My Documents\Southville project\ERP\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.csproj.GenerateResource.Cache
+C:\Southville project\ERP\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.dateselect.resources
+C:\Southville project\ERP\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.customselect.resources

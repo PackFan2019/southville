@@ -13,6 +13,7 @@ namespace StuffshopPOS.Data
         private static string connectionString = "server=sisc-crusaders.sville.edu.ph;user id=sa;password=southville;database=TWO;Trusted_Connection=false";
         private static SqlConnection connection = new SqlConnection(connectionString);
         public static List<Item> items = new List<Item>();
+        public static List<customer> custnames = new List<customer>();
         public static List<ReportContainerClass> reportlist = new List<ReportContainerClass>();
         private static Dictionary<String, Int32> table = new Dictionary<String, Int32>();
         //private static Item findItemInList(Item i)
@@ -95,13 +96,47 @@ namespace StuffshopPOS.Data
 
         }
 
+        public static void customergetter()
+        {
 
-        public static void ReportData()
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select DISTINCT CUSTNAME from SOP30200", connection);
+                SqlDataReader reader = null;
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    customer cm = new customer();
+                    cm.Name = reader["CUSTNAME"].ToString().Trim();
+                    if (custnames.Contains(cm))
+                    {
+                        
+                    }
+                    else
+                    {
+                        custnames.Add(cm);
+                    }
+                }
+                reader.Close();
+            }
+            catch (Exception ex3)
+            {
+                Console.Write(ex3);
+            }
+
+
+        }
+
+
+        public static void ReportData(string date1, string date2, string custname)
         {
             
             try
             {
-                SqlCommand cmd = new SqlCommand("select a.SOPNUMBE,a.ITEMNMBR, a.ITEMDESC, a.XTNDPRCE, a.QUANTITY, b.DOCDATE, b.CUSTNAME from SOP30300 a, SOP30200 b where a.SOPNUMBE = b.SOPNUMBE", connection);
+                SqlCommand cmd = new SqlCommand("select a.SOPNUMBE,a.ITEMNMBR, a.ITEMDESC, a.XTNDPRCE," +
+                    "a.QUANTITY, b.DOCDATE, b.CUSTNAME from SOP30300 a, SOP30200 b where a.SOPNUMBE = "+
+                    "b.SOPNUMBE and b.DOCDATE >= \'" + date1 + "\'"+
+                    "and b.DOCDATE <= \'" + date2 + "\' and b.CUSTNAME = '" + custname +"'", connection);
                 SqlDataReader reader = null;
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
