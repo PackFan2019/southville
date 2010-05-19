@@ -133,7 +133,7 @@ namespace StuffshopPOS.Data
             
             try
             {
-                SqlCommand cmd = new SqlCommand("select a.SOPNUMBE,a.ITEMNMBR, a.ITEMDESC, a.XTNDPRCE," +
+                SqlCommand cmd = new SqlCommand("select a.SOPTYPE,a.SOPNUMBE,a.ITEMNMBR, a.ITEMDESC, a.XTNDPRCE," +
                     "a.QUANTITY, b.DOCDATE, b.CUSTNAME from SOP30300 a, SOP30200 b where a.SOPNUMBE = "+
                     "b.SOPNUMBE and b.DOCDATE >= \'" + date1 + "\'"+
                     "and b.DOCDATE <= \'" + date2 + "\' and b.CUSTNAME = '" + custname +"' order by SOPNUMBE", connection);
@@ -142,6 +142,7 @@ namespace StuffshopPOS.Data
                 while (reader.Read())
                 {
                     ReportContainerClass rc = new ReportContainerClass();
+                    rc.soptype = Convert.ToInt32(reader["SOPTYPE"]);
                     rc.custname = reader["CUSTNAME"].ToString().Trim();
                     rc.docdate  = Convert.ToDateTime(reader["DOCDATE"].ToString());
                     rc.itemDescription = reader["ITEMDESC"].ToString().Trim();
