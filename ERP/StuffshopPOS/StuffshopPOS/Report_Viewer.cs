@@ -17,8 +17,7 @@ namespace StuffshopPOS
         private string date2 = "none";
         private string customer = "none";
         private int valuecontainer;
-        ReportView rv = new ReportView();
-        ReportSet ds = new ReportSet();
+        
 
         public Report_Viewer()
         {
@@ -32,16 +31,18 @@ namespace StuffshopPOS
             CustomerSelectDialog custtt = new CustomerSelectDialog("Please Select Customer");
             custtt.ShowDialog();
             customer = custtt.custselected;
-
+            
             InitializeComponent();
-            rv.Refresh();
             GPData.ReportData(date1,date2,customer);
         }
 
         private void Report_Viewer_Load(object sender, EventArgs e)
         {
-
-            
+            ReportView rv = new ReportView();
+            ReportSet ds = new ReportSet();
+            rv.DataDefinition.FormulaFields["startDate"].Text = "\"" + date1 + "\"";
+            rv.DataDefinition.FormulaFields["End Date"].Text = "\"" + date2 + "\"";
+            rv.DataDefinition.FormulaFields["Customer"].Text = "\"" + customer + "\"";
             foreach (ReportContainerClass rc in GPData.reportlist)
             {
                 if (rc.soptype == 4)
@@ -66,9 +67,12 @@ namespace StuffshopPOS
             rv.SetDataSource(ds);
             crystalReportViewer1.ReportSource = rv;
             crystalReportViewer1.Refresh();
-            rv.DataDefinition.FormulaFields["startDate"].Text = "\"" + date1 + "\"";
-            rv.DataDefinition.FormulaFields["End Date"].Text = "\"" + date2 + "\"";
-            rv.DataDefinition.FormulaFields["Customer"].Text = "\"" + customer + "\"";
+
+        }
+
+        private void Report_Viewer_Leave(object sender, EventArgs e)
+        {
+
         }
 
     }
