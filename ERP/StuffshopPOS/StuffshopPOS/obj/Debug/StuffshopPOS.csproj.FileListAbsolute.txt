@@ -55,3 +55,4 @@ C:\Documents and Settings\Jun\My Documents\Southville project\ERP\StuffshopPOS\S
 C:\Documents and Settings\Jun\My Documents\Southville project\ERP\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.csproj.GenerateResource.Cache
 C:\Southville project\ERP\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.CustomerSelectDialog.resources
 C:\Southville project\ERP\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.DateDialog.resources
+C:\Southville project\ERP\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.PriceGroupReportViewer.resources

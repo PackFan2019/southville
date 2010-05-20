@@ -62,10 +62,8 @@ namespace StuffshopPOS
                 DataRow cRow = ds.ReportViewer.NewRow();
                 cRow["SOPNUMBER"] = rc.sopnumber;
                 cRow["ITEMNUMBER"] = rc.itemnumber;
-                cRow["ITEMDESCRIPTION"] = rc.itemDescription;
                 cRow["CUSTOMERNAME"] = rc.custname;
                 cRow["QUANTITY"] = valuecontainer;
-                cRow["DOCDATE"] = rc.docdate;
                 cRow["PRICE"] = valuecontainer2;
                 ds.ReportViewer.Rows.Add(cRow);
 

@@ -609,5 +609,11 @@ namespace StuffshopPOS
         {
 
         }
+
+        private void customerPricegroupReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PriceGroupReportViewer viiew2 = new PriceGroupReportViewer();
+            viiew2.Show();
+        }
     }
 }
