@@ -17,8 +17,9 @@ namespace StuffshopPOS
         private string date2 = "none";
         private string customer = "none";
         private int valuecontainer;
-        
+        private decimal valuecontainer2;
 
+        
         public Report_Viewer()
         {
            
@@ -38,17 +39,25 @@ namespace StuffshopPOS
 
         private void Report_Viewer_Load(object sender, EventArgs e)
         {
+            LoadCrystalReport();
+
+        }
+        private void LoadCrystalReport()
+        {
             ReportView rv = new ReportView();
             ReportSet ds = new ReportSet();
+            
             foreach (ReportContainerClass rc in GPData.reportlist)
             {
                 if (rc.soptype == 4)
                 {
                     valuecontainer = (rc.quantity - (rc.quantity * 2));
+                    valuecontainer2 = (rc.price - (rc.price * 2));
                 }
                 else
                 {
                     valuecontainer = rc.quantity;
+                    valuecontainer2 = rc.price;
                 }
                 DataRow cRow = ds.ReportViewer.NewRow();
                 cRow["SOPNUMBER"] = rc.sopnumber;
@@ -57,7 +66,7 @@ namespace StuffshopPOS
                 cRow["CUSTOMERNAME"] = rc.custname;
                 cRow["QUANTITY"] = valuecontainer;
                 cRow["DOCDATE"] = rc.docdate;
-                cRow["PRICE"] = rc.price;
+                cRow["PRICE"] = valuecontainer2;
                 ds.ReportViewer.Rows.Add(cRow);
 
             }
@@ -67,12 +76,20 @@ namespace StuffshopPOS
             rv.SetDataSource(ds);
             crystalReportViewer1.ReportSource = rv;
             crystalReportViewer1.Refresh();
-
         }
-
         private void Report_Viewer_Leave(object sender, EventArgs e)
         {
 
+        }
+
+        private void Report_Viewer_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            GPData.reportlist.Clear();
+        }
+
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            LoadCrystalReport();
         }
 
     }

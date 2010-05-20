@@ -53,6 +53,7 @@
             this.Text = "Report_Viewer";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Report_Viewer_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Report_Viewer_FormClosed);
             this.Leave += new System.EventHandler(this.Report_Viewer_Leave);
             this.ResumeLayout(false);
 
