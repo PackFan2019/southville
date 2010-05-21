@@ -24,19 +24,21 @@ namespace StuffshopPOS
         {
            
             DateDialog start = new DateDialog("Enter Start Date");
+            start.StartPosition = FormStartPosition.CenterScreen;
             start.ShowDialog();
             date1 = start.dateselected;
             DateDialog end = new DateDialog("Enter End Date");
+            end.StartPosition = FormStartPosition.CenterScreen;
             end.ShowDialog();
             date2 = end.dateselected;
             CustomerSelectDialog custtt = new CustomerSelectDialog("Please Select Customer");
+            custtt.StartPosition = FormStartPosition.CenterScreen;
             custtt.ShowDialog();
             customer = custtt.custselected;
             
             InitializeComponent();
             GPData.ReportData(date1,date2,customer);
         }
-
         private void Report_Viewer_Load(object sender, EventArgs e)
         {
             LoadCrystalReport();
