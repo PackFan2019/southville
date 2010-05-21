@@ -26,18 +26,18 @@ namespace StuffshopPOS
             DateDialog start = new DateDialog("Enter Start Date");
             start.StartPosition = FormStartPosition.CenterScreen;
             start.ShowDialog();
-            date1 = start.dateselected;
+            Date.date1 = start.dateselected;
             DateDialog end = new DateDialog("Enter End Date");
             end.StartPosition = FormStartPosition.CenterScreen;
             end.ShowDialog();
-            date2 = end.dateselected;
+            Date.date2 = end.dateselected;
             CustomerSelectDialog custtt = new CustomerSelectDialog("Please Select Customer");
             custtt.StartPosition = FormStartPosition.CenterScreen;
             custtt.ShowDialog();
             customer = custtt.custselected;
             
             InitializeComponent();
-            GPData.ReportData(date1,date2,customer);
+            GPData.ReportData(Date.date1, Date.date2, customer);
         }
         private void Report_Viewer_Load(object sender, EventArgs e)
         {
@@ -70,8 +70,9 @@ namespace StuffshopPOS
                 ds.ReportViewer.Rows.Add(cRow);
 
             }
-            rv.DataDefinition.FormulaFields["startDate"].Text = "\"" + date1 + "\"";
-            rv.DataDefinition.FormulaFields["End Date"].Text = "\"" + date2 + "\"";
+            ReportContainerClass rc1 = new ReportContainerClass();
+            rv.DataDefinition.FormulaFields["startDate"].Text = "\"" + Date.date1 + "\"";
+            rv.DataDefinition.FormulaFields["End Date"].Text = "\"" + Date.date2 + "\"";
             rv.DataDefinition.FormulaFields["Customer"].Text = "\"" + customer + "\"";
             rv.SetDataSource(ds);
             crystalReportViewer1.ReportSource = rv;
