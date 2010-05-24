@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ReportSet" targetNamespace="http://tempuri.org/ReportSet.xsd" xmlns:mstns="http://tempuri.org/ReportSet.xsd" xmlns="http://tempuri.org/ReportSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ReportSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ReportSet" msprop:Generator_DataSetName="ReportSet" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ReportViewer" msprop:Generator_UserTableName="ReportViewer" msprop:Generator_RowDeletedName="ReportViewerRowDeleted" msprop:Generator_RowChangedName="ReportViewerRowChanged" msprop:Generator_RowClassName="ReportViewerRow" msprop:Generator_RowChangingName="ReportViewerRowChanging" msprop:Generator_RowEvArgName="ReportViewerRowChangeEvent" msprop:Generator_RowEvHandlerName="ReportViewerRowChangeEventHandler" msprop:Generator_TableClassName="ReportViewerDataTable" msprop:Generator_TableVarName="tableReportViewer" msprop:Generator_RowDeletingName="ReportViewerRowDeleting" msprop:Generator_TablePropName="ReportViewer">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SOPNUMBER" msprop:Generator_UserColumnName="SOPNUMBER" msprop:Generator_ColumnPropNameInRow="SOPNUMBER" msprop:Generator_ColumnVarNameInTable="columnSOPNUMBER" msprop:Generator_ColumnPropNameInTable="SOPNUMBERColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="ITEMNUMBER" msprop:Generator_UserColumnName="ITEMNUMBER" msprop:Generator_ColumnPropNameInRow="ITEMNUMBER" msprop:Generator_ColumnVarNameInTable="columnITEMNUMBER" msprop:Generator_ColumnPropNameInTable="ITEMNUMBERColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="ITEMDESCRIPTION" msprop:Generator_UserColumnName="ITEMDESCRIPTION" msprop:Generator_ColumnPropNameInRow="ITEMDESCRIPTION" msprop:Generator_ColumnVarNameInTable="columnITEMDESCRIPTION" msprop:Generator_ColumnPropNameInTable="ITEMDESCRIPTIONColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="CUSTOMERNAME" msprop:Generator_UserColumnName="CUSTOMERNAME" msprop:Generator_ColumnPropNameInRow="CUSTOMERNAME" msprop:Generator_ColumnVarNameInTable="columnCUSTOMERNAME" msprop:Generator_ColumnPropNameInTable="CUSTOMERNAMEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="QUANTITY" msprop:Generator_UserColumnName="QUANTITY" msprop:Generator_ColumnPropNameInRow="QUANTITY" msprop:Generator_ColumnVarNameInTable="columnQUANTITY" msprop:Generator_ColumnPropNameInTable="QUANTITYColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="DOCDATE" msprop:Generator_UserColumnName="DOCDATE" msprop:Generator_ColumnPropNameInRow="DOCDATE" msprop:Generator_ColumnVarNameInTable="columnDOCDATE" msprop:Generator_ColumnPropNameInTable="DOCDATEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="PRICE" msprop:Generator_UserColumnName="PRICE" msprop:Generator_ColumnPropNameInRow="PRICE" msprop:Generator_ColumnVarNameInTable="columnPRICE" msprop:Generator_ColumnPropNameInTable="PRICEColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PRICEGROUP" msprop:Generator_UserColumnName="PRICEGROUP" msprop:Generator_ColumnPropNameInRow="PRICEGROUP" msprop:Generator_ColumnVarNameInTable="columnPRICEGROUP" msprop:Generator_ColumnPropNameInTable="PRICEGROUPColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
