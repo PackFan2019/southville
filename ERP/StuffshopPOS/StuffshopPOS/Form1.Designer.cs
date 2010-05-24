@@ -46,6 +46,7 @@ namespace StuffshopPOS
             this.optionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportViewerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customerPricegroupReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quantityPanel = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.quantityTb = new System.Windows.Forms.TextBox();
@@ -78,7 +79,7 @@ namespace StuffshopPOS
             this.button2 = new System.Windows.Forms.Button();
             this.savebtn = new System.Windows.Forms.Button();
             this.PnSbtn = new System.Windows.Forms.Button();
-            this.customerPricegroupReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.skinCrafterLight1 = new DMSoft.SkinCrafterLight();
             this.menuStrip1.SuspendLayout();
             this.quantityPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -243,6 +244,13 @@ namespace StuffshopPOS
             this.reportViewerToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.reportViewerToolStripMenuItem.Text = "Customer Report";
             this.reportViewerToolStripMenuItem.Click += new System.EventHandler(this.reportViewerToolStripMenuItem_Click);
+            // 
+            // customerPricegroupReportToolStripMenuItem
+            // 
+            this.customerPricegroupReportToolStripMenuItem.Name = "customerPricegroupReportToolStripMenuItem";
+            this.customerPricegroupReportToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.customerPricegroupReportToolStripMenuItem.Text = "Customer Pricegroup Report";
+            this.customerPricegroupReportToolStripMenuItem.Click += new System.EventHandler(this.customerPricegroupReportToolStripMenuItem_Click);
             // 
             // quantityPanel
             // 
@@ -555,12 +563,9 @@ namespace StuffshopPOS
             this.PnSbtn.UseVisualStyleBackColor = true;
             this.PnSbtn.Click += new System.EventHandler(this.PnSbtn_Click);
             // 
-            // customerPricegroupReportToolStripMenuItem
+            // skinCrafterLight1
             // 
-            this.customerPricegroupReportToolStripMenuItem.Name = "customerPricegroupReportToolStripMenuItem";
-            this.customerPricegroupReportToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.customerPricegroupReportToolStripMenuItem.Text = "Customer Pricegroup Report";
-            this.customerPricegroupReportToolStripMenuItem.Click += new System.EventHandler(this.customerPricegroupReportToolStripMenuItem_Click);
+            this.skinCrafterLight1.Skin = DMSoft.Skinset.Skinastic;
             // 
             // Form1
             // 
@@ -663,6 +668,7 @@ namespace StuffshopPOS
         private System.Windows.Forms.Button PnSbtn;
         private System.Windows.Forms.ToolStripMenuItem reportViewerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customerPricegroupReportToolStripMenuItem;
+        private DMSoft.SkinCrafterLight skinCrafterLight1;
     }
 }
 

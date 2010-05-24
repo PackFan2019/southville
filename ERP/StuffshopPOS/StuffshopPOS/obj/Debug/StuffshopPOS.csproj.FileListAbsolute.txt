@@ -56,3 +56,6 @@ C:\Documents and Settings\Jun\My Documents\Southville project\ERP\StuffshopPOS\S
 C:\Southville project\ERP\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.CustomerSelectDialog.resources
 C:\Southville project\ERP\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.DateDialog.resources
 C:\Southville project\ERP\StuffshopPOS\StuffshopPOS\obj\Debug\StuffshopPOS.PriceGroupReportViewer.resources
+C:\Southville project\ERP\StuffshopPOS\StuffshopPOS\bin\Debug\StuffshopPOS.exe.config
+C:\Southville project\ERP\StuffshopPOS\StuffshopPOS\bin\Debug\skincrafter.net-vs2005_light.dll
+C:\Southville project\ERP\StuffshopPOS\StuffshopPOS\bin\Debug\skincrafter_.net2.0_vs2008.dll
