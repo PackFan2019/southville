@@ -565,7 +565,7 @@ namespace StuffshopPOS
             // 
             // skinCrafterLight1
             // 
-            this.skinCrafterLight1.Skin = DMSoft.Skinset.Skinastic;
+            this.skinCrafterLight1.Skin = DMSoft.Skinset.Zondar;
             // 
             // Form1
             // 
