@@ -47,9 +47,11 @@ namespace ReportCardGenerator.Tests
         [Test]
         public void testNullStudent()
         {
-            Assert.Fail();
-            Assert.AreEqual(oldStudents.Count, 0);
-            Assert.AreEqual(null, null);
+            Student str = new Student();
+            str.StudentID = "as";
+            str.FirstName = null;
+            contoller.addOrUpdateStudent(str);
+            Assert.AreEqual(contoller.getStudent("as"),null);
             //Test when you pass a null parameter
         }
         [Test]
