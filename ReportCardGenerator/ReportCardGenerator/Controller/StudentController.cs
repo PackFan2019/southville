@@ -33,6 +33,9 @@ namespace ReportCardGenerator.Controller
             //Do not allow multiple adding of students: Throw a DuplicateStudentException
             //We throw a DuplicateStudentException so we can monitor when this occurs!
             //Remember to catch it and log.Warn !!
+            Student student = State.getInstance().Students.Find(delegate(Student s) { return s.StudentID == stud.StudentID; });
+            if (!student.StudentID.Equals(stud.StudentID)) State.getInstance().Students.Add(stud);
+            else State.getInstance().Students.Insert(State.getInstance().Students.IndexOf(student), stud);
         }
 
         public void addOrUpdatePeriod(Student s, Period p)
@@ -40,6 +43,7 @@ namespace ReportCardGenerator.Controller
             //Add a period to a student
             //By updating a period (Remember not to lose the references to the
             //Grades, Comments, Attendance etc.
+            
         }
         public void addOrUpdateGrade(Student stud, Grade g, Period p)
         {
@@ -47,6 +51,10 @@ namespace ReportCardGenerator.Controller
             //Update the grade (not add a new one) if there is already an existing grade
             //Test the existence of grades by using Equals
             //Add the period if it does not exist (call addOrUpdatePeriod())
+            Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID == p.PeriodID; });
+            if (period.Grades.Count.Equals(null)) period.Grades.Add(g);
+            else period.Grades.Insert(stud.RptCard.Periods.IndexOf(period), g);
+            //if()
         }
         public void addOrUpdateComment(Student stud, Comment c, Period p)
         {

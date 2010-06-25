@@ -25,3 +25,15 @@ C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerato
 C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.Properties.Resources.resources
 C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.Views.Main.resources
 C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.csproj.GenerateResource.Cache
+C:\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe.config
+C:\Southville project\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.exe
+C:\Southville project\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.pdb
+C:\Southville project\ReportCardGenerator\ReportCardGenerator\obj\Debug\ResolveAssemblyReference.cache
+C:\Southville project\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.Properties.Resources.resources
+C:\Southville project\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.Views.Main.resources
+C:\Southville project\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.csproj.GenerateResource.Cache
+C:\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe
+C:\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.pdb
+C:\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\log4net.dll
+C:\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\nunit.framework.dll
+C:\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\nunit.mocks.dll
