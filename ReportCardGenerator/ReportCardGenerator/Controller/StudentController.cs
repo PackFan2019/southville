@@ -43,7 +43,6 @@ namespace ReportCardGenerator.Controller
                 throw new DuplicateStudentException();                
             }
         }
-
         public void addOrUpdatePeriod(Student s, Period p)
         {
             //Add a period to a student
@@ -51,7 +50,7 @@ namespace ReportCardGenerator.Controller
             //Grades, Comments, Attendance etc.
             Period period = s.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
             if (period.Equals(null)) s.RptCard.Periods.Add(p);
-            else s.RptCard.Periods.Insert(s.RptCard.Periods.IndexOf(p), p);
+            else s.RptCard.Periods.Insert(s.RptCard.Periods.IndexOf(period), p);
         }
         public void addOrUpdateGrade(Student stud, Grade g, Period p)
         {
@@ -69,7 +68,8 @@ namespace ReportCardGenerator.Controller
             //Add or update a comment given a period id
             //Update the comment (not add a new one) if there is already an existing comment
             //Add the period if it does not exist
-            
+            Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
+            if (period.Equals(null)) addOrUpdatePeriod(stud, p);
         }
         public void addOrUpdateSkill(Student stud, Skill s, Period p)
         {
@@ -77,6 +77,11 @@ namespace ReportCardGenerator.Controller
             //Update the skill if there is already an existing skill
             //Test the existence of a skill using Equals
             //Add the period if it does not exist
+            Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
+            Skill skill = period.Skills.Find(delegate(Skill sk){return sk.SkillID.Equals(s.SkillID);});
+            if (skill.Equals(null)) period.Skills.Add(s);
+            else period.Skills.Insert(period.Skills.IndexOf(skill),s);
+            if (period.Equals(null)) addOrUpdatePeriod(stud, p);
         }
         public void addOrUpdateAttendance(Student s, Attendance a, Period p)
         {
