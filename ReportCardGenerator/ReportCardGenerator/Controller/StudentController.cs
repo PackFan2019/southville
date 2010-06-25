@@ -88,7 +88,9 @@ namespace ReportCardGenerator.Controller
             //Add or update an attendance record given a period id
             //Update the attendance if there is already an existing attendance
             //Add the period if it does not exist
-            
+            Period period = s.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
+            if (period.PeriodAttendance.Equals(null)) period.PeriodAttendance.Equals(a);   
+            if (period.Equals(null)) addOrUpdatePeriod(s, p);
         }
 
         public void setStudents(List<Student> students)
@@ -103,23 +105,31 @@ namespace ReportCardGenerator.Controller
         {
             //Return null if student doesn't exist
             //By using Equals and State.getInstance().Students.Find(...)
-            return null;
+            Student student = State.getInstance().Students.Find(delegate(Student s) { return s.StudentID.Equals(stud.StudentID); });
+            if (student.Equals(null)) return null;
+            else return student;
         }
         public Student getStudent(String studentID)
         {
             //Return null if student doesn't exist
             //By using the StudentID and .Find
-            return null;
+            Student student = State.getInstance().Students.Find(delegate(Student s) { return s.StudentID.Equals(studentID); });
+            if (student.Equals(null)) return null;
+            else return student;
         }
         public Period getPeriodByName(Student student, String periodName)
         {
             //Return null if period doesn't exist
-            return null;
+            Period period = student.RptCard.Periods.Find(delegate(Period p) { return p.PeriodName.Equals(periodName); });
+            if (period.Equals(null)) return null;
+            else return period;
         }
         public Period getPeriod(Student student, String periodID)
         {
             //Return null if period doesn't exist
-            return null;
+            Period period = student.RptCard.Periods.Find(delegate(Period p) { return p.PeriodID.Equals(periodID); });
+            if (period.Equals(null)) return null;
+            else return period;
         }
 
         public void removeStudent(Student stud)
@@ -130,6 +140,7 @@ namespace ReportCardGenerator.Controller
         {
             //Create a new student based on studentID and call
             //removeStudent(Student stud)
+
         }
 
         public void clearStudents()
