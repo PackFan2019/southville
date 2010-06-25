@@ -5,11 +5,12 @@ using System.Text;
 using ReportCardGenerator.Interfaces;
 using ReportCardGenerator.Beans;
 using ReportCardGenerator.Data;
+using ReportCardGenerator.Exceptions;
 namespace ReportCardGenerator.Controller
 {
     public class StudentController:IStudentController
     {
-        
+        private static log4net.ILog log = log4net.LogManager.GetLogger(typeof(StudentController));
         //IController implementation
 
         
@@ -33,9 +34,14 @@ namespace ReportCardGenerator.Controller
             //Do not allow multiple adding of students: Throw a DuplicateStudentException
             //We throw a DuplicateStudentException so we can monitor when this occurs!
             //Remember to catch it and log.Warn !!
-            Student student = State.getInstance().Students.Find(delegate(Student s) { return s.StudentID == stud.StudentID; });
+            Student student = State.getInstance().Students.Find(delegate(Student s) { return s.StudentID.Equals(stud.StudentID); });
             if (!student.StudentID.Equals(stud.StudentID)) State.getInstance().Students.Add(stud);
-            else State.getInstance().Students.Insert(State.getInstance().Students.IndexOf(student), stud);
+            else
+            {
+                State.getInstance().Students.Insert(State.getInstance().Students.IndexOf(student), stud);
+                log.Warn("Duplication of Student Occurs");
+                throw new DuplicateStudentException();                
+            }
         }
 
         public void addOrUpdatePeriod(Student s, Period p)
@@ -43,7 +49,9 @@ namespace ReportCardGenerator.Controller
             //Add a period to a student
             //By updating a period (Remember not to lose the references to the
             //Grades, Comments, Attendance etc.
-            
+            Period period = s.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
+            if (period.Equals(null)) s.RptCard.Periods.Add(p);
+            else s.RptCard.Periods.Insert(s.RptCard.Periods.IndexOf(p), p);
         }
         public void addOrUpdateGrade(Student stud, Grade g, Period p)
         {
@@ -51,10 +59,10 @@ namespace ReportCardGenerator.Controller
             //Update the grade (not add a new one) if there is already an existing grade
             //Test the existence of grades by using Equals
             //Add the period if it does not exist (call addOrUpdatePeriod())
-            Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID == p.PeriodID; });
-            if (period.Grades.Count.Equals(null)) period.Grades.Add(g);
+            Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
+            if (period.Grades.Count.Equals(0)) period.Grades.Add(g);
             else period.Grades.Insert(stud.RptCard.Periods.IndexOf(period), g);
-            //if()
+            if (period.Equals(null))addOrUpdatePeriod(stud,p);
         }
         public void addOrUpdateComment(Student stud, Comment c, Period p)
         {
