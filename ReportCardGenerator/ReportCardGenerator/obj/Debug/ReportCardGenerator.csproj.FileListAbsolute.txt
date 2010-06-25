@@ -1,0 +1,15 @@
+C:\Work\ReportCardGenerator\ReportCardGenerator\obj\Debug\ResolveAssemblyReference.cache
+C:\Work\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.Properties.Resources.resources
+C:\Work\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.Views.Main.resources
+C:\Work\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.csproj.GenerateResource.Cache
+C:\Work\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe
+C:\Work\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.pdb
+C:\Work\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.exe
+C:\Work\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.pdb
+C:\Work\ReportCardGenerator\ReportCardGenerator\bin\Debug\nunit.framework.dll
+C:\Work\ReportCardGenerator\ReportCardGenerator\bin\Debug\nunit.mocks.dll
+C:\Work\ReportCardGenerator\ReportCardGenerator\bin\Debug\log4net.dll
+C:\Work\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe.config
+C:\Documents and Settings\Jun\My Documents\ReportCardGenerator sir wallen's\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe.config
+C:\Documents and Settings\Jun\My Documents\ReportCardGenerator sir wallen's\ReportCardGenerator\obj\Debug\ReportCardGenerator.exe
+C:\Documents and Settings\Jun\My Documents\ReportCardGenerator sir wallen's\ReportCardGenerator\obj\Debug\ReportCardGenerator.pdb
