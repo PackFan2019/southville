@@ -4,15 +4,20 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using ReportCardGenerator.Data;
+using ReportCardGenerator.Beans;
+using ReportCardGenerator.Interfaces;
+using ReportCardGenerator.Controller;
 namespace ReportCardGenerator.Tests
 {
     [TestFixture]
     class ControllerTest
     {
-        
+        private List<Student> oldStudents;
         [SetUp]
         public void setup()
         {
+            oldStudents = State.getInstance().Students;
+            State.getInstance().Students.Clear();
             //Clear the State
             //Add data programmatically here
             /*Student s = new Student();
@@ -24,8 +29,13 @@ namespace ReportCardGenerator.Tests
         [Test]
         public void testAddNewStudent()
         {
-            
-            Assert.AreEqual(true, true);
+            IStudentController contoller = FrontController.getInstance().getStudentController();
+            Student std = new Student();
+            std.StudentID = "123";
+            std.FirstName = "any";
+            contoller.addOrUpdateStudent(std);
+            contoller.getStudent("123");
+            Assert.AreEqual(std.StudentID, contoller.getStudent("123"));
         }
 
         [Test]
@@ -36,6 +46,9 @@ namespace ReportCardGenerator.Tests
         [Test]
         public void testNullStudent()
         {
+            Assert.Fail();
+            Assert.AreEqual(oldStudents.Count, 0);
+            Assert.AreEqual(null, null);
             //Test when you pass a null parameter
         }
         [Test]
@@ -68,7 +81,7 @@ namespace ReportCardGenerator.Tests
         [TearDown]
         public void teardown()
         {
-            //Clear the state
+            State.getInstance().Students = oldStudents;
         }
     }
 }

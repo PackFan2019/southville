@@ -13,3 +13,15 @@ C:\Work\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.ex
 C:\Documents and Settings\Jun\My Documents\ReportCardGenerator sir wallen's\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe.config
 C:\Documents and Settings\Jun\My Documents\ReportCardGenerator sir wallen's\ReportCardGenerator\obj\Debug\ReportCardGenerator.exe
 C:\Documents and Settings\Jun\My Documents\ReportCardGenerator sir wallen's\ReportCardGenerator\obj\Debug\ReportCardGenerator.pdb
+C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe.config
+C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.exe
+C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.pdb
+C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe
+C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.pdb
+C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\log4net.dll
+C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\nunit.framework.dll
+C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\nunit.mocks.dll
+C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.Properties.Resources.resources
+C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.Views.Main.resources
+C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.csproj.GenerateResource.Cache
