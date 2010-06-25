@@ -13,6 +13,7 @@ namespace ReportCardGenerator.Tests
     class ControllerTest
     {
         private List<Student> oldStudents;
+        IStudentController contoller = FrontController.getInstance().getStudentController();
         [SetUp]
         public void setup()
         {
@@ -29,7 +30,7 @@ namespace ReportCardGenerator.Tests
         [Test]
         public void testAddNewStudent()
         {
-            IStudentController contoller = FrontController.getInstance().getStudentController();
+            
             Student std = new Student();
             std.StudentID = "123";
             std.FirstName = "any";
