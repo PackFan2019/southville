@@ -30,19 +30,28 @@ namespace ReportCardGenerator.Tests
         [Test]
         public void testAddNewStudent()
         {
-            
+
             Student std = new Student();
             std.StudentID = "123";
             std.FirstName = "any";
             contoller.addOrUpdateStudent(std);
             contoller.getStudent("123");
-            Assert.AreEqual(std.StudentID, contoller.getStudent("123"));
+            Assert.AreEqual(std.StudentID, "123");
+            Assert.AreEqual(std.FirstName, "any");
         }
 
         [Test]
         public void testUpdateStudent()
         {
-
+            Student std = new Student();
+            std.StudentID = "123";
+            std.FirstName = "any";
+            contoller.addOrUpdateStudent(std);
+            std.FirstName = "sample";
+            contoller.addOrUpdateStudent(std);
+            Student std2 = contoller.getStudent("123");
+            Assert.AreEqual(std.StudentID, "123");
+            Assert.AreEqual(std.FirstName, "sample");
         }
         [Test]
         public void testNullStudent()
@@ -57,6 +66,7 @@ namespace ReportCardGenerator.Tests
         [Test]
         public void testNoDuplicateStudents()
         {
+
             //Add a duplicate student
             //Test that the duplicateStudentException thrown
             //Assert.Fail() if it is not thrown
