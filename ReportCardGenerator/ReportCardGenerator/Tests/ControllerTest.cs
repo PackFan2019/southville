@@ -35,9 +35,8 @@ namespace ReportCardGenerator.Tests
             std.StudentID = "123";
             std.FirstName = "any";
             contoller.addOrUpdateStudent(std);
-            contoller.getStudent("123");
-            Assert.AreEqual(std.StudentID, "123");
-            Assert.AreEqual(std.FirstName, "any");
+            Assert.AreEqual(contoller.getStudent("123").StudentID, "123");
+            Assert.AreEqual(contoller.getStudent("123").FirstName, "any");
         }
 
         [Test]
@@ -50,8 +49,8 @@ namespace ReportCardGenerator.Tests
             std.FirstName = "sample";
             contoller.addOrUpdateStudent(std);
             Student std2 = contoller.getStudent("123");
-            Assert.AreEqual(std.StudentID, "123");
-            Assert.AreEqual(std.FirstName, "sample");
+            Assert.AreEqual(contoller.getStudent("123").StudentID, "123");
+            Assert.AreEqual(contoller.getStudent("123").FirstName, "sample");
         }
         [Test]
         public void testNullStudent()
@@ -71,7 +70,7 @@ namespace ReportCardGenerator.Tests
             str.FirstName = "ammy";
             contoller.addOrUpdateStudent(str);
             Student str2 = contoller.getStudent("122");
-            Assert.AreEqual(str, str2);
+            Assert.AreEqual(contoller.getStudent("123"), str2);
             Assert.Fail();
             //Add a duplicate student
             //Test that the duplicateStudentException thrown
@@ -86,7 +85,7 @@ namespace ReportCardGenerator.Tests
             str.FirstName = "romyr";
             contoller.addOrUpdateStudent(str);
             contoller.removeStudent("11");
-            Assert.AreNotEqual(str.StudentID, "11");
+            Assert.AreNotEqual(contoller.getStudent("11").StudentID, "11");
             //Remove a student
             //Test that the student is not present after running the remove function
         }
