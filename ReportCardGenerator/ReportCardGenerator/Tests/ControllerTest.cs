@@ -66,7 +66,13 @@ namespace ReportCardGenerator.Tests
         [Test]
         public void testNoDuplicateStudents()
         {
-
+            Student str = new Student();
+            str.StudentID = "122";
+            str.FirstName = "ammy";
+            contoller.addOrUpdateStudent(str);
+            Student str2 = contoller.getStudent("122");
+            Assert.AreEqual(str, str2);
+            Assert.Fail();
             //Add a duplicate student
             //Test that the duplicateStudentException thrown
             //Assert.Fail() if it is not thrown
@@ -75,6 +81,12 @@ namespace ReportCardGenerator.Tests
         [Test]
         public void testRemoveStudent()
         {
+            Student str = new Student();
+            str.StudentID = "11";
+            str.FirstName = "romyr";
+            contoller.addOrUpdateStudent(str);
+            contoller.removeStudent("11");
+            Assert.AreNotEqual(str.StudentID, "11");
             //Remove a student
             //Test that the student is not present after running the remove function
         }
