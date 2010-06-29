@@ -36,7 +36,7 @@ namespace ReportCardGenerator.Controller
             //Remember to catch it and log.Warn !!
             log.Debug("Test");
             Student student = State.getInstance().Students.Find(delegate(Student s) {return s.StudentID.Equals(stud.StudentID); });
-            if (stud == null) return;
+            //if (stud == null) return;
             if (student != stud)
             {
                 State.getInstance().Students.Add(stud);
@@ -129,7 +129,7 @@ namespace ReportCardGenerator.Controller
         {
             //Return null if period doesn't exist
             Period period = student.RptCard.Periods.Find(delegate(Period p) { return p.PeriodName.Equals(periodName); });
-            if (period.Equals(null)) return null;
+            if (period == null) return null;
             else return period;
         }
         public Period getPeriod(Student student, String periodID)
