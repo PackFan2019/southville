@@ -35,8 +35,9 @@ namespace ReportCardGenerator.Tests
             std.StudentID = "123";
             std.FirstName = "any";
             contoller.addOrUpdateStudent(std);
-            Assert.AreEqual(contoller.getStudent("123").StudentID, "123");
-            Assert.AreEqual(contoller.getStudent("123").FirstName, "any");
+            Student totest = contoller.getStudent("123");
+            Assert.AreEqual(totest.StudentID, "123");
+            Assert.AreEqual(totest.FirstName, "any");
         }
 
         [Test]
