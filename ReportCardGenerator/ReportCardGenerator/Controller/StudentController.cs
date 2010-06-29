@@ -136,7 +136,7 @@ namespace ReportCardGenerator.Controller
         {
             //Return null if period doesn't exist
             Period period = student.RptCard.Periods.Find(delegate(Period p) { return p.PeriodID.Equals(periodID); });
-            if (period.Equals(null)) return null;
+            if (period == null) return null;
             else return period;
         }
 

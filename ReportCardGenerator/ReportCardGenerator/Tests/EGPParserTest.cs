@@ -47,8 +47,9 @@ namespace ReportCardGenerator.Tests
             //1.Check specific homeroom skills from 3-4 students
             //from 2-3 different terms
             IStudentController controller = FrontController.getInstance().getStudentController();
-            Student s = controller.getStudent("09-0073");
-            Period p = controller.getPeriod(s, "3");
+            //Student s = controller.getStudent("09-0073");
+            Period p = new Period();
+            p = controller.getPeriod(controller.getStudent("09-0073"), "3");
             List<Skill> skills = p.Skills;
             //Here I will iterate and check that I find the following..
             //Skill s = p.Skills.Find(D5)

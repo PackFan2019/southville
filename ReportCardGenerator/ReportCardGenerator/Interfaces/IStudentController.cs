@@ -11,6 +11,7 @@ namespace ReportCardGenerator.Interfaces
         void addOrUpdateStudent(Student stud);
         void addOrUpdatePeriod(Student s, Period p);
         void addOrUpdateGrade(Student stud, Grade g, Period p);
+        //void addOrUpdateSubject(Student stud, S g, Period p);
         void addOrUpdateComment(Student stud, Comment c, Period p);
         void addOrUpdateSkill(Student stud, Skill s, Period p);
         void addOrUpdateAttendance(Student s, Attendance a, Period p);
