@@ -134,13 +134,16 @@ namespace ReportCardGenerator.Controller
 
         public void removeStudent(Student stud)
         {
+            State.getInstance().Students.RemoveAt(State.getInstance().Students.IndexOf(stud));
         }
 
         public void removeStudent(String studentID)
         {
             //Create a new student based on studentID and call
             //removeStudent(Student stud)
-
+            Student stud = new Student();
+            stud.StudentID = studentID;
+            removeStudent(stud);
         }
 
         public void clearStudents()
