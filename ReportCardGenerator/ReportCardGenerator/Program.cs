@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using ReportCardGenerator.Views;
 using ReportCardGenerator.Exceptions;
+using ReportCardGenerator.Controller;
 namespace ReportCardGenerator
 {
     static class Program

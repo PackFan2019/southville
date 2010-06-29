@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Text;
+
 using NUnit.Framework;
 using ReportCardGenerator.Data;
 using ReportCardGenerator.Beans;
@@ -14,10 +16,12 @@ namespace ReportCardGenerator.Tests
     class ControllerTest
     {
         private List<Student> oldStudents;
+        private static log4net.ILog log = log4net.LogManager.GetLogger(typeof(ControllerTest));
         IStudentController contoller = FrontController.getInstance().getStudentController();
         [SetUp]
         public void setup()
         {
+            
             oldStudents = State.getInstance().Students;
             State.getInstance().Students.Clear();
             //Clear the State
@@ -28,17 +32,20 @@ namespace ReportCardGenerator.Tests
             */
         }
 
+
         [Test]
         public void testAddNewStudent()
         {
             //contoller = new FrontController().getStudentController();
+            
             Student std = new Student();
+            //NUnit.Framework.
             std.StudentID = "123";
             std.FirstName = "any";
             contoller.addOrUpdateStudent(std);
             //////Student totest = contoller.getStudent("123");
-            Assert.AreEqual(contoller.getStudent(std.StudentID),"123");
-            Assert.AreEqual(contoller.getStudent(std.FirstName), "any");
+            Assert.AreEqual(contoller.getStudent("123"),std);
+            Assert.AreEqual(contoller.getStudent("123"), std);
         }
 
         [Test]
@@ -51,8 +58,8 @@ namespace ReportCardGenerator.Tests
             //std.FirstName = "sample";
             //contoller.addOrUpdateStudent(std);
             //Student std2 = contoller.getStudent("123");
-            Assert.AreEqual(contoller.getStudent(std.StudentID), null);
-            Assert.AreEqual(contoller.getStudent(std.FirstName), null);
+            Assert.AreEqual(contoller.getStudent("123"), std);
+            Assert.AreEqual(contoller.getStudent("123"), std);
         }
         [Test]
         public void testNullStudent()
@@ -71,8 +78,10 @@ namespace ReportCardGenerator.Tests
             str.StudentID = "122";
             str.FirstName = "ammy";
             contoller.addOrUpdateStudent(str);
-            Student str2 = contoller.getStudent("122");
-            Assert.AreEqual(contoller.getStudent("123"), str2);
+            Student str2 = contoller.getStudent("123");
+            str2.StudentID = "1233";
+            contoller.addOrUpdateStudent(str2);
+            //Assert.AreEqual(
             //Assert.Fail();
             //Add a duplicate student
             //Test that the duplicateStudentException thrown

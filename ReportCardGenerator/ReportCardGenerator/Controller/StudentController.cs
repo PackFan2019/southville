@@ -34,8 +34,9 @@ namespace ReportCardGenerator.Controller
             //Do not allow multiple adding of students: Throw a DuplicateStudentException
             //We throw a DuplicateStudentException so we can monitor when this occurs!
             //Remember to catch it and log.Warn !!
-            
-            Student student = State.getInstance().Students.Find(delegate(Student s) { s = new Student(); return s.StudentID.Equals(stud.StudentID); });
+            log.Debug("Test");
+            Student student = State.getInstance().Students.Find(delegate(Student s) {return s.StudentID.Equals(stud.StudentID); });
+            if (stud == null) return;
             if (student != stud)
             {
                 State.getInstance().Students.Add(stud);
@@ -120,8 +121,9 @@ namespace ReportCardGenerator.Controller
             //Student student = State.getInstance().Students.Find(delegate(Student s) {return s.StudentID.Equals(studentID); });
             //if (student.StudentID == null) return null;
             //else return student;
-
-            return null;
+            Student student = State.getInstance().Students.Find(delegate(Student s) { return s.StudentID.Equals(studentID); });
+            if (student != null) return student;
+            else return null;
         }
         public Period getPeriodByName(Student student, String periodName)
         {
