@@ -67,27 +67,10 @@ namespace ReportCardGenerator.Tests
             Student str = new Student();
             str.StudentID = "as";
             str.FirstName = null;
-            contoller.addOrUpdateStudent(str);
+            //contoller.addOrUpdateStudent(str);
             Assert.AreEqual(contoller.getStudent("as"),null);
             //Test when you pass a null parameter
         }
-        [Test]
-        public void testNoDuplicateStudents()
-        {
-            Student str = new Student();
-            str.StudentID = "122";
-            str.FirstName = "ammy";
-            contoller.addOrUpdateStudent(str);
-            Student str2 = contoller.getStudent("123");
-            str2.StudentID = "1233";
-            contoller.addOrUpdateStudent(str2);
-            //Assert.AreEqual(
-            //Assert.Fail();
-            //Add a duplicate student
-            //Test that the duplicateStudentException thrown
-            //Assert.Fail() if it is not thrown
-        }
-
         [Test]
         public void testRemoveStudent()
         {

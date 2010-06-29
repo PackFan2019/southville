@@ -149,9 +149,9 @@ namespace ReportCardGenerator.Controller
         {
             //Create a new student based on studentID and call
             //removeStudent(Student stud)
-            //Student stud = new Student();
-            //stud.StudentID = studentID;
-            //removeStudent(stud);
+            Student stud = new Student();
+            stud.StudentID = studentID;
+            removeStudent(stud);
         }
 
         public void clearStudents()
