@@ -1,30 +1,77 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe" total="10" errors="6" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2010-07-01" time="10:14:33">
+<test-results name="C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe" total="23" errors="18" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2010-07-01" time="12:44:08">
   <environment nunit-version="2.5.5.10112" clr-version="2.0.50727.1433" os-version="Microsoft Windows NT 5.1.2600 Service Pack 2" platform="Win32NT" cwd="C:\Program Files\NUnit 2.5.5\bin\net-2.0" machine-name="MANA-BA3F9C25D8" user="Jun" user-domain="MANA-BA3F9C25D8" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe" executed="True" result="Failure" success="False" time="0.203" asserts="0">
+  <test-suite type="Assembly" name="C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe" executed="True" result="Failure" success="False" time="0.172" asserts="0">
     <results>
       <test-suite type="Namespace" name="ReportCardGenerator" executed="True" result="Failure" success="False" time="0.172" asserts="0">
         <results>
-          <test-suite type="Namespace" name="Tests" executed="True" result="Failure" success="False" time="0.172" asserts="0">
+          <test-suite type="Namespace" name="Tests" executed="True" result="Failure" success="False" time="0.156" asserts="0">
             <results>
-              <test-suite type="TestFixture" name="ControllerTest" executed="True" result="Failure" success="False" time="0.172" asserts="0">
+              <test-suite type="TestFixture" name="ControllerTest" executed="True" result="Failure" success="False" time="0.141" asserts="0">
                 <results>
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testAddNewStudent" executed="True" result="Success" success="True" time="0.031" asserts="2" />
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testAddNullPeriod" executed="True" result="Error" success="False" time="0.016" asserts="0">
+                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testAddAttendance" executed="True" result="Error" success="False" time="0.000" asserts="0">
                     <failure>
                       <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
                       <stack-trace><![CDATA[at ReportCardGenerator.Controller.StudentController.addOrUpdatePeriod(Student s, Period p) in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Controller\StudentController.cs:line 56
-at ReportCardGenerator.Tests.ControllerTest.testAddNullPeriod() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 132
+at ReportCardGenerator.Tests.ControllerTest.testAddAttendance() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 326
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testAddComment" executed="True" result="Error" success="False" time="0.000" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
+                      <stack-trace><![CDATA[at ReportCardGenerator.Controller.StudentController.addOrUpdatePeriod(Student s, Period p) in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Controller\StudentController.cs:line 56
+at ReportCardGenerator.Tests.ControllerTest.testAddComment() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 274
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testAddNewStudent" executed="True" result="Success" success="True" time="0.000" asserts="4" />
+                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testAddNullAttendance" executed="True" result="Error" success="False" time="0.000" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
+                      <stack-trace><![CDATA[at ReportCardGenerator.Controller.StudentController.addOrUpdatePeriod(Student s, Period p) in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Controller\StudentController.cs:line 56
+at ReportCardGenerator.Tests.ControllerTest.testAddNullAttendance() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 363
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testAddNullComment" executed="True" result="Error" success="False" time="0.000" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
+                      <stack-trace><![CDATA[at ReportCardGenerator.Controller.StudentController.addOrUpdatePeriod(Student s, Period p) in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Controller\StudentController.cs:line 56
+at ReportCardGenerator.Tests.ControllerTest.testAddNullComment() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 308
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testAddNullPeriod" executed="True" result="Error" success="False" time="0.000" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
+                      <stack-trace><![CDATA[at ReportCardGenerator.Controller.StudentController.addOrUpdatePeriod(Student s, Period p) in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Controller\StudentController.cs:line 56
+at ReportCardGenerator.Tests.ControllerTest.testAddNullPeriod() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 136
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testAddNullSkill" executed="True" result="Error" success="False" time="0.000" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
+                      <stack-trace><![CDATA[at ReportCardGenerator.Controller.StudentController.addOrUpdatePeriod(Student s, Period p) in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Controller\StudentController.cs:line 56
+at ReportCardGenerator.Tests.ControllerTest.testAddNullSkill() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 258
 ]]></stack-trace>
                     </failure>
                   </test-case>
                   <test-case name="ReportCardGenerator.Tests.ControllerTest.testAddPeriod" executed="True" result="Error" success="False" time="0.000" asserts="0">
                     <failure>
                       <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
+                      <stack-trace><![CDATA[at ReportCardGenerator.Tests.ControllerTest.testAddPeriod() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 96
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testAddSkill" executed="True" result="Error" success="False" time="0.000" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
                       <stack-trace><![CDATA[at ReportCardGenerator.Controller.StudentController.addOrUpdatePeriod(Student s, Period p) in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Controller\StudentController.cs:line 56
-at ReportCardGenerator.Tests.ControllerTest.testAddPeriod() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 98
+at ReportCardGenerator.Tests.ControllerTest.testAddSkill() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 217
 ]]></stack-trace>
                     </failure>
                   </test-case>
@@ -32,34 +79,86 @@ at ReportCardGenerator.Tests.ControllerTest.testAddPeriod() in C:\Documents and 
                     <failure>
                       <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
                       <stack-trace><![CDATA[at ReportCardGenerator.Controller.StudentController.addOrUpdatePeriod(Student s, Period p) in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Controller\StudentController.cs:line 56
-at ReportCardGenerator.Tests.ControllerTest.testAddSubjectOrGrade() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 150
+at ReportCardGenerator.Tests.ControllerTest.testAddSubjectOrGrade() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 154
 ]]></stack-trace>
                     </failure>
                   </test-case>
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testNullStudent" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testNullStudent" executed="True" result="Success" success="True" time="0.000" asserts="2" />
                   <test-case name="ReportCardGenerator.Tests.ControllerTest.testNullSubjectOrGrade" executed="True" result="Error" success="False" time="0.000" asserts="0">
                     <failure>
                       <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
                       <stack-trace><![CDATA[at ReportCardGenerator.Controller.StudentController.addOrUpdatePeriod(Student s, Period p) in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Controller\StudentController.cs:line 56
-at ReportCardGenerator.Tests.ControllerTest.testNullSubjectOrGrade() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 190
+at ReportCardGenerator.Tests.ControllerTest.testNullSubjectOrGrade() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 198
 ]]></stack-trace>
                     </failure>
                   </test-case>
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testRemoveStudent" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testRemoveStudent" executed="True" result="Error" success="False" time="0.000" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
+                      <stack-trace><![CDATA[at ReportCardGenerator.Tests.ControllerTest.testRemoveStudent() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 82
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testUpdateAttendance" executed="True" result="Error" success="False" time="0.000" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
+                      <stack-trace><![CDATA[at ReportCardGenerator.Controller.StudentController.addOrUpdatePeriod(Student s, Period p) in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Controller\StudentController.cs:line 56
+at ReportCardGenerator.Tests.ControllerTest.testUpdateAttendance() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 344
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testUpdateComment" executed="True" result="Error" success="False" time="0.000" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
+                      <stack-trace><![CDATA[at ReportCardGenerator.Controller.StudentController.addOrUpdatePeriod(Student s, Period p) in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Controller\StudentController.cs:line 56
+at ReportCardGenerator.Tests.ControllerTest.testUpdateComment() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 290
+]]></stack-trace>
+                    </failure>
+                  </test-case>
                   <test-case name="ReportCardGenerator.Tests.ControllerTest.testUpdatePeriod" executed="True" result="Error" success="False" time="0.000" asserts="0">
                     <failure>
                       <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
                       <stack-trace><![CDATA[at ReportCardGenerator.Controller.StudentController.addOrUpdatePeriod(Student s, Period p) in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Controller\StudentController.cs:line 56
-at ReportCardGenerator.Tests.ControllerTest.testUpdatePeriod() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 114
+at ReportCardGenerator.Tests.ControllerTest.testUpdatePeriod() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 116
 ]]></stack-trace>
                     </failure>
                   </test-case>
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testUpdateStudent" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testUpdateSkill" executed="True" result="Error" success="False" time="0.016" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
+                      <stack-trace><![CDATA[at ReportCardGenerator.Controller.StudentController.addOrUpdatePeriod(Student s, Period p) in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Controller\StudentController.cs:line 56
+at ReportCardGenerator.Tests.ControllerTest.testUpdateSkill() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 236
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testUpdateStudent" executed="True" result="Error" success="False" time="0.000" asserts="0">
+                    <failure>
+                      <message><![CDATA[ReportCardGenerator.Exceptions.DuplicateStudentException : Exception of type 'ReportCardGenerator.Exceptions.DuplicateStudentException' was thrown.]]></message>
+                      <stack-trace><![CDATA[at ReportCardGenerator.Controller.StudentController.addOrUpdateStudent(Student stud) in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Controller\StudentController.cs:line 48
+at ReportCardGenerator.Tests.ControllerTest.testUpdateStudent() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 57
+]]></stack-trace>
+                    </failure>
+                  </test-case>
                   <test-case name="ReportCardGenerator.Tests.ControllerTest.testUpdateSubjectOrGrade" executed="True" result="Error" success="False" time="0.000" asserts="0">
                     <failure>
                       <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
                       <stack-trace><![CDATA[at ReportCardGenerator.Controller.StudentController.addOrUpdatePeriod(Student s, Period p) in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Controller\StudentController.cs:line 56
-at ReportCardGenerator.Tests.ControllerTest.testUpdateSubjectOrGrade() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 169
+at ReportCardGenerator.Tests.ControllerTest.testUpdateSubjectOrGrade() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\ControllerTest.cs:line 175
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="EGPParserTest" executed="True" result="Failure" success="False" time="0.000" asserts="0">
+                <results>
+                  <test-case name="ReportCardGenerator.Tests.EGPParserTest.testAttendance" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="ReportCardGenerator.Tests.EGPParserTest.testComments" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="ReportCardGenerator.Tests.EGPParserTest.testGrades" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="ReportCardGenerator.Tests.EGPParserTest.testHomeroomSkills" executed="True" result="Error" success="False" time="0.000" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
+                      <stack-trace><![CDATA[at ReportCardGenerator.Controller.StudentController.getPeriod(Student student, Int32 periodID) in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Controller\StudentController.cs:line 138
+at ReportCardGenerator.Tests.EGPParserTest.testHomeroomSkills() in C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\EGPParserTest.cs:line 63
 ]]></stack-trace>
                     </failure>
                   </test-case>
