@@ -43,7 +43,6 @@ namespace ReportCardGenerator.Tests
         public void testHomeroomSkills()
         {
             ////Instructions
-            
             ////1.Check specific homeroom skills from 3-4 students
             ////from 2-3 different terms
             ////IStudentController controller = FrontController.getInstance().getStudentController();
@@ -57,6 +56,18 @@ namespace ReportCardGenerator.Tests
             ////Skill skill = new Skill();
             ////Assert.AreEqual(skill.LetterGrade, "S");
             ////Assert.AreEqual(skill.NumericGrade, 95);
+            //1.Check specific homeroom skills from 3-4 students
+            //from 2-3 different terms
+            IStudentController controller = FrontController.getInstance().getStudentController();
+            Student s = controller.getStudent("09-0073");
+            Period p = controller.getPeriod(s,3);
+            List<Skill> skills = p.Skills;
+            //Here I will iterate and check that I find the following..
+            //Skill s = p.Skills.Find(D5)
+            //The letter grade and the numeric grade of s is correct.
+            Skill skill = new Skill();
+            Assert.AreEqual(skill.LetterGrade, "S");
+            Assert.AreEqual(skill.NumericGrade, 95);
 
 
             Assert.AreEqual(true, true);

@@ -22,7 +22,7 @@ namespace ReportCardGenerator.Interfaces
         Student getStudent(Student stud);
         Student getStudent(String studentID);
         Period getPeriodByName(Student student, String periodName);
-        Period getPeriod(Student student, String periodID);
+        Period getPeriod(Student student, int periodID);
 
         /*Remove functions for data*/
         void removeStudent(String studentID);

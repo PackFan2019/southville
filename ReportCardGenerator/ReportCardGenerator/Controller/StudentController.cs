@@ -132,7 +132,7 @@ namespace ReportCardGenerator.Controller
             if (period == null) return null;
             else return period;
         }
-        public Period getPeriod(Student student, String periodID)
+        public Period getPeriod(Student student, int periodID)
         {
             //Return null if period doesn't exist
             Period period = student.RptCard.Periods.Find(delegate(Period p) { return p.PeriodID.Equals(periodID); });

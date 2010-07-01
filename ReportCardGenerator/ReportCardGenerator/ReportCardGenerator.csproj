@@ -76,7 +76,6 @@
     <Compile Include="Interfaces\IView.cs" />
     <Compile Include="Tests\ControllerTest.cs" />
     <Compile Include="Tests\EGPParserTest.cs" />
-    <Compile Include="Tests\SetupTests.cs" />
     <Compile Include="Utilities\EGPXMLParser.cs" />
     <Compile Include="Utilities\FileData.cs" />
     <Compile Include="Views\Main.cs">

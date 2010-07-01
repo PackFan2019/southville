@@ -61,16 +61,17 @@ namespace ReportCardGenerator.Tests
             Assert.AreEqual(contoller.getStudent("123"), std);
             Assert.AreEqual(contoller.getStudent("123"), std);
         }
+
         [Test]
         public void testNullStudent()
         {
             Student str = new Student();
-            str.StudentID = "as";
-            str.FirstName = null;
+            str = null;
             //contoller.addOrUpdateStudent(str);
             Assert.AreEqual(contoller.getStudent("as"),null);
             //Test when you pass a null parameter
         }
+
         [Test]
         public void testRemoveStudent()
         {
@@ -85,17 +86,112 @@ namespace ReportCardGenerator.Tests
         }
 
         [Test]
-        public void testAddSubject()
+        public void testAddPeriod()
         {
+            Student st = new Student();
+            Period pd = new Period();
+            st.StudentID = "1223";
+            st.FirstName = "sample";
+            contoller.addOrUpdateStudent(st);
+            pd.PeriodID = 1;
+            pd.PeriodName = "term1";
+            contoller.addOrUpdatePeriod(st, pd);
+            Assert.AreEqual(contoller.getPeriod(st, 1), pd);
+            Assert.AreEqual(contoller.getPeriodByName(st, "term1"), pd);
+            //Test if the period is added to a student
+        }
+
+        [Test]
+        public void testUpdatePeriod()
+        {
+            Student st = new Student();
+            Period pd = new Period();
+            st.StudentID = "1223";
+            st.FirstName = "sample";
+            contoller.addOrUpdateStudent(st);
+            pd.PeriodID = 1;
+            pd.PeriodName = "term1";
+            contoller.addOrUpdatePeriod(st, pd);
+            pd.PeriodName = "term2";
+            contoller.addOrUpdatePeriod(st, pd);
+            Assert.AreEqual(contoller.getPeriod(st, 1), pd);
+            Assert.AreEqual(contoller.getPeriodByName(st, "term2"), pd);
+            Assert.AreNotEqual(contoller.getPeriod(st, 1).PeriodName, "term1");
+            //test if the period is updated
+        }
+
+        [Test]
+        public void testAddNullPeriod()
+        {
+            Student st = new Student();
+            Period pd = new Period();
+            st.StudentID = "12";
+            st.FirstName = "sample";
+            contoller.addOrUpdateStudent(st);
+            pd = null;
+            contoller.addOrUpdatePeriod(st, pd);
+            Assert.AreEqual(contoller.getPeriod(st, 1), null);
+            Assert.AreEqual(contoller.getStudent("12").RptCard.Periods.Count, 0);
+            //test
+        }
+        
+        [Test]
+        public void testAddSubjectOrGrade()
+        {
+            Period p = new Period();
+            p.PeriodID = 1;
+            p.PeriodName = "term 1";
+            Grade g = new Grade();
+            g.SubjectID = "11";
+            g.SubjectName = "sample";
+            Student str = new Student();
+            str.StudentID = "123";
+            contoller.addOrUpdateStudent(str);
+            contoller.addOrUpdatePeriod(str, p);
+            contoller.addOrUpdateGrade(str, g, p);
+            Assert.AreEqual(contoller.getPeriod(str, 1), p);
             //Add a new subject
             //Test that the subject is now present
         }
+
         [Test]
-        public void testUpdateSubject()
+        public void testUpdateSubjectOrGrade()
         {
+            Period p = new Period();
+            p.PeriodID = 1;
+            p.PeriodName = "term 1";
+            Grade g = new Grade();
+            g.SubjectID = "11";
+            g.SubjectName = "sample";
+            Student str = new Student();
+            str.StudentID = "123";
+            contoller.addOrUpdateStudent(str);
+            contoller.addOrUpdatePeriod(str, p);
+            contoller.addOrUpdateGrade(str, g, p);
+            g.SubjectName = "changedsample";
+            g.LetterGrade = "A+";
+            contoller.addOrUpdateGrade(str, g, p);
+            Assert.AreEqual(contoller.getPeriod(str,1).Grades.Find(delegate(Grade gd) { return gd.SubjectID.Equals(g.SubjectID); }), g);
             //Check that two duplicate subjects are not created
             //Check that the new subject is updated after
         }
+
+        [Test]
+        public void testNullSubjectOrGrade()
+        {
+            Period p = new Period();
+            p.PeriodID = 1;
+            p.PeriodName = "term 1";
+            Grade g = new Grade();
+            g = null;
+            Student str = new Student();
+            str.StudentID = "123";
+            contoller.addOrUpdateStudent(str);
+            contoller.addOrUpdatePeriod(str, p);
+            contoller.addOrUpdateGrade(str, g, p);
+            Assert.AreEqual(contoller.getPeriod(str, 1).Grades.Find(delegate(Grade gd) { return gd.SubjectID.Equals(g.SubjectID); }), null);
+        }
+
         [TearDown]
         public void teardown()
         {
