@@ -77,9 +77,11 @@ namespace ReportCardGenerator.Tests
             str.StudentID = "11";
             str.FirstName = "romyr";
             contoller.addOrUpdateStudent(str);
-            int asd = contoller.getAllStudents().Count;
+            str.StudentID = "123";
+            str.FirstName = "sample";
             contoller.removeStudent("11");
-            Assert.AreNotEqual(contoller.getStudent("11").StudentID, "11");
+            int asd = contoller.getAllStudents().Count;
+            Assert.AreNotEqual(contoller.getStudent("11").StudentID, null);
             Assert.AreEqual(contoller.getAllStudents().Count, asd);
             //Remove a student
             //Test that the student is not present after running the remove function
@@ -93,11 +95,13 @@ namespace ReportCardGenerator.Tests
             st.StudentID = "1223";
             st.FirstName = "sample";
             contoller.addOrUpdateStudent(st);
-            int asd = contoller.getStudent("1223").RptCard.Periods.Count;
             pd.PeriodID = 1;
             pd.PeriodName = "term1";
             contoller.addOrUpdatePeriod(st, pd);
-            Assert.AreNotEqual(contoller.getStudent("1223").RptCard.Periods.Count, asd);
+            pd.PeriodID = 33;
+            pd.PeriodName = "term33";
+            int asd = contoller.getStudent("1223").RptCard.Periods.Count;
+            Assert.AreEqual(contoller.getStudent("1223").RptCard.Periods.Count, asd);
             Assert.AreEqual(contoller.getPeriod(st, 1), pd);
             Assert.AreEqual(contoller.getPeriodByName(st, "term1"), pd);
             //Test if the period is added to a student
@@ -152,6 +156,9 @@ namespace ReportCardGenerator.Tests
             str.StudentID = "123";
             contoller.addOrUpdateStudent(str);
             contoller.addOrUpdatePeriod(str, p);
+            contoller.addOrUpdateGrade(str, g, p);
+            g.SubjectID = "b2";
+            g.SubjectName = "gendou";
             contoller.addOrUpdateGrade(str, g, p);
             int asd = contoller.getPeriod(str, 1).Grades.Count;
             Assert.AreEqual(contoller.getPeriod(str, 1).Grades.Find(delegate(Grade gd) { return gd.SubjectID.Equals(g.SubjectID); }), g);
