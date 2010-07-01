@@ -334,7 +334,7 @@ namespace ReportCardGenerator.Tests
             contoller.addOrUpdatePeriod(st, ps);
             contoller.addOrUpdateAttendance(st, at, ps);
             Assert.AreEqual(contoller.getPeriod(st, 11).PeriodAttendance, at);
-            Assert.AreEqual(contoller.getPeriod(st, 11).PeriodAttendance.DaysPresent, 11);
+            Assert.AreEqual(contoller.getPeriod(st, 11).PeriodAttendance.DaysPresent, at.DaysPresent);
 
         }
 
@@ -348,13 +348,14 @@ namespace ReportCardGenerator.Tests
             ps.PeriodID = 11;
             at.DaysPresent = 11;
             at.DaysTardy = 100;
+            double collect = at.DaysPresent;
             contoller.addOrUpdateStudent(st);
             contoller.addOrUpdatePeriod(st, ps);
             contoller.addOrUpdateAttendance(st, at, ps);
             at.DaysPresent = 99;
             contoller.addOrUpdateAttendance(st, at, ps);
             Assert.AreEqual(contoller.getPeriod(st, 11).PeriodAttendance, at);
-            Assert.AreNotEqual(contoller.getPeriod(st, 11).PeriodAttendance.DaysPresent, 11);
+            Assert.AreNotEqual(contoller.getPeriod(st, 11).PeriodAttendance.DaysPresent, collect);
             Assert.AreEqual(contoller.getPeriod(st, 11).PeriodAttendance.DaysPresent, 99);
         }
 
