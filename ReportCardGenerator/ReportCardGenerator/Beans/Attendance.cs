@@ -36,6 +36,9 @@ namespace ReportCardGenerator.Beans
             get { return daysPresent; }
             set { daysPresent = value; }
         }
-
+        //public override string ToString()
+        //{
+        //    return "Attendance: " + this.DaysPresent + " " + this.DaysTardy;
+        //}
     }
 }

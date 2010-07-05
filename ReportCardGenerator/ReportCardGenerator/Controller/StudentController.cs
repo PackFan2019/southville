@@ -37,25 +37,35 @@ namespace ReportCardGenerator.Controller
             log.Debug("Test");
             Student student = State.getInstance().Students.Find(delegate(Student s) {return s.StudentID.Equals(stud.StudentID); });
             //if (stud == null) return;
-            if (student != stud)
+            if (student == null)
             {
                 State.getInstance().Students.Add(stud);
             }
             else
-            {
+            {   
                 State.getInstance().Students.Insert(State.getInstance().Students.IndexOf(student), stud);
-                log.Warn("Duplication of Student Occurs");
-                throw new DuplicateStudentException();
+                if (stud.StudentID == student.StudentID && stud.FirstName == student.FirstName)
+                {
+                    log.Warn("Duplication of Student Occurs");
+                    throw new DuplicateStudentException();
+                }
             }
         }
-        public void addOrUpdatePeriod(Student s, Period p)
+        public void addOrUpdatePeriod(Student stud, Period per)
         {
             //Add a period to a student
             //By updating a period (Remember not to lose the references to the
             //Grades, Comments, Attendance etc.
-            Period period = s.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
-            if (period == null) s.RptCard.Periods.Add(p);
-            else s.RptCard.Periods.Insert(s.RptCard.Periods.IndexOf(period), p);
+            //ReportCard.getInstance().Periods.Add(per);
+            Period periods = stud.RptCard.Periods.Find(delegate(Period p) { return p.PeriodID.Equals(per.PeriodID); });
+            if (periods == null)
+            {
+                if (per != null)
+                {
+                    stud.RptCard.Periods.Add(per);
+                }
+            }
+            else stud.RptCard.Periods.Insert(stud.RptCard.Periods.IndexOf(periods), per);
         }
         public void addOrUpdateGrade(Student stud, Grade g, Period p)
         {
@@ -64,7 +74,11 @@ namespace ReportCardGenerator.Controller
             //Test the existence of grades by using Equals
             //Add the period if it does not exist (call addOrUpdatePeriod())
             Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
-            if (period.Grades.Count.Equals(0)) period.Grades.Add(g);
+            if (period.Grades.Count == 0)
+            {
+                if(g!=null)
+                period.Grades.Add(g);
+            }
             else period.Grades.Insert(stud.RptCard.Periods.IndexOf(period), g);
             if (period == null)addOrUpdatePeriod(stud,p);
         }
@@ -75,6 +89,7 @@ namespace ReportCardGenerator.Controller
             //Add the period if it does not exist
             Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
             if (period == null) addOrUpdatePeriod(stud, p);
+            else period.PeriodComment= c;
         }
         public void addOrUpdateSkill(Student stud, Skill s, Period p)
         {
@@ -84,18 +99,35 @@ namespace ReportCardGenerator.Controller
             //Add the period if it does not exist
             Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
             Skill skill = period.Skills.Find(delegate(Skill sk){return sk.SkillID.Equals(s.SkillID);});
-            if (skill == null) period.Skills.Add(s);
-            else period.Skills.Insert(period.Skills.IndexOf(skill),s);
+            if (skill == null)
+            {
+                if (s != null)
+                {
+                    period.Skills.Add(s);
+                }
+            }
+            else period.Skills.Insert(period.Skills.IndexOf(skill), s);
             if (period == null) addOrUpdatePeriod(stud, p);
         }
-        public void addOrUpdateAttendance(Student s, Attendance a, Period p)
+        public void addOrUpdateAttendance(Student stud, Attendance a, Period p)
         {
             //Add or update an attendance record given a period id
             //Update the attendance if there is already an existing attendance
             //Add the period if it does not exist
-            Period period = s.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
-            if (period.PeriodAttendance == null) period.PeriodAttendance.Equals(a);   
-            if (period == null) addOrUpdatePeriod(s, p);
+            Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
+            if (period == p)
+            {
+                if (a != null)
+                {
+                    period.PeriodAttendance.DaysPresent = a.DaysPresent;
+                    period.PeriodAttendance.DaysTardy = a.DaysTardy;
+                }
+                else
+                {
+                    period.PeriodAttendance = null;
+                }
+            }
+            if (period == null) addOrUpdatePeriod(stud, p);
         }
 
         public void setStudents(List<Student> students)
@@ -129,15 +161,15 @@ namespace ReportCardGenerator.Controller
         {
             //Return null if period doesn't exist
             Period period = student.RptCard.Periods.Find(delegate(Period p) { return p.PeriodName.Equals(periodName); });
-            if (period == null) return null;
-            else return period;
+            if (period != null) return period;
+            else return null;
         }
         public Period getPeriod(Student student, int periodID)
         {
             //Return null if period doesn't exist
             Period period = student.RptCard.Periods.Find(delegate(Period p) { return p.PeriodID.Equals(periodID); });
-            if (period == null) return null;
-            else return period;
+            if (period != null) return period;
+            else return null;
         }
 
         public void removeStudent(Student stud)

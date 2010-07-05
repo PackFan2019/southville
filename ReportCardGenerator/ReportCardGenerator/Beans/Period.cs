@@ -26,28 +26,28 @@ namespace ReportCardGenerator.Beans
         }
 
 
-        private Comment periodComment;
+        private Comment periodComment = new Comment();
 
         internal Comment PeriodComment
         {
             get { return periodComment; }
             set { periodComment = value; }
         }
-        private Attendance periodAttendance;
+        private Attendance periodAttendance = new Attendance();
 
         internal Attendance PeriodAttendance
         {
             get { return periodAttendance; }
             set { periodAttendance = value; }
         }
-        private List<Grade> grades;
+        private List<Grade> grades = new List<Grade>();
 
         internal List<Grade> Grades
         {
             get { return grades; }
             set { grades = value; }
         }
-        private List<Skill> skills;
+        private List<Skill> skills = new List<Skill>();
 
         internal List<Skill> Skills
         {
@@ -59,5 +59,9 @@ namespace ReportCardGenerator.Beans
         {
             return (this.periodID == p.periodID);
         }
+        //public override string ToString()
+        //{
+        //    return "Periods: " + this.PeriodAttendance.DaysPresent +" " + this.PeriodAttendance.DaysTardy;
+        //}
     }
 }

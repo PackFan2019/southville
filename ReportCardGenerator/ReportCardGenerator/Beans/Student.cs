@@ -28,7 +28,7 @@ namespace ReportCardGenerator.Beans
             get { return lastName; }
             set { lastName = value; }
         }
-        private ReportCard rptCard;
+        private ReportCard rptCard = new ReportCard();
 
         internal ReportCard RptCard
         {

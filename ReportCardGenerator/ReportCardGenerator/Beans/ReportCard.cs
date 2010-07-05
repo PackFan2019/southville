@@ -7,7 +7,13 @@ namespace ReportCardGenerator.Beans
 {
     public class ReportCard
     {
-        private List<Period> periods;
+        private List<Period> periods = new List<Period>();
+
+        //public List<Period> Periods
+        //{
+        //    get { return periods; }
+        //    set { periods = value; }
+        //}
 
         internal List<Period> Periods
         {
@@ -43,6 +49,10 @@ namespace ReportCardGenerator.Beans
             get { return section; }
             set { section = value; }
         }
-
+        private static ReportCard instance = new ReportCard();
+        public static ReportCard getInstance()
+        {
+            return instance;
+        }
     }
 }
