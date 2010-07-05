@@ -61,7 +61,7 @@ namespace ReportCardGenerator.Tests
             Assert.AreEqual(contoller.getAllStudents().Count, asd);
         }
 
-        [Test]
+        [Test] 
         public void testNullStudent()
         {
             Student str = new Student();
