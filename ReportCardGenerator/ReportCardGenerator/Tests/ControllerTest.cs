@@ -45,7 +45,7 @@ namespace ReportCardGenerator.Tests
             Assert.AreEqual(sample2, contoller.getAllStudents().Count);
         }
 
-        [Test]
+        [Test,ExpectedException(typeof(DuplicateStudentException))]
         public void testUpdateStudent()
         {
             Student std = new Student();

@@ -13,6 +13,7 @@ namespace ReportCardGenerator.Views
 {
     public partial class Main : Form, IView
     {
+
         public Main()
         {
             InitializeComponent();
