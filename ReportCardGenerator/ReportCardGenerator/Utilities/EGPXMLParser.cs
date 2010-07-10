@@ -32,22 +32,24 @@ namespace ReportCardGenerator.Utilities
             //e.g. controller.addOrUpdateStudent(s)..
         }
 
-        private static void addSkillsFromXML(List<Student> students, XmlDocument doc)
+        private static void addSkillsFromXML(IStudentController controller, XmlDocument doc)
+        {
+
+
+            //Use the IStudentController to pass information
+        }
+
+        private static void addGradesFromXML(IStudentController controller, XmlDocument doc)
         {
             //Use the IStudentController to pass information
         }
 
-        private static void addGradesFromXML(List<Student> students, XmlDocument doc)
+        private static void addAttendanceFromXML(IStudentController controller, XmlDocument doc)
         {
             //Use the IStudentController to pass information
         }
 
-        private static void addAttendanceFromXML(List<Student> students, XmlDocument doc)
-        {
-            //Use the IStudentController to pass information
-        }
-
-        private static void addCommentsFromXML(List<Student> students, XmlDocument doc)
+        private static void addCommentsFromXML(IStudentController controller, XmlDocument doc)
         {
             //Use the IStudentController to pass information
         }
