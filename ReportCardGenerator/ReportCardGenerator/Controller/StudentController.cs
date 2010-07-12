@@ -41,12 +41,16 @@ namespace ReportCardGenerator.Controller
                 State.getInstance().Students.Add(stud);
             }
             else
-            {   
-                State.getInstance().Students.Insert(State.getInstance().Students.IndexOf(student), stud);
-                if (stud.StudentID == student.StudentID && stud.FirstName == student.FirstName)
+            {
+                
+                if (stud.StudentID.Equals(student.StudentID) && stud.FirstName.Equals(student.FirstName) && stud.LastName.Equals(student.LastName))
                 {
-                    log.Warn("Duplication of Student Occurs");
-                    throw new DuplicateStudentException();
+                    //log.Warn("Duplication of Student Occurs");
+                    //throw new DuplicateStudentException();
+                }
+                else
+                {
+                    State.getInstance().Students.Insert(State.getInstance().Students.IndexOf(stud), stud);
                 }
             }
         }
