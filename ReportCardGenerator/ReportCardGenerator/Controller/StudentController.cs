@@ -36,7 +36,6 @@ namespace ReportCardGenerator.Controller
             //Remember to catch it and log.Warn !!
             log.Debug("Test");
             Student student = State.getInstance().Students.Find(delegate(Student s) {return s.StudentID.Equals(stud.StudentID); });
-            //if (stud == null) return;
             if (student == null)
             {
                 State.getInstance().Students.Add(stud);

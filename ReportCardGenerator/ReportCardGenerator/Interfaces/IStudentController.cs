@@ -7,7 +7,7 @@ namespace ReportCardGenerator.Interfaces
 {
     public interface IStudentController:IController
     {
-        /*Add and update functions for data*/
+        /*C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\Interfaces\IStudentController.csAdd and update functions for data*/
         void addOrUpdateStudent(Student stud);
         void addOrUpdatePeriod(Student s, Period p);
         void addOrUpdateGrade(Student stud, Grade g, Period p);
