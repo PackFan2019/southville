@@ -50,7 +50,6 @@ namespace ReportCardGenerator.Tests
             stud.FirstName = "Karen";
             stud.LastName = "Bradford";
             XmlDocument doc = new XmlDocument();
-                //Utilities.FileData.getXmlFromPath(@"c:\XML Gradebook.xml");
             doc.Load(@"c:\XML Gradebook.xml");
             EGPXMLParser.parseGradebookXML(FrontController.getInstance().getStudentController(), doc);
             int count = controller.getAllStudents().Count;
@@ -61,20 +60,32 @@ namespace ReportCardGenerator.Tests
             Assert.AreEqual(controller.getStudent("Bradford").LastName, stud.LastName);
             Assert.AreEqual(controller.getAllStudents().Count, count);
         }
-        [Test]
+        [Test, ExpectedException(typeof(DuplicateStudentException))]
         public void testaddSkillsFromXML()
         {
-
+            Student stud = new Student();
+            stud.StudentID = "4335";
+            stud.FirstName = "Karen";
+            stud.LastName = "Bradford";
+            XmlDocument doc = new XmlDocument();
+            doc.Load(@"c:\XML Gradebook.xml");
+            EGPXMLParser.parseGradebookXML(FrontController.getInstance().getStudentController(), doc);
         }
         [Test]
         public void testaddGradesFromXML()
         {
 
         }
-        [Test]
+        [Test, ExpectedException(typeof(DuplicateStudentException))]
         public void testaddAttendanceFromXML()
         {
-
+            Student stud = new Student();
+            stud.StudentID = "4335";
+            stud.FirstName = "Karen";
+            stud.LastName = "Bradford";
+            XmlDocument doc = new XmlDocument();
+            doc.Load(@"c:\XML Gradebook.xml");
+            EGPXMLParser.parseGradebookXML(FrontController.getInstance().getStudentController(), doc);
         }
         [Test]
         public void testaddCommentsFromXML()
