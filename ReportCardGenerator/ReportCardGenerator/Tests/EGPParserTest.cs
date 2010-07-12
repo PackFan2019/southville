@@ -47,15 +47,40 @@ namespace ReportCardGenerator.Tests
         {
             Student stud = new Student();
             stud.StudentID = "4335";
+            stud.FirstName = "Karen";
+            stud.LastName = "Bradford";
             XmlDocument doc = new XmlDocument();
                 //Utilities.FileData.getXmlFromPath(@"c:\XML Gradebook.xml");
             doc.Load(@"c:\XML Gradebook.xml");
             EGPXMLParser.parseGradebookXML(FrontController.getInstance().getStudentController(), doc);
+            int count = controller.getAllStudents().Count;
+
             Assert.AreEqual(controller.getStudent("4335") ,stud);
+            Assert.AreEqual(controller.getStudent("Karen").FirstName, stud.FirstName);
+            Assert.AreEqual(controller.getStudent("4335"), stud);
+            Assert.AreEqual(controller.getStudent("Bradford").LastName, stud.LastName);
+            Assert.AreEqual(controller.getAllStudents().Count, count);
+        }
+        [Test]
+        public void testaddSkillsFromXML()
+        {
 
         }
+        [Test]
+        public void testaddGradesFromXML()
+        {
 
+        }
+        [Test]
+        public void testaddAttendanceFromXML()
+        {
 
+        }
+        [Test]
+        public void testaddCommentsFromXML()
+        {
+
+        }
 
 
 
