@@ -39,25 +39,17 @@ namespace ReportCardGenerator.Utilities
             XmlNodeList studentid = doc.GetElementsByTagName("stud_id");
             XmlNodeList periodid = doc.GetElementsByTagName("cr_termnum");
             XmlNodeList periodname = doc.GetElementsByTagName("cr_termlabel");
-            XmlNodeList skillname = doc.GetElementsByTagName("cr_classsubjectname");
-            XmlNodeList skillcategandid = doc.GetElementsByTagName("cr_data");
+            XmlNodeList skillname = doc.GetElementsByTagName("ass_name");
+            XmlNodeList skillid = doc.GetElementsByTagName("ass_id");
+            XmlNodeList skillcateg = doc.GetElementsByTagName("ass_catname");
             XmlNodeList skillletgrade = doc.GetElementsByTagName("score_grade");
             XmlNodeList skillnumgrade = doc.GetElementsByTagName("score_percent");
 
             for (int x = 0; x < studentid.Count; x++)
             {
                 skill.SkillName = skillname[x].InnerText;
-                foreach (XmlNode node in skillcategandid)
-                {
-                    if (node.Attributes["label"].Value.ToUpper().Equals("SUBJECTID"))
-                    {
-                        skill.SkillID = node.InnerText;
-                    }
-                    if (node.Attributes["label"].Value.ToUpper().Equals("SUBJECTCATEGORY"))
-                    {
-                        skill.SkillCategory = node.InnerText;
-                    }
-                }
+                skill.SkillID = skillid[x].InnerText;
+                skill.SkillCategory = skillcateg[x].InnerText;
                 skill.NumericGrade = double.Parse(skillnumgrade[x].InnerText);
                 skill.LetterGrade = skillletgrade[x].InnerText;
                 pd.PeriodID = int.Parse(periodid[x].InnerText);
@@ -91,6 +83,7 @@ namespace ReportCardGenerator.Utilities
                 gd.LetterGrade = gradelettergrade[i].InnerText;
                 pd.PeriodID = int.Parse(periodid[i].InnerText);
                 pd.PeriodName = periodname[i].InnerText;
+                controller.addOrUpdatePeriod(controller.getStudent(studentid[i].InnerText), pd);
                 controller.addOrUpdateGrade(controller.getStudent(studentid[i].InnerText), gd, pd);
 
             }
@@ -99,12 +92,44 @@ namespace ReportCardGenerator.Utilities
 
         private static void addAttendanceFromXML(IStudentController controller, XmlDocument doc)
         {
+            Attendance attend = new Attendance();
+            Period pd = new Period();
+            //attend.DaysAbsent;attend.DaysLate;attend.DaysPresent;attend.DaysTardy;
+            XmlNodeList studentcount = doc.GetElementsByTagName("stud_id");
+            XmlNodeList attendancesummary = doc.GetElementsByTagName("stud_att_mastercat");
+
+            for (int i = 0; i < studentcount.Count; i++)
+            {
+                foreach (XmlNode node in attendancesummary)
+                {
+                    if(node.Attributes["cat"].Value.ToUpper().Equals("EXCUSED ABSENCE"))
+                    {
+                    }
+                    if (node.Attributes["cat"].Value.ToUpper().Equals("UNEXCUSED ABSENCE"))
+                    {
+                    }
+                    if (node.Attributes["cat"].Value.ToUpper().Equals("TARDY"))
+                    {
+                    }
+                    if (node.Attributes["cat"].Value.ToUpper().Equals("Other"))
+                    {
+                    }
+                    pd.PeriodID = ;
+                    controller.addOrUpdatePeriod(controller.getStudent(studentcount[i].InnerText), pd);
+
+
+                }
+            }
+
             //Use the IStudentController to pass information
         }
 
         private static void addCommentsFromXML(IStudentController controller, XmlDocument doc)
         {
-
+            //cant be done atm since there is no student that has any comment..\
+            //I'm thinking of using the comment summary
+            //or we can use the if else statment/switch if the value is one
+            //we're just gonna yung the ft_note with the corresponding ID
             //Use the IStudentController to pass information
         }
         public static void parseHomeroomXML(IStudentController controller, XmlDocument doc)
