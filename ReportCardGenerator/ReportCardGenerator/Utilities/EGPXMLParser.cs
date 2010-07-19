@@ -17,18 +17,7 @@ namespace ReportCardGenerator.Utilities
         
         private static void addStudentsFromXML(IStudentController controller, XmlDocument doc)
         {
-            //Student stud = new Student();
             XmlNodeList nodeList = doc.GetElementsByTagName("stud_recordinfo");
-            //System.Windows.Forms.MessageBox.Show("Number of students:" + studid.Count);
-            //for (int i = 0; i < nodeList.Count; i++)
-            //{
-            //    stud.StudentID = nodeList.Item(i).FirstChild.InnerText;
-            //    //stud.FirstName = nodeList.Item(i).InnerText;
-            //    //stud.LastName = studLNAME.Item(i).InnerText;
-            //    State.getInstance().Students.Add(stud);
-            //    //controller.addOrUpdateStudent(stud);
-            //    System.Windows.Forms.MessageBox.Show(stud.StudentID +" " + stud.FirstName);
-            //}
             foreach (XmlNode node in nodeList)
             {
                 Student stud = new Student();
@@ -38,89 +27,120 @@ namespace ReportCardGenerator.Utilities
                 controller.addOrUpdateStudent(stud);
                 
             }
-            //foreach (Student st in State.getInstance().Students)
-            //{
-            //    System.Windows.Forms.MessageBox.Show(st.StudentID + " " + st.FirstName);
-            //}
-            //Use the IStudentController to pass information
-            //e.g. controller.addOrUpdateStudent(s)..
         }
 
         private static void addSkillsFromXML(IStudentController controller, XmlDocument doc)
         {
-            Period pd = new Period();
-            Skill skill = new Skill();
-            XmlNodeList studentid = doc.GetElementsByTagName("stud_id");
-            XmlNodeList periodid = doc.GetElementsByTagName("cr_termnum");
-            XmlNodeList periodname = doc.GetElementsByTagName("cr_termlabel");
-            XmlNodeList skillname = doc.GetElementsByTagName("ass_name");
-            XmlNodeList skillid = doc.GetElementsByTagName("ass_id");
-            XmlNodeList skillcateg = doc.GetElementsByTagName("ass_catname");
-            XmlNodeList skillletgrade = doc.GetElementsByTagName("score_grade");
-            XmlNodeList skillnumgrade = doc.GetElementsByTagName("score_percent");
-
-            for (int x = 0; x < studentid.Count; x++)
+            XmlNodeList nodeList = doc.GetElementsByTagName("stud_recordinfo");
+            XmlNodeList periodlist = doc.GetElementsByTagName("classrecord");
+            foreach (XmlNode node2 in periodlist)
             {
-                skill.SkillName = skillname[x].InnerText;
-                skill.SkillID = skillid[x].InnerText;
-                skill.SkillCategory = skillcateg[x].InnerText;
-                skill.NumericGrade = double.Parse(skillnumgrade[x].InnerText);
-                skill.LetterGrade = skillletgrade[x].InnerText;
-                pd.PeriodID = int.Parse(periodid[x].InnerText);
-                pd.PeriodName = periodname[x].InnerText;
-                controller.addOrUpdatePeriod(controller.getStudent(studentid[x].InnerText), pd);
-                controller.addOrUpdateSkill(controller.getStudent(studentid[x].InnerText), skill, pd);
+                    string studid;
+                    Skill skill = new Skill();
+                    Period period = new Period();
+                    period.PeriodID = int.Parse(node2["cr_termnum"].InnerText);
+                    period.PeriodName = node2["cr_termlabel"].InnerText;
+                    foreach (XmlNode node in nodeList)
+                    {
+                        
+                        studid = node["stud_id"].InnerText;
+                        skill.SkillID = node["ass_id"].InnerText;
+                        skill.SkillName = node["ass_name"].InnerText;
+                        skill.SkillCategory = node["ass_catname"].InnerText;
+                        skill.NumericGrade = double.Parse(node["score_percent"].InnerText);
+                        skill.LetterGrade = node["score_grade"].InnerText;
+                        controller.addOrUpdatePeriod(controller.getStudent(studid), period);
+                        controller.addOrUpdateSkill(controller.getStudent(studid), skill, period);
+                     }
+                
             }
+
+            //Period pd = new Period();
+            //Skill skill = new Skill();
+            //XmlNodeList studentid = doc.GetElementsByTagName("stud_id");
+            //XmlNodeList periodid = doc.GetElementsByTagName("cr_termnum");
+            //XmlNodeList periodname = doc.GetElementsByTagName("cr_termlabel");
+            //XmlNodeList skillname = doc.GetElementsByTagName("ass_name");
+            //XmlNodeList skillid = doc.GetElementsByTagName("ass_id");
+            //XmlNodeList skillcateg = doc.GetElementsByTagName("ass_catname");
+            //XmlNodeList skillletgrade = doc.GetElementsByTagName("score_grade");
+            //XmlNodeList skillnumgrade = doc.GetElementsByTagName("score_percent");
+
+            //for (int x = 0; x < studentid.Count; x++)
+            //{
+            //    skill.SkillName = skillname[x].InnerText;
+            //    skill.SkillID = skillid[x].InnerText;
+            //    skill.SkillCategory = skillcateg[x].InnerText;
+            //    skill.NumericGrade = double.Parse(skillnumgrade[x].InnerText);
+            //    skill.LetterGrade = skillletgrade[x].InnerText;
+            //    pd.PeriodID = int.Parse(periodid[x].InnerText);
+            //    pd.PeriodName = periodname[x].InnerText;
+            //    controller.addOrUpdatePeriod(controller.getStudent(studentid[x].InnerText), pd);
+            //    controller.addOrUpdateSkill(controller.getStudent(studentid[x].InnerText), skill, pd);
+            //}
 
             //Use the IStudentController to pass information
         }
 
         private static void addGradesFromXML(IStudentController controller, XmlDocument doc)
         {
-            Grade gd = new Grade();
-            Period pd = new Period();
-            Student stud = new Student();
-            XmlNodeList studentid = doc.GetElementsByTagName("stud_id");
-            XmlNodeList periodid = doc.GetElementsByTagName("cr_termnum");
-            XmlNodeList periodname = doc.GetElementsByTagName("cr_termlabel");
-            XmlNodeList gradename = doc.GetElementsByTagName("ass_name");
-            XmlNodeList gradeid = doc.GetElementsByTagName("ass_id");
-            XmlNodeList gradecateg = doc.GetElementsByTagName("ass_catname");
-            XmlNodeList gradenumgrade = doc.GetElementsByTagName("score_percent");
-            XmlNodeList gradelettergrade = doc.GetElementsByTagName("score_grade");
-
-            for (int i = 0; i < studentid.Count; i++)
+            XmlNodeList nodeList = doc.GetElementsByTagName("stud_recordinfo");
+            XmlNodeList periodlist = doc.GetElementsByTagName("classrecord");
+            foreach (XmlNode node2 in periodlist)
             {
-                gd.SubjectName = gradename[i].InnerText;
-                gd.SubjectID = gradeid[i].InnerText;
-                gd.SubjectCategory = gradecateg[i].InnerText;
-                gd.NumericGrade = double.Parse(gradenumgrade[i].InnerText);
-                gd.LetterGrade = gradelettergrade[i].InnerText;
-                pd.PeriodID = int.Parse(periodid[i].InnerText);
-                pd.PeriodName = periodname[i].InnerText;
-<<<<<<< .mine
-<<<<<<< .mine
-<<<<<<< .mine
-                controller.addOrUpdatePeriod(controller.getStudent(studentid[i].InnerText), pd);
-                controller.addOrUpdateGrade(controller.getStudent(studentid[i].InnerText), gd, pd);
-=======
-                controller.addOrUpdateGrade(stud, gd, pd);
-                //System.Windows.Forms.MessageBox.Show(controller.getStudent(studentid[i].InnerText).ToString());
+                string studid;
+                Grade skill = new Grade();
+                Period period = new Period();
+                period.PeriodID = int.Parse(node2["cr_termnum"].InnerText);
+                period.PeriodName = node2["cr_termlabel"].InnerText;
+                foreach (XmlNode node in nodeList)
+                {
 
-
->>>>>>> .theirs
-=======
-                controller.addOrUpdateGrade(stud, gd, pd);
-                //System.Windows.Forms.MessageBox.Show(controller.getStudent(studentid[i].InnerText).ToString());
-
->>>>>>> .theirs
-=======
-                controller.addOrUpdateGrade(stud, gd, pd);
-                //System.Windows.Forms.MessageBox.Show(controller.getStudent(studentid[i].InnerText).ToString());
->>>>>>> .theirs
+                    studid = node["stud_id"].InnerText;
+                    skill.SubjectID = node["ass_id"].InnerText;
+                    skill.SubjectName = node["ass_name"].InnerText;
+                    skill.SubjectCategory = node["ass_catname"].InnerText;
+                    skill.NumericGrade = double.Parse(node["score_percent"].InnerText);
+                    skill.LetterGrade = node["score_grade"].InnerText;
+                    controller.addOrUpdatePeriod(controller.getStudent(studid), period);
+                    controller.addOrUpdateGrade(controller.getStudent(studid), skill, period);
+                }
 
             }
-            //Use the IStudentController to pass information
+            //Grade gd = new Grade();
+            //Period pd = new Period();
+            //Student stud = new Student();
+            //XmlNodeList studentid = doc.GetElementsByTagName("stud_id");
+            //XmlNodeList periodid = doc.GetElementsByTagName("cr_termnum");
+            //XmlNodeList periodname = doc.GetElementsByTagName("cr_termlabel");
+            //XmlNodeList gradename = doc.GetElementsByTagName("ass_name");
+            //XmlNodeList gradeid = doc.GetElementsByTagName("ass_id");
+            //XmlNodeList gradecateg = doc.GetElementsByTagName("ass_catname");
+            //XmlNodeList gradenumgrade = doc.GetElementsByTagName("score_percent");
+            //XmlNodeList gradelettergrade = doc.GetElementsByTagName("score_grade");
+
+            //for (int i = 0; i < studentid.Count; i++)
+            //{
+            //    gd.SubjectName = gradename[i].InnerText;
+            //    gd.SubjectID = gradeid[i].InnerText;
+            //    gd.SubjectCategory = gradecateg[i].InnerText;
+            //    gd.NumericGrade = double.Parse(gradenumgrade[i].InnerText);
+            //    gd.LetterGrade = gradelettergrade[i].InnerText;
+            //    pd.PeriodID = int.Parse(periodid[i].InnerText);
+            //    pd.PeriodName = periodname[i].InnerText;
+
+            //    controller.addOrUpdatePeriod(controller.getStudent(studentid[i].InnerText), pd);
+            //    controller.addOrUpdateGrade(controller.getStudent(studentid[i].InnerText), gd, pd);
+            //    controller.addOrUpdateGrade(stud, gd, pd);
+            //    //System.Windows.Forms.MessageBox.Show(controller.getStudent(studentid[i].InnerText).ToString());
+
+            //    controller.addOrUpdateGrade(stud, gd, pd);
+            //    //System.Windows.Forms.MessageBox.Show(controller.getStudent(studentid[i].InnerText).ToString());
+
+            //    controller.addOrUpdateGrade(stud, gd, pd);
+            //    //System.Windows.Forms.MessageBox.Show(controller.getStudent(studentid[i].InnerText).ToString());
+            //}
+            ////Use the IStudentController to pass information
         }
 
         private static void addAttendanceFromXML(IStudentController controller, XmlDocument doc)
@@ -147,7 +167,7 @@ namespace ReportCardGenerator.Utilities
                     if (node.Attributes["cat"].Value.ToUpper().Equals("Other"))
                     {
                     }
-                    pd.PeriodID = ;
+                    //pd.PeriodID = ;
                     controller.addOrUpdatePeriod(controller.getStudent(studentcount[i].InnerText), pd);
 
 
