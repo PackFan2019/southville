@@ -45,7 +45,7 @@ namespace ReportCardGenerator.Tests
             Assert.AreEqual(sample2, contoller.getAllStudents().Count);
         }
 
-        [Test]
+        [Test]//, ExpectedException(typeof(DuplicateStudentException))]
         public void testUpdateStudent()
         {
             Student std = new Student();
@@ -53,14 +53,20 @@ namespace ReportCardGenerator.Tests
             std.FirstName = "any";
             std.LastName = "tanemura";
             contoller.addOrUpdateStudent(std);
-            std.StudentID = "124";
-            std.FirstName = "sample";
-            std.LastName = "reyes";
-            contoller.addOrUpdateStudent(std);
+            Student stud = new Student();
+            stud.StudentID = "124";
+            stud.FirstName = "sample";
+            stud.LastName = "reyes";
+            contoller.addOrUpdateStudent(stud);
+            //Student stude = new Student();
+            //stude.StudentID = "124";
+            //stude.FirstName = "romyr";
+            //stude.LastName = "reyes";
+            //contoller.addOrUpdateStudent(stude);
             int asd = contoller.getAllStudents().Count;
-            //Assert.AreEqual(contoller.getStudent("124"), std);
-            //Assert.AreEqual(contoller.getStudent("124").FirstName, "sample");
-            Assert.AreEqual(contoller.getAllStudents().Count, 6);
+            Assert.AreEqual(contoller.getStudent("124"), stud);
+            Assert.AreEqual(contoller.getStudent("124").FirstName, "sample");
+            Assert.AreEqual(contoller.getAllStudents().Count, asd);
         }
 
         [Test] 

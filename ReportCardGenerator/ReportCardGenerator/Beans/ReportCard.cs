@@ -49,10 +49,5 @@ namespace ReportCardGenerator.Beans
             get { return section; }
             set { section = value; }
         }
-        private static ReportCard instance = new ReportCard();
-        public static ReportCard getInstance()
-        {
-            return instance;
-        }
     }
 }

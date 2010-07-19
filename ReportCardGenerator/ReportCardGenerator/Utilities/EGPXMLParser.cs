@@ -5,6 +5,7 @@ using System.Text;
 using System.Xml;
 using ReportCardGenerator.Interfaces;
 using ReportCardGenerator.Beans;
+using ReportCardGenerator.Data;
 
 
 namespace ReportCardGenerator.Utilities
@@ -16,18 +17,31 @@ namespace ReportCardGenerator.Utilities
         
         private static void addStudentsFromXML(IStudentController controller, XmlDocument doc)
         {
-            Student stud = new Student();
-            XmlNodeList studid = doc.GetElementsByTagName("stud_id");
-            XmlNodeList studFNAME = doc.GetElementsByTagName("stud_firstname");
-            XmlNodeList studLNAME = doc.GetElementsByTagName("stud_lastname");
-            for (int i = 0; i < studid.Count; i++)
+            //Student stud = new Student();
+            XmlNodeList nodeList = doc.GetElementsByTagName("stud_recordinfo");
+            //System.Windows.Forms.MessageBox.Show("Number of students:" + studid.Count);
+            //for (int i = 0; i < nodeList.Count; i++)
+            //{
+            //    stud.StudentID = nodeList.Item(i).FirstChild.InnerText;
+            //    //stud.FirstName = nodeList.Item(i).InnerText;
+            //    //stud.LastName = studLNAME.Item(i).InnerText;
+            //    State.getInstance().Students.Add(stud);
+            //    //controller.addOrUpdateStudent(stud);
+            //    System.Windows.Forms.MessageBox.Show(stud.StudentID +" " + stud.FirstName);
+            //}
+            foreach (XmlNode node in nodeList)
             {
-                stud.StudentID = studid[i].InnerText;
-                stud.FirstName = studFNAME[i].InnerText;
-                stud.LastName = studLNAME[i].InnerText;
+                Student stud = new Student();
+                stud.StudentID = node["stud_id"].InnerText;
+                stud.FirstName = node["stud_firstname"].InnerText;
+                stud.LastName = node["stud_lastname"].InnerText;
                 controller.addOrUpdateStudent(stud);
+                
             }
-
+            //foreach (Student st in State.getInstance().Students)
+            //{
+            //    System.Windows.Forms.MessageBox.Show(st.StudentID + " " + st.FirstName);
+            //}
             //Use the IStudentController to pass information
             //e.g. controller.addOrUpdateStudent(s)..
         }
@@ -65,6 +79,7 @@ namespace ReportCardGenerator.Utilities
         {
             Grade gd = new Grade();
             Period pd = new Period();
+            Student stud = new Student();
             XmlNodeList studentid = doc.GetElementsByTagName("stud_id");
             XmlNodeList periodid = doc.GetElementsByTagName("cr_termnum");
             XmlNodeList periodname = doc.GetElementsByTagName("cr_termlabel");
@@ -83,8 +98,26 @@ namespace ReportCardGenerator.Utilities
                 gd.LetterGrade = gradelettergrade[i].InnerText;
                 pd.PeriodID = int.Parse(periodid[i].InnerText);
                 pd.PeriodName = periodname[i].InnerText;
+<<<<<<< .mine
+<<<<<<< .mine
+<<<<<<< .mine
                 controller.addOrUpdatePeriod(controller.getStudent(studentid[i].InnerText), pd);
                 controller.addOrUpdateGrade(controller.getStudent(studentid[i].InnerText), gd, pd);
+=======
+                controller.addOrUpdateGrade(stud, gd, pd);
+                //System.Windows.Forms.MessageBox.Show(controller.getStudent(studentid[i].InnerText).ToString());
+
+
+>>>>>>> .theirs
+=======
+                controller.addOrUpdateGrade(stud, gd, pd);
+                //System.Windows.Forms.MessageBox.Show(controller.getStudent(studentid[i].InnerText).ToString());
+
+>>>>>>> .theirs
+=======
+                controller.addOrUpdateGrade(stud, gd, pd);
+                //System.Windows.Forms.MessageBox.Show(controller.getStudent(studentid[i].InnerText).ToString());
+>>>>>>> .theirs
 
             }
             //Use the IStudentController to pass information
@@ -142,7 +175,7 @@ namespace ReportCardGenerator.Utilities
             ////Use this style to pass students
             //if (log.IsDebugEnabled) log.Debug("Adding students from XML");
             addStudentsFromXML(controller, doc);
-            addSkillsFromXML(controller,doc);
+            //addSkillsFromXML(controller, doc);
             
             //if (log.IsDebugEnabled) log.Debug("End parsing homeroom XML");
         }

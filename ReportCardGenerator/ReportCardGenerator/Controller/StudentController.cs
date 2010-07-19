@@ -34,7 +34,8 @@ namespace ReportCardGenerator.Controller
             //Do not allow multiple adding of students: Throw a DuplicateStudentException
             //We throw a DuplicateStudentException so we can monitor when this occurs!
             //Remember to catch it and log.Warn !!
-            log.Debug("Test");
+            //log.Debug("Test");
+            //System.Windows.Forms.MessageBox.Show(stud.StudentID);
             Student student = State.getInstance().Students.Find(delegate(Student s) {return s.StudentID.Equals(stud.StudentID); });
             if (student == null)
             {
@@ -42,15 +43,12 @@ namespace ReportCardGenerator.Controller
             }
             else
             {
-                
+                State.getInstance().Students.Insert(State.getInstance().Students.IndexOf(stud), stud);
                 if (stud.StudentID.Equals(student.StudentID) && stud.FirstName.Equals(student.FirstName) && stud.LastName.Equals(student.LastName))
                 {
-                    //log.Warn("Duplication of Student Occurs");
-                    //throw new DuplicateStudentException();
-                }
-                else
-                {
-                    State.getInstance().Students.Insert(State.getInstance().Students.IndexOf(stud), stud);
+                    System.Windows.Forms.MessageBox.Show("Exception was thrown!!!");
+                    log.Warn("Duplication of Student Occurs");
+                    throw new DuplicateStudentException();
                 }
             }
         }
@@ -79,7 +77,7 @@ namespace ReportCardGenerator.Controller
             Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
             if (period.Grades.Count == 0)
             {
-                if(g!=null)
+                if (g != null)
                 period.Grades.Add(g);
             }
             else period.Grades.Insert(stud.RptCard.Periods.IndexOf(period), g);
@@ -146,19 +144,18 @@ namespace ReportCardGenerator.Controller
             //Return null if student doesn't exist
             //By using Equals and State.getInstance().Students.Find(...)
             Student student = State.getInstance().Students.Find(delegate(Student s) { return s.StudentID.Equals(stud.StudentID); });
-            if (student != null) return student;
+           if (student != null) return student;
             else return null;
         }
         public Student getStudent(String studentID)
         {
             ////Return null if student doesn't exist
             ////By using the StudentID and .Find
-            //Student student = State.getInstance().Students.Find(delegate(Student s) {return s.StudentID.Equals(studentID); });
-            //if (student.StudentID == null) return null;
-            //else return student;
+        
             Student student = State.getInstance().Students.Find(delegate(Student s) { return s.StudentID.Equals(studentID); });
-            if (student != null) return student;
+            if (student != null)return student;
             else return null;
+            
         }
         public Period getPeriodByName(Student student, String periodName)
         {
