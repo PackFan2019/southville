@@ -1,50 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe" total="24" errors="1" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2010-07-21" time="17:04:03">
+<test-results name="C:\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe" total="1" errors="1" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2010-07-21" time="17:09:22">
   <environment nunit-version="2.5.5.10112" clr-version="2.0.50727.3603" os-version="Microsoft Windows NT 5.1.2600 Service Pack 3" platform="Win32NT" cwd="C:\Program Files\NUnit 2.5.5\bin\net-2.0" machine-name="WALLEN" user="webadmins-romyr" user-domain="SVILLE" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="C:\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe" executed="True" result="Failure" success="False" time="5.891" asserts="0">
+  <test-suite type="Assembly" name="C:\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe" executed="True" result="Failure" success="False" time="0.328" asserts="0">
     <results>
-      <test-suite type="Namespace" name="ReportCardGenerator" executed="True" result="Failure" success="False" time="5.875" asserts="0">
+      <test-suite type="Namespace" name="ReportCardGenerator" executed="True" result="Failure" success="False" time="0.328" asserts="0">
         <results>
-          <test-suite type="Namespace" name="Tests" executed="True" result="Failure" success="False" time="5.875" asserts="0">
+          <test-suite type="Namespace" name="Tests" executed="True" result="Failure" success="False" time="0.313" asserts="0">
             <results>
-              <test-suite type="TestFixture" name="ControllerTest" executed="True" result="Success" success="True" time="0.063" asserts="0">
+              <test-suite type="TestFixture" name="EGPParserTest" executed="True" result="Failure" success="False" time="0.281" asserts="0">
                 <results>
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testAddAttendance" executed="True" result="Success" success="True" time="0.016" asserts="2" />
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testAddComment" executed="True" result="Success" success="True" time="0.000" asserts="1" />
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testAddNewStudent" executed="True" result="Success" success="True" time="0.000" asserts="4" />
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testAddNullAttendance" executed="True" result="Success" success="True" time="0.000" asserts="2" />
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testAddNullComment" executed="True" result="Success" success="True" time="0.000" asserts="2" />
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testAddNullPeriod" executed="True" result="Success" success="True" time="0.016" asserts="2" />
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testAddNullSkill" executed="True" result="Success" success="True" time="0.000" asserts="2" />
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testAddPeriod" executed="True" result="Success" success="True" time="0.000" asserts="3" />
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testAddSkill" executed="True" result="Success" success="True" time="0.000" asserts="2" />
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testAddSubjectOrGrade" executed="True" result="Success" success="True" time="0.000" asserts="2" />
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testNullStudent" executed="True" result="Success" success="True" time="0.000" asserts="2" />
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testNullSubjectOrGrade" executed="True" result="Success" success="True" time="0.000" asserts="2" />
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testRemoveStudent" executed="True" result="Success" success="True" time="0.000" asserts="2" />
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testUpdateAttendance" executed="True" result="Success" success="True" time="0.016" asserts="3" />
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testUpdateComment" executed="True" result="Success" success="True" time="0.000" asserts="1" />
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testUpdatePeriod" executed="True" result="Success" success="True" time="0.000" asserts="4" />
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testUpdateSkill" executed="True" result="Success" success="True" time="0.000" asserts="2" />
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testUpdateStudent" executed="True" result="Success" success="True" time="0.000" asserts="3" />
-                  <test-case name="ReportCardGenerator.Tests.ControllerTest.testUpdateSubjectOrGrade" executed="True" result="Success" success="True" time="0.000" asserts="2" />
-                </results>
-              </test-suite>
-              <test-suite type="TestFixture" name="EGPParserTest" executed="True" result="Failure" success="False" time="5.813" asserts="0">
-                <results>
-                  <test-case name="ReportCardGenerator.Tests.EGPParserTest.testaddAttendanceFromXML" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="ReportCardGenerator.Tests.EGPParserTest.testaddCommentsFromXML" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="ReportCardGenerator.Tests.EGPParserTest.testaddGradesFromXML" executed="True" result="Error" success="False" time="0.250" asserts="0">
+                  <test-case name="ReportCardGenerator.Tests.EGPParserTest.testaddGradesFromXML" executed="True" result="Error" success="False" time="0.266" asserts="0">
                     <failure>
                       <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
-                      <stack-trace><![CDATA[at ReportCardGenerator.Tests.EGPParserTest.testaddGradesFromXML() in C:\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\EGPParserTest.cs:line 95
+                      <stack-trace><![CDATA[at ReportCardGenerator.Tests.EGPParserTest.testaddGradesFromXML() in C:\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\EGPParserTest.cs:line 107
 ]]></stack-trace>
                     </failure>
                   </test-case>
-                  <test-case name="ReportCardGenerator.Tests.EGPParserTest.testaddSkillsFromXML" executed="True" result="Success" success="True" time="3.156" asserts="0" />
-                  <test-case name="ReportCardGenerator.Tests.EGPParserTest.testAddStudentsFromXML" executed="True" result="Success" success="True" time="2.344" asserts="4" />
                 </results>
               </test-suite>
             </results>

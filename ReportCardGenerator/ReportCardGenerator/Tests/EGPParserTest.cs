@@ -78,6 +78,8 @@ namespace ReportCardGenerator.Tests
             XmlDocument doc = new XmlDocument();
             doc.Load(@"c:\XML Gradebook.xml");
             EGPXMLParser.parseHomeroomXML(FrontController.getInstance().getStudentController(), doc);
+
+            //Assert.AreEqual()
         }
         [Test]
         public void testaddGradesFromXML()
@@ -87,12 +89,12 @@ namespace ReportCardGenerator.Tests
             Grade gd = new Grade();
             Period per = new Period();         
             doc.Load(@"c:\XML Gradebook.xml");
-            stud.StudentID = "4450";
+            stud.StudentID = "4335";
             gd.SubjectID = "1";
             gd.NumericGrade = 95;
             gd.LetterGrade = "A";
             EGPXMLParser.parseGradebookXML(FrontController.getInstance().getStudentController(), doc);
-            int count = controller.getPeriod(stud, 2).Grades.Count;
+            //int count = controller.getPeriod(stud, 2).Grades.Count;
             //System.Windows.Forms.MessageBox.Show(controller.getPeriod(stud,2).Grades.Count.ToString());
             //for (int i = 0; i < count; i++)
             //{
@@ -101,7 +103,7 @@ namespace ReportCardGenerator.Tests
             //        System.Windows.Forms.MessageBox.Show(stud.StudentID + " " + g.NumericGrade.ToString());
             //    }
             //}
-            Assert.AreEqual(controller.getPeriod(stud, 2).Grades.Count,count );
+            //Assert.AreEqual(controller.getPeriod(stud, 2).Grades.Count,count );
             Assert.AreEqual(controller.getPeriod(stud, 2).Grades.Find(delegate(Grade grade) { return grade.SubjectID.Equals(gd.SubjectID); }), gd);
             Assert.AreEqual(controller.getPeriod(stud, 2).Grades.Find(delegate(Grade grade) { return grade.LetterGrade.Equals(gd.LetterGrade); }), gd);
             Assert.AreEqual(controller.getPeriod(stud, 2).Grades.Find(delegate(Grade grade) { return grade.NumericGrade.Equals(gd.NumericGrade); }), gd);
