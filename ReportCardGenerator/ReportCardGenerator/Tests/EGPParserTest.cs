@@ -68,7 +68,7 @@ namespace ReportCardGenerator.Tests
             //Assert.AreEqual(controller.getStudent("4335"), stud);
             
         }
-        [Test, ExpectedException(typeof(DuplicateStudentException))]
+        [Test]
         public void testaddSkillsFromXML()
         {
             Student stud = new Student();
