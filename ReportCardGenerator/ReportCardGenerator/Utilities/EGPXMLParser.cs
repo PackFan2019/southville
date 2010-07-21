@@ -31,7 +31,9 @@ namespace ReportCardGenerator.Utilities
         private static void addSkillsFromXML(IStudentController controller, XmlDocument doc)
         {
             XmlNodeList nodeList = doc.GetElementsByTagName("stud_recordinfo");
-            XmlNodeList periodlist = doc.GetElementsByTagName("class");
+            XmlNodeList gradelist = doc.GetElementsByTagName("assignment");
+            XmlNodeList grades = doc.GetElementsByTagName("score");
+            XmlNodeList periodlist = doc.GetElementsByTagName("classrecord");
             foreach (XmlNode node2 in periodlist)
             {
                 string studid;
@@ -43,43 +45,13 @@ namespace ReportCardGenerator.Utilities
                 {
                     studid = node["stud_id"].InnerText;
                     System.Windows.Forms.MessageBox.Show(studid);
-                    skill.SkillID = node["ass_id"].InnerText;
-                    skill.SkillName = node["ass_name"].InnerText;
-                    skill.SkillCategory = node["ass_catname"].InnerText;
-                    skill.NumericGrade = double.Parse(node["score_percent"].InnerText);
-                    skill.LetterGrade = node["score_grade"].InnerText;
-                    controller.addOrUpdatePeriod(controller.getStudent(studid), period);
-                    controller.addOrUpdateSkill(controller.getStudent(studid), skill, period);
-                }
-
-            }
-
-        }
-
-        private static void addGradesFromXML(IStudentController controller, XmlDocument doc)
-        {
-            XmlNodeList nodeList = doc.GetElementsByTagName("stud_recordinfo");
-            XmlNodeList gradelist = doc.GetElementsByTagName("assignment");
-            XmlNodeList grades = doc.GetElementsByTagName("score");
-            XmlNodeList periodlist = doc.GetElementsByTagName("classrecord");
-            foreach (XmlNode node2 in periodlist)
-            {
-                string studid = "";
-                Grade skill = new Grade();
-                Period period = new Period();
-                period.PeriodID = Int32.Parse(node2["cr_termnum"].InnerText);
-                period.PeriodName = node2["cr_termlabel"].InnerText;
-                foreach (XmlNode node in gradelist)
-                {
-                    skill.SubjectID = node["ass_id"].InnerText;
-                    skill.SubjectName = node["ass_name"].InnerText;
-                    skill.SubjectCategory = node["ass_catname"].InnerText;
-                    foreach (XmlNode studnode in nodeList)
+                    foreach (XmlNode grade in gradelist)
                     {
-                        studid = studnode["stud_id"].InnerText;
+                        skill.SkillID = grade["ass_id"].InnerText;
+                        skill.SkillName = grade["ass_name"].InnerText;
+                        skill.SkillCategory = grade["ass_catname"].InnerText;
                         foreach (XmlNode graded in grades)
                         {
-                            //Grade g = new Grade();
                             if (!graded["score_percent"].InnerText.Equals(""))
                             {
                                 skill.NumericGrade = double.Parse(graded["score_percent"].InnerText.ToString());
@@ -104,9 +76,67 @@ namespace ReportCardGenerator.Utilities
                                     //System.Windows.Forms.MessageBox.Show(skill.NumericGrade.ToString() + " " + skill.LetterGrade);
                                 }
                             }
+                        }
+                    }
+                    controller.addOrUpdatePeriod(controller.getStudent(studid), period);
+                    controller.addOrUpdateSkill(controller.getStudent(studid), skill, period);
+                }
+
+            }
+
+        }
+
+        private static void addGradesFromXML(IStudentController controller, XmlDocument doc)
+        {
+            XmlNodeList nodeList = doc.GetElementsByTagName("stud_recordinfo");
+            XmlNodeList gradelist = doc.GetElementsByTagName("assignment");
+            XmlNodeList grades = doc.GetElementsByTagName("score");
+            XmlNodeList periodlist = doc.GetElementsByTagName("classrecord");
+            foreach (XmlNode node2 in periodlist)
+            {
+                string studid = "";
+                Grade grade = new Grade();
+                Period period = new Period();
+                period.PeriodID = Int32.Parse(node2["cr_termnum"].InnerText);
+                period.PeriodName = node2["cr_termlabel"].InnerText;
+                foreach (XmlNode node in gradelist)
+                {
+                    grade.SubjectID = node["ass_id"].InnerText;
+                    grade.SubjectName = node["ass_name"].InnerText;
+                    grade.SubjectCategory = node["ass_catname"].InnerText;
+                    foreach (XmlNode studnode in nodeList)
+                    {
+                        studid = studnode["stud_id"].InnerText;
+                        foreach (XmlNode graded in grades)
+                        {
+                            //Grade g = new Grade();
+                            if (!graded["score_percent"].InnerText.Equals(""))
+                            {
+                                grade.NumericGrade = double.Parse(graded["score_percent"].InnerText.ToString());
+                                grade.LetterGrade = graded["score_grade"].InnerText;
+                            }
+                            else
+                            {
+                                if (graded["score_grade"].InnerText.Equals(""))
+                                {
+                                    grade.LetterGrade = graded["score_grade"].InnerText = "blank letter grade!!!";
+                                    graded["score_percent"].InnerText = "0.0";
+                                    grade.NumericGrade = double.Parse(graded["score_percent"].InnerText.ToString());
+                                    grade.LetterGrade = graded["score_grade"].InnerText;
+                                    //System.Windows.Forms.MessageBox.Show(skill.NumericGrade.ToString() + " " + skill.LetterGrade);
+                                }
+                                else
+                                {
+                                    graded["score_percent"].InnerText = "0.0";
+                                    grade.NumericGrade = double.Parse(graded["score_percent"].InnerText.ToString());
+                                    grade.LetterGrade = graded["score_grade"].InnerText;
+
+                                    //System.Windows.Forms.MessageBox.Show(skill.NumericGrade.ToString() + " " + skill.LetterGrade);
+                                }
+                            }
                             //System.Windows.Forms.MessageBox.Show(controller.getStudent(studid).StudentID.ToString());
                             controller.addOrUpdatePeriod(controller.getStudent(studid), period);
-                            controller.addOrUpdateGrade(controller.getStudent(studid), skill, period);
+                            controller.addOrUpdateGrade(controller.getStudent(studid), grade, period);
                         }
 
                     }
