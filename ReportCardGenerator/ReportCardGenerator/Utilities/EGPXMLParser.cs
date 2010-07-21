@@ -186,7 +186,7 @@ namespace ReportCardGenerator.Utilities
             ////Use this style to pass students
             //if (log.IsDebugEnabled) log.Debug("Adding students from XML");
             addStudentsFromXML(controller, doc);
-            //addSkillsFromXML(controller, doc);
+            addSkillsFromXML(controller, doc);
             
             //if (log.IsDebugEnabled) log.Debug("End parsing homeroom XML");
         }
