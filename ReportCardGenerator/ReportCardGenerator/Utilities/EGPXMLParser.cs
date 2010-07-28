@@ -200,11 +200,28 @@ namespace ReportCardGenerator.Utilities
 
         private static void addCommentsFromXML(IStudentController controller, XmlDocument doc)
         {
-            //cant be done atm since there is no student that has any comment..\
-            //I'm thinking of using the comment summary
-            //or we can use the if else statment/switch if the value is one
-            //we're just gonna yung the ft_note with the corresponding ID
-            //Use the IStudentController to pass information
+            XmlNodeList nodeList = doc.GetElementsByTagName("stud_recordinfo");
+            XmlNodeList grades = doc.GetElementsByTagName("score");
+            XmlNodeList periodlist = doc.GetElementsByTagName("classrecord");
+
+            foreach (XmlNode node2 in periodlist)
+            {
+                string studid = "";
+                Comment comment = new Comment();
+                Period period = new Period();
+                period.PeriodID = Int32.Parse(node2["cr_termnum"].InnerText);
+                period.PeriodName = node2["cr_termlabel"].InnerText;
+                foreach (XmlNode studnode in nodeList)
+                {
+                    studid = studnode["stud_id"].InnerText;
+                    foreach (XmlNode graded in grades)
+                    {
+                        comment.CommentText = graded["score_note"].InnerText;
+                        controller.addOrUpdateComment(controller.getStudent(studid), comment, period);
+                    }
+                }
+            }
+                        
         }
         public static void parseHomeroomXML(IStudentController controller, XmlDocument doc)
         {
