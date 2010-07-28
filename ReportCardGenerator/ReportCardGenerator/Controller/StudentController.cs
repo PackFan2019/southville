@@ -35,17 +35,19 @@ namespace ReportCardGenerator.Controller
             //We throw a DuplicateStudentException so we can monitor when this occurs!
             //Remember to catch it and log.Warn !!
             //log.Debug("Test");
-            //System.Windows.Forms.MessageBox.Show(stud.StudentID);
+            //When updating: Throw an exception if the name, studentID or last name, or level, or section
+            //changes
+            //System.Windows.Forms.MessageBox.Show(stud.StudentID + " " + stud.FirstName + " " + stud.LastName);
             Student student = State.getInstance().Students.Find(delegate(Student s) {return s.StudentID.Equals(stud.StudentID); });
             if (student == null)
             {
                 State.getInstance().Students.Add(stud);
             }
             else
-            {
-                State.getInstance().Students.Insert(State.getInstance().Students.IndexOf(stud), stud);
-                if (stud.StudentID.Equals(student.StudentID) && stud.FirstName.Equals(student.FirstName) && stud.LastName.Equals(student.LastName))
+            {                
+                if (stud.StudentID.Equals(student.StudentID) && !stud.FirstName.Equals(student.FirstName) && !stud.LastName.Equals(student.LastName))
                 {
+                    State.getInstance().Students.Insert(State.getInstance().Students.IndexOf(stud), stud);
                     System.Windows.Forms.MessageBox.Show("Exception was thrown!!!");
                     log.Warn("Duplication of Student Occurs");
                     throw new DuplicateStudentException();

@@ -44,7 +44,7 @@ namespace ReportCardGenerator.Utilities
                 foreach (XmlNode node in nodeList)
                 {
                     studid = node["stud_id"].InnerText;
-                    System.Windows.Forms.MessageBox.Show(studid);
+                    //System.Windows.Forms.MessageBox.Show(studid);
                     foreach (XmlNode grade in gradelist)
                     {
                         skill.SkillID = grade["ass_id"].InnerText;
