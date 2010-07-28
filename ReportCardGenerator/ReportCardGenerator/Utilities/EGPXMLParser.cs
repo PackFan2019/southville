@@ -144,7 +144,6 @@ namespace ReportCardGenerator.Utilities
                     
                 }
                 
-                //System.Windows.Forms.MessageBox.Show(skill.NumericGrade.ToString());
             }
 
         }
@@ -165,37 +164,6 @@ namespace ReportCardGenerator.Utilities
 
             }
 
-
-
-
-            //Attendance attend = new Attendance();
-            //Period pd = new Period();
-            ////attend.DaysAbsent;attend.DaysLate;attend.DaysPresent;attend.DaysTardy;
-            //XmlNodeList studentcount = doc.GetElementsByTagName("stud_id");
-            //XmlNodeList attendancesummary = doc.GetElementsByTagName("stud_att_mastercat");
-
-            //for (int i = 0; i < studentcount.Count; i++)
-            //{
-            //    foreach (XmlNode node in attendancesummary)
-            //    {
-            //        if(node.Attributes["cat"].Value.ToUpper().Equals("EXCUSED ABSENCE"))
-            //        {
-            //        }
-            //        if (node.Attributes["cat"].Value.ToUpper().Equals("UNEXCUSED ABSENCE"))
-            //        {
-            //        }
-            //        if (node.Attributes["cat"].Value.ToUpper().Equals("TARDY"))
-            //        {
-            //        }
-            //        if (node.Attributes["cat"].Value.ToUpper().Equals("Other"))
-            //        {
-            //        }
-            //        //pd.PeriodID = ;
-            //        controller.addOrUpdatePeriod(controller.getStudent(studentcount[i].InnerText), pd);
-            //    }
-            //}
-
-            //Use the IStudentController to pass information
         }
 
         private static void addCommentsFromXML(IStudentController controller, XmlDocument doc)
@@ -225,17 +193,9 @@ namespace ReportCardGenerator.Utilities
         }
         public static void parseHomeroomXML(IStudentController controller, XmlDocument doc)
         {
-            //Adds the relevant information from the Xmldocument
-            //Call relevant functions e.g. List<Student> students = getStudentsFromXML(doc)   
-            //foreach (Student s in students) controller.add(s) 
-            //if (log.IsDebugEnabled) log.Debug("Parsing homeroom XML");
-
-            ////Use this style to pass students
-            //if (log.IsDebugEnabled) log.Debug("Adding students from XML");
             addStudentsFromXML(controller, doc);
             addSkillsFromXML(controller, doc);
-            
-            //if (log.IsDebugEnabled) log.Debug("End parsing homeroom XML");
+
         }
 
         public static void parseGradebookXML(IStudentController controller, XmlDocument doc)
