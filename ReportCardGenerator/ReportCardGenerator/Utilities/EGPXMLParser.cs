@@ -89,7 +89,7 @@ namespace ReportCardGenerator.Utilities
         private static void addGradesFromXML(IStudentController controller, XmlDocument doc)
         {
             XmlNodeList nodeList = doc.GetElementsByTagName("stud_recordinfo");
-            XmlNodeList gradelist = doc.GetElementsByTagName("assignment");
+            //XmlNodeList gradelist = doc.GetElementsByTagName("assignment");
             XmlNodeList grades = doc.GetElementsByTagName("score");
             XmlNodeList periodlist = doc.GetElementsByTagName("classrecord");
             foreach (XmlNode node2 in periodlist)
@@ -99,11 +99,16 @@ namespace ReportCardGenerator.Utilities
                 Period period = new Period();
                 period.PeriodID = Int32.Parse(node2["cr_termnum"].InnerText);
                 period.PeriodName = node2["cr_termlabel"].InnerText;
-                foreach (XmlNode node in gradelist)
+                grade.SubjectName = node2["cr_classsubjectname"].InnerText;
+                if (node2.Attributes["cr_data"].Value["label"].Equals("SubjectID"))
                 {
-                    grade.SubjectID = node["ass_id"].InnerText;
-                    grade.SubjectName = node["ass_name"].InnerText;
-                    grade.SubjectCategory = node["ass_catname"].InnerText;
+
+                }
+                //foreach (XmlNode node in gradelist)
+                //{
+                //    grade.SubjectID = node["ass_id"].InnerText;
+                //    grade.SubjectName = node["ass_name"].InnerText;
+                //    grade.SubjectCategory = node["ass_catname"].InnerText;
                     foreach (XmlNode studnode in nodeList)
                     {
                         studid = studnode["stud_id"].InnerText;
@@ -140,13 +145,13 @@ namespace ReportCardGenerator.Utilities
                         }
 
                     }
-
+            
                     
                 }
                 
             }
 
-        }
+        
 
         private static void addAttendanceFromXML(IStudentController controller, XmlDocument doc)
         {

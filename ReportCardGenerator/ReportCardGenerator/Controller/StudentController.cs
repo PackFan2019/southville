@@ -77,13 +77,20 @@ namespace ReportCardGenerator.Controller
             //Test the existence of grades by using Equals
             //Add the period if it does not exist (call addOrUpdatePeriod())
             Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
+            //Skill skill = period.Skills.Find(delegate(Skill sk){return sk.SkillID.Equals(s.SkillID);});
+            Grade grade = period.Grades.Find(delegate(Grade gr) { return gr.SubjectID.Equals(g.SubjectID); });//System.Windows.Forms.MessageBox.Show(period.PeriodID.ToString());
             if (period.Grades.Count == 0)
             {
                 if (g != null)
-                period.Grades.Add(g);
+                    period.Grades.Add(g);
             }
-            else period.Grades.Insert(stud.RptCard.Periods.IndexOf(period), g);
-            if (period == null)addOrUpdatePeriod(stud,p);
+            else
+            {
+                //System.Windows.Forms.MessageBox.Show(g.NumericGrade + " " + g.LetterGrade + " " + g.SubjectName + " " + g.SubjectCategory);
+                p.Grades.Insert(period.Grades.IndexOf(grade), g);
+                if (period == null) addOrUpdatePeriod(stud, p);
+            }
+            
         }
         public void addOrUpdateComment(Student stud, Comment c, Period p)
         {
