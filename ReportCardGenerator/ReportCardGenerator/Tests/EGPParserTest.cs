@@ -71,15 +71,35 @@ namespace ReportCardGenerator.Tests
         [Test]
         public void testaddSkillsFromXML()
         {
-            Student stud = new Student();
-            stud.StudentID = "07-0052";
-            stud.FirstName = "Maria Syahirah Binti";
-            stud.LastName = "Ahmad";
             XmlDocument doc = new XmlDocument();
+            Student stud = new Student();
+            Skill sk = new Skill();
+            Period per = new Period();
+
+            stud.StudentID = "95-0072";
+            stud.LastName = "Abbey Geraldine";
+            stud.FirstName = "Matibag";
+
+            sk.SkillID = "1";
+            sk.SkillName = "A1Performs with Int'l Standards";
+            sk.SkillCategory = "Competence";
+            sk.NumericGrade = 91;
+            
             doc.Load("XML Homeroom.xml");
+
             EGPXMLParser.parseHomeroomXML(FrontController.getInstance().getStudentController(), doc);
 
-            //Assert.AreEqual()
+            System.Windows.Forms.MessageBox.Show(per.Skills.Count.ToString());
+            //foreach (Skill skill in controller.getPeriod(stud, 1).Skills)
+            //{
+            //    System.Windows.Forms.MessageBox.Show(skill.SkillID + " " + skill.SkillName);
+            //}
+
+            //System.Windows.Forms.MessageBox.Show(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(sk.SkillID); }).ToString());
+            //Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(sk.SkillID); }),sk.SkillID);
+            //Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillName.Equals(sk.SkillName); }), sk.SkillName);
+            //Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillCategory.Equals(sk.SkillCategory); }), sk.SkillCategory);
+            //Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.NumericGrade.Equals(sk.NumericGrade); }), sk.NumericGrade);
         }
         [Test]
         public void testaddGradesFromXML()
@@ -111,17 +131,34 @@ namespace ReportCardGenerator.Tests
         [Test]
         public void testaddAttendanceFromXML()
         {
-            //Student stud = new Student();
-            //stud.StudentID = "4335";
-            //stud.FirstName = "Romyr";
-            //stud.LastName = "Reyes";
-            //XmlDocument doc = new XmlDocument();
-            //doc.Load(@"c:\XML Gradebook.xml");
-            //EGPXMLParser.parseGradebookXML(FrontController.getInstance().getStudentController(), doc);
+            Student stud = new Student();
+            Attendance att = new Attendance();
+            stud.StudentID = "02-0190";
+            stud.FirstName = "Ito";
+            stud.LastName = "Airi Krizia";
+
+            att.DaysAbsent = 2;
+            XmlDocument doc = new XmlDocument();
+            doc.Load("XML Gradebook.xml");
+            EGPXMLParser.parseHomeroomXML(FrontController.getInstance().getStudentController(), doc);
+
+            Assert.AreEqual(controller.getPeriod(stud,1).PeriodAttendance.DaysPresent,att);
         }
         [Test]
         public void testaddCommentsFromXML()
         {
+            XmlDocument doc = new XmlDocument();
+            Student stud = new Student();
+            Comment comm = new Comment();
+            doc.Load("XML Gradebook.xml");
+            stud.StudentID = "95-0072";
+            stud.LastName = "Abbey Geraldine";
+            stud.FirstName = "Matibag";
+            comm.CommentText = "Abbey is a great student";
+            EGPXMLParser.parseHomeroomXML(FrontController.getInstance().getStudentController(), doc);
+
+            Assert.AreEqual(controller.getPeriod(stud,1).PeriodComment.CommentText.Equals(comm.CommentText),true);
+            Assert.AreEqual(controller.getPeriod(stud,1).PeriodComment.CommentText,comm.CommentText);
 
         }
 

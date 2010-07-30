@@ -24,6 +24,7 @@ namespace ReportCardGenerator.Utilities
                 stud.StudentID = node["stud_id"].InnerText;
                 stud.FirstName = node["stud_firstname"].InnerText;
                 stud.LastName = node["stud_lastname"].InnerText;
+                //System.Windows.Forms.MessageBox.Show(stud.StudentID);
                 controller.addOrUpdateStudent(stud);
             }
         }
@@ -56,6 +57,7 @@ namespace ReportCardGenerator.Utilities
                             {
                                 skill.NumericGrade = double.Parse(graded["score_percent"].InnerText.ToString());
                                 skill.LetterGrade = graded["score_grade"].InnerText;
+                                //System.Windows.Forms.MessageBox.Show(skill.NumericGrade.ToString() + " " + skill.LetterGrade + " " + skill.SkillCategory);
                             }
                             else
                             {
@@ -72,14 +74,16 @@ namespace ReportCardGenerator.Utilities
                                     graded["score_percent"].InnerText = "0.0";
                                     skill.NumericGrade = double.Parse(graded["score_percent"].InnerText.ToString());
                                     skill.LetterGrade = graded["score_grade"].InnerText;
-
                                     //System.Windows.Forms.MessageBox.Show(skill.NumericGrade.ToString() + " " + skill.LetterGrade);
+                                    
                                 }
                             }
+                            //System.Windows.Forms.MessageBox.Show(skill.NumericGrade.ToString() + " " + skill.LetterGrade + " " + skill.SkillCategory);
+                            controller.addOrUpdatePeriod(controller.getStudent(studid), period);
+                            controller.addOrUpdateSkill(controller.getStudent(studid), skill, period);
                         }
                     }
-                    controller.addOrUpdatePeriod(controller.getStudent(studid), period);
-                    controller.addOrUpdateSkill(controller.getStudent(studid), skill, period);
+                    
                 }
 
             }
@@ -100,10 +104,10 @@ namespace ReportCardGenerator.Utilities
                 period.PeriodID = Int32.Parse(node2["cr_termnum"].InnerText);
                 period.PeriodName = node2["cr_termlabel"].InnerText;
                 grade.SubjectName = node2["cr_classsubjectname"].InnerText;
-                if (node2.Attributes["cr_data"].Value["label"].Equals("SubjectID"))
-                {
+                //if (node2.Attributes["cr_data"].Value["label"].Equals("SubjectID"))
+                //{
 
-                }
+                //}
                 //foreach (XmlNode node in gradelist)
                 //{
                 //    grade.SubjectID = node["ass_id"].InnerText;
@@ -166,7 +170,6 @@ namespace ReportCardGenerator.Utilities
                 period.PeriodID = int.Parse(pdcheck["cr_termnum"].InnerText);
                 period.PeriodName = pdcheck["cr_termlabel"].InnerText;
 
-
             }
 
         }
@@ -193,13 +196,14 @@ namespace ReportCardGenerator.Utilities
                         controller.addOrUpdateComment(controller.getStudent(studid), comment, period);
                     }
                 }
-            }
-                        
+            }         
         }
         public static void parseHomeroomXML(IStudentController controller, XmlDocument doc)
         {
             addStudentsFromXML(controller, doc);
             addSkillsFromXML(controller, doc);
+            //addCommentsFromXML(controller,doc);
+            //addAttendanceFromXML(controller,doc);
 
         }
 
