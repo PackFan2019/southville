@@ -96,10 +96,10 @@ namespace ReportCardGenerator.Tests
             //}
 
             //System.Windows.Forms.MessageBox.Show(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(sk.SkillID); }).ToString());
-            //Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(sk.SkillID); }),sk.SkillID);
-            //Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillName.Equals(sk.SkillName); }), sk.SkillName);
-            //Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillCategory.Equals(sk.SkillCategory); }), sk.SkillCategory);
-            //Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.NumericGrade.Equals(sk.NumericGrade); }), sk.NumericGrade);
+            Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(sk.SkillID); }), sk.SkillID);
+            Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillName.Equals(sk.SkillName); }), sk.SkillName);
+            Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillCategory.Equals(sk.SkillCategory); }), sk.SkillCategory);
+            Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.NumericGrade.Equals(sk.NumericGrade); }), sk.NumericGrade);
         }
         [Test]
         public void testaddGradesFromXML()

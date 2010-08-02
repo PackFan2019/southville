@@ -37,22 +37,27 @@ namespace ReportCardGenerator.Utilities
             XmlNodeList periodlist = doc.GetElementsByTagName("classrecord");
             foreach (XmlNode node2 in periodlist)
             {
-                string studid;
-                Skill skill = new Skill();
-                Period period = new Period();
-                period.PeriodID = int.Parse(node2["cr_termnum"].InnerText);
-                period.PeriodName = node2["cr_termlabel"].InnerText;
+                //string studid;
                 foreach (XmlNode node in nodeList)
                 {
-                    studid = node["stud_id"].InnerText;
-                    //System.Windows.Forms.MessageBox.Show(studid);
                     foreach (XmlNode grade in gradelist)
                     {
-                        skill.SkillID = grade["ass_id"].InnerText;
-                        skill.SkillName = grade["ass_name"].InnerText;
-                        skill.SkillCategory = grade["ass_catname"].InnerText;
                         foreach (XmlNode graded in grades)
                         {
+                            Student stud = new Student();
+                            Period period = new Period();
+                            Skill skill = new Skill();
+                            //get the period
+                            period.PeriodID = int.Parse(node2["cr_termnum"].InnerText);
+                            period.PeriodName = node2["cr_termlabel"].InnerText;
+
+                            //get the student Id
+                            stud.StudentID = node["stud_id"].InnerText;
+
+                            //get the skill attributes
+                            skill.SkillID = grade["ass_id"].InnerText;
+                            skill.SkillName = grade["ass_name"].InnerText;
+                            skill.SkillCategory = grade["ass_catname"].InnerText;
                             if (!graded["score_percent"].InnerText.Equals(""))
                             {
                                 skill.NumericGrade = double.Parse(graded["score_percent"].InnerText.ToString());
@@ -75,16 +80,22 @@ namespace ReportCardGenerator.Utilities
                                     skill.NumericGrade = double.Parse(graded["score_percent"].InnerText.ToString());
                                     skill.LetterGrade = graded["score_grade"].InnerText;
                                     //System.Windows.Forms.MessageBox.Show(skill.NumericGrade.ToString() + " " + skill.LetterGrade);
-                                    
+
                                 }
                             }
-                            //System.Windows.Forms.MessageBox.Show(skill.NumericGrade.ToString() + " " + skill.LetterGrade + " " + skill.SkillCategory);
-                            controller.addOrUpdatePeriod(controller.getStudent(studid), period);
-                            controller.addOrUpdateSkill(controller.getStudent(studid), skill, period);
+                           
+                            System.Windows.Forms.MessageBox.Show(stud.StudentID + " " + skill.NumericGrade.ToString() + " " + skill.LetterGrade + " " + skill.SkillCategory);
+                            controller.addOrUpdatePeriod(controller.getStudent(stud.StudentID), period);
+                            controller.addOrUpdateSkill(controller.getStudent(stud.StudentID), skill, period);
                         }
+                        //System.Windows.Forms.MessageBox.Show(stud.StudentID + " " + skill.NumericGrade.ToString() + " " + skill.LetterGrade + " " + skill.SkillCategory);
+                        //controller.addOrUpdatePeriod(controller.getStudent(stud.StudentID), period);
+                        //controller.addOrUpdateSkill(controller.getStudent(stud.StudentID), skill, period);
                     }
-                    
                 }
+                //System.Windows.Forms.MessageBox.Show(stud.StudentID + " " + skill.NumericGrade.ToString() + " " + skill.LetterGrade + " " + skill.SkillCategory);
+                //controller.addOrUpdatePeriod(controller.getStudent(stud.StudentID), period);
+                //controller.addOrUpdateSkill(controller.getStudent(stud.StudentID), skill, period);
 
             }
 
