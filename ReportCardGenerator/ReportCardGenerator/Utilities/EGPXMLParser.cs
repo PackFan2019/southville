@@ -30,31 +30,33 @@ namespace ReportCardGenerator.Utilities
         }
 
         private static void addSkillsFromXML(IStudentController controller, XmlDocument doc)
-        {
-            XmlNodeList nodeList = doc.GetElementsByTagName("stud_recordinfo");
+        { 
             XmlNodeList gradelist = doc.GetElementsByTagName("assignment");
+            XmlNodeList nodeList = doc.GetElementsByTagName("stud_recordinfo");
+           
             XmlNodeList grades = doc.GetElementsByTagName("score");
             XmlNodeList periodlist = doc.GetElementsByTagName("classrecord");
             foreach (XmlNode node2 in periodlist)
             {
                 //string studid;
+                
+                Period period = new Period();
+               
+                period.PeriodID = int.Parse(node2["cr_termnum"].InnerText);
+                period.PeriodName = node2["cr_termlabel"].InnerText;
                 foreach (XmlNode node in nodeList)
                 {
+                    Student stud = new Student();
                     foreach (XmlNode grade in gradelist)
                     {
+                        
                         foreach (XmlNode graded in grades)
                         {
-                            Student stud = new Student();
-                            Period period = new Period();
-                            Skill skill = new Skill();
-                            //get the period
-                            period.PeriodID = int.Parse(node2["cr_termnum"].InnerText);
-                            period.PeriodName = node2["cr_termlabel"].InnerText;
 
-                            //get the student Id
+                           
                             stud.StudentID = node["stud_id"].InnerText;
 
-                            //get the skill attributes
+                            Skill skill = new Skill();
                             skill.SkillID = grade["ass_id"].InnerText;
                             skill.SkillName = grade["ass_name"].InnerText;
                             skill.SkillCategory = grade["ass_catname"].InnerText;
@@ -62,43 +64,51 @@ namespace ReportCardGenerator.Utilities
                             {
                                 skill.NumericGrade = double.Parse(graded["score_percent"].InnerText.ToString());
                                 skill.LetterGrade = graded["score_grade"].InnerText;
-                                //System.Windows.Forms.MessageBox.Show(skill.NumericGrade.ToString() + " " + skill.LetterGrade + " " + skill.SkillCategory);
+
+
                             }
                             else
                             {
                                 if (graded["score_grade"].InnerText.Equals(""))
                                 {
+                                    //break;
                                     skill.LetterGrade = graded["score_grade"].InnerText = "blank letter grade!!!";
                                     graded["score_percent"].InnerText = "0.0";
                                     skill.NumericGrade = double.Parse(graded["score_percent"].InnerText.ToString());
                                     skill.LetterGrade = graded["score_grade"].InnerText;
-                                    //System.Windows.Forms.MessageBox.Show(skill.NumericGrade.ToString() + " " + skill.LetterGrade);
+                                    //controller.addOrUpdateSkill(controller.getStudent(stud.StudentID), skill, period);
                                 }
                                 else
                                 {
+                                    //break;
                                     graded["score_percent"].InnerText = "0.0";
                                     skill.NumericGrade = double.Parse(graded["score_percent"].InnerText.ToString());
                                     skill.LetterGrade = graded["score_grade"].InnerText;
-                                    //System.Windows.Forms.MessageBox.Show(skill.NumericGrade.ToString() + " " + skill.LetterGrade);
+                                    //controller.addOrUpdateSkill(controller.getStudent(stud.StudentID), skill, period);
 
                                 }
+
                             }
-                           
-                            System.Windows.Forms.MessageBox.Show(stud.StudentID + " " + skill.NumericGrade.ToString() + " " + skill.LetterGrade + " " + skill.SkillCategory);
-                            controller.addOrUpdatePeriod(controller.getStudent(stud.StudentID), period);
-                            controller.addOrUpdateSkill(controller.getStudent(stud.StudentID), skill, period);
+
+                            System.Windows.Forms.MessageBox.Show(period.PeriodName + " " + stud.StudentID + " " + skill.NumericGrade.ToString() + " " + skill.LetterGrade + " " + skill.SkillCategory);
+                            //controller.addOrUpdateSkill(controller.getStudent(stud.StudentID), skill, period);
+                            //break;
                         }
                         //System.Windows.Forms.MessageBox.Show(stud.StudentID + " " + skill.NumericGrade.ToString() + " " + skill.LetterGrade + " " + skill.SkillCategory);
                         //controller.addOrUpdatePeriod(controller.getStudent(stud.StudentID), period);
                         //controller.addOrUpdateSkill(controller.getStudent(stud.StudentID), skill, period);
+                        //break;
+                        
                     }
+                    
+                    //break;
                 }
                 //System.Windows.Forms.MessageBox.Show(stud.StudentID + " " + skill.NumericGrade.ToString() + " " + skill.LetterGrade + " " + skill.SkillCategory);
                 //controller.addOrUpdatePeriod(controller.getStudent(stud.StudentID), period);
                 //controller.addOrUpdateSkill(controller.getStudent(stud.StudentID), skill, period);
-
+                
             }
-
+            
         }
 
         private static void addGradesFromXML(IStudentController controller, XmlDocument doc)

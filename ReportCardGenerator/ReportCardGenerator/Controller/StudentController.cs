@@ -45,7 +45,7 @@ namespace ReportCardGenerator.Controller
             }
             else
             {                
-                if (stud.StudentID.Equals(student.StudentID) && !stud.FirstName.Equals(student.FirstName) && !stud.LastName.Equals(student.LastName))
+                if (stud.StudentID.Equals(student.StudentID) && !stud.FirstName.Equals(student.FirstName) || !stud.LastName.Equals(student.LastName))
                 {
                     State.getInstance().Students.Insert(State.getInstance().Students.IndexOf(stud), stud);
                     System.Windows.Forms.MessageBox.Show("Exception was thrown!!!");
