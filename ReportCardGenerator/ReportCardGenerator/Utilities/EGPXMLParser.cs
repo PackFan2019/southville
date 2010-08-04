@@ -50,10 +50,14 @@ namespace ReportCardGenerator.Utilities
                     period.PeriodID = int.Parse(primelist.Item(i).FirstChild.ChildNodes[1].InnerText);
                     period.PeriodName = primelist.Item(i).FirstChild.ChildNodes[0].InnerText;
                 }
-                int count = primelist.Item(i)["student"].FirstChild.ChildNodes.Count;
+                //int count = primelist.Item(i)["student"].FirstChild.ChildNodes.Count;
                 //System.Windows.Forms.MessageBox.Show(primelist.Item(i).FirstChild["student"].ToString());
-                System.Windows.Forms.MessageBox.Show(primelist.Item(i)["student"].FirstChild.Name);
-
+                //System.Windows.Forms.MessageBox.Show(primelist.Item(i)["student"].FirstChild.Name);
+                if (primelist.Item(i)["student"].FirstChild.Name.Equals("stud_recordinfo"))
+                {
+                    System.Windows.Forms.MessageBox.Show(primelist.Item(i)["student"].FirstChild.ChildNodes[0].InnerText);
+                    stud.StudentID = primelist.Item(i)["student"].FirstChild.ChildNodes[0].InnerText;
+                }
             }
             //foreach (XmlNode primenode in primelist)
             //{
