@@ -50,7 +50,7 @@ namespace ReportCardGenerator.Utilities
                     period.PeriodID = int.Parse(primelist.Item(i).FirstChild.ChildNodes[1].InnerText);
                     period.PeriodName = primelist.Item(i).FirstChild.ChildNodes[0].InnerText;
                 }
-                //int count = int.Parse(primelist.Item(i).FirstChild["student"]);
+                int count = primelist.Item(i)["student"].FirstChild.ChildNodes.Count;
                 //System.Windows.Forms.MessageBox.Show(primelist.Item(i).FirstChild["student"].ToString());
                 System.Windows.Forms.MessageBox.Show(primelist.Item(i)["student"].FirstChild.Name);
 
