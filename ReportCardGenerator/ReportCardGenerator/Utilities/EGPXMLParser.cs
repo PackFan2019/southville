@@ -30,47 +30,62 @@ namespace ReportCardGenerator.Utilities
         }
 
         private static void addSkillsFromXML(IStudentController controller, XmlDocument doc)
-        { 
-            XmlNodeList gradelist = doc.GetElementsByTagName("assignment");
-            XmlNodeList nodeList = doc.GetElementsByTagName("stud_recordinfo");
-           
-            XmlNodeList grades = doc.GetElementsByTagName("score");
-            XmlNodeList periodlist = doc.GetElementsByTagName("classrecord");
-            foreach (XmlNode node2 in periodlist)
+        {
+            List<Skill> skillcontainer = new List<Skill>();
+            XmlNodeList primelist = doc.GetElementsByTagName("class");
+            foreach (XmlNode primenode in primelist)
             {
-                //string studid;
-                
-                Period period = new Period();
-               
-                period.PeriodID = int.Parse(node2["cr_termnum"].InnerText);
-                period.PeriodName = node2["cr_termlabel"].InnerText;
-                foreach (XmlNode node in nodeList)
+                if (primenode.Attributes.Equals("classrecord"))
                 {
-                    Student stud = new Student();
-                    stud.StudentID = node["stud_id"].InnerText;
-                    foreach (XmlNode grade in gradelist)
+                    XmlNodeList crecord = primenode.ChildNodes;
+                    Period pd = new Period();
+                    foreach (XmlNode periodxml in crecord)
                     {
-                        Skill skill = new Skill();
-                        skill.SkillID = grade["ass_id"].InnerText;
-                        skill.SkillName = grade["ass_name"].InnerText;
-                        skill.SkillCategory = grade["ass_catname"].InnerText;
-                        foreach (XmlNode graded in grades)
-                        {
-                            if (graded["score_percent"].InnerText.Equals("") || graded["score_grade"].InnerText.Equals(""))
-                            {
-                                skill.NumericGrade = 0;
-                                skill.LetterGrade = "INC";
-                            }
-                            else
-                            {
-                                skill.NumericGrade = double.Parse(graded["score_percent"].InnerText.ToString());
-                                skill.LetterGrade = graded["score_grade"].InnerText;
-                            }
-                           System.Windows.Forms.MessageBox.Show(period.PeriodName + " " + stud.StudentID + " " + skill.NumericGrade.ToString() + " " + skill.LetterGrade + " " + skill.SkillCategory);
-                        }
+                        pd.PeriodID = Int32.Parse(periodxml["cr_termnum"].InnerText);
+                        pd.PeriodName = periodxml["cr_classsubjectname"].InnerText;
                     }
                 }
-            } 
+                if (primenode.Attributes.Equals("assignments"))
+                {
+                    XmlNodeList assrec = primenode.ChildNodes;
+                    Skill skill = new Skill();
+                    foreach (XmlNode skillxml in assrec)
+                    {
+                        skill.SkillID = skillxml["ass_id"].InnerText;
+                        skill.SkillName = skillxml["ass_name"].InnerText;
+                        skill.SkillCategory = skillxml["ass_catname"].InnerText;
+                        skillcontainer.Add(skill);
+                    }
+                }
+                if (primenode.Attributes.Equals("student"))
+                {
+                    XmlNodeList studinfoall = primenode.ChildNodes;
+                    foreach (XmlNode studseg in studinfoall)
+                    {
+                        if (studseg.Attributes.Equals("stud_recordinfo"))
+                        {
+                            XmlNodeList studentinfo = studseg.ChildNodes;
+                            String studentid = Int32.Parse(studentinfo["stud_id"].InnerText);
+                        }
+                        if (studseg.Attributes.Equals("stud_grade"))
+                        {
+                            Skill skilltostore = new Skill();
+                            XmlNodeList grades =  studseg.ChildNodes;
+                            foreach (XmlNode gradseg in grades)
+                            if (gradseg.Attributes["score"].Value.Equals("assid"))
+                            {
+                                skilltostore.SkillID = studseg.InnerText;
+                                skilltostore.SkillName = skillcontainer[skilltostore.SkillID].SkillName;
+                                skilltostore.SkillCategory = skillcontainer[skilltostore.SkillID].SkillCategory;
+                            }
+                            skilltostore.NumericGrade = Int32.Parse(grades["score_percent"].InnerText);
+                            skilltostore.LetterGrade = grades["score_grade"].InnerText;
+                            
+                        }
+                    }
+
+                }
+            }
         }
 
         private static void addGradesFromXML(IStudentController controller, XmlDocument doc)
