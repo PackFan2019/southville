@@ -42,13 +42,16 @@ namespace ReportCardGenerator.Utilities
             foreach (XmlNode primenode in primelist)
             {
                 XmlNodeList peroidlist = primenode.SelectNodes("classrecord");
-                XmlNodeList studentinfo = primenode.SelectNodes("student/stud_recordinfo");
+                XmlNodeList studentinfo = primenode.SelectNodes("student");
                 XmlNodeList gradename = primenode.SelectNodes("student/assignment");
-                XmlNodeList gradeinfo = primenode.SelectNodes("student/stud_grades/score");
+               
 
                 foreach (XmlNode test in gradename)
                 {
-
+                    skill.SkillID = test.ChildNodes[0].InnerText;
+                    skill.SkillName = test.ChildNodes[1].InnerText;
+                    skill.SkillCategory = test.ChildNodes[6].InnerText;
+                    skillcontainer.Add(skill);
                 }
 
                 foreach (XmlNode test in peroidlist)
@@ -58,10 +61,21 @@ namespace ReportCardGenerator.Utilities
                     foreach (XmlNode student in studentinfo)
                     {
                         Student idgeter = new Student();
-                        idgeter.StudentID = student.ChildNodes[0].InnerText;
+                        idgeter.StudentID = student.ChildNodes[0].ChildNodes[0].InnerText;
                         controller.addOrUpdatePeriod(controller.getStudent(idgeter.StudentID), period);
-                        System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName + " " + idgeter.StudentID);
+                        XmlNodeList gradeinfo = student.SelectNodes("stud_grades/score");
+                        foreach (XmlNode grade in gradeinfo)
+                        {
+                            Skill skilltostore = new Skill();
+                            skilltostore.SkillID = grade.Attributes[0].InnerText;
+                            skilltostore.NumericGrade = double.Parse(grade.ChildNodes[1].InnerText);
+                            skilltostore.LetterGrade = grade.ChildNodes[2].InnerText;
+
+                            System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName + " " + idgeter.StudentID + " " + skilltostore.SkillID + " " + skilltostore.LetterGrade + " " + skilltostore.NumericGrade);
+                        }
+
                     }
+
                 }
             }
         }
