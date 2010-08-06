@@ -31,8 +31,7 @@ namespace ReportCardGenerator.Utilities
 
         private static void addSkillsFromXML(IStudentController controller, XmlDocument doc)
         {
-            Dictionary<String, String> skillNames = new Dictionary<string,string>();
-            Dictionary<String, String> categories = new Dictionary<string,string>();
+           
             XmlNodeList primelist = doc.SelectNodes("easygradepro/class");
 
             //Declaration of Beans
@@ -45,10 +44,12 @@ namespace ReportCardGenerator.Utilities
                 XmlNodeList peroidlist = primenode.SelectNodes("classrecord");
                 XmlNodeList studentinfo = primenode.SelectNodes("student");
                 XmlNodeList gradename = primenode.SelectNodes("assignments/assignment");
-               
+                Dictionary<String, String> skillNames = new Dictionary<string, string>();
+                Dictionary<String, String> categories = new Dictionary<string, string>();
 
                 foreach (XmlNode test in gradename)
                 {
+                    
                     skill.SkillID = test.ChildNodes[0].InnerText;
                     skill.SkillName = test.ChildNodes[1].InnerText;
                     skill.SkillCategory = test.ChildNodes[6].InnerText;
