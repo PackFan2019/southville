@@ -31,7 +31,8 @@ namespace ReportCardGenerator.Utilities
 
         private static void addSkillsFromXML(IStudentController controller, XmlDocument doc)
         {
-            List<Skill> skillcontainer = new List<Skill>();
+            Dictionary<String, String> skillNames = new Dictionary<string,string>();
+            Dictionary<String, String> categories = new Dictionary<string,string>();
             XmlNodeList primelist = doc.SelectNodes("easygradepro/class");
 
             //Declaration of Beans
@@ -43,7 +44,7 @@ namespace ReportCardGenerator.Utilities
             {
                 XmlNodeList peroidlist = primenode.SelectNodes("classrecord");
                 XmlNodeList studentinfo = primenode.SelectNodes("student");
-                XmlNodeList gradename = primenode.SelectNodes("student/assignment");
+                XmlNodeList gradename = primenode.SelectNodes("assignments/assignment");
                
 
                 foreach (XmlNode test in gradename)
@@ -51,7 +52,8 @@ namespace ReportCardGenerator.Utilities
                     skill.SkillID = test.ChildNodes[0].InnerText;
                     skill.SkillName = test.ChildNodes[1].InnerText;
                     skill.SkillCategory = test.ChildNodes[6].InnerText;
-                    skillcontainer.Add(skill);
+                    skillNames.Add(skill.SkillID, skill.SkillName);
+                    categories.Add(skill.SkillID, skill.SkillCategory);
                 }
 
                 foreach (XmlNode test in peroidlist)
@@ -68,11 +70,22 @@ namespace ReportCardGenerator.Utilities
                         {
                             Skill skilltostore = new Skill();
                             skilltostore.SkillID = grade.Attributes[0].InnerText;
-                            skilltostore.NumericGrade = double.Parse(grade.ChildNodes[1].InnerText);
-                            skilltostore.LetterGrade = grade.ChildNodes[2].InnerText;
+                            skilltostore.SkillName = skillNames[grade.Attributes[0].InnerText];
+                            skilltostore.SkillCategory = categories[grade.Attributes[0].InnerText];
+                            if (skilltostore.SkillCategory.Equals("Remarks"))
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                skilltostore.NumericGrade = double.Parse(grade.ChildNodes[1].InnerText);
+                                skilltostore.LetterGrade = grade.ChildNodes[2].InnerText;
+                            }
 
-                            System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName + " " + idgeter.StudentID + " " + skilltostore.SkillID + " " + skilltostore.LetterGrade + " " + skilltostore.NumericGrade);
+                            System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName + " " + idgeter.StudentID + " " + skilltostore.SkillID + skilltostore.SkillName + " " + skilltostore.LetterGrade + " " + skilltostore.NumericGrade);
+                            
                         }
+                        
 
                     }
 
