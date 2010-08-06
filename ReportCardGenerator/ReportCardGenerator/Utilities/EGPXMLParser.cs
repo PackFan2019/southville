@@ -32,104 +32,38 @@ namespace ReportCardGenerator.Utilities
         private static void addSkillsFromXML(IStudentController controller, XmlDocument doc)
         {
             List<Skill> skillcontainer = new List<Skill>();
-            XmlNodeList primelist = doc.GetElementsByTagName("class");
-            
+            XmlNodeList primelist = doc.SelectNodes("easygradepro/class");
+
             //Declaration of Beans
             Period period = new Period();
             Skill skill = new Skill();
-            Student stud = new Student();
             //End of Declaration
 
-            for (int i = 0; i < primelist.Count; i++)
+            foreach (XmlNode primenode in primelist)
             {
-                //System.Windows.Forms.MessageBox.Show(primelist.Item(i).FirstChild.Name);
-                //get the period name and period id from node "classrecord"
-                if (primelist.Item(i).FirstChild.Name.Equals("classrecord"))
+                XmlNodeList peroidlist = primenode.SelectNodes("classrecord");
+                XmlNodeList studentinfo = primenode.SelectNodes("student/stud_recordinfo");
+                XmlNodeList gradename = primenode.SelectNodes("student/assignment");
+                XmlNodeList gradeinfo = primenode.SelectNodes("student/stud_grades/score");
+
+                foreach (XmlNode test in gradename)
                 {
-                    //System.Windows.Forms.MessageBox.Show(primelist.Item(i).FirstChild.ChildNodes[0].InnerText);
-                    period.PeriodID = int.Parse(primelist.Item(i).FirstChild.ChildNodes[1].InnerText);
-                    period.PeriodName = primelist.Item(i).FirstChild.ChildNodes[0].InnerText;
+
                 }
-                int count = primelist.Item(i)["student"].FirstChild.ChildNodes.Count;
-                //System.Windows.Forms.MessageBox.Show(primelist.Item(i).FirstChild["student"].ToString());
-                System.Windows.Forms.MessageBox.Show(count.ToString());
-                if (primelist.Item(i)["student"].FirstChild.Name.Equals("stud_recordinfo"))
+
+                foreach (XmlNode test in peroidlist)
                 {
-                    //System.Windows.Forms.MessageBox.Show(primelist.Item(i)["student"].FirstChild.ChildNodes[0].InnerText);
-                    stud.StudentID = primelist.Item(i)["student"].FirstChild.ChildNodes[0].InnerText;
+                    period.PeriodID = Int32.Parse(test.ChildNodes[1].InnerText);
+                    period.PeriodName = test.ChildNodes[2].InnerText;
+                    foreach (XmlNode student in studentinfo)
+                    {
+                        Student idgeter = new Student();
+                        idgeter.StudentID = student.ChildNodes[0].InnerText;
+                        controller.addOrUpdatePeriod(controller.getStudent(idgeter.StudentID), period);
+                        System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName + " " + idgeter.StudentID);
+                    }
                 }
             }
-            //foreach (XmlNode primenode in primelist)
-            //{
-            //    Period pd = new Period();
-            //    Student stud = new Student();
-            //    Skill skilltostore = new Skill();
-            //    System.Windows.Forms.MessageBox.Show(primelist.Count.ToString());
-            //    if (primenode.FirstChild.Name.Equals("classrecord"))
-            //    {
-            //        XmlNodeList classlist = primenode.FirstChild.SelectNodes("class/classrecord");
-            //        foreach (XmlNode pernode in classlist)
-            //        {
-            //            //System.Windows.Forms.MessageBox.Show(pernode.InnerText);
-            //        }
-            //        //foreach (XmlNode periodxml in crecord)
-            //        //{
-            //        //    System.Windows.Forms.MessageBox.Show(periodxml.FirstChild.Name);
-            //        //    pd.PeriodID = Int32.Parse(periodxml["cr_termnum"].InnerText);
-            //        //    pd.PeriodName = periodxml["cr_classsubjectname"].InnerText.ToString();
-            //        //    //System.Windows.Forms.MessageBox.Show(pd.PeriodID.ToString());
-            //        //}
-            //    }
-            //    //if (primenode.Attributes.Equals("assignments"))
-            //    //{
-            //    //    XmlNodeList assrec = primenode.ChildNodes;
-            //    //    Skill skill = new Skill();
-            //    //    foreach (XmlNode skillxml in assrec)
-            //    //    {
-                        
-            //    //        skill.SkillID = skillxml["ass_id"].InnerText;
-            //    //        skill.SkillName = skillxml["ass_name"].InnerText;
-            //    //        skill.SkillCategory = skillxml["ass_catname"].InnerText;
-            //    //        skillcontainer.Add(skill);
-            //    //    }
-            //    //}
-            //    //if (primenode.Attributes.Equals("student"))
-            //    //{
-            //    //    XmlNodeList studinfoall = primenode.ChildNodes;
-            //    //    foreach (XmlNode studseg in studinfoall)
-            //    //    {
-            //    //        if (studseg.Attributes.Equals("stud_recordinfo"))
-            //    //        {
-            //    //            XmlNodeList studentinfo = studseg.ChildNodes;
-            //    //            foreach (XmlNode studinfo in studentinfo)
-            //    //            {
-                                
-            //    //                stud.StudentID = studinfo["stud_id"].InnerText;
-            //    //            }
-            //    //        }
-            //    //        if (studseg.Attributes.Equals("stud_grade"))
-            //    //        {
-                           
-            //    //            XmlNodeList grades =  studseg.ChildNodes;
-            //    //            foreach (XmlNode gradseg in grades)
-            //    //            {
-            //    //                if (gradseg.Attributes["score"].Value.Equals("assid"))
-            //    //                {
-            //    //                    skilltostore.SkillID = studseg.InnerText;
-            //    //                    skilltostore.SkillName = skillcontainer[int.Parse(skilltostore.SkillID)].SkillName;
-            //    //                    skilltostore.SkillCategory = skillcontainer[int.Parse(skilltostore.SkillID)].SkillCategory;
-            //    //                }
-            //    //                skilltostore.NumericGrade = Int32.Parse(gradseg["score_percent"].InnerText);
-            //    //                skilltostore.LetterGrade = gradseg["score_grade"].InnerText;
-            //    //            }
-                            
-            //    //        }
-                        
-            //    //    }
-
-            //    //}
-            //    //System.Windows.Forms.MessageBox.Show(pd.PeriodName + " " + stud.StudentID + " " + skilltostore.SkillName + " " + skilltostore.NumericGrade + " " + skilltostore.SkillCategory);
-            //}
         }
 
         private static void addGradesFromXML(IStudentController controller, XmlDocument doc)
