@@ -129,18 +129,12 @@ namespace ReportCardGenerator.Utilities
         private static void addAttendanceFromXML(IStudentController controller, XmlDocument doc)
         {
 
-            XmlNodeList nodelist = doc.GetElementsByTagName("classrecord");
-            XmlNodeList nodelist2 = doc.GetElementsByTagName("stud_recordinfo");
-
-            foreach (XmlNode pdcheck in nodelist)
+            XmlNodeList primelist = doc.SelectNodes("easygradepro/class");
+            Period pd = new Period();
+            foreach (XmlNode primenode in primelist)
             {
-                Period period = new Period();
-                Attendance attend = new Attendance();
-                period.PeriodID = int.Parse(pdcheck["cr_termnum"].InnerText);
-                period.PeriodName = pdcheck["cr_termlabel"].InnerText;
-
+                
             }
-
         }
 
         private static void addCommentsFromXML(IStudentController controller, XmlDocument doc)
@@ -164,13 +158,8 @@ namespace ReportCardGenerator.Utilities
                         foreach (XmlNode grade in gradeinfo)
                         {
                             Comment cm = new Comment();
-
-                            if (skilltostore.SkillCategory.Equals("Remarks"))
-                            {
-
-                            }
-
-                            System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName + " " + idgeter.StudentID + " " + skilltostore.SkillID + skilltostore.SkillName + " " + skilltostore.LetterGrade + " " + skilltostore.NumericGrade);
+                            cm.CommentText = grade.LastChild.InnerText;
+                            controller.addOrUpdateComment(controller.getStudent(idgeter.StudentID),cm,period);
                         }
                     }
                 }
@@ -180,6 +169,7 @@ namespace ReportCardGenerator.Utilities
         {
             addStudentsFromXML(controller, doc);
             addSkillsFromXML(controller, doc);
+            addCommentsFromXML(controller, doc);
             //addCommentsFromXML(controller,doc);
             //addAttendanceFromXML(controller,doc);
 
