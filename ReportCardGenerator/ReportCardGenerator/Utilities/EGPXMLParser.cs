@@ -58,10 +58,10 @@ namespace ReportCardGenerator.Utilities
                     {
                         Student idgeter = new Student();
                         idgeter.StudentID = student.ChildNodes[0].ChildNodes[0].InnerText;
-                        controller.addOrUpdatePeriod(idgeter, period);
                         XmlNodeList gradeinfo = student.SelectNodes("stud_grades/score");
                         foreach (XmlNode grade in gradeinfo)
                         {
+                            controller.addOrUpdatePeriod(idgeter, period);
                             Skill skilltostore = new Skill();
                             skilltostore.SkillID = grade.Attributes[0].InnerText;
                             skilltostore.SkillName = skillNames[grade.Attributes[0].InnerText];
@@ -74,9 +74,10 @@ namespace ReportCardGenerator.Utilities
                             {
                                 skilltostore.NumericGrade = double.Parse(grade.ChildNodes[1].InnerText);
                                 skilltostore.LetterGrade = grade.ChildNodes[2].InnerText;
+                                controller.addOrUpdateSkill(controller.getStudent(idgeter.StudentID), skilltostore, period);
                             }
                           
-                            controller.addOrUpdateSkill(idgeter, skilltostore, period);
+                            controller.addOrUpdateSkill(controller.getStudent(idgeter.StudentID), skilltostore, period);
                             }
                     }
                 }
@@ -143,7 +144,7 @@ namespace ReportCardGenerator.Utilities
                     {
                         Student sd = new Student();
                         sd.StudentID = studparse.ChildNodes[0].InnerText;
-                        XmlNodeList attendancelist = studparse.SelectNodes("stud_attendance");
+                        XmlNodeList attendancelist = studparse.SelectNodes("stud_attendance/stud_att_total");
                         foreach (XmlNode attendancecomponent in attendancelist)
                         {
                             int absence1;
@@ -186,6 +187,7 @@ namespace ReportCardGenerator.Utilities
                         {
                             Comment cm = new Comment();
                             cm.CommentText = grade.LastChild.InnerText;
+                            controller.addOrUpdatePeriod(controller.getAllStudents(idgeter.StudentID), period);
                             controller.addOrUpdateComment(controller.getStudent(idgeter.StudentID),cm,period);
                         }
                     }
