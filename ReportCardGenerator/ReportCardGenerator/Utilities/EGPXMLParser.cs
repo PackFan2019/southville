@@ -77,10 +77,7 @@ namespace ReportCardGenerator.Utilities
                             }
                           
                             controller.addOrUpdateSkill(idgeter, skilltostore, period);
-                            
-                            
-                            //System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName + " " + idgeter.StudentID + " " + skilltostore.SkillID + skilltostore.SkillName + " " + skilltostore.LetterGrade + " " + skilltostore.NumericGrade);
-                        }
+                            }
                     }
                 }
             }
@@ -136,6 +133,33 @@ namespace ReportCardGenerator.Utilities
             Period pd = new Period();
             foreach (XmlNode primenode in primelist)
             {
+                XmlNodeList periodlst = primenode.SelectNodes("classrecord");
+                XmlNodeList studinfo = primenode.SelectNodes("student");
+                foreach (XmlNode periodgetter in periodlst)
+                {
+                    pd.PeriodID = Int32.Parse(periodgetter.ChildNodes[1].InnerText);
+                    pd.PeriodName = periodgetter.ChildNodes[2].InnerText;
+                    foreach (XmlNode studparse in studinfo)
+                    {
+                        Student sd = new Student();
+                        sd.StudentID = studparse.ChildNodes[0].InnerText;
+                        XmlNodeList attendancelist = studparse.SelectNodes("stud_attendance");
+                        foreach (XmlNode attendancecomponent in attendancelist)
+                        {
+                            int absence1;
+                            int absence2;
+                            int store;
+                            absence1 = Int32.Parse(attendancecomponent.ChildNodes[0].InnerText);
+                            absence2 = Int32.Parse(attendancecomponent.ChildNodes[4].InnerText);
+                            store = absence1 + absence2;
+                            Attendance attendance = new Attendance();
+                            attendance.DaysAbsent = store;
+                            attendance.DaysLate = Int32.Parse(attendancecomponent.ChildNodes[7].InnerText);
+                            controller.addOrUpdatePeriod(controller.getStudent(sd.StudentID), pd);
+                            controller.addOrUpdateAttendance(controller.getStudent(sd.StudentID), attendance);
+                        }
+                    }
+                }
                 
             }
         }
@@ -171,17 +195,15 @@ namespace ReportCardGenerator.Utilities
         public static void parseHomeroomXML(IStudentController controller, XmlDocument doc)
         {
             addStudentsFromXML(controller, doc);
+            addAttendanceFromXML(controller, doc);
             addSkillsFromXML(controller, doc);
             addCommentsFromXML(controller, doc);
-            //addCommentsFromXML(controller,doc);
-            //addAttendanceFromXML(controller,doc);
-
         }
 
         public static void parseGradebookXML(IStudentController controller, XmlDocument doc)
         {
-            //Adds the relevant information from the Xmldocument
             addStudentsFromXML(controller, doc);
+            addAttendanceFromXML(controller, doc);
             addGradesFromXML(controller, doc);
         }
     }
