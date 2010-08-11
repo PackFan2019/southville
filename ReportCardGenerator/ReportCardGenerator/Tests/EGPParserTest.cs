@@ -33,6 +33,10 @@ namespace ReportCardGenerator.Tests
             //Save a state to the old records
             oldRecords = controller.getAllStudents();
             State.getInstance().Students.Clear();
+            Student s = new Student();
+            s.RptCard.Periods.Clear();
+            Period p = new Period();
+            p.Skills.Clear();
             //Clear the list of students
             //controller.clearStudents();
             //Get the xml document
@@ -75,28 +79,32 @@ namespace ReportCardGenerator.Tests
             Student stud = new Student();
             Skill sk = new Skill();
             Period per = new Period();
+            ReportCard rpt = new ReportCard();
+
+            per.PeriodID = 1;
+            per.PeriodName = "Homeroom";
 
             stud.StudentID = "95-0072";
-            stud.LastName = "Abbey Geraldine";
-            stud.FirstName = "Matibag";
+            stud.FirstName = "Abbey Geraldine";
+            stud.LastName = "Matibag";
 
             sk.SkillID = "1";
             sk.SkillName = "A1Performs with Int'l Standards";
             sk.SkillCategory = "Competence";
             sk.NumericGrade = 91;
             
-            doc.Load("XML Homeroom.xml");
+            doc.Load(@"c:\XML\XML Homeroom.xml");
 
             EGPXMLParser.parseHomeroomXML(FrontController.getInstance().getStudentController(), doc);
 
-            System.Windows.Forms.MessageBox.Show(per.Skills.Count.ToString());
+            System.Windows.Forms.MessageBox.Show(rpt.Periods.Count.ToString());
             //foreach (Skill skill in controller.getPeriod(stud, 1).Skills)
             //{
             //    System.Windows.Forms.MessageBox.Show(skill.SkillID + " " + skill.SkillName);
             //}
 
             //System.Windows.Forms.MessageBox.Show(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(sk.SkillID); }).ToString());
-            Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(sk.SkillID); }), sk.SkillID);
+            Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(sk.SkillID); }).SkillID, sk.SkillID);
             Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillName.Equals(sk.SkillName); }), sk.SkillName);
             Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillCategory.Equals(sk.SkillCategory); }), sk.SkillCategory);
             Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.NumericGrade.Equals(sk.NumericGrade); }), sk.NumericGrade);

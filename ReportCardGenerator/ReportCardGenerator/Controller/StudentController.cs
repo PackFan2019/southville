@@ -66,9 +66,14 @@ namespace ReportCardGenerator.Controller
                 if (per != null)
                 {
                     stud.RptCard.Periods.Add(per);
+                   
                 }
             }
-            else stud.RptCard.Periods.Insert(stud.RptCard.Periods.IndexOf(periods), per);
+            else
+            {
+                stud.RptCard.Periods.Insert(stud.RptCard.Periods.IndexOf(periods), per);
+            }
+            //System.Windows.Forms.MessageBox.Show(stud.RptCard.Periods.Count.ToString());
         }
         public void addOrUpdateGrade(Student stud, Grade g, Period p)
         {
@@ -82,13 +87,13 @@ namespace ReportCardGenerator.Controller
             if (period.Grades.Count == 0)
             {
                 if (g != null)
-                    period.Grades.Add(g);
+                    p.Grades.Add(g);
             }
             else
             {
                 //System.Windows.Forms.MessageBox.Show(g.NumericGrade + " " + g.LetterGrade + " " + g.SubjectName + " " + g.SubjectCategory);
-                p.Grades.Insert(period.Grades.IndexOf(grade), g);
-                if (period == null) addOrUpdatePeriod(stud, p);
+                p.Grades.Insert(p.Grades.IndexOf(grade), g);
+                if (p == null) addOrUpdatePeriod(stud, p);
             }
             
         }
@@ -98,8 +103,8 @@ namespace ReportCardGenerator.Controller
             //Update the comment (not add a new one) if there is already an existing comment
             //Add the period if it does not exist
             Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
-            if (period == null) addOrUpdatePeriod(stud, p);
-            else period.PeriodComment= c;
+            if (p == null) addOrUpdatePeriod(stud, p);
+            else p.PeriodComment= c;
         }
         public void addOrUpdateSkill(Student stud, Skill s, Period p)
         {
@@ -108,16 +113,18 @@ namespace ReportCardGenerator.Controller
             //Test the existence of a skill using Equals
             //Add the period if it does not exist
             Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
-            Skill skill = period.Skills.Find(delegate(Skill sk){return sk.SkillID.Equals(s.SkillID);});
+            Skill skill = p.Skills.Find(delegate(Skill sk){return sk.SkillID.Equals(s.SkillID);});
             if (skill == null)
             {
                 if (s != null)
                 {
+                   
                     period.Skills.Add(s);
+                    //System.Windows.Forms.MessageBox.Show(s.SkillID);
                 }
             }
             else period.Skills.Insert(period.Skills.IndexOf(skill), s);
-            if (period == null) addOrUpdatePeriod(stud, p);
+            if (p == null) addOrUpdatePeriod(stud, p);
         }
         public void addOrUpdateAttendance(Student stud, Attendance a, Period p)
         {
@@ -177,8 +184,15 @@ namespace ReportCardGenerator.Controller
         {
             //Return null if period doesn't exist
             Period period = student.RptCard.Periods.Find(delegate(Period p) { return p.PeriodID.Equals(periodID); });
-            if (period != null) return period;
-            else return null;
+            if (period != null)
+            {
+                return period;                
+            }
+            else
+            {
+                return period;
+            }
+           
         }
 
         public void removeStudent(Student stud)

@@ -9,17 +9,23 @@ namespace ReportCardGenerator.Beans
     {
         private List<Period> periods = new List<Period>();
 
+        public List<Period> Periods
+        {
+            get { return periods; }
+            set { periods = value; }
+        }
+
         //public List<Period> Periods
         //{
         //    get { return periods; }
         //    set { periods = value; }
         //}
 
-        internal List<Period> Periods
-        {
-            get { return periods; }
-            set { periods = value; }
-        }
+        //internal List<Period> Periods
+        //{
+        //    get { return periods; }
+        //    set { periods = value; }
+        //}
 
         private String adviser;
 

@@ -58,7 +58,7 @@ namespace ReportCardGenerator.Utilities
                     {
                         Student idgeter = new Student();
                         idgeter.StudentID = student.ChildNodes[0].ChildNodes[0].InnerText;
-                        controller.addOrUpdatePeriod(controller.getStudent(idgeter.StudentID), period);
+                        controller.addOrUpdatePeriod(idgeter, period);
                         XmlNodeList gradeinfo = student.SelectNodes("stud_grades/score");
                         foreach (XmlNode grade in gradeinfo)
                         {
@@ -75,8 +75,11 @@ namespace ReportCardGenerator.Utilities
                                 skilltostore.NumericGrade = double.Parse(grade.ChildNodes[1].InnerText);
                                 skilltostore.LetterGrade = grade.ChildNodes[2].InnerText;
                             }
-
-                            System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName + " " + idgeter.StudentID + " " + skilltostore.SkillID + skilltostore.SkillName + " " + skilltostore.LetterGrade + " " + skilltostore.NumericGrade);
+                          
+                            controller.addOrUpdateSkill(idgeter, skilltostore, period);
+                            
+                            
+                            //System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName + " " + idgeter.StudentID + " " + skilltostore.SkillID + skilltostore.SkillName + " " + skilltostore.LetterGrade + " " + skilltostore.NumericGrade);
                         }
                     }
                 }
