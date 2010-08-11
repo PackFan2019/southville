@@ -119,11 +119,11 @@ namespace ReportCardGenerator.Controller
                 if (s != null)
                 {
                    
-                    period.Skills.Add(s);
+                    p.Skills.Add(s);
                     //System.Windows.Forms.MessageBox.Show(s.SkillID);
                 }
             }
-            else period.Skills.Insert(period.Skills.IndexOf(skill), s);
+            else p.Skills.Insert(p.Skills.IndexOf(skill), s);
             if (p == null) addOrUpdatePeriod(stud, p);
         }
         public void addOrUpdateAttendance(Student stud, Attendance a, Period p)
