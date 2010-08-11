@@ -114,12 +114,13 @@ namespace ReportCardGenerator.Utilities
                         XmlNodeList gradeinfo = student.SelectNodes("stud_grades/score");
                         foreach (XmlNode grade in gradeinfo)
                         {
+                            controller.addOrUpdatePeriod(controller.getStudent(idgeter.StudentID), period);
                             Grade ToStoreGrade = new Grade();
                             ToStoreGrade.SubjectID = grade.Attributes[0].InnerText;
                             ToStoreGrade.SubjectCategory = categories[grade.Attributes[0].InnerText];
                             ToStoreGrade.NumericGrade = double.Parse(grade.ChildNodes[1].InnerText);
                             ToStoreGrade.LetterGrade = grade.ChildNodes[2].InnerText;
-
+                            controller.addOrUpdateGrade(controller.getStudent(idgeter.StudentID), ToStoreGrade, period);
                             System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName + " " + idgeter.StudentID + " " + ToStoreGrade.SubjectID + ToStoreGrade.SubjectName + " " + ToStoreGrade.LetterGrade + " " + ToStoreGrade.NumericGrade);
                         }
                     }
@@ -157,7 +158,7 @@ namespace ReportCardGenerator.Utilities
                             attendance.DaysAbsent = store;
                             attendance.DaysLate = Int32.Parse(attendancecomponent.ChildNodes[7].InnerText);
                             controller.addOrUpdatePeriod(controller.getStudent(sd.StudentID), pd);
-                            controller.addOrUpdateAttendance(controller.getStudent(sd.StudentID), attendance);
+                            controller.addOrUpdateAttendance(controller.getStudent(sd.StudentID), attendance,pd);
                         }
                     }
                 }
@@ -187,7 +188,7 @@ namespace ReportCardGenerator.Utilities
                         {
                             Comment cm = new Comment();
                             cm.CommentText = grade.LastChild.InnerText;
-                            controller.addOrUpdatePeriod(controller.getAllStudents(idgeter.StudentID), period);
+                            controller.addOrUpdatePeriod(controller.getStudent(idgeter.StudentID), period);
                             controller.addOrUpdateComment(controller.getStudent(idgeter.StudentID),cm,period);
                         }
                     }
