@@ -144,47 +144,110 @@ namespace ReportCardGenerator.Utilities
 
         private static void addAttendanceFromXML(IStudentController controller, XmlDocument doc)
         {
-            try
+            int DaysPresentToStore = 0;
+            XmlNodeList primelist = doc.SelectNodes("easygradepro/class");
+            Period pd = new Period();
+            foreach (XmlNode primenode in primelist)
             {
-                XmlNodeList primelist = doc.SelectNodes("easygradepro/class");
-                Period pd = new Period();
-                foreach (XmlNode primenode in primelist)
+                XmlNodeList periodlst = primenode.SelectNodes("classrecord");
+                XmlNodeList datelist = primenode.SelectNodes("calendaroptions");
+                XmlNodeList studinfo = primenode.SelectNodes("student");
+                foreach (XmlNode periodgetter in periodlst)
                 {
-                    XmlNodeList periodlst = primenode.SelectNodes("classrecord");
-                    XmlNodeList studinfo = primenode.SelectNodes("student");
-                    foreach (XmlNode periodgetter in periodlst)
+                    pd.PeriodID = Int32.Parse(periodgetter.ChildNodes[1].InnerText);
+                    pd.PeriodName = periodgetter.ChildNodes[2].InnerText;
+                    foreach (XmlNode datenodes in datelist)
                     {
-                        pd.PeriodID = Int32.Parse(periodgetter.ChildNodes[1].InnerText);
-                        pd.PeriodName = periodgetter.ChildNodes[2].InnerText;
-                        foreach (XmlNode studparse in studinfo)
+                        DateTime start = DateTime.Parse(datenodes.ChildNodes[1].InnerText) ;
+                        DateTime end = DateTime.Parse(datenodes.ChildNodes[2].InnerText);
+                        int totaldays=0;
+
+                        while (start != end)
                         {
-                            Student sd = new Student();
-                            sd.StudentID = studparse.ChildNodes[0].InnerText;
-                            XmlNodeList attendancelist = studparse.SelectNodes("stud_attendance/stud_att_total");
-                            foreach (XmlNode attendancecomponent in attendancelist)
+                            if (validdates(doc).Contains(start.DayOfWeek))
                             {
-                                int absence1;
-                                int absence2;
-                                int store;
-                                absence1 = Int32.Parse(attendancecomponent.ChildNodes[0].InnerText);
-                                absence2 = Int32.Parse(attendancecomponent.ChildNodes[4].InnerText);
-                                store = absence1 + absence2;
-                                Attendance attendance = new Attendance();
-                                attendance.DaysAbsent = store;
-                                attendance.DaysLate = Int32.Parse(attendancecomponent.ChildNodes[7].InnerText);
-                                controller.addOrUpdatePeriod(controller.getStudent(sd.StudentID), pd);
-                                controller.addOrUpdateAttendance(controller.getStudent(sd.StudentID), attendance, pd);
+                                totaldays++;
+                                start.AddDays(1);
+
                             }
                         }
-                    }
+                        int NoClass = datenodes.ChildNodes[3].ChildNodes.Count;
+                        DaysPresentToStore = totaldays - NoClass;
 
+                    }
+                    foreach (XmlNode studparse in studinfo)
+                    {
+
+                        Student sd = new Student();
+                        sd.StudentID = studparse.ChildNodes[0].InnerText;
+                        XmlNodeList attendancelist = studparse.SelectNodes("stud_attendance/stud_att_total");
+                        foreach (XmlNode attendancecomponent in attendancelist)
+                        {
+                            int absence1;
+                            int absence2;
+                            int store;
+                            Attendance attendance = new Attendance();
+                            absence1 = Int32.Parse(attendancecomponent.ChildNodes[0].InnerText);
+                            absence2 = Int32.Parse(attendancecomponent.ChildNodes[4].InnerText);
+                            store = absence1 + absence2;
+                            attendance.DaysPresent = DaysPresentToStore - store;
+                            attendance.DaysAbsent = store;
+                            attendance.DaysLate = Int32.Parse(attendancecomponent.ChildNodes[7].InnerText);
+                            controller.addOrUpdatePeriod(controller.getStudent(sd.StudentID), pd);
+                            controller.addOrUpdateAttendance(controller.getStudent(sd.StudentID), attendance, pd);
+                        }
+                    }
                 }
             }
-            catch (Exception)
-            {
-                
-            }
         }
+
+
+        private static List<DayOfWeek> validdates(XmlDocument doc)
+        {
+            //Use a set not a list
+            List<DayOfWeek> returndates = new List<DayOfWeek>();
+            XmlNodeList prime = doc.SelectNodes("easygradepro/class/calendaroptions/cal_daysofweek");
+            foreach (XmlNode dateselected in prime)
+            {
+                String n = dateselected.Attributes["id"].Value;
+                switch (n)
+                {
+                    case "1":
+                        if (dateselected.InnerText.Equals("yes"))
+                            returndates.Add(DayOfWeek.Sunday);
+                        break;
+                    case "2":
+                        if (dateselected.InnerText.Equals("yes"))
+                            returndates.Add(DayOfWeek.Monday);
+                        break;
+                    case "3":
+                        if (dateselected.InnerText.Equals("yes"))
+                            returndates.Add(DayOfWeek.Tuesday);
+                        break;
+                    case "4":
+                        if (dateselected.InnerText.Equals("yes"))
+                            returndates.Add(DayOfWeek.Wednesday);
+                        break;
+                    case "5":
+                        if (dateselected.InnerText.Equals("yes"))
+                            returndates.Add(DayOfWeek.Thursday);
+                        break;
+                    case "6":
+                        if (dateselected.InnerText.Equals("yes"))
+                            returndates.Add(DayOfWeek.Friday);
+                        break;
+                    case "7":
+                        if (dateselected.InnerText.Equals("yes"))
+                            returndates.Add(DayOfWeek.Saturday);
+                        break;
+                    default:
+                        System.Windows.Forms.MessageBox.Show("Attendance was not used", "Note");
+                        break;
+                }  
+            }
+            return returndates;
+        }
+
 
         private static void addCommentsFromXML(IStudentController controller, XmlDocument doc)
         {
