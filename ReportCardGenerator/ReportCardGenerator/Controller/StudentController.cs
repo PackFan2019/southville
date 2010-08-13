@@ -66,7 +66,7 @@ namespace ReportCardGenerator.Controller
                 if (per != null)
                 {
                     stud.RptCard.Periods.Add(per);
-                   
+                    //System.Windows.Forms.MessageBox.Show(per.PeriodID + " " + per.PeriodName);
                 }
             }
             else
@@ -186,13 +186,17 @@ namespace ReportCardGenerator.Controller
             Period period = student.RptCard.Periods.Find(delegate(Period p) { return p.PeriodID.Equals(periodID); });
             if (period != null)
             {
-                return period;                
+                //System.Windows.Forms.MessageBox.Show(student.RptCard.Periods.Count.ToString());
+                return period;
+               
             }
             else
             {
-                return period;
+                //System.Windows.Forms.MessageBox.Show(student.RptCard.Periods.Count.ToString());
+                return null;
+               
             }
-           
+            
         }
 
         public void removeStudent(Student stud)

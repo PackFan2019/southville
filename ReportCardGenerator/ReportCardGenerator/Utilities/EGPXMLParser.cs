@@ -31,11 +31,11 @@ namespace ReportCardGenerator.Utilities
 
         private static void addSkillsFromXML(IStudentController controller, XmlDocument doc)
         {
-            try
-            {
+            //try
+            //{
                 XmlNodeList primelist = doc.SelectNodes("easygradepro/class");
-                Period period = new Period();
-                Skill skill = new Skill();
+                
+                
                 foreach (XmlNode primenode in primelist)
                 {
                     XmlNodeList peroidlist = primenode.SelectNodes("classrecord");
@@ -45,7 +45,7 @@ namespace ReportCardGenerator.Utilities
                     Dictionary<String, String> categories = new Dictionary<string, string>();
                     foreach (XmlNode test in gradename)
                     {
-
+                        Skill skill = new Skill();
                         skill.SkillID = test.ChildNodes[0].InnerText;
                         skill.SkillName = test.ChildNodes[1].InnerText;
                         skill.SkillCategory = test.ChildNodes[6].InnerText;
@@ -54,6 +54,7 @@ namespace ReportCardGenerator.Utilities
                     }
                     foreach (XmlNode test in peroidlist)
                     {
+                        Period period = new Period();
                         period.PeriodID = Int32.Parse(test.ChildNodes[1].InnerText);
                         period.PeriodName = test.ChildNodes[2].InnerText;
                         foreach (XmlNode student in studentinfo)
@@ -63,7 +64,6 @@ namespace ReportCardGenerator.Utilities
                             XmlNodeList gradeinfo = student.SelectNodes("stud_grades/score");
                             foreach (XmlNode grade in gradeinfo)
                             {
-                                controller.addOrUpdatePeriod(controller.getStudent(idgeter.StudentID), period);
                                 Skill skilltostore = new Skill();
                                 skilltostore.SkillID = grade.Attributes[0].InnerText;
                                 skilltostore.SkillName = skillNames[grade.Attributes[0].InnerText];
@@ -78,17 +78,19 @@ namespace ReportCardGenerator.Utilities
                                     skilltostore.LetterGrade = grade.ChildNodes[2].InnerText;
                                     controller.addOrUpdateSkill(controller.getStudent(idgeter.StudentID), skilltostore, period);
                                 }
-
+                                //System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName);
+                            
+                                controller.addOrUpdatePeriod(controller.getStudent(idgeter.StudentID), period);
                                 controller.addOrUpdateSkill(controller.getStudent(idgeter.StudentID), skilltostore, period);
                             }
                         }
                     }
                 }
-            }
-            catch (Exception)
-            {
+            //}
+            //catch (Exception)
+            //{
 
-            }
+            //}
         }
 
         private static void addGradesFromXML(IStudentController controller, XmlDocument doc)
