@@ -147,7 +147,7 @@ namespace ReportCardGenerator.Tests
 
             att.DaysAbsent = 2;
             XmlDocument doc = new XmlDocument();
-            doc.Load("XML Gradebook.xml");
+            doc.Load("XML Homeroom.xml");
             EGPXMLParser.parseHomeroomXML(FrontController.getInstance().getStudentController(), doc);
 
             Assert.AreEqual(controller.getPeriod(stud,1).PeriodAttendance.DaysPresent,att);

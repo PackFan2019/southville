@@ -151,6 +151,8 @@ namespace ReportCardGenerator.Utilities
             Period pd = new Period();
             foreach (XmlNode primenode in primelist)
             {
+                List<DayOfWeek> validateddates = new List<DayOfWeek>();
+                validateddates = validdates(doc);
                 XmlNodeList periodlst = primenode.SelectNodes("classrecord");
                 XmlNodeList datelist = primenode.SelectNodes("calendaroptions");
                 XmlNodeList studinfo = primenode.SelectNodes("student");
@@ -162,19 +164,36 @@ namespace ReportCardGenerator.Utilities
                     {
                         DateTime start = DateTime.Parse(datenodes.ChildNodes[1].InnerText) ;
                         DateTime end = DateTime.Parse(datenodes.ChildNodes[2].InnerText);
-                        int totaldays=0;
 
-                        while (start != end)
+                        int startDay = int.Parse(start.Day.ToString());
+                        int endsDay = int.Parse(end.Day.ToString());
+
+                        int startMonth = int.Parse(start.Month.ToString());
+                        int endMonth = int.Parse(end.Month.ToString());
+
+                        int startYear = int.Parse(start.Year.ToString());
+                        int endYear = int.Parse(end.Year.ToString());
+
+                        int totalDays = 0;
+                        while (startYear != endYear)
                         {
-                            if (validdates(doc).Contains(start.DayOfWeek))
-                            {
-                                totaldays++;
-                                start.AddDays(1);
-
+                            while (startMonth != endMonth)
+                            {         
+                                while (startDay != endsDay)
+                                {
+                                    if (validateddates.Contains(start.DayOfWeek))
+                                    {
+                                        totalDays++;
+                                    }
+                                    startDay++;
+                                    System.Windows.Forms.MessageBox.Show(startDay.ToString());
+                                }
+                                int NoClass = datenodes.ChildNodes[3].ChildNodes.Count;
+                                DaysPresentToStore = totalDays - NoClass;
+                                startMonth++;
                             }
+                            startYear++;
                         }
-                        int NoClass = datenodes.ChildNodes[3].ChildNodes.Count;
-                        DaysPresentToStore = totaldays - NoClass;
 
                     }
                     foreach (XmlNode studparse in studinfo)
@@ -209,42 +228,49 @@ namespace ReportCardGenerator.Utilities
             //Use a set not a list
             List<DayOfWeek> returndates = new List<DayOfWeek>();
             XmlNodeList prime = doc.SelectNodes("easygradepro/class/calendaroptions/cal_daysofweek");
+            //System.Windows.Forms.MessageBox.Show(prime.Count.ToString());
             foreach (XmlNode dateselected in prime)
             {
-                String n = dateselected.Attributes["id"].Value;
-                switch (n)
+                //String n = dateselected.Attributes["id"];
+                for (int n = 0; n < dateselected.ChildNodes.Count;n++)
                 {
-                    case "1":
-                        if (dateselected.InnerText.Equals("yes"))
-                            returndates.Add(DayOfWeek.Sunday);
-                        break;
-                    case "2":
-                        if (dateselected.InnerText.Equals("yes"))
-                            returndates.Add(DayOfWeek.Monday);
-                        break;
-                    case "3":
-                        if (dateselected.InnerText.Equals("yes"))
-                            returndates.Add(DayOfWeek.Tuesday);
-                        break;
-                    case "4":
-                        if (dateselected.InnerText.Equals("yes"))
-                            returndates.Add(DayOfWeek.Wednesday);
-                        break;
-                    case "5":
-                        if (dateselected.InnerText.Equals("yes"))
-                            returndates.Add(DayOfWeek.Thursday);
-                        break;
-                    case "6":
-                        if (dateselected.InnerText.Equals("yes"))
-                            returndates.Add(DayOfWeek.Friday);
-                        break;
-                    case "7":
-                        if (dateselected.InnerText.Equals("yes"))
-                            returndates.Add(DayOfWeek.Saturday);
-                        break;
-                    default:
-                        System.Windows.Forms.MessageBox.Show("Attendance was not used", "Note");
-                        break;
+
+                    String x = dateselected.ChildNodes[n].Attributes["id"].Value;
+                    //System.Windows.Forms.MessageBox.Show(x);
+                    switch (x)
+                    {
+                        case "1":
+                            if (dateselected.InnerText.Equals("yes"))
+                                returndates.Add(DayOfWeek.Sunday);
+                            break;
+                        case "2":
+                            if (dateselected.InnerText.Equals("yes"))
+                                returndates.Add(DayOfWeek.Monday);
+                            break;
+                        case "3":
+                            if (dateselected.InnerText.Equals("yes"))
+                                returndates.Add(DayOfWeek.Tuesday);
+                            break;
+                        case "4":
+                            if (dateselected.InnerText.Equals("yes"))
+                                returndates.Add(DayOfWeek.Wednesday);
+                            break;
+                        case "5":
+                            if (dateselected.InnerText.Equals("yes"))
+                                returndates.Add(DayOfWeek.Thursday);
+                            break;
+                        case "6":
+                            if (dateselected.InnerText.Equals("yes"))
+                                returndates.Add(DayOfWeek.Friday);
+                            break;
+                        case "7":
+                            if (dateselected.InnerText.Equals("yes"))
+                                returndates.Add(DayOfWeek.Saturday);
+                            break;
+                        default:
+                            System.Windows.Forms.MessageBox.Show("Attendance was not used", "Note");
+                            break;
+                    }
                 }  
             }
             return returndates;
@@ -290,8 +316,8 @@ namespace ReportCardGenerator.Utilities
         {
             addStudentsFromXML(controller, doc);
             addAttendanceFromXML(controller, doc);
-            addSkillsFromXML(controller, doc);
-            addCommentsFromXML(controller, doc);
+            //addSkillsFromXML(controller, doc);
+            //addCommentsFromXML(controller, doc);
         }
 
         public static void parseGradebookXML(IStudentController controller, XmlDocument doc)
