@@ -1,20 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe" total="1" errors="1" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2010-08-13" time="14:58:11">
-  <environment nunit-version="2.5.5.10112" clr-version="2.0.50727.3603" os-version="Microsoft Windows NT 5.1.2600 Service Pack 3" platform="Win32NT" cwd="C:\Program Files\NUnit 2.5.5\bin\net-2.0" machine-name="WALLEN" user="webadmins-romyr" user-domain="SVILLE" />
+<test-results name="C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe" total="1" errors="1" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2010-08-14" time="08:34:28">
+  <environment nunit-version="2.5.5.10112" clr-version="2.0.50727.1433" os-version="Microsoft Windows NT 5.1.2600 Service Pack 2" platform="Win32NT" cwd="C:\Program Files\NUnit 2.5.5\bin\net-2.0" machine-name="MANA-BA3F9C25D8" user="Jun" user-domain="MANA-BA3F9C25D8" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="C:\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe" executed="True" result="Failure" success="False" time="43.188" asserts="0">
+  <test-suite type="Assembly" name="C:\Documents and Settings\Jun\My Documents\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe" executed="True" result="Failure" success="False" time="0.453" asserts="0">
     <results>
-      <test-suite type="Namespace" name="ReportCardGenerator" executed="True" result="Failure" success="False" time="43.188" asserts="0">
+      <test-suite type="Namespace" name="ReportCardGenerator" executed="True" result="Failure" success="False" time="0.453" asserts="0">
         <results>
-          <test-suite type="Namespace" name="Tests" executed="True" result="Failure" success="False" time="43.188" asserts="0">
+          <test-suite type="Namespace" name="Tests" executed="True" result="Failure" success="False" time="0.453" asserts="0">
             <results>
-              <test-suite type="TestFixture" name="EGPParserTest" executed="True" result="Failure" success="False" time="43.157" asserts="0">
+              <test-suite type="TestFixture" name="EGPParserTest" executed="True" result="Failure" success="False" time="0.375" asserts="0">
                 <results>
-                  <test-case name="ReportCardGenerator.Tests.EGPParserTest.testaddAttendanceFromXML" executed="True" result="Error" success="False" time="43.141" asserts="0">
+                  <test-case name="ReportCardGenerator.Tests.EGPParserTest.testaddCommentsFromXML" executed="True" result="Error" success="False" time="0.375" asserts="0">
                     <failure>
-                      <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
-                      <stack-trace><![CDATA[at ReportCardGenerator.Tests.EGPParserTest.testaddAttendanceFromXML() in C:\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\EGPParserTest.cs:line 153
+                      <message><![CDATA[System.FormatException : The string was not recognized as a valid DateTime. There is a unknown word starting at index 0.]]></message>
+                      <stack-trace><![CDATA[at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+at System.DateTime.Parse(String s)
+at ReportCardGenerator.Utilities.EGPXMLParser.addAttendanceFromXML(IStudentController controller, XmlDocument doc) in C:\Documents and Settings\Jun\My Documents\southville Project\ReportCardGenerator\ReportCardGenerator\Utilities\EGPXMLParser.cs:line 172
+at ReportCardGenerator.Utilities.EGPXMLParser.parseHomeroomXML(IStudentController controller, XmlDocument doc) in C:\Documents and Settings\Jun\My Documents\southville Project\ReportCardGenerator\ReportCardGenerator\Utilities\EGPXMLParser.cs:line 325
+at ReportCardGenerator.Tests.EGPParserTest.testaddCommentsFromXML() in C:\Documents and Settings\Jun\My Documents\southville Project\ReportCardGenerator\ReportCardGenerator\Tests\EGPParserTest.cs:line 166
 ]]></stack-trace>
                     </failure>
                   </test-case>
