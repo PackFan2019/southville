@@ -40,17 +40,17 @@ namespace ReportCardGenerator.Utilities
                 {
                     XmlNodeList peroidlist = primenode.SelectNodes("classrecord");
                     XmlNodeList studentinfo = primenode.SelectNodes("student");
-                    XmlNodeList gradename = primenode.SelectNodes("assignments/assignment");
+                    XmlNodeList gradename = primenode.SelectNodes("standards/standard");
                     Dictionary<String, String> skillNames = new Dictionary<string, string>();
-                    Dictionary<String, String> categories = new Dictionary<string, string>();
+                    //Dictionary<String, String> categories = new Dictionary<string, string>(); might not be needed anymore (Pending)
                     foreach (XmlNode test in gradename)
                     {
                         Skill skill = new Skill();
                         skill.SkillID = test.ChildNodes[0].InnerText;
-                        skill.SkillName = test.ChildNodes[1].InnerText;
-                        skill.SkillCategory = test.ChildNodes[6].InnerText;
+                        skill.SkillName = test.ChildNodes[3].InnerText;
+                        //skill.SkillCategory = test.ChildNodes[6].InnerText; might not be needed anymore
                         skillNames.Add(skill.SkillID, skill.SkillName);
-                        categories.Add(skill.SkillID, skill.SkillCategory);
+                        //categories.Add(skill.SkillID, skill.SkillCategory); might not be needed anymore
                     }
                     foreach (XmlNode test in peroidlist)
                     {
@@ -61,26 +61,33 @@ namespace ReportCardGenerator.Utilities
                         {
                             Student idgeter = new Student();
                             idgeter.StudentID = student.ChildNodes[0].ChildNodes[0].InnerText;
-                            XmlNodeList gradeinfo = student.SelectNodes("stud_grades/score");
+                            XmlNodeList gradeinfo = student.SelectNodes("stud_grades/stud_stdgrades/stud_stdgrade");
                             foreach (XmlNode grade in gradeinfo)
                             {
                                 Skill skilltostore = new Skill();
-                                skilltostore.SkillID = grade.Attributes[0].InnerText;
-                                skilltostore.SkillName = skillNames[grade.Attributes[0].InnerText];
-                                skilltostore.SkillCategory = categories[grade.Attributes[0].InnerText];
-                                if (skilltostore.SkillCategory.Equals("Remarks"))
-                                {
-                                    break;
-                                }
-                                else
-                                {
-                                    skilltostore.NumericGrade = double.Parse(grade.ChildNodes[1].InnerText);
-                                    skilltostore.LetterGrade = grade.ChildNodes[2].InnerText;
-                                    controller.addOrUpdateSkill(controller.getStudent(idgeter.StudentID), skilltostore, period);
-                                }
+                                skilltostore.SkillID = grade.ChildNodes[0].InnerText;
+                                skilltostore.SkillName = skillNames[skilltostore.SkillID];
+                                skilltostore.NumericGrade = double.Parse(grade.ChildNodes[1].InnerText);
+                                skilltostore.LetterGrade = grade.ChildNodes[2].InnerText; //Please take note that 
+                                //instead of latter grade we should just change this into rubrics.
+                                //consult sir wallen please
                                 //System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName);
                             
                                 controller.addOrUpdatePeriod(controller.getStudent(idgeter.StudentID), period);
+
+                                //Backup code incase the current revision is to be replaced with remarks
+                                //skilltostore.SkillCategory = categories[grade.Attributes[0].InnerText]; might not be needed anymore
+                                //if (skilltostore.SkillCategory.Equals("Remarks"))
+                                //{
+                                //    break;
+                                //}
+                                //else
+                                //{
+                                //    skilltostore.NumericGrade = double.Parse(grade.ChildNodes[1].InnerText);
+                                //    skilltostore.LetterGrade = grade.ChildNodes[2].InnerText;
+                                //    controller.addOrUpdateSkill(controller.getStudent(idgeter.StudentID), skilltostore, period);
+                                //} Pending for deletion since we removed the remarks adjustments
+
                                 controller.addOrUpdateSkill(controller.getStudent(idgeter.StudentID), skilltostore, period);
                             }
                         }
