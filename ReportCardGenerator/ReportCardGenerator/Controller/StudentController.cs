@@ -66,6 +66,8 @@ namespace ReportCardGenerator.Controller
                 if (per != null)
                 {
                     stud.RptCard.Periods.Add(per);
+                    //is this not working?
+                    //updates please
                     //System.Windows.Forms.MessageBox.Show(per.PeriodID + " " + per.PeriodName);
                 }
             }
@@ -182,6 +184,7 @@ namespace ReportCardGenerator.Controller
         }
         public Period getPeriod(Student student, int periodID)
         {
+            //Change null into something like  warning.
             //Return null if period doesn't exist
             Period period = student.RptCard.Periods.Find(delegate(Period p) { return p.PeriodID.Equals(periodID); });
             if (period != null)
