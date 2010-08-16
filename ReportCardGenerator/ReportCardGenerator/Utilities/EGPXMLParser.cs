@@ -34,15 +34,17 @@ namespace ReportCardGenerator.Utilities
             //try
             //{
                 XmlNodeList primelist = doc.SelectNodes("easygradepro/class");
-                
-                
+
+                XmlNodeList peroidlist = doc.SelectNodes("easygradepro/class/classrecord");
+                //System.Windows.Forms.MessageBox.Show(peroidlist.Count.ToString());
                 foreach (XmlNode primenode in primelist)
                 {
-                    XmlNodeList peroidlist = primenode.SelectNodes("classrecord");
+                    //XmlNodeList peroidlist = primenode.SelectNodes("classrecord");
                     XmlNodeList studentinfo = primenode.SelectNodes("student");
                     XmlNodeList gradename = primenode.SelectNodes("standards/standard");
                     Dictionary<String, String> skillNames = new Dictionary<string, string>();
                     //Dictionary<String, String> categories = new Dictionary<string, string>(); might not be needed anymore (Pending)
+                    //System.Windows.Forms.MessageBox.Show(peroidlist.Count.ToString());
                     foreach (XmlNode test in gradename)
                     {
                         Skill skill = new Skill();
@@ -57,6 +59,7 @@ namespace ReportCardGenerator.Utilities
                         Period period = new Period();
                         period.PeriodID = Int32.Parse(test.ChildNodes[1].InnerText);
                         period.PeriodName = test.ChildNodes[2].InnerText;
+
                         foreach (XmlNode student in studentinfo)
                         {
                             Student idgeter = new Student();
@@ -71,8 +74,8 @@ namespace ReportCardGenerator.Utilities
                                 skilltostore.LetterGrade = grade.ChildNodes[2].InnerText; //Please take note that 
                                 //instead of latter grade we should just change this into rubrics.
                                 //consult sir wallen please
-                                
-                            
+
+
                                 controller.addOrUpdatePeriod(controller.getStudent(idgeter.StudentID), period);
 
                                 //Backup code incase the current revision is to be replaced with remarks
@@ -91,9 +94,9 @@ namespace ReportCardGenerator.Utilities
                                 controller.addOrUpdateSkill(controller.getStudent(idgeter.StudentID), skilltostore, period);
                                 //System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName);
 
-                                //System.Windows.Forms.MessageBox.Show(skilltostore.SkillID + " " + skilltostore.SkillName);
-                                //System.Windows.Forms.MessageBox.Show(controller.getStudent(idgeter.StudentID).ToString());
-                                idgeter.RptCard.Periods.Add(period);
+                                //System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName + " " + idgeter.StudentID + " " + skilltostore.SkillID + " " + skilltostore.SkillName + " " + skilltostore.NumericGrade);
+                                //System.Windows.Forms.MessageBox.Show(controller.getStudent(idgeter.StudentID).StudentID);
+                                //idgeter.RptCard.Periods.Add(period);
                             }
                         }
                     }

@@ -60,16 +60,18 @@ namespace ReportCardGenerator.Controller
             //By updating a period (Remember not to lose the references to the
             //Grades, Comments, Attendance etc.
             //ReportCard.getInstance().Periods.Add(per);
+           
             Period periods = stud.RptCard.Periods.Find(delegate(Period p) { return p.PeriodID.Equals(per.PeriodID); });
             if (periods == null)
             {
-                if (per != null)
-                {
+                //if (per != null)
+                //{
+                //System.Windows.Forms.MessageBox.Show(per.PeriodID.ToString());
                     stud.RptCard.Periods.Add(per);
                     //is this not working?
                     //updates please
                     //System.Windows.Forms.MessageBox.Show(per.PeriodID + " " + per.PeriodName);
-                }
+                //}
             }
             else
             {
@@ -110,23 +112,56 @@ namespace ReportCardGenerator.Controller
         }
         public void addOrUpdateSkill(Student stud, Skill s, Period p)
         {
+            Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
+            if (period != null)
+            {
+                addOrUpdatePeriod(stud, p);
+                Skill sk = stud.RptCard.Periods[p.PeriodID].Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(s.SkillID); });
+
+                if (sk == null)
+                {
+                    stud.RptCard.Periods[1].Skills.Add(s);
+                }
+                else
+                {
+                    stud.RptCard.Periods[p.PeriodID].Skills.Insert(stud.RptCard.Periods[p.PeriodID].Skills.IndexOf(sk), s);
+                }
+            }
+
             //Add or update a skill given a period id
             //Update the skill if there is already an existing skill
             //Test the existence of a skill using Equals
             //Add the period if it does not exist
-            Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
-            Skill skill = p.Skills.Find(delegate(Skill sk){return sk.SkillID.Equals(s.SkillID);});
-            if (skill == null)
-            {
-                if (s != null)
-                {
-                   
-                    p.Skills.Add(s);
-                    //System.Windows.Forms.MessageBox.Show(s.SkillID);
-                }
-            }
-            else p.Skills.Insert(p.Skills.IndexOf(skill), s);
-            if (p == null) addOrUpdatePeriod(stud, p);
+
+            //System.Windows.Forms.MessageBox.Show(stud.StudentID + " " + s.SkillID + " " + p.PeriodID);
+
+
+            //Skill skill = period.Skills.Find(delegate(Skill sk){return sk.SkillID.Equals(s.SkillID);});
+            //System.Windows.Forms.MessageBox.Show(period.PeriodID.ToString());
+            //if (skill == null)
+            //{
+                //if (s != null)
+                //{
+            ////stud.RptCard.Periods[p.PeriodID].Skills.Add(s);
+            //int index = stud.RptCard.Periods.IndexOf(p.PeriodID.ToString());
+
+            //int index = p.PeriodID;
+            //System.Windows.Forms.MessageBox.Show(p.PeriodID.ToString());
+            //stud.RptCard.Periods[p.PeriodID].Skills.Add(s);
+                    //p.Skills.Add(s);
+                    //System.Windows.Forms.MessageBox.Show(p.PeriodID + " " + s.SkillID + " " + s.SkillName + " " + s.NumericGrade);
+            //    }
+            //}
+            //else
+            //{
+                //p.Skills.Insert(p.Skills.IndexOf(skill), s);
+                //System.Windows.Forms.MessageBox.Show(skill.SkillID + " -diff-" + s.SkillID);
+                //System.Windows.Forms.MessageBox.Show(p.PeriodID + " " + p.PeriodName + " " + stud.StudentID + " " + s.SkillID + " " + s.SkillName + " " + skill.NumericGrade);
+            //}
+            //if (p == null)
+            //{
+            //    addOrUpdatePeriod(stud, p);
+            //}
         }
         public void addOrUpdateAttendance(Student stud, Attendance a, Period p)
         {

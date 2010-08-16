@@ -33,10 +33,10 @@ namespace ReportCardGenerator.Tests
             //Save a state to the old records
             oldRecords = controller.getAllStudents();
             State.getInstance().Students.Clear();
-            Student s = new Student();
-            s.RptCard.Periods.Clear();
-            Period p = new Period();
-            p.Skills.Clear();
+            //Student s = new Student();
+            //s.RptCard.Periods.Clear();
+            //Period p = new Period();
+            //p.Skills.Clear();
             //Clear the list of students
             //controller.clearStudents();
             //Get the xml document
@@ -55,7 +55,7 @@ namespace ReportCardGenerator.Tests
             stud.FirstName = "Maria Syahirah Binti";
             stud.LastName = "Ahmad";
             XmlDocument doc = new XmlDocument();
-            doc.Load("XML Gradebook.xml");
+            doc.Load(@"c:\XML\XML Homeroom_template.xml");
             EGPXMLParser.parseHomeroomXML(FrontController.getInstance().getStudentController(), doc);
             int count = controller.getAllStudents().Count;
 
@@ -84,31 +84,48 @@ namespace ReportCardGenerator.Tests
             per.PeriodID = 1;
             per.PeriodName = "Term1";
 
-            stud.StudentID = "95-0072";
-            stud.FirstName = "Abbey Geraldine";
-            stud.LastName = "Matibag";
+            //stud.StudentID = "02-0190";
+            //stud.FirstName = "Ito";
+            //stud.LastName = "Airi Krizia";
 
-            sk.SkillID = "1";
-            sk.SkillName = "A1Performs with Int'l Standards";
-            sk.SkillCategory = "Competence";
-            sk.NumericGrade = 91;
+            //stud.StudentID = "94-0066";
+            //stud.FirstName = "Huang";
+            //stud.LastName = "Claire";
+
+            stud.StudentID = "95-0072";
+            stud.FirstName = "Matibag";
+            stud.LastName = "Abbey Geraldine";
+
+            sk.SkillID = "A";
+            sk.SkillName = "Competence";
+            sk.NumericGrade = 2.88;
+            sk.LetterGrade = "Above Average";
             
             doc.Load(@"c:\XML\XML Homeroom_template.xml");
 
             EGPXMLParser.parseHomeroomXML(FrontController.getInstance().getStudentController(), doc);
 
-            System.Windows.Forms.MessageBox.Show(controller.getPeriod(stud,1).ToString());
-            //foreach (Skill skill in controller.getPeriod(stud, 1).Skills)
-            //{
-            //    System.Windows.Forms.MessageBox.Show(skill.SkillID + " " + skill.SkillName);
-            //}
-
-            //System.Windows.Forms.MessageBox.Show(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(sk.SkillID); }).ToString());
-            Assert.AreEqual(per, per);
-            //Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(sk.SkillID); }).SkillID, sk.SkillID);
-            //Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillName.Equals(sk.SkillName); }), sk.SkillName);
-            //Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillCategory.Equals(sk.SkillCategory); }), sk.SkillCategory);
-            //Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.NumericGrade.Equals(sk.NumericGrade); }), sk.NumericGrade);
+            //System.Windows.Forms.MessageBox.Show(controller.getStudent("95-0072").RptCard.Periods.Count.ToString());
+            foreach (Period p in controller.getStudent("95-0072").RptCard.Periods)
+            {
+                //System.Windows.Forms.MessageBox.Show(p.Skills.Count.ToString());
+                Assert.AreEqual(p.Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(sk.SkillID); }).SkillID, sk.SkillID);
+                Assert.AreEqual(p.Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(sk.SkillID); }).SkillName, sk.SkillName);
+                Assert.AreEqual(p.Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(sk.SkillID); }).NumericGrade, sk.NumericGrade);
+                Assert.AreEqual(p.Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(sk.SkillID); }).LetterGrade, sk.LetterGrade);
+                //System.Windows.Forms.MessageBox.Show(p.PeriodID + " " + p.PeriodName);
+                //foreach (Skill skill in controller.getPeriod(stud, 1).Skills)
+                //{
+                //    System.Windows.Forms.MessageBox.Show(skill.SkillID + " " + skill.SkillName);
+                //}
+                //System.Windows.Forms.MessageBox.Show(controller.getPeriod(stud,1).ToString());
+                //System.Windows.Forms.MessageBox.Show(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(sk.SkillID); }).ToString());
+                Assert.AreEqual(per, per);
+                //Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(sk.SkillID); }).SkillID, sk.SkillID);
+                //Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillName.Equals(sk.SkillName); }), sk.SkillName);
+                //Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.SkillCategory.Equals(sk.SkillCategory); }), sk.SkillCategory);
+                //Assert.AreEqual(controller.getPeriod(stud, 1).Skills.Find(delegate(Skill skill) { return skill.NumericGrade.Equals(sk.NumericGrade); }), sk.NumericGrade);
+            }
         }
         [Test]
         public void testaddGradesFromXML()
@@ -117,7 +134,7 @@ namespace ReportCardGenerator.Tests
             Student stud = new Student();
             Grade gd = new Grade();
             Period per = new Period();
-            doc.Load("XML Gradebook.xml");
+            doc.Load(@"c:\XML\XML Homeroom_template.xml");
             stud.StudentID = "07-0052";
             gd.SubjectID = "Quiz#1";
             gd.NumericGrade = 97;
@@ -148,7 +165,7 @@ namespace ReportCardGenerator.Tests
 
             att.DaysAbsent = 2;
             XmlDocument doc = new XmlDocument();
-            doc.Load("XML Homeroom.xml");
+            doc.Load(@"c:\XML\XML Homeroom_template.xml");
             EGPXMLParser.parseHomeroomXML(FrontController.getInstance().getStudentController(), doc);
 
             Assert.AreEqual(controller.getPeriod(stud,1).PeriodAttendance.DaysPresent,att);
@@ -159,7 +176,7 @@ namespace ReportCardGenerator.Tests
             XmlDocument doc = new XmlDocument();
             Student stud = new Student();
             Comment comm = new Comment();
-            doc.Load("XML Gradebook.xml");
+            doc.Load(@"c:\XML\XML Homeroom_template.xml");
             stud.StudentID = "95-0072";
             stud.LastName = "Abbey Geraldine";
             stud.FirstName = "Matibag";
