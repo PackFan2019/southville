@@ -71,7 +71,7 @@ namespace ReportCardGenerator.Utilities
                                 skilltostore.LetterGrade = grade.ChildNodes[2].InnerText; //Please take note that 
                                 //instead of latter grade we should just change this into rubrics.
                                 //consult sir wallen please
-                                //System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName);
+                                
                             
                                 controller.addOrUpdatePeriod(controller.getStudent(idgeter.StudentID), period);
 
@@ -89,6 +89,11 @@ namespace ReportCardGenerator.Utilities
                                 //} Pending for deletion since we removed the remarks adjustments
 
                                 controller.addOrUpdateSkill(controller.getStudent(idgeter.StudentID), skilltostore, period);
+                                //System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName);
+
+                                //System.Windows.Forms.MessageBox.Show(skilltostore.SkillID + " " + skilltostore.SkillName);
+                                //System.Windows.Forms.MessageBox.Show(controller.getStudent(idgeter.StudentID).ToString());
+                                idgeter.RptCard.Periods.Add(period);
                             }
                         }
                     }
@@ -322,8 +327,8 @@ namespace ReportCardGenerator.Utilities
         public static void parseHomeroomXML(IStudentController controller, XmlDocument doc)
         {
             addStudentsFromXML(controller, doc);
-            addAttendanceFromXML(controller, doc);
-            //addSkillsFromXML(controller, doc);
+            //addAttendanceFromXML(controller, doc);
+            addSkillsFromXML(controller, doc);
             //addCommentsFromXML(controller, doc);
         }
 

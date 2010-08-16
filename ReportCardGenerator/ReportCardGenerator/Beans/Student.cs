@@ -63,9 +63,9 @@ namespace ReportCardGenerator.Beans
         {
             return (this.studentID.Equals(s.studentID));
         }
-        public override string ToString()
-        {
-            return "Student ID: " + this.StudentID;
-        }
+        //public override string ToString()
+        //{
+        //    return "Student ID: " + this.StudentID;
+        //}
     }
 }
