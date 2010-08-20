@@ -31,15 +31,19 @@ namespace ReportCardGenerator.Utilities
 
         private static void addSkillsFromXML(IStudentController controller, XmlDocument doc)
         {
-            //try
-            //{
+            
                 XmlNodeList primelist = doc.SelectNodes("easygradepro/class");
 
-                XmlNodeList peroidlist = doc.SelectNodes("easygradepro/class/classrecord");
-                //System.Windows.Forms.MessageBox.Show(peroidlist.Count.ToString());
+                //XmlNodeList peroidlist = doc.SelectNodes("easygradepro/class/classrecord");
+                //System.Windows.Forms.MessageBox.Show(primelist.Count.ToString());
+                //foreach (XmlNode list in primelist)
+                //{
+                //    System.Windows.Forms.MessageBox.Show(list.FirstChild.InnerText);
+                //}
+
                 foreach (XmlNode primenode in primelist)
                 {
-                    //XmlNodeList peroidlist = primenode.SelectNodes("classrecord");
+                    XmlNodeList peroidlist =primenode.SelectNodes("classrecord");
                     XmlNodeList studentinfo = primenode.SelectNodes("student");
                     XmlNodeList gradename = primenode.SelectNodes("standards/standard");
                     Dictionary<String, String> skillNames = new Dictionary<string, string>();
@@ -54,58 +58,87 @@ namespace ReportCardGenerator.Utilities
                         skillNames.Add(skill.SkillID, skill.SkillName);
                         //categories.Add(skill.SkillID, skill.SkillCategory); might not be needed anymore
                     }
-                    foreach (XmlNode test in peroidlist)
+                    for (int x = 0; x < peroidlist.Count; x++)
                     {
-                        Period period = new Period();
-                        period.PeriodID = Int32.Parse(test.ChildNodes[1].InnerText);
-                        period.PeriodName = test.ChildNodes[2].InnerText;
-
-                        foreach (XmlNode student in studentinfo)
+                        foreach (XmlNode test in peroidlist)
                         {
-                            Student idgeter = new Student();
-                            idgeter.StudentID = student.ChildNodes[0].ChildNodes[0].InnerText;
-                            XmlNodeList gradeinfo = student.SelectNodes("stud_grades/stud_stdgrades/stud_stdgrade");
-                            foreach (XmlNode grade in gradeinfo)
+                            //System.Windows.Forms.MessageBox.Show(peroidlist.Count.ToString());
+                            Period period = new Period();
+                            period.PeriodID = Int32.Parse(test.ChildNodes[1].InnerText);
+                            period.PeriodName = test.ChildNodes[2].InnerText;
+
+                            foreach (XmlNode student in studentinfo)
                             {
-                                Skill skilltostore = new Skill();
-                                skilltostore.SkillID = grade.ChildNodes[0].InnerText;
-                                skilltostore.SkillName = skillNames[skilltostore.SkillID];
-                                skilltostore.NumericGrade = double.Parse(grade.ChildNodes[1].InnerText);
-                                skilltostore.LetterGrade = grade.ChildNodes[2].InnerText; //Please take note that 
-                                //instead of latter grade we should just change this into rubrics.
-                                //consult sir wallen please
+                                Student idgeter = new Student();
+                                idgeter.StudentID = student.ChildNodes[0].ChildNodes[0].InnerText;
+                                idgeter.LastName = student.ChildNodes[0].ChildNodes[3].InnerText;
+                                idgeter.FirstName = student.ChildNodes[0].ChildNodes[4].InnerText;
+                                //XmlNodeList gradeinfo = student.SelectNodes("stud_grades/stud_stdgrades/stud_stdgrade");
+                                XmlNodeList gradeinfo = student.SelectNodes("stud_grades/stud_stdgrades");
+                                //System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName + " " + idgeter.StudentID + " " + idgeter.FirstName);
+                                foreach (XmlNode grade in gradeinfo)
+                                {
+                                    //System.Windows.Forms.MessageBox.Show(grade.HasChildNodes.ToString());
+                                    if (grade.HasChildNodes == true)
+                                    {
+                                        XmlNodeList stdgradeinfo = grade.SelectNodes("stud_stdgrade");
+                                        //System.Windows.Forms.MessageBox.Show(stdgradeinfo.Count.ToString());
+                                        foreach (XmlNode stdgrade in stdgradeinfo)
+                                        {
+                                            Skill skilltostore = new Skill();
+                                            //System.Windows.Forms.MessageBox.Show(stdgrade.HasChildNodes.ToString());
+                                            skilltostore.SkillID = stdgrade.ChildNodes[0].InnerText;
+                                            skilltostore.SkillName = skillNames[skilltostore.SkillID];
+                                            skilltostore.NumericGrade = double.Parse(stdgrade.ChildNodes[1].InnerText);
+                                            skilltostore.LetterGrade = stdgrade.ChildNodes[2].InnerText; //Please take note that 
 
 
-                                controller.addOrUpdatePeriod(controller.getStudent(idgeter.StudentID), period);
+                                            //skilltostore.SkillID = grade.ChildNodes[0].InnerText;
+                                            //skilltostore.SkillName = skillNames[skilltostore.SkillID];
+                                            //skilltostore.NumericGrade = double.Parse(grade.ChildNodes[1].InnerText);
+                                            //skilltostore.LetterGrade = grade.ChildNodes[2].InnerText; //Please take note that 
+                                            //instead of latter grade we should just change this into rubrics.
+                                            //consult sir wallen please
 
-                                //Backup code incase the current revision is to be replaced with remarks
-                                //skilltostore.SkillCategory = categories[grade.Attributes[0].InnerText]; might not be needed anymore
-                                //if (skilltostore.SkillCategory.Equals("Remarks"))
-                                //{
-                                //    break;
-                                //}
-                                //else
-                                //{
-                                //    skilltostore.NumericGrade = double.Parse(grade.ChildNodes[1].InnerText);
-                                //    skilltostore.LetterGrade = grade.ChildNodes[2].InnerText;
-                                //    controller.addOrUpdateSkill(controller.getStudent(idgeter.StudentID), skilltostore, period);
-                                //} Pending for deletion since we removed the remarks adjustments
 
-                                controller.addOrUpdateSkill(controller.getStudent(idgeter.StudentID), skilltostore, period);
-                                //System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName);
+                                            controller.addOrUpdatePeriod(controller.getStudent(idgeter.StudentID), period);
 
-                                //System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName + " " + idgeter.StudentID + " " + skilltostore.SkillID + " " + skilltostore.SkillName + " " + skilltostore.NumericGrade);
-                                //System.Windows.Forms.MessageBox.Show(controller.getStudent(idgeter.StudentID).StudentID);
-                                //idgeter.RptCard.Periods.Add(period);
+                                            //Backup code incase the current revision is to be replaced with remarks
+                                            //skilltostore.SkillCategory = categories[grade.Attributes[0].InnerText]; might not be needed anymore
+                                            //if (skilltostore.SkillCategory.Equals("Remarks"))
+                                            //{
+                                            //    break;
+                                            //}
+                                            //else
+                                            //{
+                                            //    skilltostore.NumericGrade = double.Parse(grade.ChildNodes[1].InnerText);
+                                            //    skilltostore.LetterGrade = grade.ChildNodes[2].InnerText;
+                                            //    controller.addOrUpdateSkill(controller.getStudent(idgeter.StudentID), skilltostore, period);
+                                            //} Pending for deletion since we removed the remarks adjustments
+
+                                            controller.addOrUpdateSkill(controller.getStudent(idgeter.StudentID), skilltostore, period);
+                                            //System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName);
+
+                                            //System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName + " " + idgeter.StudentID + " " + idgeter.FirstName + " " + skilltostore.SkillID + " " + skilltostore.SkillName + " " + skilltostore.NumericGrade);
+                                            //System.Windows.Forms.MessageBox.Show(controller.getStudent(idgeter.StudentID).StudentID);
+                                            //idgeter.RptCard.Periods.Add(period);
+                                            //}
+                                           
+
+                                        }
+                                      
+                                    }
+                                    else
+                                    {
+                                        break;
+                                        System.Windows.Forms.MessageBox.Show("NO childNodes Exists!!!");
+                                    }
+                                }
+
                             }
                         }
                     }
                 }
-            //}
-            //catch (Exception)
-            //{
-
-            //}
         }
 
         private static void addGradesFromXML(IStudentController controller, XmlDocument doc)
