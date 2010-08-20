@@ -51,25 +51,19 @@ namespace ReportCardGenerator.Tests
         public void testAddStudentsFromXML()
         {
             Student stud = new Student();
-            stud.StudentID = "07-0052";
-            stud.FirstName = "Maria Syahirah Binti";
-            stud.LastName = "Ahmad";
+            stud.StudentID = "95-0072";
+            stud.FirstName = "Abbey Geraldine";
+            stud.LastName = "Matibag";
             XmlDocument doc = new XmlDocument();
             doc.Load(@"c:\XML\XML Homeroom_template.xml");
             EGPXMLParser.parseHomeroomXML(FrontController.getInstance().getStudentController(), doc);
             int count = controller.getAllStudents().Count;
 
-            //foreach (Student stu in State.getInstance().Students)
-            //{
-            //    System.Windows.Forms.MessageBox.Show(stu.StudentID);
-            //}
             int sample = State.getInstance().Students.Count;
-            //System.Windows.Forms.MessageBox.Show(sample.ToString());
             Assert.AreEqual(controller.getAllStudents().Count, count);
-            Assert.AreEqual(controller.getStudent("07-0052").StudentID, stud.StudentID);
-            Assert.AreEqual(controller.getStudent("07-0052").FirstName, stud.FirstName);
-            Assert.AreEqual(controller.getStudent("07-0052").LastName, stud.LastName);
-            //Assert.AreEqual(controller.getStudent("4335"), stud);
+            Assert.AreEqual(controller.getStudent(stud.StudentID).StudentID, stud.StudentID);
+            Assert.AreEqual(controller.getStudent(stud.StudentID).FirstName, stud.FirstName);
+            Assert.AreEqual(controller.getStudent(stud.StudentID).LastName, stud.LastName);
             
         }
         [Test]//, ExpectedException(typeof(DuplicateStudentException))]
@@ -125,8 +119,15 @@ namespace ReportCardGenerator.Tests
             Student stud = new Student();
             Grade gd = new Grade();
             Period per = new Period();
+
+            per.PeriodID = 1;
+            per.PeriodName = "Term1";
+
             doc.Load(@"c:\XML\XML Homeroom_template.xml");
             stud.StudentID = "07-0052";
+            stud.FirstName = "Abbey Geraldine";
+            stud.LastName = "Matibag";
+
             gd.SubjectID = "Quiz#1";
             gd.NumericGrade = 97;
             gd.LetterGrade = "A";
@@ -149,7 +150,12 @@ namespace ReportCardGenerator.Tests
         public void testaddAttendanceFromXML()
         {
             Student stud = new Student();
+            Period period = new Period();
             Attendance att = new Attendance();
+
+            period.PeriodID = 1;
+            period.PeriodName = "Term1";
+
             stud.StudentID = "02-0190";
             stud.FirstName = "Ito";
             stud.LastName = "Airi Krizia";
@@ -159,7 +165,7 @@ namespace ReportCardGenerator.Tests
             doc.Load(@"c:\XML\XML Homeroom_template.xml");
             EGPXMLParser.parseHomeroomXML(FrontController.getInstance().getStudentController(), doc);
 
-            Assert.AreEqual(controller.getPeriod(stud,1).PeriodAttendance.DaysPresent,att);
+            Assert.AreEqual(this.controller.getPeriod(this.controller.getStudent(stud.StudentID),period.PeriodID).PeriodAttendance.DaysPresent,att.DaysPresent);
         }
         [Test]
         public void testaddCommentsFromXML()
@@ -167,15 +173,22 @@ namespace ReportCardGenerator.Tests
             XmlDocument doc = new XmlDocument();
             Student stud = new Student();
             Comment comm = new Comment();
-            doc.Load(@"c:\XML\XML Homeroom_template.xml");
+            Period period = new Period();
+
+            period.PeriodID = 1;
+            period.PeriodName = "Term1";
+
             stud.StudentID = "95-0072";
-            stud.LastName = "Abbey Geraldine";
-            stud.FirstName = "Matibag";
-            comm.CommentText = "Abbey is a great student";
+            stud.FirstName = "Abbey Geraldine";
+            stud.LastName = "Matibag";
+
+            comm.CommentText = "Abbey tries very hard";
+
+            doc.Load(@"c:\XML\XML Homeroom_template.xml");
             EGPXMLParser.parseHomeroomXML(FrontController.getInstance().getStudentController(), doc);
 
-            Assert.AreEqual(controller.getPeriod(stud,1).PeriodComment.CommentText.Equals(comm.CommentText),true);
-            Assert.AreEqual(controller.getPeriod(stud,1).PeriodComment.CommentText,comm.CommentText);
+            //Assert.AreEqual(controller.getPeriod(this.controller.getStudent(stud.StudentID), period.PeriodID).PeriodComment.CommentText.Equals(comm.CommentText), true);
+            Assert.AreEqual(controller.getPeriod(this.controller.getStudent(stud.StudentID), period.PeriodID).PeriodComment.CommentText, comm.CommentText);
 
         }
 

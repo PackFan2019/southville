@@ -365,7 +365,7 @@ namespace ReportCardGenerator.Utilities
             addStudentsFromXML(controller, doc);
             //addAttendanceFromXML(controller, doc);
             addSkillsFromXML(controller, doc);
-            //addCommentsFromXML(controller, doc);
+            addCommentsFromXML(controller, doc);
         }
 
         public static void parseGradebookXML(IStudentController controller, XmlDocument doc)
