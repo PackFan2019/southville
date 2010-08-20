@@ -182,11 +182,16 @@ namespace ReportCardGenerator.Tests
             stud.FirstName = "Abbey Geraldine";
             stud.LastName = "Matibag";
 
-            comm.CommentText = "Abbey tries very hard";
+            //stud.StudentID = "08-0204";
+            //stud.FirstName = "Armina";
+            //stud.LastName = "Bago";
+            comm.CommentText = "Armina is an excellent student";
 
             doc.Load(@"c:\XML\XML Homeroom_template.xml");
             EGPXMLParser.parseHomeroomXML(FrontController.getInstance().getStudentController(), doc);
 
+            //System.Windows.Forms.MessageBox.Show(this.controller.getStudent(stud.StudentID).StudentID);
+            //System.Windows.Forms.MessageBox.Show(controller.getPeriod(this.controller.getStudent(stud.StudentID), period.PeriodID).PeriodComment.CommentText);
             //Assert.AreEqual(controller.getPeriod(this.controller.getStudent(stud.StudentID), period.PeriodID).PeriodComment.CommentText.Equals(comm.CommentText), true);
             Assert.AreEqual(controller.getPeriod(this.controller.getStudent(stud.StudentID), period.PeriodID).PeriodComment.CommentText, comm.CommentText);
 

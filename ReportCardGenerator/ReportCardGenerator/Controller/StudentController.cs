@@ -82,9 +82,22 @@ namespace ReportCardGenerator.Controller
             //Add or update a comment given a period id
             //Update the comment (not add a new one) if there is already an existing comment
             //Add the period if it does not exist
+            //Period peri = this.getPeriod(stud,p.PeriodID);
+            
             Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
-            if (p == null) addOrUpdatePeriod(stud, p);
-            else p.PeriodComment= c;
+            if (p == null)
+            {
+                addOrUpdatePeriod(stud, p);
+            }
+            else if (c.CommentText != "")
+            {
+                //System.Windows.Forms.MessageBox.Show(stud.StudentID + " " + stud.FirstName + " " + p.PeriodID + " " + p.PeriodName + " " + c.CommentText);
+                //p.PeriodComment.CommentText = c.CommentText;
+                //stud.RptCard.Periods.Add(p);
+                //System.Windows.Forms.MessageBox.Show(this.getPeriod(this.getStudent(stud.StudentID), p.PeriodID).PeriodID.ToString());
+                this.getPeriod(this.getStudent(stud.StudentID), p.PeriodID).PeriodComment.CommentText = c.CommentText;
+                addOrUpdatePeriod(stud, p);
+            }
         }
         public void addOrUpdatePeriod(Student stud, Period per)
         {

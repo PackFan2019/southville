@@ -344,12 +344,20 @@ namespace ReportCardGenerator.Utilities
                             Student idgeter = new Student();
                             idgeter.StudentID = student.ChildNodes[0].ChildNodes[0].InnerText;
                             XmlNodeList gradeinfo = student.SelectNodes("stud_grades/score");
+
                             foreach (XmlNode grade in gradeinfo)
                             {
-                                Comment cm = new Comment();
-                                cm.CommentText = grade.LastChild.InnerText;
-                                controller.addOrUpdatePeriod(controller.getStudent(idgeter.StudentID), period);
-                                controller.addOrUpdateComment(controller.getStudent(idgeter.StudentID), cm, period);
+                                    Comment cm = new Comment();
+                                    //System.Windows.Forms.MessageBox.Show(studentinfo.Count.ToString());
+                                    if (grade.LastChild.InnerText != "")
+                                    {
+                                        cm.CommentText = grade.LastChild.InnerText;
+                                        //System.Windows.Forms.MessageBox.Show(controller.getStudent(idgeter.StudentID).StudentID);
+                                        controller.addOrUpdatePeriod(controller.getStudent(idgeter.StudentID), period);
+                                        controller.addOrUpdateComment(controller.getStudent(idgeter.StudentID), cm, period);
+                                    }
+
+                                
                             }
                         }
                     }
