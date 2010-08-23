@@ -185,7 +185,9 @@ namespace ReportCardGenerator.Tests
             //stud.StudentID = "08-0204";
             //stud.FirstName = "Armina";
             //stud.LastName = "Bago";
-            comm.CommentText = "Armina is an excellent student";
+            //comm.CommentText = "Armina is an excellent student";
+            comm.CommentText = "Abbey tries very hard";
+            //period.PeriodComment.CommentText = comm.CommentText;
 
             doc.Load(@"c:\XML\XML Homeroom_template.xml");
             EGPXMLParser.parseHomeroomXML(FrontController.getInstance().getStudentController(), doc);
@@ -193,7 +195,7 @@ namespace ReportCardGenerator.Tests
             //System.Windows.Forms.MessageBox.Show(this.controller.getStudent(stud.StudentID).StudentID);
             //System.Windows.Forms.MessageBox.Show(controller.getPeriod(this.controller.getStudent(stud.StudentID), period.PeriodID).PeriodComment.CommentText);
             //Assert.AreEqual(controller.getPeriod(this.controller.getStudent(stud.StudentID), period.PeriodID).PeriodComment.CommentText.Equals(comm.CommentText), true);
-            Assert.AreEqual(controller.getPeriod(this.controller.getStudent(stud.StudentID), period.PeriodID).PeriodComment.CommentText, comm.CommentText);
+            Assert.AreEqual(this.controller.getPeriod(this.controller.getStudent(stud.StudentID), period.PeriodID).PeriodComment.CommentText, comm.CommentText);
 
         }
 
@@ -266,7 +268,7 @@ namespace ReportCardGenerator.Tests
         //    //2. Check the SubjectID, SubjectName, SubjectGroup are correct
         //    //3. Check the numeric grades
         //    //4. Check the letter grades
-            
+
         //}
 
         //[Test]

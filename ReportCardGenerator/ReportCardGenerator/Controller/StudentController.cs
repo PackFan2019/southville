@@ -95,8 +95,14 @@ namespace ReportCardGenerator.Controller
                 //p.PeriodComment.CommentText = c.CommentText;
                 //stud.RptCard.Periods.Add(p);
                 //System.Windows.Forms.MessageBox.Show(this.getPeriod(this.getStudent(stud.StudentID), p.PeriodID).PeriodID.ToString());
+                int index = this.getPeriod(this.getStudent(stud.StudentID), p.PeriodID).PeriodComment.CommentText.IndexOf(c.CommentText);
                 this.getPeriod(this.getStudent(stud.StudentID), p.PeriodID).PeriodComment.CommentText = c.CommentText;
-                addOrUpdatePeriod(stud, p);
+                //p.PeriodComment = this.getPeriod(this.getStudent(stud.StudentID), p.PeriodID).PeriodComment;
+                //this.getStudent(stud.StudentID).RptCard.Periods.Add(p);
+                //this.addOrUpdatePeriod(this.getStudent(stud.StudentID), p);
+
+                //System.Windows.Forms.MessageBox.Show();
+                //System.Windows.Forms.MessageBox.Show(this.getStudent(stud.StudentID).StudentID + " " + this.getPeriod(this.getStudent(stud.StudentID), p.PeriodID).PeriodComment.CommentText);
             }
         }
         public void addOrUpdatePeriod(Student stud, Period per)

@@ -131,7 +131,7 @@ namespace ReportCardGenerator.Utilities
                                     else
                                     {
                                         break;
-                                        System.Windows.Forms.MessageBox.Show("NO childNodes Exists!!!");
+                                        //System.Windows.Forms.MessageBox.Show("NO childNodes Exists!!!");
                                     }
                                 }
 
@@ -331,34 +331,39 @@ namespace ReportCardGenerator.Utilities
             {
                 XmlNodeList primelist = doc.SelectNodes("easygradepro/class");
                 Period period = new Period();
+                Dictionary<int , string> subjectname = new Dictionary<int, string>();
                 foreach (XmlNode primenode in primelist)
                 {
                     XmlNodeList peroidlist = primenode.SelectNodes("classrecord");
+                    XmlNodeList assignlst = primenode.SelectNodes("assignments");
                     XmlNodeList studentinfo = primenode.SelectNodes("student");
+                    foreach(XmlNode gradesname in assignlst)
+                    {
+                        subjectname.Add(Int32.Parse(gradesname.ChildNodes[0].InnerText), gradesname.ChildNodes[1].InnerText);
+
+                    }
                     foreach (XmlNode test in peroidlist)
                     {
                         period.PeriodID = Int32.Parse(test.ChildNodes[1].InnerText);
                         period.PeriodName = test.ChildNodes[2].InnerText;
                         foreach (XmlNode student in studentinfo)
                         {
-                            Student idgeter = new Student();
-                            idgeter.StudentID = student.ChildNodes[0].ChildNodes[0].InnerText;
-                            XmlNodeList gradeinfo = student.SelectNodes("stud_grades/score");
-
-                            foreach (XmlNode grade in gradeinfo)
+                            String studid = student.ChildNodes[0].InnerText;
+                            XmlNodeList comment = student.SelectNodes("stud_grades");
+                            String checker;
+                            foreach (XmlNode commentcontainer in comment)
                             {
-                                    Comment cm = new Comment();
-                                    //System.Windows.Forms.MessageBox.Show(studentinfo.Count.ToString());
-                                    if (grade.LastChild.InnerText != "")
-                                    {
-                                        cm.CommentText = grade.LastChild.InnerText;
-                                        //System.Windows.Forms.MessageBox.Show(controller.getStudent(idgeter.StudentID).StudentID);
-                                        controller.addOrUpdatePeriod(controller.getStudent(idgeter.StudentID), period);
-                                        controller.addOrUpdateComment(controller.getStudent(idgeter.StudentID), cm, period);
-                                    }
-
-                                
+                                Comment comment2 = new Comment();
+                                checker = subjectname[Int32.Parse(commentcontainer.Value.ToString())];
+                                if (checker == "Remarks")
+                                {
+                                    comment2.CommentText = commentcontainer.ChildNodes[3].InnerText;
+                                    controller.addOrUpdatePeriod(controller.getStudent(studid), period);
+                                    controller.addOrUpdateComment(controller.getStudent(studid), comment2, period);
+                                    System.Windows.Forms.MessageBox.Show(comment2.CommentText);
+                                }
                             }
+
                         }
                     }
                 }
