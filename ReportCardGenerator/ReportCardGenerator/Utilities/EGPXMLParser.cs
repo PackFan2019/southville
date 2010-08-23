@@ -352,13 +352,13 @@ namespace ReportCardGenerator.Utilities
                         foreach (XmlNode commentcontainer in comment)
                         {
                             Comment comment2 = new Comment();
-                            checker = subjectname[commentcontainer.Value.ToString()];
+                            checker = subjectname[commentcontainer.Attributes[0].InnerText];
                             if (checker == "Remarks")
                             {
                                 comment2.CommentText = commentcontainer.ChildNodes[3].InnerText;
                                 controller.addOrUpdatePeriod(controller.getStudent(studid), period);
                                 controller.addOrUpdateComment(controller.getStudent(studid), comment2, period);
-                                System.Windows.Forms.MessageBox.Show(comment2.CommentText);
+                                
                             }
                         }
 
