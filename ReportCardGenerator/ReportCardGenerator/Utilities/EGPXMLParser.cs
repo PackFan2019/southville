@@ -329,12 +329,11 @@ namespace ReportCardGenerator.Utilities
         {
 
             XmlNodeList primelist = doc.SelectNodes("easygradepro/class");
-            Period period = new Period();
             Dictionary<string, string> subjectname = new Dictionary<string, string>();
             foreach (XmlNode primenode in primelist)
             {
                 XmlNodeList peroidlist = primenode.SelectNodes("classrecord");
-                XmlNodeList assignlst = primenode.SelectNodes("assignments");
+                XmlNodeList assignlst = primenode.SelectNodes("assignments/assignment");
                 XmlNodeList studentinfo = primenode.SelectNodes("student");
                 foreach (XmlNode gradesname in assignlst)
                 {
@@ -342,12 +341,13 @@ namespace ReportCardGenerator.Utilities
                 }
                 foreach (XmlNode test in peroidlist)
                 {
+                    Period period = new Period();
                     period.PeriodID = Int32.Parse(test.ChildNodes[1].InnerText);
                     period.PeriodName = test.ChildNodes[2].InnerText;
                     foreach (XmlNode student in studentinfo)
                     {
                         String studid = student.ChildNodes[0].InnerText;
-                        XmlNodeList comment = student.SelectNodes("stud_grades");
+                        XmlNodeList comment = student.SelectNodes("stud_grades/score");
                         String checker;
                         foreach (XmlNode commentcontainer in comment)
                         {
