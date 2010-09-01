@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using ReportCardGenerator.Interfaces;
 using ReportCardGenerator.Controller;
+using ReportCardGenerator.DataSet;
 
 namespace ReportCardGenerator.Views
 {
@@ -28,6 +29,17 @@ namespace ReportCardGenerator.Views
             //Register this view with the frontcontroller   
             FrontController.getInstance().registerView(this);
             
+        }
+
+        private void crystalReportViewer1_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Loadreport()
+        {
+            ReportCard reportcard = new ReportCard();
+            ReportCardData dataset = new ReportCardData();
         }
     }
 }

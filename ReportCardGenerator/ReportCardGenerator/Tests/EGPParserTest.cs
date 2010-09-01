@@ -210,15 +210,15 @@ namespace ReportCardGenerator.Tests
             period.PeriodID = 1;
             period.PeriodName = "Term1";
 
-            stud.StudentID = "95-0072";
-            stud.FirstName = "Abbey Geraldine";
-            stud.LastName = "Matibag";
-            comm.CommentText = "Abbey tries very hard";
+            ////stud.StudentID = "95-0072";
+            ////stud.FirstName = "Abbey Geraldine";
+            ////stud.LastName = "Matibag";
+            ////comm.CommentText = "Abbey tries very hard";
 
-            //stud.StudentID = "08-0204";
-            //stud.FirstName = "Armina";
-            //stud.LastName = "Bago";
-            //comm.CommentText = "Armina is an excellent student";
+            stud.StudentID = "08-0204";
+            stud.FirstName = "Armina";
+            stud.LastName = "Bago";
+            comm.CommentText = "Armina is an excellent student";
 
             //stud.StudentID = "04-0140";
             //stud.FirstName = "Beatrice Louee";
@@ -230,10 +230,14 @@ namespace ReportCardGenerator.Tests
             doc.Load(@"c:\XML\XML Homeroom_template.xml");
             EGPXMLParser.parseHomeroomXML(FrontController.getInstance().getStudentController(), doc);
 
+            //System.Windows.Forms.MessageBox.Show(controller.getStudent(stud.StudentID).StudentID);
             //System.Windows.Forms.MessageBox.Show(this.controller.getStudent(stud.StudentID).StudentID);
             //System.Windows.Forms.MessageBox.Show(controller.getPeriod(this.controller.getStudent(stud.StudentID), period.PeriodID).PeriodComment.CommentText);
             //Assert.AreEqual(controller.getPeriod(this.controller.getStudent(stud.StudentID), period.PeriodID).PeriodComment.CommentText.Equals(comm.CommentText), true);
-            Assert.AreEqual(comm.CommentText,this.controller.getPeriod(this.controller.getStudent(stud.StudentID),period.PeriodID).PeriodComment.CommentText);
+            //Assert.AreEqual(comm.CommentText,controller.getStudent(stud.StudentID).RptCard.Periods.Find(delegate(Period per) {return per.PeriodComment.CommentText.Equals(comm.CommentText);}).PeriodComment.CommentText);
+
+            Assert.AreEqual(comm.CommentText, controller.getPeriod(controller.getStudent(stud.StudentID), period.PeriodID).PeriodComment.Find(delegate(Comment comment) { return comment.CommentText.Equals(comm.CommentText); }).CommentText);
+            
 
         }
 

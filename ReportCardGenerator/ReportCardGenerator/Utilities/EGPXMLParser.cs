@@ -370,7 +370,7 @@ namespace ReportCardGenerator.Utilities
                                 //{
 
                             comment2.CommentText = commentcontainer.InnerText;
-                            period.PeriodComment.CommentText = comment2.CommentText;
+                            
                                     ////System.Windows.Forms.MessageBox.Show(controller.getStudent(studid).StudentID);
                                     //System.Windows.Forms.MessageBox.Show(period.PeriodID.ToString());
                                     controller.addOrUpdatePeriod(controller.getStudent(studid), period);

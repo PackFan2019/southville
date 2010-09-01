@@ -99,14 +99,16 @@ namespace ReportCardGenerator.Controller
             }
             else if (c.CommentText != "")
             {
+                getPeriod(getStudent(stud.StudentID), period.PeriodID).PeriodComment.Add(c);
+                ////Period per = new Period();
+                //period.PeriodID = p.PeriodID;
+                //period.PeriodName = p.PeriodName;
+                //period.PeriodComment = getPeriod(getStudent(stud.StudentID), period.PeriodID).PeriodComment;
                
-                Period per = new Period();
-                per.PeriodID = p.PeriodID;
-                per.PeriodName = p.PeriodName;
-                per.PeriodComment.CommentText = c.CommentText;
-                getPeriod(getStudent(stud.StudentID), p.PeriodID).PeriodComment.CommentText = per.PeriodComment.CommentText;
-                System.Windows.Forms.MessageBox.Show(this.getStudent(stud.StudentID).StudentID + " " + p.PeriodID + " " + per.PeriodComment.CommentText);
-                addOrUpdatePeriod(getStudent(stud.StudentID), per);
+                //System.Windows.Forms.MessageBox.Show(this.getStudent(stud.StudentID).StudentID + " " + p.PeriodID + " " + period.PeriodComment.CommentText);
+                ////addOrUpdatePeriod(stud, period);
+
+                //this.getStudent(stud.StudentID).RptCard.Periods.Add(period);
             }
         }
         public void addOrUpdatePeriod(Student stud, Period per)
@@ -117,13 +119,13 @@ namespace ReportCardGenerator.Controller
             //ReportCard.getInstance().Periods.Add(per);
             
             Period periods = stud.RptCard.Periods.Find(delegate(Period p) { return p.PeriodID.Equals(per.PeriodID); });
-            //if (periods != per)
-            //{
+            if (per!=null)
+            {
                 stud.RptCard.Periods.Add(per);
-            //}
+            }
             //else
             //{
-            //    stud.RptCard.Periods.Insert(stud.RptCard.Periods.IndexOf(periods),per);
+            //    stud.RptCard.Periods.Insert(stud.RptCard.Periods.IndexOf(periods), per);
             //}
         }
         public void addOrUpdateSkill(Student stud, Skill s, Period p)
@@ -131,8 +133,11 @@ namespace ReportCardGenerator.Controller
             Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
             if (period != null)
             {
-                Skill sk = p.Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(s.SkillID); });
-                this.getPeriod(this.getStudent(stud.StudentID), p.PeriodID).Skills.Add(s);
+                if (s != null)
+                {
+                    Skill sk = p.Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(s.SkillID); });
+                    this.getPeriod(this.getStudent(stud.StudentID), p.PeriodID).Skills.Add(s);
+                }
             }
         }
         public void addOrUpdateAttendance(Student stud, Attendance a, Period p)

@@ -25,14 +25,21 @@ namespace ReportCardGenerator.Beans
             set { periodName = value; }
         }
 
+        private List<Comment> periodComment = new List<Comment>();
 
-        private Comment periodComment = new Comment();
-
-        internal Comment PeriodComment
+        public List<Comment> PeriodComment
         {
             get { return periodComment; }
             set { periodComment = value; }
         }
+
+        //private Comment periodComment = new Comment();
+
+        //internal Comment PeriodComment
+        //{
+        //    get { return periodComment; }
+        //    set { periodComment = value; }
+        //}
         private Attendance periodAttendance = new Attendance();
 
         internal Attendance PeriodAttendance
