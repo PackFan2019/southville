@@ -51,11 +51,16 @@ namespace ReportCardGenerator.Tests
         public void testAddStudentsFromXML()
         {
             Student stud = new Student();
-            stud.StudentID = "95-0072";
-            stud.FirstName = "Abbey Geraldine";
-            stud.LastName = "Matibag";
+            //stud.StudentID = "95-0072";
+            //stud.FirstName = "Abbey Geraldine";
+            //stud.LastName = "Matibag";
+
+            stud.StudentID = "07-0052";
+            stud.FirstName = "Maria Syahirah Binti";
+            stud.LastName = "Ahmad";
             XmlDocument doc = new XmlDocument();
-            doc.Load(@"c:\XML\XML Homeroom_template.xml");
+            //doc.Load(@"c:\XML\XML Homeroom_template.xml");
+           doc.Load(@"C:\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\CombinedGradebooks.xml");
             EGPXMLParser.parseHomeroomXML(FrontController.getInstance().getStudentController(), doc);
             int count = controller.getAllStudents().Count;
 
