@@ -24,7 +24,9 @@ namespace ReportCardGenerator.Utilities
                 stud.StudentID = node["stud_id"].InnerText;
                 stud.FirstName = node["stud_firstname"].InnerText;
                 stud.LastName = node["stud_lastname"].InnerText;
-                //System.Windows.Forms.MessageBox.Show(stud.StudentID);
+
+
+                //System.Windows.Forms.MessageBox.Show(stud.StudentID + " " +stud.FirstName + " " + stud.LastName);
                 controller.addOrUpdateStudent(stud);
             }
         }

@@ -60,7 +60,7 @@ namespace ReportCardGenerator.Tests
             stud.LastName = "Ahmad";
             XmlDocument doc = new XmlDocument();
             //doc.Load(@"c:\XML\XML Homeroom_template.xml");
-           doc.Load(@"C:\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\CombinedGradebooks.xml");
+           doc.Load(@"C:\Southville project\ReportCardGenerator\ReportCardGenerator\Tests\Combined.xml");
             EGPXMLParser.parseHomeroomXML(FrontController.getInstance().getStudentController(), doc);
             int count = controller.getAllStudents().Count;
 

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ReportCardData" targetNamespace="http://tempuri.org/ReportCardData.xsd" xmlns:mstns="http://tempuri.org/ReportCardData.xsd" xmlns="http://tempuri.org/ReportCardData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ReportCardData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="ReportCardData" msprop:Generator_UserDSName="ReportCardData" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ReportCardTable" msprop:Generator_UserTableName="ReportCardTable" msprop:Generator_RowDeletedName="ReportCardTableRowDeleted" msprop:Generator_TableClassName="ReportCardTableDataTable" msprop:Generator_RowChangedName="ReportCardTableRowChanged" msprop:Generator_RowClassName="ReportCardTableRow" msprop:Generator_RowChangingName="ReportCardTableRowChanging" msprop:Generator_RowEvArgName="ReportCardTableRowChangeEvent" msprop:Generator_RowEvHandlerName="ReportCardTableRowChangeEventHandler" msprop:Generator_TablePropName="ReportCardTable" msprop:Generator_TableVarName="tableReportCardTable" msprop:Generator_RowDeletingName="ReportCardTableRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="StudentFirstname" msprop:Generator_UserColumnName="StudentFirstname" msprop:Generator_ColumnPropNameInRow="StudentFirstname" msprop:Generator_ColumnVarNameInTable="columnStudentFirstname" msprop:Generator_ColumnPropNameInTable="StudentFirstnameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="StudentLastname" msprop:Generator_UserColumnName="StudentLastname" msprop:Generator_ColumnPropNameInRow="StudentLastname" msprop:Generator_ColumnVarNameInTable="columnStudentLastname" msprop:Generator_ColumnPropNameInTable="StudentLastnameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Termname" msprop:Generator_UserColumnName="Termname" msprop:Generator_ColumnPropNameInRow="Termname" msprop:Generator_ColumnVarNameInTable="columnTermname" msprop:Generator_ColumnPropNameInTable="TermnameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Subjectname" msprop:Generator_UserColumnName="Subjectname" msprop:Generator_ColumnPropNameInRow="Subjectname" msprop:Generator_ColumnVarNameInTable="columnSubjectname" msprop:Generator_ColumnPropNameInTable="SubjectnameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="LetterGrade" msprop:Generator_UserColumnName="LetterGrade" msprop:Generator_ColumnPropNameInRow="LetterGrade" msprop:Generator_ColumnVarNameInTable="columnLetterGrade" msprop:Generator_ColumnPropNameInTable="LetterGradeColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

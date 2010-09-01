@@ -74,7 +74,7 @@ namespace ReportCardGenerator.Views
                 doc.Load(GrabeBookList.SelectedItem.ToString());
                 State.getInstance().Students.Clear();
                 StudentList.Items.Clear();
-                EGPXMLParser.parseGradebookXML(controller, doc);
+                EGPXMLParser.parseHomeroomXML(controller, doc);
                 
                 foreach (Student s in State.getInstance().Students)
                 {
