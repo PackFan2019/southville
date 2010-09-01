@@ -143,25 +143,28 @@ namespace ReportCardGenerator.Utilities
 
         private static void addGradesFromXML(IStudentController controller, XmlDocument doc)
         {
-            try
-            {
+            //try
+            //{
                 XmlNodeList primelist = doc.SelectNodes("easygradepro/class");
-                Period period = new Period();
-                Grade Grade = new Grade();
+               
+               
                 foreach (XmlNode primenode in primelist)
                 {
+                    Grade Grade = new Grade();
                     XmlNodeList peroidlist = primenode.SelectNodes("classrecord");
                     XmlNodeList studentinfo = primenode.SelectNodes("student");
                     XmlNodeList gradename = primenode.SelectNodes("assignments/assignment");
                     Dictionary<String, String> categories = new Dictionary<string, string>();
                     foreach (XmlNode test in gradename)
                     {
+                       
                         Grade.SubjectCategory = test.ChildNodes[6].InnerText;
                         Grade.SubjectID = test.ChildNodes[0].InnerText;
                         categories.Add(Grade.SubjectID, Grade.SubjectCategory);
                     }
                     foreach (XmlNode test in peroidlist)
                     {
+                        Period period = new Period();
                         period.PeriodID = Int32.Parse(test.ChildNodes[1].InnerText);
                         period.PeriodName = test.ChildNodes[2].InnerText;
                         Grade.SubjectName = test.ChildNodes[0].InnerText;
@@ -172,24 +175,28 @@ namespace ReportCardGenerator.Utilities
                             XmlNodeList gradeinfo = student.SelectNodes("stud_grades/score");
                             foreach (XmlNode grade in gradeinfo)
                             {
-                                controller.addOrUpdatePeriod(controller.getStudent(idgeter.StudentID), period);
-                                Grade ToStoreGrade = new Grade();
-                                ToStoreGrade.SubjectID = grade.Attributes[0].InnerText;
-                                ToStoreGrade.SubjectCategory = categories[grade.Attributes[0].InnerText];
-                                ToStoreGrade.NumericGrade = double.Parse(grade.ChildNodes[1].InnerText);
-                                ToStoreGrade.LetterGrade = grade.ChildNodes[2].InnerText;
-                                controller.addOrUpdatePeriod(controller.getStudent(idgeter.StudentID), period);
-                                controller.addOrUpdateGrade(controller.getStudent(idgeter.StudentID), ToStoreGrade, period);
-                                System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName + " " + idgeter.StudentID + " " + ToStoreGrade.SubjectID + ToStoreGrade.SubjectName + " " + ToStoreGrade.LetterGrade + " " + ToStoreGrade.NumericGrade);
+                                //controller.addOrUpdatePeriod(controller.getStudent(idgeter.StudentID), period);
+                                
+                                if (grade.ChildNodes[2].InnerText != "")
+                                {
+                                    Grade ToStoreGrade = new Grade();
+                                    ToStoreGrade.SubjectID = grade.Attributes[0].InnerText;
+                                    ToStoreGrade.SubjectCategory = categories[grade.Attributes[0].InnerText];
+                                    ToStoreGrade.NumericGrade = double.Parse(grade.ChildNodes[1].InnerText);
+                                    ToStoreGrade.LetterGrade = grade.ChildNodes[2].InnerText;
+                                    controller.addOrUpdatePeriod(controller.getStudent(idgeter.StudentID), period);
+                                    controller.addOrUpdateGrade(controller.getStudent(idgeter.StudentID), ToStoreGrade, period);
+                                    //System.Windows.Forms.MessageBox.Show(period.PeriodID + " " + period.PeriodName + " " + idgeter.StudentID + " " + ToStoreGrade.SubjectID + " " + Grade.SubjectName + " " + ToStoreGrade.LetterGrade + " " + ToStoreGrade.NumericGrade);
+                                }
                             }
                         }
                     }
                 }
-            }
-            catch (Exception)
-            {
+            //}
+            //catch (Exception)
+            //{
 
-            }
+            //}
         }
 
         private static void addAttendanceFromXML(IStudentController controller, XmlDocument doc)
@@ -335,10 +342,10 @@ namespace ReportCardGenerator.Utilities
                 XmlNodeList peroidlist = primenode.SelectNodes("classrecord");
                 XmlNodeList assignlst = primenode.SelectNodes("assignments/assignment");
                 XmlNodeList studentinfo = primenode.SelectNodes("student");
-                foreach (XmlNode gradesname in assignlst)
-                {
-                    subjectname.Add(gradesname.ChildNodes[0].InnerText, gradesname.ChildNodes[1].InnerText);
-                }
+                //foreach (XmlNode gradesname in assignlst)
+                //{
+                //    subjectname.Add(gradesname.ChildNodes[0].InnerText, gradesname.ChildNodes[1].InnerText);
+                //}
                 foreach (XmlNode test in peroidlist)
                 {
                     Period period = new Period();
@@ -346,20 +353,31 @@ namespace ReportCardGenerator.Utilities
                     period.PeriodName = test.ChildNodes[2].InnerText;
                     foreach (XmlNode student in studentinfo)
                     {
-                        String studid = student.ChildNodes[0].InnerText;
-                        XmlNodeList comment = student.SelectNodes("stud_grades/score");
-                        String checker;
+                        //System.Windows.Forms.MessageBox.Show(studentinfo.Count.ToString());
+                        String studid = student.ChildNodes[0].ChildNodes[0].InnerText;
+                        XmlNodeList comment = student.SelectNodes("stud_grades/score/score_note");
+                        //System.Windows.Forms.MessageBox.Show(comment.Count.ToString());
                         foreach (XmlNode commentcontainer in comment)
                         {
                             Comment comment2 = new Comment();
-                            checker = subjectname[commentcontainer.Attributes[0].InnerText];
-                            if (checker == "Remarks")
-                            {
-                                comment2.CommentText = commentcontainer.ChildNodes[3].InnerText;
-                                controller.addOrUpdatePeriod(controller.getStudent(studid), period);
-                                controller.addOrUpdateComment(controller.getStudent(studid), comment2, period);
+                            
+                            //System.Windows.Forms.MessageBox.Show(commentcontainer.Attributes[1].InnerText);
+                            //checker = subjectname[commentcontainer.Attributes[0].InnerText];
+                            //if (checker == "Remarks")
+                            //{
+                            //System.Windows.Forms.MessageBox.Show(commentcontainer.InnerText);
+                                //if (commentcontainer.ChildNodes[3].InnerText != "")
+                                //{
+
+                            comment2.CommentText = commentcontainer.InnerText;
+                            period.PeriodComment.CommentText = comment2.CommentText;
+                                    ////System.Windows.Forms.MessageBox.Show(controller.getStudent(studid).StudentID);
+                                    //System.Windows.Forms.MessageBox.Show(period.PeriodID.ToString());
+                                    controller.addOrUpdatePeriod(controller.getStudent(studid), period);
+                                    controller.addOrUpdateComment(controller.getStudent(studid), comment2, period);
+                                //}
                                 
-                            }
+                            //}
                         }
 
                     }

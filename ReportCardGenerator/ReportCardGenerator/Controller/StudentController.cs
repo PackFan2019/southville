@@ -13,7 +13,7 @@ namespace ReportCardGenerator.Controller
         private static log4net.ILog log = log4net.LogManager.GetLogger(typeof(StudentController));
         //IController implementation
 
-        private int index = 0;
+        //private int index = 0;
         public void registerView(IView i)
         {
         }
@@ -63,18 +63,26 @@ namespace ReportCardGenerator.Controller
             //Add the period if it does not exist (call addOrUpdatePeriod())
             Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
             //Skill skill = period.Skills.Find(delegate(Skill sk){return sk.SkillID.Equals(s.SkillID);});
-            Grade grade = period.Grades.Find(delegate(Grade gr) { return gr.SubjectID.Equals(g.SubjectID); });//System.Windows.Forms.MessageBox.Show(period.PeriodID.ToString());
-            if (period.Grades.Count == 0)
+           //System.Windows.Forms.MessageBox.Show(period.PeriodID.ToString());
+            //if (period.Grades != p.Grades)
+            //{
+            if (period != null)
             {
+                ////System.Windows.Forms.MessageBox.Show(p.PeriodID + " " + p.PeriodName + " " + stud.StudentID + " " + g.SubjectID + " " + g.SubjectName+ " " +g.SubjectCategory + " " + g.LetterGrade + " " + g.NumericGrade);
                 if (g != null)
-                    p.Grades.Add(g);
+                {
+                    Grade grade = p.Grades.Find(delegate(Grade gr) { return gr.SubjectID.Equals(g.SubjectID); });
+                    this.getPeriod(this.getStudent(stud.StudentID), p.PeriodID).Grades.Add(g);
+                }
             }
-            else
-            {
+            //}
+            //else
+            //{
                 //System.Windows.Forms.MessageBox.Show(g.NumericGrade + " " + g.LetterGrade + " " + g.SubjectName + " " + g.SubjectCategory);
-                p.Grades.Insert(p.Grades.IndexOf(grade), g);
-                if (p == null) addOrUpdatePeriod(stud, p);
-            }
+                //p.Grades.Insert(p.Grades.IndexOf(grade), g);
+                //this.getPeriod(this.getStudent(stud.StudentID), p.PeriodID).Grades.Insert(this.getPeriod(this.getStudent(stud.StudentID), p.PeriodID).Grades.IndexOf(grade), g);
+                //if (p == null) addOrUpdatePeriod(stud, p);
+            //}
             
         }
         public void addOrUpdateComment(Student stud, Comment c, Period p)
@@ -83,7 +91,7 @@ namespace ReportCardGenerator.Controller
             //Update the comment (not add a new one) if there is already an existing comment
             //Add the period if it does not exist
             //Period peri = this.getPeriod(stud,p.PeriodID);
-            
+            //p = new Period();
             Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
             if (p == null)
             {
@@ -91,18 +99,14 @@ namespace ReportCardGenerator.Controller
             }
             else if (c.CommentText != "")
             {
-                //System.Windows.Forms.MessageBox.Show(stud.StudentID + " " + stud.FirstName + " " + p.PeriodID + " " + p.PeriodName + " " + c.CommentText);
-                //p.PeriodComment.CommentText = c.CommentText;
-                //stud.RptCard.Periods.Add(p);
-                //System.Windows.Forms.MessageBox.Show(this.getPeriod(this.getStudent(stud.StudentID), p.PeriodID).PeriodID.ToString());
-                int index = this.getPeriod(this.getStudent(stud.StudentID), p.PeriodID).PeriodComment.CommentText.IndexOf(c.CommentText);
-                this.getPeriod(this.getStudent(stud.StudentID), p.PeriodID).PeriodComment.CommentText = c.CommentText;
-                //p.PeriodComment = this.getPeriod(this.getStudent(stud.StudentID), p.PeriodID).PeriodComment;
-                //this.getStudent(stud.StudentID).RptCard.Periods.Add(p);
-                //this.addOrUpdatePeriod(this.getStudent(stud.StudentID), p);
-
-                //System.Windows.Forms.MessageBox.Show();
-                //System.Windows.Forms.MessageBox.Show(this.getStudent(stud.StudentID).StudentID + " " + this.getPeriod(this.getStudent(stud.StudentID), p.PeriodID).PeriodComment.CommentText);
+               
+                Period per = new Period();
+                per.PeriodID = p.PeriodID;
+                per.PeriodName = p.PeriodName;
+                per.PeriodComment.CommentText = c.CommentText;
+                getPeriod(getStudent(stud.StudentID), p.PeriodID).PeriodComment.CommentText = per.PeriodComment.CommentText;
+                System.Windows.Forms.MessageBox.Show(this.getStudent(stud.StudentID).StudentID + " " + p.PeriodID + " " + per.PeriodComment.CommentText);
+                addOrUpdatePeriod(getStudent(stud.StudentID), per);
             }
         }
         public void addOrUpdatePeriod(Student stud, Period per)
@@ -113,7 +117,14 @@ namespace ReportCardGenerator.Controller
             //ReportCard.getInstance().Periods.Add(per);
             
             Period periods = stud.RptCard.Periods.Find(delegate(Period p) { return p.PeriodID.Equals(per.PeriodID); });
-            stud.RptCard.Periods.Add(per);
+            //if (periods != per)
+            //{
+                stud.RptCard.Periods.Add(per);
+            //}
+            //else
+            //{
+            //    stud.RptCard.Periods.Insert(stud.RptCard.Periods.IndexOf(periods),per);
+            //}
         }
         public void addOrUpdateSkill(Student stud, Skill s, Period p)
         {

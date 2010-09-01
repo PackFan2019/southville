@@ -105,6 +105,7 @@ namespace ReportCardGenerator.Tests
             doc.Load(@"c:\XML\XML Homeroom_template.xml");
             
             EGPXMLParser.parseHomeroomXML(FrontController.getInstance().getStudentController(), doc);
+            System.Windows.Forms.MessageBox.Show(this.controller.getPeriod(this.controller.getStudent(stud.StudentID), per.PeriodID).PeriodID.ToString());
             //System.Windows.Forms.MessageBox.Show(this.controller.getPeriod(this.controller.getStudent(stud.StudentID), per.PeriodID).Skills.Find(delegate(Skill ski) { return ski.SkillID.Equals(sk.SkillID); }).SkillID);
             Assert.AreEqual(this.controller.getPeriod(this.controller.getStudent(stud.StudentID), per.PeriodID).Skills.Find(delegate(Skill ski) { return ski.SkillID.Equals(sk.SkillID); }).SkillID, sk.SkillID);
             Assert.AreEqual(this.controller.getPeriod(this.controller.getStudent(stud.StudentID), per.PeriodID).Skills.Find(delegate(Skill ski) { return ski.SkillName.Equals(sk.SkillName); }).SkillName, sk.SkillName);
@@ -121,30 +122,61 @@ namespace ReportCardGenerator.Tests
             Period per = new Period();
 
             per.PeriodID = 1;
-            per.PeriodName = "Term1";
+            per.PeriodName = "Term 1";
+
+            
+            //stud.StudentID = "95-0072";
+            //stud.FirstName = "Abbey Geraldine";
+            //stud.LastName = "Matibag";
+
+            //gd.SubjectID = "1";
+            //gd.SubjectCategory = "Remarks";
+            //gd.NumericGrade = 98;
+            //gd.LetterGrade = "S";
+
+
+            stud.StudentID = "94-0066";
+            stud.FirstName = "Claire";
+            stud.LastName = "Huang";
+
+            gd.SubjectID = "5";
+            gd.SubjectCategory = "Remarks";
+            gd.NumericGrade = 92;
+            gd.LetterGrade = "S";
+
+            
 
             doc.Load(@"c:\XML\XML Homeroom_template.xml");
-            stud.StudentID = "07-0052";
-            stud.FirstName = "Abbey Geraldine";
-            stud.LastName = "Matibag";
-
-            gd.SubjectID = "Quiz#1";
-            gd.NumericGrade = 97;
-            gd.LetterGrade = "A";
             EGPXMLParser.parseGradebookXML(FrontController.getInstance().getStudentController(), doc);
+            //Assert.AreEqual(this.controller.getPeriod(this.controller.getStudent(stud.StudentID), per.PeriodID).Skills.Find(delegate(Skill ski) { return ski.SkillID.Equals(sk.SkillID); }).SkillID, sk.SkillID);
+
+            Assert.AreEqual(this.controller.getPeriod(this.controller.getStudent(stud.StudentID), per.PeriodID).Grades.Find(delegate(Grade grade) { return grade.SubjectID.Equals(gd.SubjectID); }).SubjectID, gd.SubjectID);
+            Assert.AreEqual(this.controller.getPeriod(this.controller.getStudent(stud.StudentID), per.PeriodID).Grades.Find(delegate(Grade grade) { return grade.SubjectCategory.Equals(gd.SubjectCategory); }).SubjectCategory, gd.SubjectCategory);
+            Assert.AreEqual(this.controller.getPeriod(this.controller.getStudent(stud.StudentID), per.PeriodID).Grades.Find(delegate(Grade grade) { return grade.NumericGrade.Equals(gd.NumericGrade); }).NumericGrade, gd.NumericGrade);
+            Assert.AreEqual(this.controller.getPeriod(this.controller.getStudent(stud.StudentID), per.PeriodID).Grades.Find(delegate(Grade grade) { return grade.LetterGrade.Equals(gd.LetterGrade); }).LetterGrade, gd.LetterGrade);
+
+
+            //System.Windows.Forms.MessageBox.Show(this.controller.getPeriod(this.controller.getStudent(stud.StudentID), per.PeriodID).PeriodID.ToString());
+            //System.Windows.Forms.MessageBox.Show(this.controller.getPeriod(this.controller.getStudent(stud.StudentID), per.PeriodID).Grades.Find(delegate(Grade grade) { return grade.SubjectID.Equals(gd.SubjectID); }).SubjectID);
+            
+            //Assert.AreEqual(this.controller.getPeriod(this.controller.getStudent(stud.StudentID), per.PeriodID).Skills.Find(delegate(Skill ski) { return ski.LetterGrade.Equals(sk.LetterGrade); }).LetterGrade, sk.LetterGrade);
+            
+            
+            
             //int count = controller.getPeriod(stud, 2).Grades.Count;
             //System.Windows.Forms.MessageBox.Show(controller.getPeriod(stud,2).Grades.Count.ToString());
             //for (int i = 0; i < count; i++)
             //{
             //    foreach (Grade g in controller.getPeriod(stud, i).Grades)
-            //    {
+            //    {s
             //        System.Windows.Forms.MessageBox.Show(stud.StudentID + " " + g.NumericGrade.ToString());
             //    }
             //}
-            //Assert.AreEqual(controller.getPeriod(stud, 2).Grades.Count,count );
-            Assert.AreEqual(controller.getPeriod(stud, 1).Grades.Find(delegate(Grade grade) { return grade.SubjectID.Equals(gd.SubjectID); }), gd.SubjectID);
-            Assert.AreEqual(controller.getPeriod(stud, 1).Grades.Find(delegate(Grade grade) { return grade.LetterGrade.Equals(gd.LetterGrade); }), gd.LetterGrade);
-            Assert.AreEqual(controller.getPeriod(stud, 1).Grades.Find(delegate(Grade grade) { return grade.NumericGrade.Equals(gd.NumericGrade); }), gd.NumericGrade);
+            //Assert.AreEqual(controller.getPeriod(stud, 2).Grades.Count, count);
+           
+            //Assert.AreEqual(controller.getPeriod(stud, 1).Grades.Find(delegate(Grade grade) { return grade.SubjectID.Equals(gd.SubjectID); }), gd.SubjectID);
+            //Assert.AreEqual(controller.getPeriod(stud, 1).Grades.Find(delegate(Grade grade) { return grade.LetterGrade.Equals(gd.LetterGrade); }), gd.LetterGrade);
+            //Assert.AreEqual(controller.getPeriod(stud, 1).Grades.Find(delegate(Grade grade) { return grade.NumericGrade.Equals(gd.NumericGrade); }), gd.NumericGrade);
         }
         [Test]
         public void testaddAttendanceFromXML()
@@ -181,12 +213,18 @@ namespace ReportCardGenerator.Tests
             stud.StudentID = "95-0072";
             stud.FirstName = "Abbey Geraldine";
             stud.LastName = "Matibag";
+            comm.CommentText = "Abbey tries very hard";
 
             //stud.StudentID = "08-0204";
             //stud.FirstName = "Armina";
             //stud.LastName = "Bago";
             //comm.CommentText = "Armina is an excellent student";
-            comm.CommentText = "Abbey tries very hard";
+
+            //stud.StudentID = "04-0140";
+            //stud.FirstName = "Beatrice Louee";
+            //stud.LastName = "Antonio";
+            //comm.CommentText = "Beatrice was fantastic this term definitely!";
+
             //period.PeriodComment.CommentText = comm.CommentText;
 
             doc.Load(@"c:\XML\XML Homeroom_template.xml");
@@ -195,7 +233,7 @@ namespace ReportCardGenerator.Tests
             //System.Windows.Forms.MessageBox.Show(this.controller.getStudent(stud.StudentID).StudentID);
             //System.Windows.Forms.MessageBox.Show(controller.getPeriod(this.controller.getStudent(stud.StudentID), period.PeriodID).PeriodComment.CommentText);
             //Assert.AreEqual(controller.getPeriod(this.controller.getStudent(stud.StudentID), period.PeriodID).PeriodComment.CommentText.Equals(comm.CommentText), true);
-            Assert.AreEqual(this.controller.getPeriod(this.controller.getStudent(stud.StudentID), period.PeriodID).PeriodComment.CommentText, comm.CommentText);
+            Assert.AreEqual(comm.CommentText,this.controller.getPeriod(this.controller.getStudent(stud.StudentID),period.PeriodID).PeriodComment.CommentText);
 
         }
 
