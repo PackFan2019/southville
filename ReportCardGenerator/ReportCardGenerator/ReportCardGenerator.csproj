@@ -169,7 +169,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Tests\CombinedGradebooks.xml" />
     <Content Include="Tests\HomeroomSample.xml" />
   </ItemGroup>
   <ItemGroup>
