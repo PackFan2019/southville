@@ -270,7 +270,15 @@ namespace ReportCardGenerator.DataSet {
             
             private global::System.Data.DataColumn columnSubjectname;
             
-            private global::System.Data.DataColumn columnLetterGrade;
+            private global::System.Data.DataColumn columnsublettergrade;
+            
+            private global::System.Data.DataColumn columnsubnumgrade;
+            
+            private global::System.Data.DataColumn columnskillname;
+            
+            private global::System.Data.DataColumn columnskillletergrade;
+            
+            private global::System.Data.DataColumn columnskillnumgrade;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public ReportCardTableDataTable() {
@@ -331,9 +339,37 @@ namespace ReportCardGenerator.DataSet {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn LetterGradeColumn {
+            public global::System.Data.DataColumn sublettergradeColumn {
                 get {
-                    return this.columnLetterGrade;
+                    return this.columnsublettergrade;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn subnumgradeColumn {
+                get {
+                    return this.columnsubnumgrade;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn skillnameColumn {
+                get {
+                    return this.columnskillname;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn skillletergradeColumn {
+                get {
+                    return this.columnskillletergrade;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn skillnumgradeColumn {
+                get {
+                    return this.columnskillnumgrade;
                 }
             }
             
@@ -366,14 +402,18 @@ namespace ReportCardGenerator.DataSet {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public ReportCardTableRow AddReportCardTableRow(string StudentFirstname, string StudentLastname, string Termname, string Subjectname, string LetterGrade) {
+            public ReportCardTableRow AddReportCardTableRow(string StudentFirstname, string StudentLastname, string Termname, string Subjectname, string sublettergrade, string subnumgrade, string skillname, string skillletergrade, string skillnumgrade) {
                 ReportCardTableRow rowReportCardTableRow = ((ReportCardTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         StudentFirstname,
                         StudentLastname,
                         Termname,
                         Subjectname,
-                        LetterGrade};
+                        sublettergrade,
+                        subnumgrade,
+                        skillname,
+                        skillletergrade,
+                        skillnumgrade};
                 rowReportCardTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowReportCardTableRow);
                 return rowReportCardTableRow;
@@ -397,7 +437,11 @@ namespace ReportCardGenerator.DataSet {
                 this.columnStudentLastname = base.Columns["StudentLastname"];
                 this.columnTermname = base.Columns["Termname"];
                 this.columnSubjectname = base.Columns["Subjectname"];
-                this.columnLetterGrade = base.Columns["LetterGrade"];
+                this.columnsublettergrade = base.Columns["sublettergrade"];
+                this.columnsubnumgrade = base.Columns["subnumgrade"];
+                this.columnskillname = base.Columns["skillname"];
+                this.columnskillletergrade = base.Columns["skillletergrade"];
+                this.columnskillnumgrade = base.Columns["skillnumgrade"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -410,8 +454,16 @@ namespace ReportCardGenerator.DataSet {
                 base.Columns.Add(this.columnTermname);
                 this.columnSubjectname = new global::System.Data.DataColumn("Subjectname", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSubjectname);
-                this.columnLetterGrade = new global::System.Data.DataColumn("LetterGrade", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLetterGrade);
+                this.columnsublettergrade = new global::System.Data.DataColumn("sublettergrade", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsublettergrade);
+                this.columnsubnumgrade = new global::System.Data.DataColumn("subnumgrade", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsubnumgrade);
+                this.columnskillname = new global::System.Data.DataColumn("skillname", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnskillname);
+                this.columnskillletergrade = new global::System.Data.DataColumn("skillletergrade", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnskillletergrade);
+                this.columnskillnumgrade = new global::System.Data.DataColumn("skillnumgrade", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnskillnumgrade);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -604,17 +656,77 @@ namespace ReportCardGenerator.DataSet {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string LetterGrade {
+            public string sublettergrade {
                 get {
                     try {
-                        return ((string)(this[this.tableReportCardTable.LetterGradeColumn]));
+                        return ((string)(this[this.tableReportCardTable.sublettergradeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LetterGrade\' in table \'ReportCardTable\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'sublettergrade\' in table \'ReportCardTable\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableReportCardTable.LetterGradeColumn] = value;
+                    this[this.tableReportCardTable.sublettergradeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string subnumgrade {
+                get {
+                    try {
+                        return ((string)(this[this.tableReportCardTable.subnumgradeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'subnumgrade\' in table \'ReportCardTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReportCardTable.subnumgradeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string skillname {
+                get {
+                    try {
+                        return ((string)(this[this.tableReportCardTable.skillnameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'skillname\' in table \'ReportCardTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReportCardTable.skillnameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string skillletergrade {
+                get {
+                    try {
+                        return ((string)(this[this.tableReportCardTable.skillletergradeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'skillletergrade\' in table \'ReportCardTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReportCardTable.skillletergradeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string skillnumgrade {
+                get {
+                    try {
+                        return ((string)(this[this.tableReportCardTable.skillnumgradeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'skillnumgrade\' in table \'ReportCardTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReportCardTable.skillnumgradeColumn] = value;
                 }
             }
             
@@ -659,13 +771,53 @@ namespace ReportCardGenerator.DataSet {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsLetterGradeNull() {
-                return this.IsNull(this.tableReportCardTable.LetterGradeColumn);
+            public bool IssublettergradeNull() {
+                return this.IsNull(this.tableReportCardTable.sublettergradeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetLetterGradeNull() {
-                this[this.tableReportCardTable.LetterGradeColumn] = global::System.Convert.DBNull;
+            public void SetsublettergradeNull() {
+                this[this.tableReportCardTable.sublettergradeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IssubnumgradeNull() {
+                return this.IsNull(this.tableReportCardTable.subnumgradeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetsubnumgradeNull() {
+                this[this.tableReportCardTable.subnumgradeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsskillnameNull() {
+                return this.IsNull(this.tableReportCardTable.skillnameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetskillnameNull() {
+                this[this.tableReportCardTable.skillnameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsskillletergradeNull() {
+                return this.IsNull(this.tableReportCardTable.skillletergradeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetskillletergradeNull() {
+                this[this.tableReportCardTable.skillletergradeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsskillnumgradeNull() {
+                return this.IsNull(this.tableReportCardTable.skillnumgradeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetskillnumgradeNull() {
+                this[this.tableReportCardTable.skillnumgradeColumn] = global::System.Convert.DBNull;
             }
         }
         

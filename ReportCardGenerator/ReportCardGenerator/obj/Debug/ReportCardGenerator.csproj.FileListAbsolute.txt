@@ -37,3 +37,4 @@ C:\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCa
 C:\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\log4net.dll
 C:\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\nunit.framework.dll
 C:\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\nunit.mocks.dll
+C:\Southville project\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.Views.Reportcard.resources
