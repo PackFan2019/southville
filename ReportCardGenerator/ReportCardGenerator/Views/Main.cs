@@ -51,13 +51,21 @@ namespace ReportCardGenerator.Views
 
         private void Add_hoom_btn_Click(object sender, EventArgs e)
         {
-            
+            XmlDocument doc = new XmlDocument();
+            doc.Load(GrabeBookList.SelectedItem.ToString());
+            EGPXMLParser.parseHomeroomXML(controller, doc);
+
+            ProgressBar PBar = new ProgressBar();
+            PBar.ShowDialog();
         }
 
         private void Add_grade_btn_Click(object sender, EventArgs e)
         {
-            
-           
+            XmlDocument doc = new XmlDocument();
+            doc.Load(GrabeBookList.SelectedItem.ToString());
+            EGPXMLParser.parseGradebookXML(controller, doc);
+            ProgressBar PBar = new ProgressBar();
+            PBar.ShowDialog();
         }
 
         private void GrabeBookList_SelectedIndexChanged(object sender, EventArgs e)

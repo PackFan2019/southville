@@ -45,7 +45,7 @@ namespace ReportCardGenerator.Utilities
 
             foreach (XmlNode primenode in primelist)
             {
-                XmlNodeList peroidlist = primenode.SelectNodes("classrecord");
+                XmlNodeList periodList = primenode.SelectNodes("classrecord");
                 XmlNodeList studentinfo = primenode.SelectNodes("student");
                 XmlNodeList gradename = primenode.SelectNodes("standards/standard");
                 Dictionary<String, String> skillNames = new Dictionary<string, string>();
@@ -60,9 +60,9 @@ namespace ReportCardGenerator.Utilities
                     skillNames.Add(skill.SkillID, skill.SkillName);
                     //categories.Add(skill.SkillID, skill.SkillCategory); might not be needed anymore
                 }
-                for (int x = 0; x < peroidlist.Count; x++)
+                for (int x = 0; x < periodList.Count; x++)
                 {
-                    foreach (XmlNode test in peroidlist)
+                    foreach (XmlNode test in periodList)
                     {
                         //System.Windows.Forms.MessageBox.Show(peroidlist.Count.ToString());
                         Period period = new Period();

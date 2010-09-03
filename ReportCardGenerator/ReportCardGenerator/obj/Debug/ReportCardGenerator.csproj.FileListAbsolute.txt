@@ -38,3 +38,4 @@ C:\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\log4net.
 C:\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\nunit.framework.dll
 C:\Southville project\ReportCardGenerator\ReportCardGenerator\bin\Debug\nunit.mocks.dll
 C:\Southville project\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.Views.Reportcard.resources
+C:\Southville project\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.Views.ProgressBar.resources
