@@ -12,7 +12,11 @@ using ReportCardGenerator.Interfaces;
 using ReportCardGenerator.Beans;
 using ReportCardGenerator.Utilities;
 using ReportCardGenerator.Exceptions;
+using ReportCardGenerator.DataSet;
 using System.Xml;
+
+
+
 namespace ReportCardGenerator.Views
 {
     public partial class Main : Form, IView
@@ -89,9 +93,37 @@ namespace ReportCardGenerator.Views
 
         private void StudentList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-        }
-        
+            crystalreportcard ReportCryst = new crystalreportcard();
+            ReportCardData DataSet = new ReportCardData();
 
+            foreach(Student stud in State.getInstance().Students)
+            {
+                DataRow DRow = DataSet.ReportCardTable.NewRow();
+                foreach (ReportCard ReportCard in stud)
+                {
+                    foreach (Period Period in ReportCard)
+                    {
+                        DRow["Termname"] = Period.PeriodName;
+                        foreach (Skill skill in Period)
+                        {
+                            DRow["skillname"] = skill.SkillName;
+                            DRow["skillletergrade"] = skill.LetterGrade;
+                            DRow["skillnumgrade"] = skill.NumericGrade;
+                        }
+                        foreach (Grade grade in Period)
+                        {
+                            DRow["Subjectname"] = grade.SubjectName;
+                            DRow["sublettergrade"] = grade.LetterGrade;
+                            DRow["subnumgrade"] = grade.NumericGrade;
+                        }
+                    }
+                }
+
+
+
+
+
+            }   
+        }
     }
 }
