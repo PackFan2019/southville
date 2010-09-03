@@ -21,6 +21,8 @@ namespace ReportCardGenerator.Views
 {
     public partial class Main : Form, IView
     {
+
+       
         IStudentController controller = FrontController.getInstance().getStudentController();
         public Main()
         {
@@ -42,32 +44,20 @@ namespace ReportCardGenerator.Views
 
         private void Del_btn_Click(object sender, EventArgs e)
         {
+            State.getInstance().Students.Clear();
             GrabeBookList.Items.RemoveAt(GrabeBookList.SelectedIndex);
-            StudentList.Items.Clear();
+            RefreshStudGridView();
         }
 
         private void Add_hoom_btn_Click(object sender, EventArgs e)
         {
-            //State.getInstance().Students.Clear();
-            DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog and get result.
-            openFileDialog1.Filter = "XML files (*.xml)|*.xml";//|All files (*.*)|*.*";
-            openFileDialog1.Title = "Select Hoomroom XML file";
-            if (result == DialogResult.OK) // Test result.
-            {
-                GrabeBookList.Items.Add(openFileDialog1.FileName);
-            }
+            
         }
 
         private void Add_grade_btn_Click(object sender, EventArgs e)
         {
             
-            DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog and get result.
-            openFileDialog1.Filter = "XML files (*.xml)|*.xml";//|All files (*.*)|*.*";
-            openFileDialog1.Title = "Select GradeBook XML file";
-            if (result == DialogResult.OK) // Test result.
-            {
-                GrabeBookList.Items.Add(openFileDialog1.FileName);
-            }
+           
         }
 
         private void GrabeBookList_SelectedIndexChanged(object sender, EventArgs e)
@@ -77,23 +67,64 @@ namespace ReportCardGenerator.Views
                 XmlDocument doc = new XmlDocument();
                 doc.Load(GrabeBookList.SelectedItem.ToString());
                 State.getInstance().Students.Clear();
-                StudentList.Items.Clear();
+                //StudGridView.DataSource = null;
+                RefreshStudGridView();
                 EGPXMLParser.parseHomeroomXML(controller, doc);
-                
-                foreach (Student s in State.getInstance().Students)
-                {
-                    StudentList.Items.Add(s.LastName + ", " + s.FirstName);
-                    StudentList.Sorted = true;
-                }
+
+                RefreshStudGridView();
+                //foreach (Student s in State.getInstance().Students)
+                //{
+                //    StudentList.Items.Add(s.LastName + ", " + s.FirstName);
+                //    StudentNumList.Items.Add(s.StudentID);
+                //    StudentList.Sorted = true;
+                //}
             }
             catch
             {
             }
         }
 
+        private void RefreshStudGridView()
+        {
+            StudGridView.DataSource = null;
+            int count = State.getInstance().Students.Count;
+            int stopper = 0;
+
+            while (stopper != count)
+            {
+                StudGridView.DataSource = null;
+                StudGridView.AutoGenerateColumns = false;
+                StudGridView.DataSource = State.getInstance().Students;
+                stopper++;
+            }
+        }
         private void StudentList_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            Reportcard rptCard = new Reportcard();
+            rptCard.ShowDialog();
+            
+        }
+
+        private void StudGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Student studIdString = new Student();
+            int i = StudGridView.CurrentCell.RowIndex;
+            studIdString.StudentID = StudGridView[0, i].Value.ToString();
+
+            Reportcard rptCard = new Reportcard();
+            rptCard.Studentpassedid = studIdString.StudentID.ToString();
+            rptCard.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog and get result.
+            openFileDialog1.Filter = "XML files (*.xml)|*.xml";//|All files (*.*)|*.*";
+            openFileDialog1.Title = "Select GradeBook XML file";
+            if (result == DialogResult.OK) // Test result.
+            {
+                GrabeBookList.Items.Add(openFileDialog1.FileName);
+            }
         }
     }
 }

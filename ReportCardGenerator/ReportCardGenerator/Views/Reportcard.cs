@@ -16,6 +16,7 @@ namespace ReportCardGenerator.Views
 {
     public partial class Reportcard : Form, IView
     {
+        public String Studentpassedid = "none";
         IStudentController controller = FrontController.getInstance().getStudentController();
         public Reportcard()
         {
@@ -29,7 +30,7 @@ namespace ReportCardGenerator.Views
 
         private void Reportcard_Load(object sender, EventArgs e)
         {
-
+            LoadReport();
         }
 
         private void LoadReport()
@@ -37,33 +38,36 @@ namespace ReportCardGenerator.Views
             crystalreportcard ReportCryst = new crystalreportcard();
             ReportCardData DataSet = new ReportCardData();
 
-            foreach (Student stud in State.getInstance().Students)
-            {
+                foreach (Student stud in State.getInstance().Students)
+                {
                 DataRow DRow = DataSet.ReportCardTable.NewRow();
-                
-                    foreach (Period Period in stud.RptCard.Periods)
+                foreach (Period Period in stud.RptCard.Periods)
+                {
+                    DRow["Termname"] = Period.PeriodName;
+                    foreach (Skill skill in controller.getPeriod(stud, Period.PeriodID).Skills)
                     {
-                        DRow["Termname"] = Period.PeriodName;
-                        foreach (Skill skill in controller.getPeriod(stud,Period.PeriodID).Skills)
-                        {
-                            DRow["skillname"] = skill.SkillName;
-                            DRow["skillletergrade"] = skill.LetterGrade;
-                            DRow["skillnumgrade"] = skill.NumericGrade;
-                        }
-                        foreach (Grade grade in controller.getPeriod(stud, Period.PeriodID).Grades)
-                        {
-                            DRow["Subjectname"] = grade.SubjectName;
-                            DRow["sublettergrade"] = grade.LetterGrade;
-                            DRow["subnumgrade"] = grade.NumericGrade;
-                        }
+                        DRow["skillname"] = skill.SkillName;
+                        DRow["skillletergrade"] = skill.LetterGrade;
+                        DRow["skillnumgrade"] = skill.NumericGrade;
+                        
                     }
-               
-                ReportCryst.SetDataSource(DataSet);
-                crystalReportViewer1.ReportSource = ReportCryst;
-                crystalReportViewer1.Refresh();
+                    //foreach (Grade grade in controller.getPeriod(stud, Period.PeriodID).Grades)
+                    //{
+                    //    DRow["Subjectname"] = grade.SubjectName;
+                    //    DRow["sublettergrade"] = grade.LetterGrade;
+                    //    DRow["subnumgrade"] = grade.NumericGrade;
+                        
+                    //}
+                    
+                }
+                DataSet.ReportCardTable.Rows.Add(DRow);
+            }
 
+            ReportCryst.DataDefinition.FormulaFields["StudentID"].Text = Studentpassedid;
+            ReportCryst.SetDataSource(DataSet);
+            crystalReportViewer1.ReportSource = ReportCryst;
+            crystalReportViewer1.Refresh();
 
-            }   
         }
     }
 }

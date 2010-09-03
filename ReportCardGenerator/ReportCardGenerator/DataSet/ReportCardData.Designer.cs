@@ -262,10 +262,6 @@ namespace ReportCardGenerator.DataSet {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class ReportCardTableDataTable : global::System.Data.TypedTableBase<ReportCardTableRow> {
             
-            private global::System.Data.DataColumn columnStudentFirstname;
-            
-            private global::System.Data.DataColumn columnStudentLastname;
-            
             private global::System.Data.DataColumn columnTermname;
             
             private global::System.Data.DataColumn columnSubjectname;
@@ -308,20 +304,6 @@ namespace ReportCardGenerator.DataSet {
             protected ReportCardTableDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn StudentFirstnameColumn {
-                get {
-                    return this.columnStudentFirstname;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn StudentLastnameColumn {
-                get {
-                    return this.columnStudentLastname;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -402,11 +384,9 @@ namespace ReportCardGenerator.DataSet {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public ReportCardTableRow AddReportCardTableRow(string StudentFirstname, string StudentLastname, string Termname, string Subjectname, string sublettergrade, string subnumgrade, string skillname, string skillletergrade, string skillnumgrade) {
+            public ReportCardTableRow AddReportCardTableRow(string Termname, string Subjectname, string sublettergrade, string subnumgrade, string skillname, string skillletergrade, string skillnumgrade) {
                 ReportCardTableRow rowReportCardTableRow = ((ReportCardTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        StudentFirstname,
-                        StudentLastname,
                         Termname,
                         Subjectname,
                         sublettergrade,
@@ -433,8 +413,6 @@ namespace ReportCardGenerator.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             internal void InitVars() {
-                this.columnStudentFirstname = base.Columns["StudentFirstname"];
-                this.columnStudentLastname = base.Columns["StudentLastname"];
                 this.columnTermname = base.Columns["Termname"];
                 this.columnSubjectname = base.Columns["Subjectname"];
                 this.columnsublettergrade = base.Columns["sublettergrade"];
@@ -446,10 +424,6 @@ namespace ReportCardGenerator.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             private void InitClass() {
-                this.columnStudentFirstname = new global::System.Data.DataColumn("StudentFirstname", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStudentFirstname);
-                this.columnStudentLastname = new global::System.Data.DataColumn("StudentLastname", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStudentLastname);
                 this.columnTermname = new global::System.Data.DataColumn("Termname", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTermname);
                 this.columnSubjectname = new global::System.Data.DataColumn("Subjectname", typeof(string), null, global::System.Data.MappingType.Element);
@@ -596,36 +570,6 @@ namespace ReportCardGenerator.DataSet {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string StudentFirstname {
-                get {
-                    try {
-                        return ((string)(this[this.tableReportCardTable.StudentFirstnameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'StudentFirstname\' in table \'ReportCardTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableReportCardTable.StudentFirstnameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string StudentLastname {
-                get {
-                    try {
-                        return ((string)(this[this.tableReportCardTable.StudentLastnameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'StudentLastname\' in table \'ReportCardTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableReportCardTable.StudentLastnameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string Termname {
                 get {
                     try {
@@ -728,26 +672,6 @@ namespace ReportCardGenerator.DataSet {
                 set {
                     this[this.tableReportCardTable.skillnumgradeColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsStudentFirstnameNull() {
-                return this.IsNull(this.tableReportCardTable.StudentFirstnameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetStudentFirstnameNull() {
-                this[this.tableReportCardTable.StudentFirstnameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsStudentLastnameNull() {
-                return this.IsNull(this.tableReportCardTable.StudentLastnameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetStudentLastnameNull() {
-                this[this.tableReportCardTable.StudentLastnameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
