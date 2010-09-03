@@ -40,25 +40,24 @@ namespace ReportCardGenerator.Views
             foreach (Student stud in State.getInstance().Students)
             {
                 DataRow DRow = DataSet.ReportCardTable.NewRow();
-                foreach (ReportCard ReportCard in stud)
-                {
-                    foreach (Period Period in ReportCard)
+                
+                    foreach (Period Period in stud.RptCard.Periods)
                     {
                         DRow["Termname"] = Period.PeriodName;
-                        foreach (Skill skill in Period)
+                        foreach (Skill skill in controller.getPeriod(stud,Period.PeriodID).Skills)
                         {
                             DRow["skillname"] = skill.SkillName;
                             DRow["skillletergrade"] = skill.LetterGrade;
                             DRow["skillnumgrade"] = skill.NumericGrade;
                         }
-                        foreach (Grade grade in Period)
+                        foreach (Grade grade in controller.getPeriod(stud, Period.PeriodID).Grades)
                         {
                             DRow["Subjectname"] = grade.SubjectName;
                             DRow["sublettergrade"] = grade.LetterGrade;
                             DRow["subnumgrade"] = grade.NumericGrade;
                         }
                     }
-                }
+               
                 ReportCryst.SetDataSource(DataSet);
                 crystalReportViewer1.ReportSource = ReportCryst;
                 crystalReportViewer1.Refresh();
