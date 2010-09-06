@@ -108,19 +108,25 @@ namespace ReportCardGenerator.Views
         }
         private void StudentList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Reportcard rptCard = new Reportcard();
+            ReportCard rptCard = new ReportCard();
             rptCard.ShowDialog();
             
         }
 
         private void StudGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Student studIdString = new Student();
-            int i = StudGridView.CurrentCell.RowIndex;
-            studIdString.StudentID = StudGridView[0, i].Value.ToString();
+            const int Stud_Id = 0;
+            const int Stud_FName = 1;
+            const int Stud_LName = 2;
 
-            Reportcard rptCard = new Reportcard();
-            rptCard.Studentpassedid = studIdString.StudentID.ToString();
+            //Student studIdString = new Student();
+            int i = StudGridView.CurrentCell.RowIndex;
+            //studIdString.StudentID = StudGridView[0, i].Value.ToString();
+
+            ReportCard rptCard = new ReportCard();
+            rptCard.StudentpassedId = StudGridView[Stud_Id, i].Value.ToString();
+            rptCard.FirstName = StudGridView[Stud_FName, i].Value.ToString();
+            rptCard.LastName = StudGridView[Stud_LName, i].Value.ToString();
             rptCard.ShowDialog();
         }
 
@@ -133,6 +139,23 @@ namespace ReportCardGenerator.Views
             {
                 GrabeBookList.Items.Add(openFileDialog1.FileName);
             }
+        }
+
+        private void StudGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            const int Stud_Id = 0;
+            const String Stud_FName = "Column2";
+            const String Stud_LName = "Column3";
+
+            //Student studIdString = new Student();
+            int i = StudGridView.CurrentCell.RowIndex;
+            //studIdString.StudentID = StudGridView[0, i].Value.ToString();
+
+            ReportCard rptCard = new ReportCard();
+            rptCard.StudentpassedId = StudGridView[Stud_Id, i].Value.ToString();
+            rptCard.FirstName = StudGridView[Stud_FName, i].Value.ToString();
+            rptCard.LastName = StudGridView[Stud_LName, i].Value.ToString();
+            rptCard.ShowDialog();
         }
     }
 }

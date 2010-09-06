@@ -192,6 +192,7 @@
             this.StudGridView.ReadOnly = true;
             this.StudGridView.Size = new System.Drawing.Size(343, 102);
             this.StudGridView.TabIndex = 14;
+            this.StudGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StudGridView_CellClick);
             this.StudGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StudGridView_CellContentClick);
             // 
             // Column1

@@ -6,67 +6,122 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using ReportCardGenerator.DataSet;
-using ReportCardGenerator.Controller;
-using ReportCardGenerator.Beans;
 using ReportCardGenerator.Data;
+using ReportCardGenerator.Controller;
 using ReportCardGenerator.Interfaces;
+using ReportCardGenerator.Beans;
+using ReportCardGenerator.Utilities;
+using ReportCardGenerator.Exceptions;
+using ReportCardGenerator.DataSet;
+using ReportCardGenerator.Reports;
 
 namespace ReportCardGenerator.Views
 {
-    public partial class Reportcard : Form, IView
+    public partial class ReportCard : Form
     {
-        public String Studentpassedid = "none";
         IStudentController controller = FrontController.getInstance().getStudentController();
-        public Reportcard()
+        public ReportCard()
         {
             InitializeComponent();
         }
+        #region
+        private String studentpassedId;
 
-        public void updateGUI()
+        public String StudentpassedId
         {
-            //This gets called when the controller wants to update
+            get { return studentpassedId; }
+            set { studentpassedId = value; }
         }
 
-        private void Reportcard_Load(object sender, EventArgs e)
+        private String lastName;
+
+        public String LastName
+        {
+            get { return lastName; }
+            set { lastName = value; }
+        }
+        private String firstName;
+
+        public String FirstName
+        {
+            get { return firstName; }
+            set { firstName = value; }
+        }
+        #endregion
+        private void ReportCard_Load(object sender, EventArgs e)
         {
             LoadReport();
         }
-
         private void LoadReport()
         {
-            crystalreportcard ReportCryst = new crystalreportcard();
-            ReportCardData DataSet = new ReportCardData();
+            ReportCardReport rptCard = new ReportCardReport();
+            ReportCardData Dataset = new ReportCardData();
+            //Student stud = controller.getStudent(this.studentpassedId);
+            string skillName = "";
+            string lettergrade = "";
+            double numericgrade = 0;
 
-                foreach (Student stud in State.getInstance().Students)
+            string subject = "";
+            double subjectGrade = 0;
+            string subletergrade = "";
+            foreach (Period period in controller.getStudent(this.studentpassedId).RptCard.Periods)
+            {
+                DataRow dRow = Dataset.ReportCardTable.NewRow();
+               
+
+                dRow["Termname"] = period.PeriodName;
+                foreach (Skill skill in controller.getPeriod(controller.getStudent(this.studentpassedId), period.PeriodID).Skills)
                 {
-                DataRow DRow = DataSet.ReportCardTable.NewRow();
-                foreach (Period Period in stud.RptCard.Periods)
-                {
-                    DRow["Termname"] = Period.PeriodName;
-                    foreach (Skill skill in controller.getPeriod(stud, Period.PeriodID).Skills)
-                    {
-                        DRow["skillname"] = skill.SkillName;
-                        DRow["skillletergrade"] = skill.LetterGrade;
-                        DRow["skillnumgrade"] = skill.NumericGrade;
-                        
-                    }
-                    //foreach (Grade grade in controller.getPeriod(stud, Period.PeriodID).Grades)
-                    //{
-                    //    DRow["Subjectname"] = grade.SubjectName;
-                    //    DRow["sublettergrade"] = grade.LetterGrade;
-                    //    DRow["subnumgrade"] = grade.NumericGrade;
-                        
-                    //}
-                    
+                    //DataRow eRow = Dataset.ReportCardTable.NewRow();
+                    skillName = skill.SkillName;
+                    lettergrade = skill.LetterGrade;
+                    numericgrade = skill.NumericGrade;
+                    //Dataset.ReportCardTable.Rows.Add(eRow);
+                    //MessageBox.Show(skill.SkillName + " " + skill.LetterGrade + " " + skill.NumericGrade);
                 }
-                DataSet.ReportCardTable.Rows.Add(DRow);
+                foreach (Grade grade in controller.getPeriod(controller.getStudent(this.studentpassedId), period.PeriodID).Grades)
+                {
+                    //DataRow fRow = Dataset.ReportCardTable.NewRow();
+                    //dRow["Subjectname"] = grade.SubjectName;
+                    //dRow["sublettergrade"] = grade.LetterGrade;
+                    //dRow["subnumgrade"] = grade.NumericGrade;
+
+                    subject = grade.SubjectName;
+                    subletergrade = grade.LetterGrade;
+                    subjectGrade = grade.NumericGrade;
+                    //Dataset.ReportCardTable.Rows.Add(fRow);
+                    //MessageBox.Show(controller.getStudent(this.studentpassedId).StudentID.ToString() + " " + grade.SubjectName + " " + grade.LetterGrade + " " + grade.NumericGrade);
+                }
+                dRow["skillname"] = skillName;
+                dRow["skillletergrade"] = lettergrade;
+                dRow["skillnumgrade"] = numericgrade;
+
+                dRow["Subjectname"] = subject;
+                dRow["sublettergrade"] = subletergrade;
+                dRow["subnumgrade"] = subletergrade;
+
+                Dataset.ReportCardTable.Rows.Add(dRow);
             }
 
-            ReportCryst.DataDefinition.FormulaFields["StudentID"].Text = Studentpassedid;
-            ReportCryst.SetDataSource(DataSet);
-            crystalReportViewer1.ReportSource = ReportCryst;
+
+            rptCard.DataDefinition.FormulaFields["StudentID"].Text = "\"" + this.studentpassedId + "\"";
+            rptCard.DataDefinition.FormulaFields["FirstName"].Text = "\"" + this.firstName + "\"";
+            rptCard.DataDefinition.FormulaFields["LastName"].Text = "\"" + this.lastName + "\"";
+
+            rptCard.SetDataSource(Dataset);
+            crystalReportViewer1.ReportSource = rptCard;
             crystalReportViewer1.Refresh();
+
+
+        }
+
+        private void crystalReportViewer1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ReportCardReport2_InitReport(object sender, EventArgs e)
+        {
 
         }
     }

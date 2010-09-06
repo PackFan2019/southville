@@ -183,6 +183,7 @@ namespace ReportCardGenerator.Utilities
                                 {
                                     Grade ToStoreGrade = new Grade();
                                     ToStoreGrade.SubjectID = grade.Attributes[0].InnerText;
+                                    ToStoreGrade.SubjectName = Grade.SubjectName;
                                     ToStoreGrade.SubjectCategory = categories[grade.Attributes[0].InnerText];
                                     ToStoreGrade.NumericGrade = double.Parse(grade.ChildNodes[1].InnerText);
                                     ToStoreGrade.LetterGrade = grade.ChildNodes[2].InnerText;
