@@ -391,9 +391,9 @@ namespace ReportCardGenerator.Utilities
 
         public static void parseHomeroomXML(IStudentController controller, XmlDocument doc)
         {
-            addStudentsFromXML(controller, doc);
-            addSkillsFromXML(controller, doc);
+            addStudentsFromXML(controller, doc);            
             addCommentsFromXML(controller, doc);
+            addSkillsFromXML(controller, doc);
         }
 
         public static void parseGradebookXML(IStudentController controller, XmlDocument doc)

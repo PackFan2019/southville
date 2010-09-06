@@ -77,7 +77,7 @@ namespace ReportCardGenerator.Views
                 State.getInstance().Students.Clear();
                 //StudGridView.DataSource = null;
                 RefreshStudGridView();
-                EGPXMLParser.parseHomeroomXML(controller, doc);
+                EGPXMLParser.parseGradebookXML(controller, doc);
 
                 RefreshStudGridView();
                 //foreach (Student s in State.getInstance().Students)

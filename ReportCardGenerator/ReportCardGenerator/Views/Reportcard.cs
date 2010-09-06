@@ -56,53 +56,33 @@ namespace ReportCardGenerator.Views
         {
             ReportCardReport rptCard = new ReportCardReport();
             ReportCardData Dataset = new ReportCardData();
-            //Student stud = controller.getStudent(this.studentpassedId);
-            string skillName = "";
-            string lettergrade = "";
-            double numericgrade = 0;
+            ////Student stud = controller.getStudent(this.studentpassedId);
+            ////MessageBox.Show(State.getInstance().Students.Count.ToString());
+            //foreach (Student stud in State.getInstance().Students)
+            //{
+            //    //MessageBox.Show(stud.StudentID.ToString());
+            //    foreach (Period period in controller.getStudent(stud.StudentID).RptCard.Periods)
+            //    {
+            //        //dRow["Termname"] = period.PeriodName;
+            //        //foreach (Skill skill in controller.getPeriod(controller.getStudent(stud.StudentID), period.PeriodID).Skills)
+            //        //{
 
-            string subject = "";
-            double subjectGrade = 0;
-            string subletergrade = "";
-            foreach (Period period in controller.getStudent(this.studentpassedId).RptCard.Periods)
-            {
-                DataRow dRow = Dataset.ReportCardTable.NewRow();
-               
+            //        //    //dRow["skillname"] = skill.SkillName;
+            //        //    //dRow["skillletergrade"] = skill.LetterGrade;
+            //        //    //dRow["skillnumgrade"] = skill.NumericGrade;
+            //        //    //MessageBox.Show(controller.getStudent(stud.StudentID).StudentID + " " +skill.SkillName + " " + skill.LetterGrade + " " + skill.NumericGrade);
+            //        //}
+            //        foreach (Grade grade in controller.getPeriod(controller.getStudent(stud.StudentID), period.PeriodID).Grades)
+            //        {
 
-                dRow["Termname"] = period.PeriodName;
-                foreach (Skill skill in controller.getPeriod(controller.getStudent(this.studentpassedId), period.PeriodID).Skills)
-                {
-                    //DataRow eRow = Dataset.ReportCardTable.NewRow();
-                    skillName = skill.SkillName;
-                    lettergrade = skill.LetterGrade;
-                    numericgrade = skill.NumericGrade;
-                    //Dataset.ReportCardTable.Rows.Add(eRow);
-                    //MessageBox.Show(skill.SkillName + " " + skill.LetterGrade + " " + skill.NumericGrade);
-                }
-                foreach (Grade grade in controller.getPeriod(controller.getStudent(this.studentpassedId), period.PeriodID).Grades)
-                {
-                    //DataRow fRow = Dataset.ReportCardTable.NewRow();
-                    //dRow["Subjectname"] = grade.SubjectName;
-                    //dRow["sublettergrade"] = grade.LetterGrade;
-                    //dRow["subnumgrade"] = grade.NumericGrade;
+            //            //dRow["Subjectname"] = grade.SubjectName;
+            //            //dRow["sublettergrade"] = grade.LetterGrade;
+            //            //dRow["subnumgrade"] = grade.NumericGrade;
+            //            MessageBox.Show(controller.getStudent(stud.StudentID).StudentID.ToString() + " " + grade.SubjectName + " " + grade.LetterGrade + " " + grade.NumericGrade);
+            //        }
 
-                    subject = grade.SubjectName;
-                    subletergrade = grade.LetterGrade;
-                    subjectGrade = grade.NumericGrade;
-                    //Dataset.ReportCardTable.Rows.Add(fRow);
-                    //MessageBox.Show(controller.getStudent(this.studentpassedId).StudentID.ToString() + " " + grade.SubjectName + " " + grade.LetterGrade + " " + grade.NumericGrade);
-                }
-                dRow["skillname"] = skillName;
-                dRow["skillletergrade"] = lettergrade;
-                dRow["skillnumgrade"] = numericgrade;
-
-                dRow["Subjectname"] = subject;
-                dRow["sublettergrade"] = subletergrade;
-                dRow["subnumgrade"] = subletergrade;
-
-                Dataset.ReportCardTable.Rows.Add(dRow);
-            }
-
+            //    }
+            //}
 
             rptCard.DataDefinition.FormulaFields["StudentID"].Text = "\"" + this.studentpassedId + "\"";
             rptCard.DataDefinition.FormulaFields["FirstName"].Text = "\"" + this.firstName + "\"";
