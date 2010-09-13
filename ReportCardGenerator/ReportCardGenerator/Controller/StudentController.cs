@@ -6,6 +6,7 @@ using System.Data;
 using ReportCardGenerator.Interfaces;
 using ReportCardGenerator.Beans;
 using ReportCardGenerator.Data;
+using ReportCardGenerator.Views;
 using ReportCardGenerator.Exceptions;
 using ReportCardGenerator.DataSet;
 namespace ReportCardGenerator.Controller
@@ -14,7 +15,7 @@ namespace ReportCardGenerator.Controller
     {
         private static log4net.ILog log = log4net.LogManager.GetLogger(typeof(StudentController));
         //IController implementation
-
+        public static ReportCardData Dataset;
         //private int index = 0;
         public void registerView(IView i)
         {
@@ -44,13 +45,24 @@ namespace ReportCardGenerator.Controller
             if (student == null)
             {
                 State.getInstance().Students.Add(stud);
-                ReportCardData rptData = new ReportCardData();
-                DataRow dRow = rptData.StudentTable.NewRow();
+                //ReportCardData rptData = new ReportCardData();
+                ////Test.dataset.
+                //DataRow dRow = Test.dataset.StudentTable.NewRow();
 
-                dRow["StudentID"] = stud.StudentID;
-                dRow["FirstName"] = stud.FirstName;
-                dRow["LastName"] = stud.LastName;
-                rptData.StudentTable.Rows.Add(dRow);
+                //dRow["StudentID"] = int.Parse(stud.StudentID);
+                //dRow["FirstName"] = stud.FirstName;
+                //dRow["LastName"] = stud.LastName;
+
+                //Test.dataset.StudentTable.Rows.Add(dRow);
+
+                //System.Windows.Forms.MessageBox.Show(rptData.StudentTable.Rows.Count.ToString());
+                //foreach (DataRow drow in rptData.StudentTable.Rows)
+                //{
+                //    foreach (var item in drow.ItemArray)
+                //    {
+                //        System.Windows.Forms.MessageBox.Show(item.ToString());
+                //    }
+                //}
             }
             else
             {                
@@ -83,17 +95,17 @@ namespace ReportCardGenerator.Controller
                     Grade grade = p.Grades.Find(delegate(Grade gr) { return gr.SubjectID.Equals(g.SubjectID); });
                     this.getPeriod(this.getStudent(stud.StudentID), p.PeriodID).Grades.Add(g);
 
-                    ReportCardData rptData = new ReportCardData();
-                    DataRow dRow = rptData.SubjectTable.NewRow();
-
+                    DataRow dRow = Test.dataset.SubjectTable.NewRow();
                     dRow["SubjectID"] = g.SubjectID;
                     dRow["TermID"] = p.PeriodID;
                     dRow["SubjectName"] = g.SubjectName;
                     dRow["SubjectNumGrade"] = g.NumericGrade;
                     dRow["SubjectLetGrade"] = g.LetterGrade;
-                    dRow["StudentId"] = stud.StudentID;
+                    //dRow["StudentID"] = stud.StudentID;
 
-                    rptData.SubjectTable.Rows.Add(dRow);
+                    Test.dataset.SubjectTable.Rows.Add(dRow);
+
+                   
                 }
             }
             //}
@@ -143,14 +155,14 @@ namespace ReportCardGenerator.Controller
             if (per!=null)
             {
                 stud.RptCard.Periods.Add(per);
-                ReportCardData rptData = new ReportCardData();
-                DataRow dRow = rptData.PeriodTable.NewRow();
+                //ReportCardData rptData = new ReportCardData();
+                DataRow dRow = Test.dataset.PeriodTable.NewRow();
 
                 dRow["TermID"] = per.PeriodID;
                 dRow["TermName"] = per.PeriodName;
                 dRow["StudentID"] = stud.StudentID;
 
-                rptData.PeriodTable.Rows.Add(dRow);
+                Test.dataset.PeriodTable.Rows.Add(dRow);
             }
             //else
             //{
@@ -166,17 +178,17 @@ namespace ReportCardGenerator.Controller
                 {
                     Skill sk = p.Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(s.SkillID); });
                     this.getPeriod(this.getStudent(stud.StudentID), p.PeriodID).Skills.Add(s);
-                    ReportCardData rptData = new ReportCardData();
-                    DataRow dRow = rptData.SkillTable.NewRow();
+                    //ReportCardData rptData = new ReportCardData();
+                    DataRow dRow = Test.dataset.SkillTable.NewRow();
 
                     dRow["SkillID"] = s.SkillID;
                     dRow["TermID"] = p.PeriodID;
                     dRow["SkillName"] = s.SkillName;
                     dRow["SkillNumGrade"] = s.NumericGrade;
                     dRow["SkillLetGrade"] = s.LetterGrade;
-                    dRow["StudentID"] = stud.StudentID;
+                    //dRow["StudentID"] = stud.StudentID;
 
-                    rptData.SkillTable.Rows.Add(dRow);
+                    Test.dataset.SkillTable.Rows.Add(dRow);
                 }
             }
         }

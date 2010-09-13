@@ -108,7 +108,7 @@ namespace ReportCardGenerator.Views
         }
         private void StudentList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ReportCard rptCard = new ReportCard();
+            ReportCardViewer rptCard = new ReportCardViewer();
             rptCard.ShowDialog();
             
         }
@@ -123,7 +123,7 @@ namespace ReportCardGenerator.Views
             int i = StudGridView.CurrentCell.RowIndex;
             //studIdString.StudentID = StudGridView[0, i].Value.ToString();
 
-            ReportCard rptCard = new ReportCard();
+            ReportCardViewer rptCard = new ReportCardViewer();
             rptCard.StudentpassedId = StudGridView[Stud_Id, i].Value.ToString();
             rptCard.FirstName = StudGridView[Stud_FName, i].Value.ToString();
             rptCard.LastName = StudGridView[Stud_LName, i].Value.ToString();
@@ -151,7 +151,7 @@ namespace ReportCardGenerator.Views
             int i = StudGridView.CurrentCell.RowIndex;
             //studIdString.StudentID = StudGridView[0, i].Value.ToString();
 
-            ReportCard rptCard = new ReportCard();
+            ReportCardViewer rptCard = new ReportCardViewer();
             rptCard.StudentpassedId = StudGridView[Stud_Id, i].Value.ToString();
             rptCard.FirstName = StudGridView[Stud_FName, i].Value.ToString();
             rptCard.LastName = StudGridView[Stud_LName, i].Value.ToString();

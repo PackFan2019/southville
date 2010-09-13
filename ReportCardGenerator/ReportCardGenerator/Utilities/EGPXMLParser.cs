@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using System.Data;
 using ReportCardGenerator.Interfaces;
 using ReportCardGenerator.Beans;
+using ReportCardGenerator.DataSet;
 using ReportCardGenerator.Data;
 
 
@@ -25,6 +27,13 @@ namespace ReportCardGenerator.Utilities
                 stud.FirstName = node["stud_firstname"].InnerText;
                 stud.LastName = node["stud_lastname"].InnerText;
 
+                //ReportCardData rptData = new ReportCardData();
+                //DataRow dRow = rptData.StudentTable.NewRow();
+
+                //dRow["StudentID"] = stud.StudentID;
+                //dRow["FirstName"] = stud.FirstName;
+                //dRow["LastName"] = stud.LastName;
+                //rptData.StudentTable.Rows.Add(dRow);
 
                 //System.Windows.Forms.MessageBox.Show(stud.StudentID + " " +stud.FirstName + " " + stud.LastName);
                 controller.addOrUpdateStudent(stud);

@@ -25,13 +25,19 @@ namespace ReportCardGenerator.DataSet {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class ReportCardData : global::System.Data.DataSet {
         
+        private SubjectTableDataTable tableSubjectTable;
+        
         private PeriodTableDataTable tablePeriodTable;
+        
+        private StudentTableDataTable tableStudentTable;
         
         private SkillTableDataTable tableSkillTable;
         
-        private SubjectTableDataTable tableSubjectTable;
+        private global::System.Data.DataRelation relationPeriodTable_SubjectTable;
         
-        private StudentTableDataTable tableStudentTable;
+        private global::System.Data.DataRelation relationStudentTable_PeriodTable;
+        
+        private global::System.Data.DataRelation relationPeriodTable_SkillTable;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -59,17 +65,17 @@ namespace ReportCardGenerator.DataSet {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["PeriodTable"] != null)) {
-                    base.Tables.Add(new PeriodTableDataTable(ds.Tables["PeriodTable"]));
-                }
-                if ((ds.Tables["SkillTable"] != null)) {
-                    base.Tables.Add(new SkillTableDataTable(ds.Tables["SkillTable"]));
-                }
                 if ((ds.Tables["SubjectTable"] != null)) {
                     base.Tables.Add(new SubjectTableDataTable(ds.Tables["SubjectTable"]));
                 }
+                if ((ds.Tables["PeriodTable"] != null)) {
+                    base.Tables.Add(new PeriodTableDataTable(ds.Tables["PeriodTable"]));
+                }
                 if ((ds.Tables["StudentTable"] != null)) {
                     base.Tables.Add(new StudentTableDataTable(ds.Tables["StudentTable"]));
+                }
+                if ((ds.Tables["SkillTable"] != null)) {
+                    base.Tables.Add(new SkillTableDataTable(ds.Tables["SkillTable"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -92,24 +98,6 @@ namespace ReportCardGenerator.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public PeriodTableDataTable PeriodTable {
-            get {
-                return this.tablePeriodTable;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public SkillTableDataTable SkillTable {
-            get {
-                return this.tableSkillTable;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public SubjectTableDataTable SubjectTable {
             get {
                 return this.tableSubjectTable;
@@ -119,9 +107,27 @@ namespace ReportCardGenerator.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public PeriodTableDataTable PeriodTable {
+            get {
+                return this.tablePeriodTable;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public StudentTableDataTable StudentTable {
             get {
                 return this.tableStudentTable;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public SkillTableDataTable SkillTable {
+            get {
+                return this.tableSkillTable;
             }
         }
         
@@ -184,17 +190,17 @@ namespace ReportCardGenerator.DataSet {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["PeriodTable"] != null)) {
-                    base.Tables.Add(new PeriodTableDataTable(ds.Tables["PeriodTable"]));
-                }
-                if ((ds.Tables["SkillTable"] != null)) {
-                    base.Tables.Add(new SkillTableDataTable(ds.Tables["SkillTable"]));
-                }
                 if ((ds.Tables["SubjectTable"] != null)) {
                     base.Tables.Add(new SubjectTableDataTable(ds.Tables["SubjectTable"]));
                 }
+                if ((ds.Tables["PeriodTable"] != null)) {
+                    base.Tables.Add(new PeriodTableDataTable(ds.Tables["PeriodTable"]));
+                }
                 if ((ds.Tables["StudentTable"] != null)) {
                     base.Tables.Add(new StudentTableDataTable(ds.Tables["StudentTable"]));
+                }
+                if ((ds.Tables["SkillTable"] != null)) {
+                    base.Tables.Add(new SkillTableDataTable(ds.Tables["SkillTable"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -226,22 +232,16 @@ namespace ReportCardGenerator.DataSet {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         internal void InitVars(bool initTable) {
-            this.tablePeriodTable = ((PeriodTableDataTable)(base.Tables["PeriodTable"]));
-            if ((initTable == true)) {
-                if ((this.tablePeriodTable != null)) {
-                    this.tablePeriodTable.InitVars();
-                }
-            }
-            this.tableSkillTable = ((SkillTableDataTable)(base.Tables["SkillTable"]));
-            if ((initTable == true)) {
-                if ((this.tableSkillTable != null)) {
-                    this.tableSkillTable.InitVars();
-                }
-            }
             this.tableSubjectTable = ((SubjectTableDataTable)(base.Tables["SubjectTable"]));
             if ((initTable == true)) {
                 if ((this.tableSubjectTable != null)) {
                     this.tableSubjectTable.InitVars();
+                }
+            }
+            this.tablePeriodTable = ((PeriodTableDataTable)(base.Tables["PeriodTable"]));
+            if ((initTable == true)) {
+                if ((this.tablePeriodTable != null)) {
+                    this.tablePeriodTable.InitVars();
                 }
             }
             this.tableStudentTable = ((StudentTableDataTable)(base.Tables["StudentTable"]));
@@ -250,6 +250,15 @@ namespace ReportCardGenerator.DataSet {
                     this.tableStudentTable.InitVars();
                 }
             }
+            this.tableSkillTable = ((SkillTableDataTable)(base.Tables["SkillTable"]));
+            if ((initTable == true)) {
+                if ((this.tableSkillTable != null)) {
+                    this.tableSkillTable.InitVars();
+                }
+            }
+            this.relationPeriodTable_SubjectTable = this.Relations["PeriodTable_SubjectTable"];
+            this.relationStudentTable_PeriodTable = this.Relations["StudentTable_PeriodTable"];
+            this.relationPeriodTable_SkillTable = this.Relations["PeriodTable_SkillTable"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -259,46 +268,26 @@ namespace ReportCardGenerator.DataSet {
             this.Namespace = "http://tempuri.org/ReportCardData.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablePeriodTable = new PeriodTableDataTable();
-            base.Tables.Add(this.tablePeriodTable);
-            this.tableSkillTable = new SkillTableDataTable();
-            base.Tables.Add(this.tableSkillTable);
             this.tableSubjectTable = new SubjectTableDataTable();
             base.Tables.Add(this.tableSubjectTable);
+            this.tablePeriodTable = new PeriodTableDataTable();
+            base.Tables.Add(this.tablePeriodTable);
             this.tableStudentTable = new StudentTableDataTable();
             base.Tables.Add(this.tableStudentTable);
-            global::System.Data.ForeignKeyConstraint fkc;
-            fkc = new global::System.Data.ForeignKeyConstraint("StudentTable_PeriodTable", new global::System.Data.DataColumn[] {
+            this.tableSkillTable = new SkillTableDataTable();
+            base.Tables.Add(this.tableSkillTable);
+            this.relationPeriodTable_SubjectTable = new global::System.Data.DataRelation("PeriodTable_SubjectTable", new global::System.Data.DataColumn[] {
+                        this.tablePeriodTable.TermIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableSubjectTable.TermIDColumn}, false);
+            this.Relations.Add(this.relationPeriodTable_SubjectTable);
+            this.relationStudentTable_PeriodTable = new global::System.Data.DataRelation("StudentTable_PeriodTable", new global::System.Data.DataColumn[] {
                         this.tableStudentTable.StudentIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tablePeriodTable.StudentIDColumn});
-            this.tablePeriodTable.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_StudentTable_SkillTable", new global::System.Data.DataColumn[] {
-                        this.tableStudentTable.StudentIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableSkillTable.StudentIDColumn});
-            this.tableSkillTable.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_StudentTable_SubjectTable", new global::System.Data.DataColumn[] {
-                        this.tableStudentTable.StudentIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableSubjectTable.StudentIDColumn});
-            this.tableSubjectTable.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.None;
-            fkc.UpdateRule = global::System.Data.Rule.None;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private bool ShouldSerializePeriodTable() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private bool ShouldSerializeSkillTable() {
-            return false;
+                        this.tablePeriodTable.StudentIDColumn}, false);
+            this.Relations.Add(this.relationStudentTable_PeriodTable);
+            this.relationPeriodTable_SkillTable = new global::System.Data.DataRelation("PeriodTable_SkillTable", new global::System.Data.DataColumn[] {
+                        this.tablePeriodTable.TermIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableSkillTable.TermIDColumn}, false);
+            this.Relations.Add(this.relationPeriodTable_SkillTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -307,7 +296,17 @@ namespace ReportCardGenerator.DataSet {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializePeriodTable() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializeStudentTable() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializeSkillTable() {
             return false;
         }
         
@@ -364,13 +363,293 @@ namespace ReportCardGenerator.DataSet {
             return type;
         }
         
+        public delegate void SubjectTableRowChangeEventHandler(object sender, SubjectTableRowChangeEvent e);
+        
         public delegate void PeriodTableRowChangeEventHandler(object sender, PeriodTableRowChangeEvent e);
+        
+        public delegate void StudentTableRowChangeEventHandler(object sender, StudentTableRowChangeEvent e);
         
         public delegate void SkillTableRowChangeEventHandler(object sender, SkillTableRowChangeEvent e);
         
-        public delegate void SubjectTableRowChangeEventHandler(object sender, SubjectTableRowChangeEvent e);
-        
-        public delegate void StudentTableRowChangeEventHandler(object sender, StudentTableRowChangeEvent e);
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class SubjectTableDataTable : global::System.Data.TypedTableBase<SubjectTableRow> {
+            
+            private global::System.Data.DataColumn columnSubjectID;
+            
+            private global::System.Data.DataColumn columnTermID;
+            
+            private global::System.Data.DataColumn columnSubjectName;
+            
+            private global::System.Data.DataColumn columnSubjectNumGrade;
+            
+            private global::System.Data.DataColumn columnSubjectLetGrade;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SubjectTableDataTable() {
+                this.TableName = "SubjectTable";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal SubjectTableDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected SubjectTableDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn SubjectIDColumn {
+                get {
+                    return this.columnSubjectID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn TermIDColumn {
+                get {
+                    return this.columnTermID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn SubjectNameColumn {
+                get {
+                    return this.columnSubjectName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn SubjectNumGradeColumn {
+                get {
+                    return this.columnSubjectNumGrade;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn SubjectLetGradeColumn {
+                get {
+                    return this.columnSubjectLetGrade;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SubjectTableRow this[int index] {
+                get {
+                    return ((SubjectTableRow)(this.Rows[index]));
+                }
+            }
+            
+            public event SubjectTableRowChangeEventHandler SubjectTableRowChanging;
+            
+            public event SubjectTableRowChangeEventHandler SubjectTableRowChanged;
+            
+            public event SubjectTableRowChangeEventHandler SubjectTableRowDeleting;
+            
+            public event SubjectTableRowChangeEventHandler SubjectTableRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddSubjectTableRow(SubjectTableRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SubjectTableRow AddSubjectTableRow(string SubjectID, PeriodTableRow parentPeriodTableRowByPeriodTable_SubjectTable, string SubjectName, string SubjectNumGrade, string SubjectLetGrade) {
+                SubjectTableRow rowSubjectTableRow = ((SubjectTableRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        SubjectID,
+                        null,
+                        SubjectName,
+                        SubjectNumGrade,
+                        SubjectLetGrade};
+                if ((parentPeriodTableRowByPeriodTable_SubjectTable != null)) {
+                    columnValuesArray[1] = parentPeriodTableRowByPeriodTable_SubjectTable[0];
+                }
+                rowSubjectTableRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSubjectTableRow);
+                return rowSubjectTableRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                SubjectTableDataTable cln = ((SubjectTableDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new SubjectTableDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnSubjectID = base.Columns["SubjectID"];
+                this.columnTermID = base.Columns["TermID"];
+                this.columnSubjectName = base.Columns["SubjectName"];
+                this.columnSubjectNumGrade = base.Columns["SubjectNumGrade"];
+                this.columnSubjectLetGrade = base.Columns["SubjectLetGrade"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnSubjectID = new global::System.Data.DataColumn("SubjectID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSubjectID);
+                this.columnTermID = new global::System.Data.DataColumn("TermID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTermID);
+                this.columnSubjectName = new global::System.Data.DataColumn("SubjectName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSubjectName);
+                this.columnSubjectNumGrade = new global::System.Data.DataColumn("SubjectNumGrade", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSubjectNumGrade);
+                this.columnSubjectLetGrade = new global::System.Data.DataColumn("SubjectLetGrade", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSubjectLetGrade);
+                this.columnSubjectID.AllowDBNull = false;
+                this.columnTermID.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SubjectTableRow NewSubjectTableRow() {
+                return ((SubjectTableRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new SubjectTableRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(SubjectTableRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.SubjectTableRowChanged != null)) {
+                    this.SubjectTableRowChanged(this, new SubjectTableRowChangeEvent(((SubjectTableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.SubjectTableRowChanging != null)) {
+                    this.SubjectTableRowChanging(this, new SubjectTableRowChangeEvent(((SubjectTableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.SubjectTableRowDeleted != null)) {
+                    this.SubjectTableRowDeleted(this, new SubjectTableRowChangeEvent(((SubjectTableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.SubjectTableRowDeleting != null)) {
+                    this.SubjectTableRowDeleting(this, new SubjectTableRowChangeEvent(((SubjectTableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemoveSubjectTableRow(SubjectTableRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ReportCardData ds = new ReportCardData();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "SubjectTableDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -466,21 +745,18 @@ namespace ReportCardGenerator.DataSet {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public PeriodTableRow AddPeriodTableRow(string TermID, string TermName, string StudentID) {
+            public PeriodTableRow AddPeriodTableRow(string TermID, string TermName, StudentTableRow parentStudentTableRowByStudentTable_PeriodTable) {
                 PeriodTableRow rowPeriodTableRow = ((PeriodTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TermID,
                         TermName,
-                        StudentID};
+                        null};
+                if ((parentStudentTableRowByStudentTable_PeriodTable != null)) {
+                    columnValuesArray[2] = parentStudentTableRowByStudentTable_PeriodTable[0];
+                }
                 rowPeriodTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPeriodTableRow);
                 return rowPeriodTableRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public PeriodTableRow FindByTermID(string TermID) {
-                return ((PeriodTableRow)(this.Rows.Find(new object[] {
-                            TermID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -510,10 +786,7 @@ namespace ReportCardGenerator.DataSet {
                 base.Columns.Add(this.columnTermName);
                 this.columnStudentID = new global::System.Data.DataColumn("StudentID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStudentID);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("ReportCardTableKey", new global::System.Data.DataColumn[] {
-                                this.columnTermID}, true));
                 this.columnTermID.AllowDBNull = false;
-                this.columnTermID.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -591,595 +864,6 @@ namespace ReportCardGenerator.DataSet {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "PeriodTableDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class SkillTableDataTable : global::System.Data.TypedTableBase<SkillTableRow> {
-            
-            private global::System.Data.DataColumn columnSkillID;
-            
-            private global::System.Data.DataColumn columnTermID;
-            
-            private global::System.Data.DataColumn columnSkillName;
-            
-            private global::System.Data.DataColumn columnSkillNumGrade;
-            
-            private global::System.Data.DataColumn columnSkillLetGrade;
-            
-            private global::System.Data.DataColumn columnStudentID;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public SkillTableDataTable() {
-                this.TableName = "SkillTable";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal SkillTableDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected SkillTableDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn SkillIDColumn {
-                get {
-                    return this.columnSkillID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn TermIDColumn {
-                get {
-                    return this.columnTermID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn SkillNameColumn {
-                get {
-                    return this.columnSkillName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn SkillNumGradeColumn {
-                get {
-                    return this.columnSkillNumGrade;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn SkillLetGradeColumn {
-                get {
-                    return this.columnSkillLetGrade;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn StudentIDColumn {
-                get {
-                    return this.columnStudentID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public SkillTableRow this[int index] {
-                get {
-                    return ((SkillTableRow)(this.Rows[index]));
-                }
-            }
-            
-            public event SkillTableRowChangeEventHandler SkillTableRowChanging;
-            
-            public event SkillTableRowChangeEventHandler SkillTableRowChanged;
-            
-            public event SkillTableRowChangeEventHandler SkillTableRowDeleting;
-            
-            public event SkillTableRowChangeEventHandler SkillTableRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void AddSkillTableRow(SkillTableRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public SkillTableRow AddSkillTableRow(string SkillID, string TermID, string SkillName, string SkillNumGrade, string SkillLetGrade, string StudentID) {
-                SkillTableRow rowSkillTableRow = ((SkillTableRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        SkillID,
-                        TermID,
-                        SkillName,
-                        SkillNumGrade,
-                        SkillLetGrade,
-                        StudentID};
-                rowSkillTableRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowSkillTableRow);
-                return rowSkillTableRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public SkillTableRow FindBySkillID(string SkillID) {
-                return ((SkillTableRow)(this.Rows.Find(new object[] {
-                            SkillID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public override global::System.Data.DataTable Clone() {
-                SkillTableDataTable cln = ((SkillTableDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new SkillTableDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal void InitVars() {
-                this.columnSkillID = base.Columns["SkillID"];
-                this.columnTermID = base.Columns["TermID"];
-                this.columnSkillName = base.Columns["SkillName"];
-                this.columnSkillNumGrade = base.Columns["SkillNumGrade"];
-                this.columnSkillLetGrade = base.Columns["SkillLetGrade"];
-                this.columnStudentID = base.Columns["StudentID"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            private void InitClass() {
-                this.columnSkillID = new global::System.Data.DataColumn("SkillID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSkillID);
-                this.columnTermID = new global::System.Data.DataColumn("TermID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTermID);
-                this.columnSkillName = new global::System.Data.DataColumn("SkillName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSkillName);
-                this.columnSkillNumGrade = new global::System.Data.DataColumn("SkillNumGrade", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSkillNumGrade);
-                this.columnSkillLetGrade = new global::System.Data.DataColumn("SkillLetGrade", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSkillLetGrade);
-                this.columnStudentID = new global::System.Data.DataColumn("StudentID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStudentID);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("SkillTableKey", new global::System.Data.DataColumn[] {
-                                this.columnSkillID}, true));
-                this.columnSkillID.AllowDBNull = false;
-                this.columnSkillID.Unique = true;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public SkillTableRow NewSkillTableRow() {
-                return ((SkillTableRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new SkillTableRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Type GetRowType() {
-                return typeof(SkillTableRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.SkillTableRowChanged != null)) {
-                    this.SkillTableRowChanged(this, new SkillTableRowChangeEvent(((SkillTableRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.SkillTableRowChanging != null)) {
-                    this.SkillTableRowChanging(this, new SkillTableRowChangeEvent(((SkillTableRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.SkillTableRowDeleted != null)) {
-                    this.SkillTableRowDeleted(this, new SkillTableRowChangeEvent(((SkillTableRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.SkillTableRowDeleting != null)) {
-                    this.SkillTableRowDeleting(this, new SkillTableRowChangeEvent(((SkillTableRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void RemoveSkillTableRow(SkillTableRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ReportCardData ds = new ReportCardData();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "SkillTableDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class SubjectTableDataTable : global::System.Data.TypedTableBase<SubjectTableRow> {
-            
-            private global::System.Data.DataColumn columnSubjectID;
-            
-            private global::System.Data.DataColumn columnTermID;
-            
-            private global::System.Data.DataColumn columnSubjectName;
-            
-            private global::System.Data.DataColumn columnSubjectNumGrade;
-            
-            private global::System.Data.DataColumn columnSubjectLetGrade;
-            
-            private global::System.Data.DataColumn columnStudentID;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public SubjectTableDataTable() {
-                this.TableName = "SubjectTable";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal SubjectTableDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected SubjectTableDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn SubjectIDColumn {
-                get {
-                    return this.columnSubjectID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn TermIDColumn {
-                get {
-                    return this.columnTermID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn SubjectNameColumn {
-                get {
-                    return this.columnSubjectName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn SubjectNumGradeColumn {
-                get {
-                    return this.columnSubjectNumGrade;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn SubjectLetGradeColumn {
-                get {
-                    return this.columnSubjectLetGrade;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn StudentIDColumn {
-                get {
-                    return this.columnStudentID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public SubjectTableRow this[int index] {
-                get {
-                    return ((SubjectTableRow)(this.Rows[index]));
-                }
-            }
-            
-            public event SubjectTableRowChangeEventHandler SubjectTableRowChanging;
-            
-            public event SubjectTableRowChangeEventHandler SubjectTableRowChanged;
-            
-            public event SubjectTableRowChangeEventHandler SubjectTableRowDeleting;
-            
-            public event SubjectTableRowChangeEventHandler SubjectTableRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void AddSubjectTableRow(SubjectTableRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public SubjectTableRow AddSubjectTableRow(string SubjectID, string TermID, string SubjectName, string SubjectNumGrade, string SubjectLetGrade, string StudentID) {
-                SubjectTableRow rowSubjectTableRow = ((SubjectTableRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        SubjectID,
-                        TermID,
-                        SubjectName,
-                        SubjectNumGrade,
-                        SubjectLetGrade,
-                        StudentID};
-                rowSubjectTableRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowSubjectTableRow);
-                return rowSubjectTableRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public override global::System.Data.DataTable Clone() {
-                SubjectTableDataTable cln = ((SubjectTableDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new SubjectTableDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal void InitVars() {
-                this.columnSubjectID = base.Columns["SubjectID"];
-                this.columnTermID = base.Columns["TermID"];
-                this.columnSubjectName = base.Columns["SubjectName"];
-                this.columnSubjectNumGrade = base.Columns["SubjectNumGrade"];
-                this.columnSubjectLetGrade = base.Columns["SubjectLetGrade"];
-                this.columnStudentID = base.Columns["StudentID"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            private void InitClass() {
-                this.columnSubjectID = new global::System.Data.DataColumn("SubjectID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSubjectID);
-                this.columnTermID = new global::System.Data.DataColumn("TermID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTermID);
-                this.columnSubjectName = new global::System.Data.DataColumn("SubjectName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSubjectName);
-                this.columnSubjectNumGrade = new global::System.Data.DataColumn("SubjectNumGrade", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSubjectNumGrade);
-                this.columnSubjectLetGrade = new global::System.Data.DataColumn("SubjectLetGrade", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSubjectLetGrade);
-                this.columnStudentID = new global::System.Data.DataColumn("StudentID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStudentID);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("SubjectTableKey", new global::System.Data.DataColumn[] {
-                                this.columnSubjectID}, false));
-                this.columnSubjectID.Unique = true;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public SubjectTableRow NewSubjectTableRow() {
-                return ((SubjectTableRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new SubjectTableRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Type GetRowType() {
-                return typeof(SubjectTableRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.SubjectTableRowChanged != null)) {
-                    this.SubjectTableRowChanged(this, new SubjectTableRowChangeEvent(((SubjectTableRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.SubjectTableRowChanging != null)) {
-                    this.SubjectTableRowChanging(this, new SubjectTableRowChangeEvent(((SubjectTableRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.SubjectTableRowDeleted != null)) {
-                    this.SubjectTableRowDeleted(this, new SubjectTableRowChangeEvent(((SubjectTableRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.SubjectTableRowDeleting != null)) {
-                    this.SubjectTableRowDeleting(this, new SubjectTableRowChangeEvent(((SubjectTableRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void RemoveSubjectTableRow(SubjectTableRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ReportCardData ds = new ReportCardData();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "SubjectTableDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1326,6 +1010,12 @@ namespace ReportCardGenerator.DataSet {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public StudentTableRow FindByStudentID(string StudentID) {
+                return ((StudentTableRow)(this.Rows.Find(new object[] {
+                            StudentID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public override global::System.Data.DataTable Clone() {
                 StudentTableDataTable cln = ((StudentTableDataTable)(base.Clone()));
                 cln.InitVars();
@@ -1352,8 +1042,9 @@ namespace ReportCardGenerator.DataSet {
                 base.Columns.Add(this.columnFirstName);
                 this.columnLastName = new global::System.Data.DataColumn("LastName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLastName);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("StudentTableKey", new global::System.Data.DataColumn[] {
-                                this.columnStudentID}, false));
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnStudentID}, true));
+                this.columnStudentID.AllowDBNull = false;
                 this.columnStudentID.Unique = true;
             }
             
@@ -1473,6 +1164,405 @@ namespace ReportCardGenerator.DataSet {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class SkillTableDataTable : global::System.Data.TypedTableBase<SkillTableRow> {
+            
+            private global::System.Data.DataColumn columnSkillID;
+            
+            private global::System.Data.DataColumn columnTermID;
+            
+            private global::System.Data.DataColumn columnSkillName;
+            
+            private global::System.Data.DataColumn columnSkillNumGrade;
+            
+            private global::System.Data.DataColumn columnSkillLetGrade;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SkillTableDataTable() {
+                this.TableName = "SkillTable";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal SkillTableDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected SkillTableDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn SkillIDColumn {
+                get {
+                    return this.columnSkillID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn TermIDColumn {
+                get {
+                    return this.columnTermID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn SkillNameColumn {
+                get {
+                    return this.columnSkillName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn SkillNumGradeColumn {
+                get {
+                    return this.columnSkillNumGrade;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn SkillLetGradeColumn {
+                get {
+                    return this.columnSkillLetGrade;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SkillTableRow this[int index] {
+                get {
+                    return ((SkillTableRow)(this.Rows[index]));
+                }
+            }
+            
+            public event SkillTableRowChangeEventHandler SkillTableRowChanging;
+            
+            public event SkillTableRowChangeEventHandler SkillTableRowChanged;
+            
+            public event SkillTableRowChangeEventHandler SkillTableRowDeleting;
+            
+            public event SkillTableRowChangeEventHandler SkillTableRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddSkillTableRow(SkillTableRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SkillTableRow AddSkillTableRow(string SkillID, PeriodTableRow parentPeriodTableRowByPeriodTable_SkillTable, string SkillName, string SkillNumGrade, string SkillLetGrade) {
+                SkillTableRow rowSkillTableRow = ((SkillTableRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        SkillID,
+                        null,
+                        SkillName,
+                        SkillNumGrade,
+                        SkillLetGrade};
+                if ((parentPeriodTableRowByPeriodTable_SkillTable != null)) {
+                    columnValuesArray[1] = parentPeriodTableRowByPeriodTable_SkillTable[0];
+                }
+                rowSkillTableRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSkillTableRow);
+                return rowSkillTableRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                SkillTableDataTable cln = ((SkillTableDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new SkillTableDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnSkillID = base.Columns["SkillID"];
+                this.columnTermID = base.Columns["TermID"];
+                this.columnSkillName = base.Columns["SkillName"];
+                this.columnSkillNumGrade = base.Columns["SkillNumGrade"];
+                this.columnSkillLetGrade = base.Columns["SkillLetGrade"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnSkillID = new global::System.Data.DataColumn("SkillID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSkillID);
+                this.columnTermID = new global::System.Data.DataColumn("TermID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTermID);
+                this.columnSkillName = new global::System.Data.DataColumn("SkillName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSkillName);
+                this.columnSkillNumGrade = new global::System.Data.DataColumn("SkillNumGrade", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSkillNumGrade);
+                this.columnSkillLetGrade = new global::System.Data.DataColumn("SkillLetGrade", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSkillLetGrade);
+                this.columnSkillID.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SkillTableRow NewSkillTableRow() {
+                return ((SkillTableRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new SkillTableRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(SkillTableRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.SkillTableRowChanged != null)) {
+                    this.SkillTableRowChanged(this, new SkillTableRowChangeEvent(((SkillTableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.SkillTableRowChanging != null)) {
+                    this.SkillTableRowChanging(this, new SkillTableRowChangeEvent(((SkillTableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.SkillTableRowDeleted != null)) {
+                    this.SkillTableRowDeleted(this, new SkillTableRowChangeEvent(((SkillTableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.SkillTableRowDeleting != null)) {
+                    this.SkillTableRowDeleting(this, new SkillTableRowChangeEvent(((SkillTableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemoveSkillTableRow(SkillTableRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ReportCardData ds = new ReportCardData();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "SkillTableDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class SubjectTableRow : global::System.Data.DataRow {
+            
+            private SubjectTableDataTable tableSubjectTable;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal SubjectTableRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableSubjectTable = ((SubjectTableDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string SubjectID {
+                get {
+                    return ((string)(this[this.tableSubjectTable.SubjectIDColumn]));
+                }
+                set {
+                    this[this.tableSubjectTable.SubjectIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string TermID {
+                get {
+                    return ((string)(this[this.tableSubjectTable.TermIDColumn]));
+                }
+                set {
+                    this[this.tableSubjectTable.TermIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string SubjectName {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubjectTable.SubjectNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SubjectName\' in table \'SubjectTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubjectTable.SubjectNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string SubjectNumGrade {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubjectTable.SubjectNumGradeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SubjectNumGrade\' in table \'SubjectTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubjectTable.SubjectNumGradeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string SubjectLetGrade {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubjectTable.SubjectLetGradeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SubjectLetGrade\' in table \'SubjectTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubjectTable.SubjectLetGradeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public PeriodTableRow PeriodTableRow {
+                get {
+                    return ((PeriodTableRow)(this.GetParentRow(this.Table.ParentRelations["PeriodTable_SubjectTable"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["PeriodTable_SubjectTable"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsSubjectNameNull() {
+                return this.IsNull(this.tableSubjectTable.SubjectNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetSubjectNameNull() {
+                this[this.tableSubjectTable.SubjectNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsSubjectNumGradeNull() {
+                return this.IsNull(this.tableSubjectTable.SubjectNumGradeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetSubjectNumGradeNull() {
+                this[this.tableSubjectTable.SubjectNumGradeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsSubjectLetGradeNull() {
+                return this.IsNull(this.tableSubjectTable.SubjectLetGradeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetSubjectLetGradeNull() {
+                this[this.tableSubjectTable.SubjectLetGradeColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -1527,6 +1617,16 @@ namespace ReportCardGenerator.DataSet {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public StudentTableRow StudentTableRow {
+                get {
+                    return ((StudentTableRow)(this.GetParentRow(this.Table.ParentRelations["StudentTable_PeriodTable"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["StudentTable_PeriodTable"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsTermNameNull() {
                 return this.IsNull(this.tablePeriodTable.TermNameColumn);
             }
@@ -1544,6 +1644,111 @@ namespace ReportCardGenerator.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetStudentIDNull() {
                 this[this.tablePeriodTable.StudentIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SubjectTableRow[] GetSubjectTableRows() {
+                if ((this.Table.ChildRelations["PeriodTable_SubjectTable"] == null)) {
+                    return new SubjectTableRow[0];
+                }
+                else {
+                    return ((SubjectTableRow[])(base.GetChildRows(this.Table.ChildRelations["PeriodTable_SubjectTable"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SkillTableRow[] GetSkillTableRows() {
+                if ((this.Table.ChildRelations["PeriodTable_SkillTable"] == null)) {
+                    return new SkillTableRow[0];
+                }
+                else {
+                    return ((SkillTableRow[])(base.GetChildRows(this.Table.ChildRelations["PeriodTable_SkillTable"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class StudentTableRow : global::System.Data.DataRow {
+            
+            private StudentTableDataTable tableStudentTable;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal StudentTableRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableStudentTable = ((StudentTableDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string StudentID {
+                get {
+                    return ((string)(this[this.tableStudentTable.StudentIDColumn]));
+                }
+                set {
+                    this[this.tableStudentTable.StudentIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string FirstName {
+                get {
+                    try {
+                        return ((string)(this[this.tableStudentTable.FirstNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FirstName\' in table \'StudentTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStudentTable.FirstNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string LastName {
+                get {
+                    try {
+                        return ((string)(this[this.tableStudentTable.LastNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LastName\' in table \'StudentTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStudentTable.LastNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsFirstNameNull() {
+                return this.IsNull(this.tableStudentTable.FirstNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetFirstNameNull() {
+                this[this.tableStudentTable.FirstNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsLastNameNull() {
+                return this.IsNull(this.tableStudentTable.LastNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetLastNameNull() {
+                this[this.tableStudentTable.LastNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public PeriodTableRow[] GetPeriodTableRows() {
+                if ((this.Table.ChildRelations["StudentTable_PeriodTable"] == null)) {
+                    return new PeriodTableRow[0];
+                }
+                else {
+                    return ((PeriodTableRow[])(base.GetChildRows(this.Table.ChildRelations["StudentTable_PeriodTable"])));
+                }
             }
         }
         
@@ -1632,17 +1837,12 @@ namespace ReportCardGenerator.DataSet {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string StudentID {
+            public PeriodTableRow PeriodTableRow {
                 get {
-                    try {
-                        return ((string)(this[this.tableSkillTable.StudentIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'StudentID\' in table \'SkillTable\' is DBNull.", e);
-                    }
+                    return ((PeriodTableRow)(this.GetParentRow(this.Table.ParentRelations["PeriodTable_SkillTable"])));
                 }
                 set {
-                    this[this.tableSkillTable.StudentIDColumn] = value;
+                    this.SetParentRow(value, this.Table.ParentRelations["PeriodTable_SkillTable"]);
                 }
             }
             
@@ -1685,270 +1885,36 @@ namespace ReportCardGenerator.DataSet {
             public void SetSkillLetGradeNull() {
                 this[this.tableSkillTable.SkillLetGradeColumn] = global::System.Convert.DBNull;
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsStudentIDNull() {
-                return this.IsNull(this.tableSkillTable.StudentIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetStudentIDNull() {
-                this[this.tableSkillTable.StudentIDColumn] = global::System.Convert.DBNull;
-            }
         }
         
         /// <summary>
-        ///Represents strongly named DataRow class.
+        ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public partial class SubjectTableRow : global::System.Data.DataRow {
+        public class SubjectTableRowChangeEvent : global::System.EventArgs {
             
-            private SubjectTableDataTable tableSubjectTable;
+            private SubjectTableRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal SubjectTableRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableSubjectTable = ((SubjectTableDataTable)(this.Table));
+            public SubjectTableRowChangeEvent(SubjectTableRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string SubjectID {
+            public SubjectTableRow Row {
                 get {
-                    try {
-                        return ((string)(this[this.tableSubjectTable.SubjectIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SubjectID\' in table \'SubjectTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSubjectTable.SubjectIDColumn] = value;
+                    return this.eventRow;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string TermID {
+            public global::System.Data.DataRowAction Action {
                 get {
-                    try {
-                        return ((string)(this[this.tableSubjectTable.TermIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TermID\' in table \'SubjectTable\' is DBNull.", e);
-                    }
+                    return this.eventAction;
                 }
-                set {
-                    this[this.tableSubjectTable.TermIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string SubjectName {
-                get {
-                    try {
-                        return ((string)(this[this.tableSubjectTable.SubjectNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SubjectName\' in table \'SubjectTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSubjectTable.SubjectNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string SubjectNumGrade {
-                get {
-                    try {
-                        return ((string)(this[this.tableSubjectTable.SubjectNumGradeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SubjectNumGrade\' in table \'SubjectTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSubjectTable.SubjectNumGradeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string SubjectLetGrade {
-                get {
-                    try {
-                        return ((string)(this[this.tableSubjectTable.SubjectLetGradeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SubjectLetGrade\' in table \'SubjectTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSubjectTable.SubjectLetGradeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string StudentID {
-                get {
-                    try {
-                        return ((string)(this[this.tableSubjectTable.StudentIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'StudentID\' in table \'SubjectTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSubjectTable.StudentIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsSubjectIDNull() {
-                return this.IsNull(this.tableSubjectTable.SubjectIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetSubjectIDNull() {
-                this[this.tableSubjectTable.SubjectIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsTermIDNull() {
-                return this.IsNull(this.tableSubjectTable.TermIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetTermIDNull() {
-                this[this.tableSubjectTable.TermIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsSubjectNameNull() {
-                return this.IsNull(this.tableSubjectTable.SubjectNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetSubjectNameNull() {
-                this[this.tableSubjectTable.SubjectNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsSubjectNumGradeNull() {
-                return this.IsNull(this.tableSubjectTable.SubjectNumGradeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetSubjectNumGradeNull() {
-                this[this.tableSubjectTable.SubjectNumGradeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsSubjectLetGradeNull() {
-                return this.IsNull(this.tableSubjectTable.SubjectLetGradeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetSubjectLetGradeNull() {
-                this[this.tableSubjectTable.SubjectLetGradeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsStudentIDNull() {
-                return this.IsNull(this.tableSubjectTable.StudentIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetStudentIDNull() {
-                this[this.tableSubjectTable.StudentIDColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public partial class StudentTableRow : global::System.Data.DataRow {
-            
-            private StudentTableDataTable tableStudentTable;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal StudentTableRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableStudentTable = ((StudentTableDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string StudentID {
-                get {
-                    try {
-                        return ((string)(this[this.tableStudentTable.StudentIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'StudentID\' in table \'StudentTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableStudentTable.StudentIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string FirstName {
-                get {
-                    try {
-                        return ((string)(this[this.tableStudentTable.FirstNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FirstName\' in table \'StudentTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableStudentTable.FirstNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string LastName {
-                get {
-                    try {
-                        return ((string)(this[this.tableStudentTable.LastNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LastName\' in table \'StudentTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableStudentTable.LastNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsStudentIDNull() {
-                return this.IsNull(this.tableStudentTable.StudentIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetStudentIDNull() {
-                this[this.tableStudentTable.StudentIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsFirstNameNull() {
-                return this.IsNull(this.tableStudentTable.FirstNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetFirstNameNull() {
-                this[this.tableStudentTable.FirstNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsLastNameNull() {
-                return this.IsNull(this.tableStudentTable.LastNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetLastNameNull() {
-                this[this.tableStudentTable.LastNameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1987,68 +1953,6 @@ namespace ReportCardGenerator.DataSet {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public class SkillTableRowChangeEvent : global::System.EventArgs {
-            
-            private SkillTableRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public SkillTableRowChangeEvent(SkillTableRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public SkillTableRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public class SubjectTableRowChangeEvent : global::System.EventArgs {
-            
-            private SubjectTableRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public SubjectTableRowChangeEvent(SubjectTableRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public SubjectTableRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         public class StudentTableRowChangeEvent : global::System.EventArgs {
             
             private StudentTableRow eventRow;
@@ -2063,6 +1967,37 @@ namespace ReportCardGenerator.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public StudentTableRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class SkillTableRowChangeEvent : global::System.EventArgs {
+            
+            private SkillTableRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SkillTableRowChangeEvent(SkillTableRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SkillTableRow Row {
                 get {
                     return this.eventRow;
                 }
