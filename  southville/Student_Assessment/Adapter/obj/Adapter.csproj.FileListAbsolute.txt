@@ -1,0 +1,66 @@
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\obj\Debug\ResolveAssemblyReference.cache
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Debug\Adapter.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Debug\Adapter.pdb
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Debug\Data.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Debug\Objects.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Debug\Objects.pdb
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Debug\Data.pdb
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\obj\Debug\Adapter.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\obj\Debug\Adapter.pdb
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Release\Adapter.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Release\Adapter.pdb
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Release\Data.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Release\Objects.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Release\Objects.pdb
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Release\Data.pdb
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\obj\Release\ResolveAssemblyReference.cache
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\obj\Release\Adapter.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\obj\Release\Adapter.pdb
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Debug\log4net.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Debug\log4net.xml
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Release\log4net.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Release\log4net.xml
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Debug\Adapter.dll
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Debug\Adapter.pdb
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Debug\Data.dll
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Debug\Objects.dll
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Debug\log4net.dll
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Debug\log4net.xml
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Debug\Objects.pdb
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\bin\Debug\Data.pdb
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\obj\Debug\ResolveAssemblyReference.cache
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\obj\Debug\Adapter.dll
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Adapter\obj\Debug\Adapter.pdb
+Y:\SISC\project\Southville\Student_Assessment\Adapter\bin\Debug\Adapter.dll
+Y:\SISC\project\Southville\Student_Assessment\Adapter\bin\Debug\Adapter.pdb
+Y:\SISC\project\Southville\Student_Assessment\Adapter\bin\Debug\Data.dll
+Y:\SISC\project\Southville\Student_Assessment\Adapter\bin\Debug\Objects.dll
+Y:\SISC\project\Southville\Student_Assessment\Adapter\bin\Debug\log4net.dll
+Y:\SISC\project\Southville\Student_Assessment\Adapter\bin\Debug\log4net.xml
+Y:\SISC\project\Southville\Student_Assessment\Adapter\bin\Debug\Objects.pdb
+Y:\SISC\project\Southville\Student_Assessment\Adapter\bin\Debug\Data.pdb
+Y:\SISC\project\Southville\Student_Assessment\Adapter\obj\Debug\ResolveAssemblyReference.cache
+Y:\SISC\project\Southville\Student_Assessment\Adapter\obj\Debug\Adapter.dll
+Y:\SISC\project\Southville\Student_Assessment\Adapter\obj\Debug\Adapter.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\bin\Debug\Adapter.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\bin\Debug\Adapter.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\bin\Debug\Data.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\bin\Debug\Objects.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\bin\Debug\log4net.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\bin\Debug\log4net.xml
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\bin\Debug\Objects.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\bin\Debug\Data.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\obj\Debug\ResolveAssemblyReference.cache
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\obj\Debug\Adapter.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\obj\Debug\Adapter.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\bin\Release\Adapter.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\bin\Release\Adapter.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\bin\Release\Data.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\bin\Release\Objects.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\bin\Release\log4net.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\bin\Release\log4net.xml
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\bin\Release\Objects.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\bin\Release\Data.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\obj\Release\ResolveAssemblyReference.cache
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\obj\Release\Adapter.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Adapter\obj\Release\Adapter.pdb

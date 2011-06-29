@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentAssessment", "Basic_Ed_Assessment\StudentAssessment.csproj", "{2039728B-E75C-404C-8A36-8EC22A723FDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adapter", "Adapter\Adapter.csproj", "{2AEEC211-4BEE-46B2-B941-FF99536B73A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Objects", "Objects\Objects.csproj", "{92E9D85D-ADF4-4042-9983-507DCD956152}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{0DAE7324-C787-4C57-A498-59CA050E1BCE}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 5
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Data\\Data.csproj
+		SccLocalPath1 = .
+		SccProjectFilePathRelativizedFromConnection1 = Data\\
+		SccProjectUniqueName2 = Objects\\Objects.csproj
+		SccLocalPath2 = .
+		SccProjectFilePathRelativizedFromConnection2 = Objects\\
+		SccProjectUniqueName3 = Adapter\\Adapter.csproj
+		SccLocalPath3 = .
+		SccProjectFilePathRelativizedFromConnection3 = Adapter\\
+		SccProjectUniqueName4 = Basic_Ed_Assessment\\StudentAssessment.csproj
+		SccLocalPath4 = .
+		SccProjectFilePathRelativizedFromConnection4 = Basic_Ed_Assessment\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2039728B-E75C-404C-8A36-8EC22A723FDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2039728B-E75C-404C-8A36-8EC22A723FDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2039728B-E75C-404C-8A36-8EC22A723FDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2039728B-E75C-404C-8A36-8EC22A723FDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AEEC211-4BEE-46B2-B941-FF99536B73A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AEEC211-4BEE-46B2-B941-FF99536B73A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AEEC211-4BEE-46B2-B941-FF99536B73A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AEEC211-4BEE-46B2-B941-FF99536B73A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92E9D85D-ADF4-4042-9983-507DCD956152}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92E9D85D-ADF4-4042-9983-507DCD956152}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92E9D85D-ADF4-4042-9983-507DCD956152}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92E9D85D-ADF4-4042-9983-507DCD956152}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DAE7324-C787-4C57-A498-59CA050E1BCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DAE7324-C787-4C57-A498-59CA050E1BCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DAE7324-C787-4C57-A498-59CA050E1BCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DAE7324-C787-4C57-A498-59CA050E1BCE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

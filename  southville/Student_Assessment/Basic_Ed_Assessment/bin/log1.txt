@@ -1,0 +1,15 @@
+ERROR2010-06-25 07:47:34 - mscorlib >> btnSaveReservationFee_Click >> Input string was not in a correct format.
+ERROR2010-07-06 05:36:53 - System.Data >> CheckDiscountPassword >> Invalid attempt to read when no data is present.
+ERROR2010-07-22 04:12:59 - .Net SqlClient Data Provider >> GetPlans >> Could not find stored procedure 'usp_GetInstalmentSchedules'.
+ERROR2010-07-22 04:13:04 - .Net SqlClient Data Provider >> getSchoolYear >> Could not find stored procedure 'usp_GetSchoolYear'.
+ERROR2010-07-22 04:13:04 - Data >> CreateTransaction >> Unable to retrieve school year.
+ERROR2010-07-22 04:13:04 - Data >> txtAssessmentNo_Enter >> Unable to create new transaction.
+ERROR2010-10-06 11:45:48 - .Net SqlClient Data Provider >> saveToSOP >> Procedure or function 'taSopHdrIvcInsert' expects parameter '@I_vBACHNUMB', which was not supplied.
+ERROR2010-10-06 11:45:48 - .Net SqlClient Data Provider >> btnPrint_Click >> Procedure or function 'taSopHdrIvcInsert' expects parameter '@I_vBACHNUMB', which was not supplied.
+ERROR2010-10-06 06:02:44 - CrystalDecisions.CrystalReports.Engine >> frmReportViewer_Load >> The type initializer for 'CrystalDecisions.CrystalReports.Engine.ReportDocument' threw an exception.
+ERROR2010-10-06 06:04:01 - CrystalDecisions.CrystalReports.Engine >> frmReportViewer_Load >> The type initializer for 'CrystalDecisions.CrystalReports.Engine.ReportDocument' threw an exception.
+ERROR2010-10-06 06:13:00 - CrystalDecisions.CrystalReports.Engine >> frmReportViewer_Load >> The type initializer for 'CrystalDecisions.CrystalReports.Engine.ReportDocument' threw an exception.
+ERROR2010-10-06 06:38:37 - Microsoft.Dynamics.GP.eConnect >> saveToSOP >> SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+ERROR2010-10-07 02:38:58 - CrystalDecisions.CrystalReports.Engine >> frmReportViewer_Load >> The type initializer for 'CrystalDecisions.CrystalReports.Engine.ReportDocument' threw an exception.
+ERROR2010-10-07 03:09:25 - CrystalDecisions.CrystalReports.Engine >> frmReportViewer_Load >> The type initializer for 'CrystalDecisions.CrystalReports.Engine.ReportDocument' threw an exception.
+ERROR2010-10-07 03:14:50 - CrystalDecisions.CrystalReports.Engine >> frmReportViewer_Load >> The type initializer for 'CrystalDecisions.CrystalReports.Engine.ReportDocument' threw an exception.

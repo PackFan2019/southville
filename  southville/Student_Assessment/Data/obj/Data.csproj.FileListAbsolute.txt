@@ -1,0 +1,102 @@
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\obj\Debug\ResolveAssemblyReference.cache
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\Data.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\Data.pdb
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\Objects.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\Objects.pdb
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\obj\Debug\Data.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\obj\Debug\Data.pdb
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\Microsoft.Dynamics.GP.eConnect.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\Microsoft.Dynamics.GP.eConnect.MiscRoutines.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\Microsoft.Dynamics.GP.eConnect.Serialization.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\System.Data.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\System.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\System.EnterpriseServices.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\System.Xml.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\eConnect.xsd
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Release\eConnect.xsd
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Release\Data.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Release\Data.pdb
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Release\Microsoft.Dynamics.GP.eConnect.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Release\Microsoft.Dynamics.GP.eConnect.MiscRoutines.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Release\Microsoft.Dynamics.GP.eConnect.Serialization.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Release\Objects.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Release\System.Data.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Release\System.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Release\System.EnterpriseServices.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Release\System.Xml.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Release\Objects.pdb
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\obj\Release\ResolveAssemblyReference.cache
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\obj\Release\Data.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\obj\Release\Data.pdb
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\log4net.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\log4net.xml
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Release\log4net.dll
+E:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Release\log4net.xml
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\eConnect.xsd
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\Data.dll
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\Data.pdb
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\log4net.dll
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\Microsoft.Dynamics.GP.eConnect.dll
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\Microsoft.Dynamics.GP.eConnect.MiscRoutines.dll
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\Microsoft.Dynamics.GP.eConnect.Serialization.dll
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\Objects.dll
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\System.Data.dll
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\System.dll
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\System.EnterpriseServices.dll
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\System.Xml.dll
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\log4net.xml
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Data\bin\Debug\Objects.pdb
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Data\obj\Debug\ResolveAssemblyReference.cache
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Data\obj\Debug\Data.dll
+Y:\SISC\project\Southville\Basic_Ed_Assessment\Data\obj\Debug\Data.pdb
+Y:\SISC\project\Southville\Student_Assessment\Data\bin\Debug\eConnect.xsd
+Y:\SISC\project\Southville\Student_Assessment\Data\bin\Debug\Data.dll
+Y:\SISC\project\Southville\Student_Assessment\Data\bin\Debug\Data.pdb
+Y:\SISC\project\Southville\Student_Assessment\Data\bin\Debug\log4net.dll
+Y:\SISC\project\Southville\Student_Assessment\Data\bin\Debug\Microsoft.Dynamics.GP.eConnect.dll
+Y:\SISC\project\Southville\Student_Assessment\Data\bin\Debug\Microsoft.Dynamics.GP.eConnect.MiscRoutines.dll
+Y:\SISC\project\Southville\Student_Assessment\Data\bin\Debug\Microsoft.Dynamics.GP.eConnect.Serialization.dll
+Y:\SISC\project\Southville\Student_Assessment\Data\bin\Debug\Objects.dll
+Y:\SISC\project\Southville\Student_Assessment\Data\bin\Debug\System.Data.dll
+Y:\SISC\project\Southville\Student_Assessment\Data\bin\Debug\System.dll
+Y:\SISC\project\Southville\Student_Assessment\Data\bin\Debug\System.EnterpriseServices.dll
+Y:\SISC\project\Southville\Student_Assessment\Data\bin\Debug\System.Xml.dll
+Y:\SISC\project\Southville\Student_Assessment\Data\bin\Debug\log4net.xml
+Y:\SISC\project\Southville\Student_Assessment\Data\bin\Debug\Objects.pdb
+Y:\SISC\project\Southville\Student_Assessment\Data\obj\Debug\ResolveAssemblyReference.cache
+Y:\SISC\project\Southville\Student_Assessment\Data\obj\Debug\Data.dll
+Y:\SISC\project\Southville\Student_Assessment\Data\obj\Debug\Data.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Debug\eConnect.xsd
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Debug\Data.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Debug\Data.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Debug\log4net.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Debug\Microsoft.Dynamics.GP.eConnect.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Debug\Microsoft.Dynamics.GP.eConnect.MiscRoutines.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Debug\Microsoft.Dynamics.GP.eConnect.Serialization.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Debug\Objects.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Debug\System.Data.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Debug\System.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Debug\System.EnterpriseServices.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Debug\System.Xml.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Debug\log4net.xml
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Debug\Objects.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\obj\Debug\ResolveAssemblyReference.cache
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\obj\Debug\Data.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\obj\Debug\Data.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Release\eConnect.xsd
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Release\Data.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Release\Data.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Release\log4net.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Release\Microsoft.Dynamics.GP.eConnect.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Release\Microsoft.Dynamics.GP.eConnect.MiscRoutines.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Release\Microsoft.Dynamics.GP.eConnect.Serialization.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Release\Objects.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Release\System.Data.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Release\System.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Release\System.EnterpriseServices.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Release\System.Xml.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Release\log4net.xml
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\bin\Release\Objects.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\obj\Release\ResolveAssemblyReference.cache
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\obj\Release\Data.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Data\obj\Release\Data.pdb

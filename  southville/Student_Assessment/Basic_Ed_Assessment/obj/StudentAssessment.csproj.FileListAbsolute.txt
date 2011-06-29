@@ -1,0 +1,143 @@
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\eConnect.xsd
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Reports\rptAssessment.rpt
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Student Assessment.exe.config
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Student Assessment.exe
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Student Assessment.pdb
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Adapter.dll
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\CrystalDecisions.ReportSource.dll
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\CrystalDecisions.Shared.dll
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\CrystalDecisions.Windows.Forms.dll
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Data.dll
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\DynamicsGPLogin.dll
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\log4net.dll
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\msmdvbanet.dll
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Objects.dll
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\System.configuration.dll
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\System.Data.dll
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\System.Deployment.dll
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\System.Design.dll
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\System.dll
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\System.Drawing.dll
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\System.Windows.Forms.dll
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\System.XML.dll
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\DynamicsGPLogin.pdb
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\CrystalDecisions.CrystalReports.Engine.xml
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\log4net.xml
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\CrystalDecisions.Windows.Forms.xml
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Data.pdb
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\CrystalDecisions.Shared.xml
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Objects.pdb
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Adapter.pdb
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\CrystalDecisions.ReportSource.xml
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\ResolveAssemblyReference.cache
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.Reports.rptAssessment.rpt
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmAssessment.resources
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmAssessmentIDLookup.resources
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmAssessmentsByStudent.resources
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmDiscountDetails.resources
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmDiscountValidationPassword.resources
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmLogin.resources
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmPaymentDetails.resources
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmReportViewer.resources
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmItemLookup.resources
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmMain.resources
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmStudentLookup.resources
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmViewAssessment.resources
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmViewDiscountDetails.resources
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmViewPaymentDetails.resources
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.Properties.Resources.resources
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.csproj.GenerateResource.Cache
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\Student Assessment.exe
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\Student Assessment.pdb
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\CrystalDecisions.Enterprise.Framework.dll
+Y:\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\CrystalDecisions.Enterprise.InfoStore.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Student Assessment.exe.config
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\Student Assessment.exe
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\Student Assessment.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\eConnect.xsd
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Reports\rptAssessment.rpt
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Student Assessment.exe
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Student Assessment.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Adapter.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Data.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\log4net.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\msmdvbanet.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Objects.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\log4net.xml
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Data.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Objects.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Adapter.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\ResolveAssemblyReference.cache
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.Reports.rptAssessment.rpt
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmAssessment.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmAssessmentIDLookup.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmAssessmentsByStudent.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmDiscountDetails.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmLogin.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmPaymentDetails.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmReportViewer.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmItemLookup.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmMain.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmStudentLookup.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmViewAssessment.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmViewDiscountDetails.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmViewPaymentDetails.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.Properties.Resources.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.csproj.GenerateResource.Cache
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Release\Student Assessment.exe.config
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Release\eConnect.xsd
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Release\Reports\rptAssessment.rpt
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Release\Student Assessment.exe
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Release\Student Assessment.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Release\Adapter.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Release\Data.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Release\DynamicsGPLogin.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Release\log4net.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Release\Objects.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Release\Data.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Release\Objects.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Release\Adapter.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\ResolveAssemblyReference.cache
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.Reports.rptAssessment.rpt
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.frmAssessment.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.frmAssessmentIDLookup.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.frmAssessmentsByStudent.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.frmDiscountDetails.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.frmLogin.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.frmPaymentDetails.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.frmReportViewer.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.frmItemLookup.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.frmMain.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.frmStudentLookup.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.frmViewAssessment.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.frmViewDiscountDetails.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.frmViewPaymentDetails.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.Properties.Resources.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.csproj.GenerateResource.Cache
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\Student Assessment.exe
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\Student Assessment.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmEnterPassword.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmDeleteKit.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.frmDeleteKit.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.frmEnterPassword.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\DynamicsGPLogin.dll
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\DynamicsGPLogin.pdb
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.Reports.rptStudentsPerSubject.rpt
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.Reports.rptEnrolledSubjects.rpt
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmChooseForm.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Reports\rptCollegeAssessment.rpt
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.Reports.rptCollegeAssessment.rpt
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmEnrolledSubjectsParameters.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Debug\StudentAssessment.frmStudentsPerSubjectParameters.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Reports\rptStudentsPerSubject.rpt
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Reports\rptEnrolledSubjects.rpt
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Release\Reports\rptCollegeAssessment.rpt
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Release\Reports\rptStudentsPerSubject.rpt
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\bin\Release\Reports\rptEnrolledSubjects.rpt
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.Reports.rptCollegeAssessment.rpt
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.Reports.rptStudentsPerSubject.rpt
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.Reports.rptEnrolledSubjects.rpt
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.frmStudentsPerSubjectParameters.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.frmChooseForm.resources
+D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.frmEnrolledSubjectsParameters.resources
