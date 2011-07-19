@@ -1,0 +1,4 @@
+UPDATE EXT00101 
+SET STRGA255='New value' WHERE PT_Window_ID='STUDENT_EXT' 
+AND PT_UD_Number'Constant Number' AND PT_UD_Key IN 
+('07-0122', '08-0078')
