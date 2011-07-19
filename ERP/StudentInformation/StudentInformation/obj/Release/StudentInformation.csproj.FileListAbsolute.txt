@@ -136,3 +136,31 @@ Y:\Southville project\StudentInformation\StudentInformation\obj\Release\StudentI
 Y:\Southville project\StudentInformation\StudentInformation\obj\Release\StudentInformation.TrustInfo.xml
 Y:\Southville project\StudentInformation\StudentInformation\obj\Release\StudentInformation.exe.manifest
 Y:\Southville project\StudentInformation\StudentInformation\obj\Release\StudentInformation.application
+D:\Projects\StudentInformation\bin\Release\StudentInformation.exe.config
+D:\Projects\StudentInformation\obj\Release\StudentInformation.exe
+D:\Projects\StudentInformation\obj\Release\StudentInformation.pdb
+D:\Projects\StudentInformation\bin\Release\Properties\Resources.resx
+D:\Projects\StudentInformation\bin\Release\Properties\Resources.Designer.cs
+D:\Projects\StudentInformation\bin\Release\StudentInformation.exe.manifest
+D:\Projects\StudentInformation\bin\Release\StudentInformation.application
+D:\Projects\StudentInformation\bin\Release\StudentInformation.exe
+D:\Projects\StudentInformation\bin\Release\StudentInformation.pdb
+D:\Projects\StudentInformation\bin\Release\Microsoft.VisualBasic.PowerPacks.Vs.dll
+D:\Projects\StudentInformation\bin\Release\Microsoft.VisualBasic.PowerPacks.Vs.xml
+D:\Projects\StudentInformation\obj\Release\ResolveAssemblyReference.cache
+D:\Projects\StudentInformation\obj\Release\StudentInformation.Forms.AddNewStudent.resources
+D:\Projects\StudentInformation\obj\Release\StudentInformation.Forms.CSVImport.resources
+D:\Projects\StudentInformation\obj\Release\StudentInformation.Forms.EnrollmentReportDialog.resources
+D:\Projects\StudentInformation\obj\Release\StudentInformation.Forms.LetterOfRequestDialog.resources
+D:\Projects\StudentInformation\obj\Release\StudentInformation.Forms.Loading.resources
+D:\Projects\StudentInformation\obj\Release\StudentInformation.Forms.Main.resources
+D:\Projects\StudentInformation\obj\Release\StudentInformation.Forms.ReportViewer.resources
+D:\Projects\StudentInformation\obj\Release\StudentInformation.Forms.SelectStudents.resources
+D:\Projects\StudentInformation\obj\Release\StudentInformation.Forms.StudentType.resources
+D:\Projects\StudentInformation\obj\Release\StudentInformation.Forms.TextViewer.resources
+D:\Projects\StudentInformation\obj\Release\StudentInformation.Forms.UpdateStudent.resources
+D:\Projects\StudentInformation\obj\Release\StudentInformation.Properties.Resources.resources
+D:\Projects\StudentInformation\obj\Release\StudentInformation.csproj.GenerateResource.Cache
+D:\Projects\StudentInformation\obj\Release\StudentInformation.TrustInfo.xml
+D:\Projects\StudentInformation\obj\Release\StudentInformation.exe.manifest
+D:\Projects\StudentInformation\obj\Release\StudentInformation.application
