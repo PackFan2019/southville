@@ -40,15 +40,24 @@ namespace StudentInformation.Forms
 
         private void SelectStudents_Load(object sender, EventArgs e)
         {
-            refreshFields();
-            refreshViewFromSearch();
-            Session.getInstance().SelectedFields.Clear();
-            //groupBox1.Size = new Size(157, 415);
-            Session.getInstance().CustomerList = loadDetails();
-            loadedList = Session.getInstance().CustomerList;
-            getLastSchoolAtt();
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.DataSource = Session.getInstance().CustomerList;
+            try
+            {
+                refreshFields();
+                refreshViewFromSearch();
+                Session.getInstance().SelectedFields.Clear();
+                //groupBox1.Size = new Size(157, 415);
+                Session.getInstance().CustomerList = loadDetails();
+                loadedList = Session.getInstance().CustomerList;
+                getLastSchoolAtt();
+                dataGridView1.AutoGenerateColumns = false;
+                dataGridView1.DataSource = Session.getInstance().CustomerList;
+            }
+            catch (System.OutOfMemoryException er)
+            {
+                MessageBox.Show(er.Message + "\n" + ". Close some windows or programs and try again. " +
+                    "If the error persists, contact your System Administrator", "System Out Of Memory",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         public void getLastSchoolAtt()
         {
@@ -67,25 +76,33 @@ namespace StudentInformation.Forms
         }
         private void refreshViewFromSearch()
         {
-            Session.getInstance().SelectedFields.Clear();
-            List<Customer> filteredResult = new List<Customer>();
-            filteredResult = loadedList;
-            filteredResult = filterByStudName(filteredResult, filterStudName);
-            filteredResult = filterByNationality(filteredResult, filterNationality);
-            filteredResult = filterByLastSchoolAtt(filteredResult, filterLastSchoolAtt);
-            filteredResult = filterByActive(filteredResult, filterInActive);
-            filteredResult = filterByType(filteredResult, filterType);
-            filteredResult = filterByStudentStatus(filteredResult, filterStudStats);
-            filteredResult = filterByEnrollmentStatus(filteredResult, filterEnrollStats);
-            filteredResult = filterByStudentClass(filteredResult, filterStudClass);
-            filteredResult = filterByLevel(filteredResult, filterLevel);
-            filteredResult = filterBySection(filteredResult, filterSection);
-            
+            try
+            {
+                Session.getInstance().SelectedFields.Clear();
+                List<Customer> filteredResult = new List<Customer>();
+                filteredResult = loadedList;
+                filteredResult = filterByStudName(filteredResult, filterStudName);
+                filteredResult = filterByNationality(filteredResult, filterNationality);
+                filteredResult = filterByLastSchoolAtt(filteredResult, filterLastSchoolAtt);
+                filteredResult = filterByActive(filteredResult, filterInActive);
+                filteredResult = filterByType(filteredResult, filterType);
+                filteredResult = filterByStudentStatus(filteredResult, filterStudStats);
+                filteredResult = filterByEnrollmentStatus(filteredResult, filterEnrollStats);
+                filteredResult = filterByStudentClass(filteredResult, filterStudClass);
+                filteredResult = filterByLevel(filteredResult, filterLevel);
+                filteredResult = filterBySection(filteredResult, filterSection);
 
-            Session.getInstance().SelectedCustomerList = filteredResult;
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.DataSource = filteredResult;
 
+                Session.getInstance().SelectedCustomerList = filteredResult;
+                dataGridView1.AutoGenerateColumns = false;
+                dataGridView1.DataSource = filteredResult;
+            }
+            catch (System.OutOfMemoryException er)
+            {
+                MessageBox.Show(er.Message + "\n" + ". Close some windows or programs and try again. " +
+                    "If the error persists, contact your System Administrator", "System Out Of Memory",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             
         }
         private static List<Customer> filterByActive(List<Customer> customers, String option)
@@ -274,7 +291,7 @@ namespace StudentInformation.Forms
             {
                 foreach (Customer customer in Session.getInstance().CustomerList)
                 {
-                    customer.FirstName = SQLData.getInstance().getExtenderDataIfExists(customer.CustomerID,firstname);
+                    customer.FirstName = SQLData.getInstance().getExtenderDataIfExists(customer.CustomerID, firstname);
                     customer.LastName = SQLData.getInstance().getExtenderDataIfExists(customer.CustomerID, lastname);
                     customer.OfficiallyEnrolled = SQLData.getInstance().getExtenderDataIfExists(customer.CustomerID, enrollment);
                     customer.Level = SQLData.getInstance().getExtenderDataIfExists(customer.CustomerID, levels);
@@ -306,7 +323,7 @@ namespace StudentInformation.Forms
             {
                 int i = dataGridView1.CurrentCell.RowIndex;
                 String id = dataGridView1[0, i].Value.ToString();
-                String name = dataGridView1[1, i].Value.ToString();
+                String name = dataGridView1[3, i].Value.ToString();
                 selectedStudent.CustomerID = id;
                 selectedStudent.CustomerName = name;
                 label1.Text = "Current selected student: " + name;
@@ -564,6 +581,11 @@ namespace StudentInformation.Forms
         private void SelectStudents_FormClosed(object sender, FormClosedEventArgs e)
         {
             refreshFields();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

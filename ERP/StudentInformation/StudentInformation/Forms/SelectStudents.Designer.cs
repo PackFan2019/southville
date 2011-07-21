@@ -35,6 +35,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.StudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Birthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OfficiallyEnrolled = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmailAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Section = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nationality = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Religion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.searchByLastSchoolAttcb = new System.Windows.Forms.ComboBox();
@@ -65,21 +80,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetStudents = new StudentInformation.Datasets.DataSetStudents();
-            this.StudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Birthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudentStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OfficiallyEnrolled = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmailAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Section = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nationality = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Religion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eXT00101BindingSource)).BeginInit();
@@ -149,6 +149,115 @@
             this.dataGridView1.Size = new System.Drawing.Size(950, 658);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // StudentID
+            // 
+            this.StudentID.DataPropertyName = "CustomerID";
+            this.StudentID.HeaderText = "Student ID";
+            this.StudentID.Name = "StudentID";
+            this.StudentID.ReadOnly = true;
+            // 
+            // LastName
+            // 
+            this.LastName.DataPropertyName = "LastName";
+            this.LastName.HeaderText = "LastName";
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.HeaderText = "FirstName";
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            // 
+            // StudentName
+            // 
+            this.StudentName.DataPropertyName = "CustomerName";
+            this.StudentName.HeaderText = "StudentName";
+            this.StudentName.Name = "StudentName";
+            this.StudentName.ReadOnly = true;
+            // 
+            // Birthday
+            // 
+            this.Birthday.DataPropertyName = "Birthday";
+            dataGridViewCellStyle3.Format = "D";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Birthday.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Birthday.HeaderText = "Birthday";
+            this.Birthday.Name = "Birthday";
+            this.Birthday.ReadOnly = true;
+            // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            // 
+            // StudentStatus
+            // 
+            this.StudentStatus.DataPropertyName = "StudentStatus";
+            this.StudentStatus.HeaderText = "Status";
+            this.StudentStatus.Name = "StudentStatus";
+            this.StudentStatus.ReadOnly = true;
+            // 
+            // OfficiallyEnrolled
+            // 
+            this.OfficiallyEnrolled.DataPropertyName = "OfficiallyEnrolled";
+            this.OfficiallyEnrolled.HeaderText = "Enrollment Status";
+            this.OfficiallyEnrolled.Name = "OfficiallyEnrolled";
+            this.OfficiallyEnrolled.ReadOnly = true;
+            // 
+            // CustomerClass
+            // 
+            this.CustomerClass.DataPropertyName = "CustomerClass";
+            this.CustomerClass.HeaderText = "Student Class";
+            this.CustomerClass.Name = "CustomerClass";
+            this.CustomerClass.ReadOnly = true;
+            // 
+            // EmailAddress
+            // 
+            this.EmailAddress.DataPropertyName = "EmailAddress";
+            this.EmailAddress.HeaderText = "Email";
+            this.EmailAddress.Name = "EmailAddress";
+            this.EmailAddress.ReadOnly = true;
+            // 
+            // Level
+            // 
+            this.Level.DataPropertyName = "Level";
+            this.Level.HeaderText = "Level";
+            this.Level.Name = "Level";
+            this.Level.ReadOnly = true;
+            // 
+            // Section
+            // 
+            this.Section.DataPropertyName = "Section";
+            this.Section.HeaderText = "Section";
+            this.Section.Name = "Section";
+            this.Section.ReadOnly = true;
+            // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "AddressString";
+            this.Address.HeaderText = "Address";
+            this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
+            // 
+            // Nationality
+            // 
+            this.Nationality.DataPropertyName = "Nationality";
+            this.Nationality.HeaderText = "Nationality";
+            this.Nationality.Name = "Nationality";
+            this.Nationality.ReadOnly = true;
+            // 
+            // Religion
+            // 
+            this.Religion.DataPropertyName = "Religion";
+            this.Religion.HeaderText = "Religion";
+            this.Religion.Name = "Religion";
+            this.Religion.ReadOnly = true;
             // 
             // label1
             // 
@@ -516,6 +625,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(211, 22);
             this.textBox1.TabIndex = 9;
+            this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // studentBindingSource
@@ -527,114 +637,6 @@
             // 
             this.dataSetStudents.DataSetName = "DataSetStudents";
             this.dataSetStudents.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // StudentID
-            // 
-            this.StudentID.DataPropertyName = "CustomerID";
-            this.StudentID.HeaderText = "Student ID";
-            this.StudentID.Name = "StudentID";
-            this.StudentID.ReadOnly = true;
-            // 
-            // LastName
-            // 
-            this.LastName.DataPropertyName = "LastName";
-            this.LastName.HeaderText = "LastName";
-            this.LastName.Name = "LastName";
-            this.LastName.ReadOnly = true;
-            // 
-            // FirstName
-            // 
-            this.FirstName.DataPropertyName = "FirstName";
-            this.FirstName.HeaderText = "FirstName";
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            // 
-            // StudentName
-            // 
-            this.StudentName.DataPropertyName = "CustomerName";
-            this.StudentName.HeaderText = "StudentName";
-            this.StudentName.Name = "StudentName";
-            this.StudentName.ReadOnly = true;
-            // 
-            // Birthday
-            // 
-            this.Birthday.DataPropertyName = "Birthday";
-            dataGridViewCellStyle3.Format = "D";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Birthday.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Birthday.HeaderText = "Birthday";
-            this.Birthday.Name = "Birthday";
-            this.Birthday.ReadOnly = true;
-            // 
-            // Type
-            // 
-            this.Type.DataPropertyName = "Type";
-            this.Type.HeaderText = "Type";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
-            // 
-            // StudentStatus
-            // 
-            this.StudentStatus.DataPropertyName = "StudentStatus";
-            this.StudentStatus.HeaderText = "Status";
-            this.StudentStatus.Name = "StudentStatus";
-            this.StudentStatus.ReadOnly = true;
-            // 
-            // OfficiallyEnrolled
-            // 
-            this.OfficiallyEnrolled.DataPropertyName = "OfficiallyEnrolled";
-            this.OfficiallyEnrolled.HeaderText = "Enrollment Status";
-            this.OfficiallyEnrolled.Name = "OfficiallyEnrolled";
-            this.OfficiallyEnrolled.ReadOnly = true;
-            // 
-            // CustomerClass
-            // 
-            this.CustomerClass.DataPropertyName = "CustomerClass";
-            this.CustomerClass.HeaderText = "Student Class";
-            this.CustomerClass.Name = "CustomerClass";
-            this.CustomerClass.ReadOnly = true;
-            // 
-            // EmailAddress
-            // 
-            this.EmailAddress.DataPropertyName = "EmailAddress";
-            this.EmailAddress.HeaderText = "Email";
-            this.EmailAddress.Name = "EmailAddress";
-            this.EmailAddress.ReadOnly = true;
-            // 
-            // Level
-            // 
-            this.Level.DataPropertyName = "Level";
-            this.Level.HeaderText = "Level";
-            this.Level.Name = "Level";
-            this.Level.ReadOnly = true;
-            // 
-            // Section
-            // 
-            this.Section.DataPropertyName = "Section";
-            this.Section.HeaderText = "Section";
-            this.Section.Name = "Section";
-            this.Section.ReadOnly = true;
-            // 
-            // Address
-            // 
-            this.Address.DataPropertyName = "AddressString";
-            this.Address.HeaderText = "Address";
-            this.Address.Name = "Address";
-            this.Address.ReadOnly = true;
-            // 
-            // Nationality
-            // 
-            this.Nationality.DataPropertyName = "Nationality";
-            this.Nationality.HeaderText = "Nationality";
-            this.Nationality.Name = "Nationality";
-            this.Nationality.ReadOnly = true;
-            // 
-            // Religion
-            // 
-            this.Religion.DataPropertyName = "Religion";
-            this.Religion.HeaderText = "Religion";
-            this.Religion.Name = "Religion";
-            this.Religion.ReadOnly = true;
             // 
             // SelectStudents
             // 

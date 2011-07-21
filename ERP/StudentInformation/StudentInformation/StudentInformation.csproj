@@ -31,9 +31,12 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\Sisc-erelim\4_Printing\Romyr\StudentInformation\</UpdateUrl>
-    <ApplicationRevision>62</ApplicationRevision>
+    <ProductName>Student Information System</ProductName>
+    <PublisherName>SGEN Technology and Information Department</PublisherName>
+    <ApplicationRevision>65</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
