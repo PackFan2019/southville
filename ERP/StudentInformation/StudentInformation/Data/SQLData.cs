@@ -382,6 +382,8 @@ namespace Southville.GP.Data
                getExtenderDatabuffer(Constants.WINDOW_EXT_ID, Constants.FIRSTNAME_FIELD_ID);
             Dictionary<String, String> lastname =
                 getExtenderDatabuffer(Constants.WINDOW_EXT_ID, Constants.LASTNAME_FIELD_ID);
+            Dictionary<String, String> gender =
+                getExtenderDatabuffer(Constants.WINDOW_EXT_ID, Constants.GENDER_FIELD_ID);
             List<Customer> result = getAllCustomers();
             //Add the buffer data into the List
             
@@ -391,6 +393,7 @@ namespace Southville.GP.Data
                 c.LastName = getExtenderDataIfExists(c.CustomerID, lastname);
                 c.Level = getExtenderDataIfExists(c.CustomerID, levels);
                 c.Section = getExtenderDataIfExists(c.CustomerID, sections);
+                c.Gender = getExtenderDataIfExists(c.CustomerID, gender);
                 c.OfficiallyEnrolled = getExtenderDataIfExists(c.CustomerID, enrollment);
             }
 

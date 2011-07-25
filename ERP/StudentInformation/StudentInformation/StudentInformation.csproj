@@ -33,7 +33,7 @@
     <UpdateUrl>\\Sisc-erelim\4_Printing\Romyr\StudentInformation\</UpdateUrl>
     <ProductName>Student Information System</ProductName>
     <PublisherName>SGEN Technology and Information Department</PublisherName>
-    <ApplicationRevision>66</ApplicationRevision>
+    <ApplicationRevision>69</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>

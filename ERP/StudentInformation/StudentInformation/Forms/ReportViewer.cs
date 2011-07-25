@@ -36,6 +36,7 @@ namespace StudentInformation.Forms
                 cRow["LastName"] = c.LastName;
                 cRow["Level"] = c.Level;
                 cRow["Section"] = c.Section;
+                cRow["Gender"] = c.Gender;
                 ds.Student.Rows.Add(cRow);
             }
             rpt.DataDefinition.FormulaFields["EnrollmentStatus"].Text = "\""+enrollmentStatus+"\"";
