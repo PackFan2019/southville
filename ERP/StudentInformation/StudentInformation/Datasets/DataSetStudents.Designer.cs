@@ -326,6 +326,8 @@ namespace StudentInformation.Datasets {
             
             private global::System.Data.DataColumn columnReligion;
             
+            private global::System.Data.DataColumn columnAge;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public StudentDataTable() {
                 this.TableName = "Student";
@@ -469,6 +471,13 @@ namespace StudentInformation.Datasets {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn AgeColumn {
+                get {
+                    return this.columnAge;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -513,7 +522,8 @@ namespace StudentInformation.Datasets {
                         string Phone2, 
                         string Nationality, 
                         string DualNationality, 
-                        string Religion) {
+                        string Religion, 
+                        string Age) {
                 StudentRow rowStudentRow = ((StudentRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CustomerID,
@@ -531,7 +541,8 @@ namespace StudentInformation.Datasets {
                         Phone2,
                         Nationality,
                         DualNationality,
-                        Religion};
+                        Religion,
+                        Age};
                 rowStudentRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStudentRow);
                 return rowStudentRow;
@@ -573,6 +584,7 @@ namespace StudentInformation.Datasets {
                 this.columnNationality = base.Columns["Nationality"];
                 this.columnDualNationality = base.Columns["DualNationality"];
                 this.columnReligion = base.Columns["Religion"];
+                this.columnAge = base.Columns["Age"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -609,6 +621,8 @@ namespace StudentInformation.Datasets {
                 base.Columns.Add(this.columnDualNationality);
                 this.columnReligion = new global::System.Data.DataColumn("Religion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnReligion);
+                this.columnAge = new global::System.Data.DataColumn("Age", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAge);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCustomerID}, true));
                 this.columnCustomerID.AllowDBNull = false;
@@ -1229,6 +1243,21 @@ namespace StudentInformation.Datasets {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Age {
+                get {
+                    try {
+                        return ((string)(this[this.tableStudent.AgeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Age\' in table \'Student\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStudent.AgeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsCustomerNameNull() {
                 return this.IsNull(this.tableStudent.CustomerNameColumn);
             }
@@ -1376,6 +1405,16 @@ namespace StudentInformation.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetReligionNull() {
                 this[this.tableStudent.ReligionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsAgeNull() {
+                return this.IsNull(this.tableStudent.AgeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetAgeNull() {
+                this[this.tableStudent.AgeColumn] = global::System.Convert.DBNull;
             }
         }
         

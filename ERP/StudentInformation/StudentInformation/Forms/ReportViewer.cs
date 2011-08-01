@@ -20,7 +20,6 @@ namespace StudentInformation.Forms
 
         private void ReportViewer_Load(object sender, EventArgs e)
         {
-            
         }
 
         public void loadEnrollmentReport(List<Customer> students, String enrollmentStatus, String numberOfStudents)
@@ -123,6 +122,31 @@ namespace StudentInformation.Forms
         {
 
         }
-        
+        public void loadAgeProfile(List<Customer> AllStudents)
+        {
+            AgeProfileReport rpt = new AgeProfileReport();
+            AgeProfile ds = new AgeProfile();
+
+            foreach (Customer c in AllStudents)
+            {
+                DataRow cRow = ds.Level.NewRow();
+                cRow["Level"] = c.Level;
+                cRow["Male"] = getCount(AllStudents, c.Level, "Male");
+                cRow["Female"] = getCount(AllStudents, c.Level, "Female");
+                cRow["Age"] = DateTime.Now.Year - Convert.ToDateTime(c.Birthday).Year;
+
+                ds.Level.Rows.Add(cRow);
+            }
+            DataView myView = new DataView(ds.Level);
+            dataGridView1.DataSource = myView;
+
+            rpt.SetDataSource(ds);
+            crystalReportViewer1.ReportSource = rpt;
+            crystalReportViewer1.Refresh();
+        }
+        public int getCount(List<Customer> customer, String level, String gender)
+        {
+            return customer.FindAll(delegate(Customer c) { return (c.Level.Equals(level) && c.Gender.Equals(gender)); }).Count;
+        }
     }
 }

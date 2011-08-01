@@ -102,6 +102,11 @@
   <ItemGroup>
     <Compile Include="Beans\Address.cs" />
     <Compile Include="Beans\Customer.cs" />
+    <Compile Include="Datasets\AgeProfile.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AgeProfile.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\DataSetStudents.cs">
       <DependentUpon>DataSetStudents.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -117,6 +122,12 @@
     <Compile Include="Data\EConnectData.cs" />
     <Compile Include="Data\Session.cs" />
     <Compile Include="Data\SQLData.cs" />
+    <Compile Include="Reports\AgeProfileReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AgeProfileReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\CrystalReport1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -203,6 +214,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Reports\AgeProfileReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AgeProfileReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
@@ -280,6 +295,17 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <None Include="app.config" />
+    <None Include="Datasets\AgeProfile.xsc">
+      <DependentUpon>AgeProfile.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\AgeProfile.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AgeProfile.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\AgeProfile.xss">
+      <DependentUpon>AgeProfile.xsd</DependentUpon>
+    </None>
     <None Include="Datasets\DataSetStudents.xsc">
       <DependentUpon>DataSetStudents.xsd</DependentUpon>
     </None>

@@ -118,6 +118,9 @@
             this.clearBtn = new System.Windows.Forms.ToolStripButton();
             this.saveBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.ageProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.basicEducationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.highSchoolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -216,7 +219,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(16, 71);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1013, 586);
@@ -284,9 +287,9 @@
             this.tabPage1.Controls.Add(this.idTextbox);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(1005, 557);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Registrar Information";
@@ -297,7 +300,7 @@
             // 
             this.religionComboBox.FormattingEnabled = true;
             this.religionComboBox.Location = new System.Drawing.Point(211, 383);
-            this.religionComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.religionComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.religionComboBox.Name = "religionComboBox";
             this.religionComboBox.Size = new System.Drawing.Size(308, 24);
             this.religionComboBox.Sorted = true;
@@ -309,7 +312,7 @@
             // 
             this.nationalityComboBox.FormattingEnabled = true;
             this.nationalityComboBox.Location = new System.Drawing.Point(211, 290);
-            this.nationalityComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nationalityComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.nationalityComboBox.Name = "nationalityComboBox";
             this.nationalityComboBox.Size = new System.Drawing.Size(308, 24);
             this.nationalityComboBox.Sorted = true;
@@ -320,7 +323,7 @@
             // 
             this.lastSchoolcb.FormattingEnabled = true;
             this.lastSchoolcb.Location = new System.Drawing.Point(211, 415);
-            this.lastSchoolcb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lastSchoolcb.Margin = new System.Windows.Forms.Padding(4);
             this.lastSchoolcb.Name = "lastSchoolcb";
             this.lastSchoolcb.Size = new System.Drawing.Size(308, 24);
             this.lastSchoolcb.TabIndex = 12;
@@ -330,7 +333,7 @@
             // 
             this.suggestIdbtn.Image = global::StudentInformation.Properties.Resources.ID;
             this.suggestIdbtn.Location = new System.Drawing.Point(389, 43);
-            this.suggestIdbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.suggestIdbtn.Margin = new System.Windows.Forms.Padding(4);
             this.suggestIdbtn.Name = "suggestIdbtn";
             this.suggestIdbtn.Size = new System.Drawing.Size(37, 25);
             this.suggestIdbtn.TabIndex = 58;
@@ -342,7 +345,7 @@
             this.classComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.classComboBox.FormattingEnabled = true;
             this.classComboBox.Location = new System.Drawing.Point(665, 167);
-            this.classComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.classComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.classComboBox.Name = "classComboBox";
             this.classComboBox.Size = new System.Drawing.Size(304, 24);
             this.classComboBox.TabIndex = 18;
@@ -390,7 +393,7 @@
             "BS Nursing",
             "BS Psychology"});
             this.levelCombobox.Location = new System.Drawing.Point(211, 320);
-            this.levelCombobox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.levelCombobox.Margin = new System.Windows.Forms.Padding(4);
             this.levelCombobox.Name = "levelCombobox";
             this.levelCombobox.Size = new System.Drawing.Size(308, 24);
             this.levelCombobox.TabIndex = 9;
@@ -398,7 +401,7 @@
             // faxNumberTextbox
             // 
             this.faxNumberTextbox.Location = new System.Drawing.Point(665, 501);
-            this.faxNumberTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.faxNumberTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.faxNumberTextbox.Mask = "(000) 000-0000     loc. 0000";
             this.faxNumberTextbox.Name = "faxNumberTextbox";
             this.faxNumberTextbox.Size = new System.Drawing.Size(304, 22);
@@ -409,7 +412,7 @@
             // mobileNumberTextbox
             // 
             this.mobileNumberTextbox.Location = new System.Drawing.Point(665, 474);
-            this.mobileNumberTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mobileNumberTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.mobileNumberTextbox.Mask = "(00) 000-0000000";
             this.mobileNumberTextbox.Name = "mobileNumberTextbox";
             this.mobileNumberTextbox.Size = new System.Drawing.Size(304, 22);
@@ -419,7 +422,7 @@
             // phoneNumberTextbox
             // 
             this.phoneNumberTextbox.Location = new System.Drawing.Point(665, 441);
-            this.phoneNumberTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.phoneNumberTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.phoneNumberTextbox.Mask = " 000-0000";
             this.phoneNumberTextbox.Name = "phoneNumberTextbox";
             this.phoneNumberTextbox.Size = new System.Drawing.Size(304, 22);
@@ -449,7 +452,7 @@
             // billingContactTextbox
             // 
             this.billingContactTextbox.Location = new System.Drawing.Point(665, 196);
-            this.billingContactTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.billingContactTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.billingContactTextbox.Name = "billingContactTextbox";
             this.billingContactTextbox.Size = new System.Drawing.Size(304, 22);
             this.billingContactTextbox.TabIndex = 19;
@@ -458,7 +461,7 @@
             // lastEnrolledDateTimePicker
             // 
             this.lastEnrolledDateTimePicker.Location = new System.Drawing.Point(665, 137);
-            this.lastEnrolledDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lastEnrolledDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.lastEnrolledDateTimePicker.Name = "lastEnrolledDateTimePicker";
             this.lastEnrolledDateTimePicker.Size = new System.Drawing.Size(304, 22);
             this.lastEnrolledDateTimePicker.TabIndex = 17;
@@ -484,7 +487,7 @@
             "Returning",
             "Not applicable"});
             this.studentStatusCombobox.Location = new System.Drawing.Point(665, 76);
-            this.studentStatusCombobox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.studentStatusCombobox.Margin = new System.Windows.Forms.Padding(4);
             this.studentStatusCombobox.Name = "studentStatusCombobox";
             this.studentStatusCombobox.Size = new System.Drawing.Size(304, 24);
             this.studentStatusCombobox.TabIndex = 15;
@@ -509,7 +512,7 @@
             "Not enrolled",
             "Not applicable"});
             this.statusCombobox.Location = new System.Drawing.Point(665, 106);
-            this.statusCombobox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.statusCombobox.Margin = new System.Windows.Forms.Padding(4);
             this.statusCombobox.Name = "statusCombobox";
             this.statusCombobox.Size = new System.Drawing.Size(304, 24);
             this.statusCombobox.TabIndex = 16;
@@ -557,7 +560,7 @@
             // zipcodeTextbox
             // 
             this.zipcodeTextbox.Location = new System.Drawing.Point(665, 378);
-            this.zipcodeTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.zipcodeTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.zipcodeTextbox.Name = "zipcodeTextbox";
             this.zipcodeTextbox.Size = new System.Drawing.Size(304, 22);
             this.zipcodeTextbox.TabIndex = 23;
@@ -576,7 +579,7 @@
             // countryTextbox
             // 
             this.countryTextbox.Location = new System.Drawing.Point(665, 410);
-            this.countryTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.countryTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.countryTextbox.Name = "countryTextbox";
             this.countryTextbox.Size = new System.Drawing.Size(304, 22);
             this.countryTextbox.TabIndex = 24;
@@ -595,7 +598,7 @@
             // stateTextbox
             // 
             this.stateTextbox.Location = new System.Drawing.Point(665, 346);
-            this.stateTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.stateTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.stateTextbox.Name = "stateTextbox";
             this.stateTextbox.Size = new System.Drawing.Size(304, 22);
             this.stateTextbox.TabIndex = 22;
@@ -614,7 +617,7 @@
             // cityTextbox
             // 
             this.cityTextbox.Location = new System.Drawing.Point(665, 314);
-            this.cityTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cityTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.cityTextbox.Name = "cityTextbox";
             this.cityTextbox.Size = new System.Drawing.Size(304, 22);
             this.cityTextbox.TabIndex = 21;
@@ -633,7 +636,7 @@
             // addressTextbox
             // 
             this.addressTextbox.Location = new System.Drawing.Point(665, 230);
-            this.addressTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addressTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.addressTextbox.Multiline = true;
             this.addressTextbox.Name = "addressTextbox";
             this.addressTextbox.Size = new System.Drawing.Size(304, 72);
@@ -649,7 +652,7 @@
             "Female",
             "Not applicable"});
             this.genderCombobox.Location = new System.Drawing.Point(211, 171);
-            this.genderCombobox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.genderCombobox.Margin = new System.Windows.Forms.Padding(4);
             this.genderCombobox.Name = "genderCombobox";
             this.genderCombobox.Size = new System.Drawing.Size(308, 24);
             this.genderCombobox.TabIndex = 4;
@@ -676,7 +679,7 @@
             "Other",
             "Not applicable"});
             this.typeCombobox.Location = new System.Drawing.Point(665, 47);
-            this.typeCombobox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.typeCombobox.Margin = new System.Windows.Forms.Padding(4);
             this.typeCombobox.Name = "typeCombobox";
             this.typeCombobox.Size = new System.Drawing.Size(304, 24);
             this.typeCombobox.TabIndex = 14;
@@ -705,7 +708,7 @@
             // placeOfBirthTextbox
             // 
             this.placeOfBirthTextbox.Location = new System.Drawing.Point(211, 448);
-            this.placeOfBirthTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.placeOfBirthTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.placeOfBirthTextbox.Name = "placeOfBirthTextbox";
             this.placeOfBirthTextbox.Size = new System.Drawing.Size(308, 22);
             this.placeOfBirthTextbox.TabIndex = 13;
@@ -744,7 +747,7 @@
             // sectionTextbox
             // 
             this.sectionTextbox.Location = new System.Drawing.Point(211, 353);
-            this.sectionTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sectionTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.sectionTextbox.Name = "sectionTextbox";
             this.sectionTextbox.Size = new System.Drawing.Size(308, 22);
             this.sectionTextbox.TabIndex = 10;
@@ -783,7 +786,7 @@
             // birthdayDatetimePicker
             // 
             this.birthdayDatetimePicker.Location = new System.Drawing.Point(211, 262);
-            this.birthdayDatetimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.birthdayDatetimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.birthdayDatetimePicker.Name = "birthdayDatetimePicker";
             this.birthdayDatetimePicker.Size = new System.Drawing.Size(308, 22);
             this.birthdayDatetimePicker.TabIndex = 7;
@@ -802,7 +805,7 @@
             // nicknameTextbox
             // 
             this.nicknameTextbox.Location = new System.Drawing.Point(211, 230);
-            this.nicknameTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nicknameTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.nicknameTextbox.Name = "nicknameTextbox";
             this.nicknameTextbox.Size = new System.Drawing.Size(308, 22);
             this.nicknameTextbox.TabIndex = 6;
@@ -821,7 +824,7 @@
             // emailTextbox
             // 
             this.emailTextbox.Location = new System.Drawing.Point(211, 202);
-            this.emailTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.emailTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.emailTextbox.Name = "emailTextbox";
             this.emailTextbox.Size = new System.Drawing.Size(308, 22);
             this.emailTextbox.TabIndex = 5;
@@ -830,7 +833,7 @@
             // 
             this.inactiveCheckbox.AutoSize = true;
             this.inactiveCheckbox.Location = new System.Drawing.Point(477, 47);
-            this.inactiveCheckbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.inactiveCheckbox.Margin = new System.Windows.Forms.Padding(4);
             this.inactiveCheckbox.Name = "inactiveCheckbox";
             this.inactiveCheckbox.Size = new System.Drawing.Size(78, 21);
             this.inactiveCheckbox.TabIndex = 28;
@@ -841,7 +844,7 @@
             // 
             this.lookupBtn.Image = global::StudentInformation.Properties.Resources.folder;
             this.lookupBtn.Location = new System.Drawing.Point(432, 43);
-            this.lookupBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lookupBtn.Margin = new System.Windows.Forms.Padding(4);
             this.lookupBtn.Name = "lookupBtn";
             this.lookupBtn.Size = new System.Drawing.Size(37, 25);
             this.lookupBtn.TabIndex = 43;
@@ -861,7 +864,7 @@
             // lastnameTextbox
             // 
             this.lastnameTextbox.Location = new System.Drawing.Point(211, 140);
-            this.lastnameTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lastnameTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.lastnameTextbox.Name = "lastnameTextbox";
             this.lastnameTextbox.Size = new System.Drawing.Size(308, 22);
             this.lastnameTextbox.TabIndex = 3;
@@ -880,7 +883,7 @@
             // middlenameTextbox
             // 
             this.middlenameTextbox.Location = new System.Drawing.Point(211, 110);
-            this.middlenameTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.middlenameTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.middlenameTextbox.Name = "middlenameTextbox";
             this.middlenameTextbox.Size = new System.Drawing.Size(308, 22);
             this.middlenameTextbox.TabIndex = 2;
@@ -901,7 +904,7 @@
             this.firstnameTextbox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.firstnameTextbox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystem;
             this.firstnameTextbox.Location = new System.Drawing.Point(211, 76);
-            this.firstnameTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstnameTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.firstnameTextbox.Name = "firstnameTextbox";
             this.firstnameTextbox.Size = new System.Drawing.Size(308, 22);
             this.firstnameTextbox.TabIndex = 1;
@@ -910,7 +913,7 @@
             // idTextbox
             // 
             this.idTextbox.Location = new System.Drawing.Point(211, 44);
-            this.idTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.idTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.idTextbox.Name = "idTextbox";
             this.idTextbox.Size = new System.Drawing.Size(169, 22);
             this.idTextbox.TabIndex = 0;
@@ -931,9 +934,9 @@
             // 
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(1005, 557);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Academic Information";
@@ -993,7 +996,8 @@
             this.ToolStripMenuItemEasyGradeProReport,
             this.ToolStripMenuItemEasyGradeProCSV,
             this.iDReportToolStripMenuItem,
-            this.demographicsToolStripMenuItem});
+            this.demographicsToolStripMenuItem,
+            this.ageProfileToolStripMenuItem});
             this.toolStripMenuItemReports.Name = "toolStripMenuItemReports";
             this.toolStripMenuItemReports.Size = new System.Drawing.Size(178, 24);
             this.toolStripMenuItemReports.Text = "Reports";
@@ -1084,6 +1088,28 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
+            // ageProfileToolStripMenuItem
+            // 
+            this.ageProfileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.basicEducationToolStripMenuItem,
+            this.highSchoolToolStripMenuItem});
+            this.ageProfileToolStripMenuItem.Name = "ageProfileToolStripMenuItem";
+            this.ageProfileToolStripMenuItem.Size = new System.Drawing.Size(222, 24);
+            this.ageProfileToolStripMenuItem.Text = "Age Profile";
+            // 
+            // basicEducationToolStripMenuItem
+            // 
+            this.basicEducationToolStripMenuItem.Name = "basicEducationToolStripMenuItem";
+            this.basicEducationToolStripMenuItem.Size = new System.Drawing.Size(182, 24);
+            this.basicEducationToolStripMenuItem.Text = "Basic Education";
+            this.basicEducationToolStripMenuItem.Click += new System.EventHandler(this.basicEducationToolStripMenuItem_Click);
+            // 
+            // highSchoolToolStripMenuItem
+            // 
+            this.highSchoolToolStripMenuItem.Name = "highSchoolToolStripMenuItem";
+            this.highSchoolToolStripMenuItem.Size = new System.Drawing.Size(182, 24);
+            this.highSchoolToolStripMenuItem.Text = "High School";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1094,7 +1120,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1050, 715);
             this.MinimizeBox = false;
@@ -1211,6 +1237,9 @@
         private System.Windows.Forms.ToolStripMenuItem enrolmentReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iDReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem demographicsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ageProfileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem basicEducationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem highSchoolToolStripMenuItem;
     }
 }
 
