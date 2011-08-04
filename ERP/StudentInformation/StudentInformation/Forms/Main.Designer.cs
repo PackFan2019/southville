@@ -33,11 +33,8 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.exitButn = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.saveButn = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.clearButn = new System.Windows.Forms.ToolStripLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.religionComboBox = new System.Windows.Forms.ComboBox();
@@ -121,6 +118,10 @@
             this.clearBtn = new System.Windows.Forms.ToolStripButton();
             this.saveBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -153,66 +154,46 @@
             this.toolStrip1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitButn,
-            this.toolStripLabel2,
+            this.toolStripSeparator3,
+            this.toolStripSeparator1,
             this.saveButn,
-            this.toolStripLabel1,
-            this.toolStripButton2,
-            this.clearButn});
+            this.toolStripSeparator4,
+            this.toolStripSeparator2,
+            this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1032, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1032, 27);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // exitButn
             // 
-            this.exitButn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.exitButn.Image = global::StudentInformation.Properties.Resources.cancel;
             this.exitButn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.exitButn.Name = "exitButn";
-            this.exitButn.Size = new System.Drawing.Size(23, 22);
-            this.exitButn.Text = "toolStripButton2";
+            this.exitButn.Size = new System.Drawing.Size(53, 24);
+            this.exitButn.Text = "Exit";
             this.exitButn.Click += new System.EventHandler(this.exitButn_Click);
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(33, 22);
-            this.toolStripLabel2.Text = "Exit";
             // 
             // saveButn
             // 
-            this.saveButn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.saveButn.Image = global::StudentInformation.Properties.Resources.save;
             this.saveButn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.saveButn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveButn.Name = "saveButn";
-            this.saveButn.Size = new System.Drawing.Size(23, 22);
+            this.saveButn.Size = new System.Drawing.Size(60, 24);
             this.saveButn.Text = "Save";
             this.saveButn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveButn.Click += new System.EventHandler(this.saveButn_Click);
             // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(40, 22);
-            this.toolStripLabel1.Text = "Save";
-            // 
             // toolStripButton2
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButton2.Image = global::StudentInformation.Properties.Resources.refresh;
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(63, 24);
+            this.toolStripButton2.Text = "Clear";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
-            // 
-            // clearButn
-            // 
-            this.clearButn.Name = "clearButn";
-            this.clearButn.Size = new System.Drawing.Size(43, 22);
-            this.clearButn.Text = "Clear";
             // 
             // tabControl1
             // 
@@ -1070,8 +1051,8 @@
             // enrolmentReportToolStripMenuItem
             // 
             this.enrolmentReportToolStripMenuItem.Name = "enrolmentReportToolStripMenuItem";
-            this.enrolmentReportToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
-            this.enrolmentReportToolStripMenuItem.Text = "Enrolment Report";
+            this.enrolmentReportToolStripMenuItem.Size = new System.Drawing.Size(191, 24);
+            this.enrolmentReportToolStripMenuItem.Text = "Age and Address";
             this.enrolmentReportToolStripMenuItem.Click += new System.EventHandler(this.enrolmentReportToolStripMenuItem_Click);
             // 
             // exitBtn
@@ -1109,6 +1090,26 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 27);
             // 
             // Main
             // 
@@ -1224,11 +1225,8 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemEasyGradeProReport;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemEasyGradeProCSV;
         private System.Windows.Forms.ToolStripButton saveButn;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripButton exitButn;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripLabel clearButn;
         private System.Windows.Forms.Button suggestIdbtn;
         private System.Windows.Forms.ComboBox lastSchoolcb;
         private System.Windows.Forms.ComboBox nationalityComboBox;
@@ -1240,6 +1238,10 @@
         private System.Windows.Forms.ToolStripMenuItem ageProfileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem basicEducationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem highSchoolToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
 

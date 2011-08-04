@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Beans\Address.cs" />
+    <Compile Include="Beans\Profile.cs" />
     <Compile Include="Beans\Customer.cs" />
     <Compile Include="Datasets\AgeProfile.cs">
       <DependentUpon>AgeProfile.xsd</DependentUpon>
@@ -126,6 +127,12 @@
     <Compile Include="Data\EConnectData.cs" />
     <Compile Include="Data\Session.cs" />
     <Compile Include="Data\SQLData.cs" />
+    <Compile Include="Reports\AgeAndAddress.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AgeAndAddress.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\AgeProfileReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -218,6 +225,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Reports\AgeAndAddress.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AgeAndAddress.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\AgeProfileReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>AgeProfileReport.cs</LastGenOutput>

@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Southville.GP.Beans;
 using StudentInformation.Reports;
+using StudentInformation.Beans;
 using StudentInformation.Datasets;
 namespace StudentInformation.Forms
 {
@@ -126,33 +127,57 @@ namespace StudentInformation.Forms
         {
             AgeProfileReport rpt = new AgeProfileReport();
             AgeProfile ds = new AgeProfile();
-
+            List<String> Levels = new List<string>();
             foreach (Customer c in AllStudents)
             {
-                int age = DateTime.Now.Year - Convert.ToDateTime(c.Birthday).Year;
-                DataRow cRow = ds.Level.NewRow();
-                if (c.Level != "HS I" && c.Level != "HS II" && c.Level != "HS III" && c.Level != "HS IV" && c.Level != "Senior Prep")
+                if (!Levels.Exists(delegate(String s) { return s.Equals(c.Level); }))
                 {
-                    if (age >= 16 && age <= 18)
+                    Levels.Add(c.Level);
+                    int age = DateTime.Now.Year - Convert.ToDateTime(c.Birthday).Year;
+
+
+                    //DataRow cRow = ds.Level.NewRow();
+                    if (getCount(AllStudents, c.Level, "Male") != 0 || getCount(AllStudents, c.Level, "Male").ToString() != "")
                     {
-                        cRow[18 + c.Level + "M"] = getCount(AllStudents, c.Level, "Male");
-                        cRow[18 + c.Level + "F"] = getCount(AllStudents, c.Level, "Female");
+                        if (getCount(AllStudents, c.Level, "Female") != 0 || getCount(AllStudents, c.Level, "Female").ToString() != "")
+                        {
+                            if (c.Level.Equals("Grade 1") || c.Level.Equals("Grade 2") || c.Level.Equals("Grade 3") || c.Level.Equals("Grade 4") || c.Level.Equals("Grade 5") || c.Level.Equals("Grade 6"))
+                            {
+                                if (age >= 16 && age <= 18)
+                                {
+                                    ds.Level[0][18 + c.Level + "M"] = getCount(AllStudents, c.Level, "Male");
+                                    ds.Level[0][18 + c.Level + "F"] = getCount(AllStudents, c.Level, "Female");
+                                }
+                                else if (age >= 19)
+                                {
+                                    ds.Level[0][19 + c.Level + "M"] = getCount(AllStudents, c.Level, "Male");
+                                    ds.Level[0][19 + c.Level + "F"] = getCount(AllStudents, c.Level, "Female");
+                                    //DataRow cRow2 = ds.Level.NewRow();
+                                    //cRow2[19 + c.Level + "M"] = getCount(AllStudents, c.Level, "Male");
+                                    //cRow2[19 + c.Level + "F"] = getCount(AllStudents, c.Level, "Female");
+                                    //ds.Level.Rows.Add(cRow2);
+                                }
+                                else
+                                {
+                                    DataRow cRow3 = ds.Level.NewRow();
+                                    cRow3[age + c.Level + "M"] = getCount(AllStudents, c.Level, "Male");
+                                    cRow3[age + c.Level + "F"] = getCount(AllStudents, c.Level, "Female");
+                                    ds.Level.Rows.Add(cRow3);
+                                    ds.Level[0][age + c.Level + "M"] = getCount(AllStudents, c.Level, "Male");
+                                    ds.Level[0][age + c.Level + "F"] = getCount(AllStudents, c.Level, "Female");
+                                    
+                                }
+                                
+                            }
+                        }
                     }
-                    else if (age >= 19)
-                    {
-                        cRow[19 + c.Level + "M"] = getCount(AllStudents, c.Level, "Male");
-                        cRow[19 + c.Level + "F"] = getCount(AllStudents, c.Level, "Female");
-                    }
-                    else
-                    {
-                        cRow[age + c.Level + "M"] = getCount(AllStudents, c.Level, "Male");
-                        cRow[age + c.Level + "F"] = getCount(AllStudents, c.Level, "Female");
-                    }
+
                 }
-                ds.Level.Rows.Add(cRow);
             }
-            DataView myView = new DataView(ds.Level);
-            dataGridView1.DataSource = myView;
+
+
+            //DataView myView = new DataView(ds.Level);
+            //dataGridView1.DataSource = myView;
 
             rpt.SetDataSource(ds);
             crystalReportViewer1.ReportSource = rpt;
@@ -160,7 +185,32 @@ namespace StudentInformation.Forms
         }
         public int getCount(List<Customer> customer, String level, String gender)
         {
-            return customer.FindAll(delegate(Customer c) { return (c.Level.Equals(level) && c.Gender.Equals(gender)); }).Count;
+            int count = customer.FindAll(delegate(Customer c) { return (c.Level.Equals(level) && c.Gender.Equals(gender)); }).Count;
+            return count;
+        }
+        public void loadAgeAndAddress(List<Customer> AllStudents)
+        {
+            AgeAndAddress rpt = new AgeAndAddress();
+            DataSetStudents ds = new DataSetStudents();
+            foreach (Customer c in AllStudents)
+            {
+                int age = DateTime.Now.Year - c.Birthday.Year;
+                DataRow cRow = ds.Student.NewRow();
+                cRow["CustomerID"] = c.CustomerID;
+                cRow["FirstName"] = c.FirstName;
+                cRow["LastName"] = c.LastName;
+                cRow["Gender"] = c.Gender;
+                //cRow["EmailAddress"] = c.EmailAddress;
+                //cRow["Level"] = c.Level;
+                //cRow["Section"] = c.Section;
+                //cRow["Guardians"] = c.BillTo;
+                cRow["Address"] = c.CustomerAddress.AddressString;
+                cRow["Age"] = age;
+                ds.Student.Rows.Add(cRow);
+            }
+            rpt.SetDataSource(ds);
+            crystalReportViewer1.ReportSource = rpt;
+            crystalReportViewer1.Refresh();
         }
     }
 }

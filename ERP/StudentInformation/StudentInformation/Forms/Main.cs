@@ -688,7 +688,19 @@ namespace StudentInformation.Forms
 
         private void enrolmentReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            EnrollmentReportDialog dialog = new EnrollmentReportDialog();
+            DialogResult result = dialog.ShowDialog();
+
+            if (result.Equals(DialogResult.OK))
+            {
+                ReportViewer viewer = new ReportViewer();
+                loadingScreen.Show();
+                List<Customer> students =
+                    SQLData.getInstance().getAllCustomers(dialog.enrollmentStatus, dialog.level, dialog.section);
+                viewer.loadAgeAndAddress(students);
+                loadingScreen.Hide();
+                viewer.Show();
+            }
         }
 
         private void iDReportToolStripMenuItem_Click(object sender, EventArgs e)
