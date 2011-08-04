@@ -102,6 +102,10 @@
   <ItemGroup>
     <Compile Include="Beans\Address.cs" />
     <Compile Include="Beans\Customer.cs" />
+    <Compile Include="Datasets\AgeProfile.cs">
+      <DependentUpon>AgeProfile.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Datasets\AgeProfile.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -129,12 +129,26 @@ namespace StudentInformation.Forms
 
             foreach (Customer c in AllStudents)
             {
+                int age = DateTime.Now.Year - Convert.ToDateTime(c.Birthday).Year;
                 DataRow cRow = ds.Level.NewRow();
-                cRow["Level"] = c.Level;
-                cRow["Male"] = getCount(AllStudents, c.Level, "Male");
-                cRow["Female"] = getCount(AllStudents, c.Level, "Female");
-                cRow["Age"] = DateTime.Now.Year - Convert.ToDateTime(c.Birthday).Year;
-
+                if (c.Level != "HS I" && c.Level != "HS II" && c.Level != "HS III" && c.Level != "HS IV" && c.Level != "Senior Prep")
+                {
+                    if (age >= 16 && age <= 18)
+                    {
+                        cRow[18 + c.Level + "M"] = getCount(AllStudents, c.Level, "Male");
+                        cRow[18 + c.Level + "F"] = getCount(AllStudents, c.Level, "Female");
+                    }
+                    else if (age >= 19)
+                    {
+                        cRow[19 + c.Level + "M"] = getCount(AllStudents, c.Level, "Male");
+                        cRow[19 + c.Level + "F"] = getCount(AllStudents, c.Level, "Female");
+                    }
+                    else
+                    {
+                        cRow[age + c.Level + "M"] = getCount(AllStudents, c.Level, "Male");
+                        cRow[age + c.Level + "F"] = getCount(AllStudents, c.Level, "Female");
+                    }
+                }
                 ds.Level.Rows.Add(cRow);
             }
             DataView myView = new DataView(ds.Level);

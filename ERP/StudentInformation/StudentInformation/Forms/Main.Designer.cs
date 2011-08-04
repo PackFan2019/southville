@@ -111,6 +111,9 @@
             this.ToolStripMenuItemEasyGradeProCSV = new System.Windows.Forms.ToolStripMenuItem();
             this.iDReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.demographicsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ageProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.basicEducationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.highSchoolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.depEdReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enrolmentReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviceController1 = new System.ServiceProcess.ServiceController();
@@ -118,9 +121,6 @@
             this.clearBtn = new System.Windows.Forms.ToolStripButton();
             this.saveBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.ageProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.basicEducationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.highSchoolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -218,7 +218,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(16, 71);
+            this.tabControl1.Location = new System.Drawing.Point(16, 63);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -1037,6 +1037,28 @@
             this.demographicsToolStripMenuItem.Text = "Demographics";
             this.demographicsToolStripMenuItem.Click += new System.EventHandler(this.demographicsToolStripMenuItem_Click);
             // 
+            // ageProfileToolStripMenuItem
+            // 
+            this.ageProfileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.basicEducationToolStripMenuItem,
+            this.highSchoolToolStripMenuItem});
+            this.ageProfileToolStripMenuItem.Name = "ageProfileToolStripMenuItem";
+            this.ageProfileToolStripMenuItem.Size = new System.Drawing.Size(222, 24);
+            this.ageProfileToolStripMenuItem.Text = "Age Profile";
+            // 
+            // basicEducationToolStripMenuItem
+            // 
+            this.basicEducationToolStripMenuItem.Name = "basicEducationToolStripMenuItem";
+            this.basicEducationToolStripMenuItem.Size = new System.Drawing.Size(182, 24);
+            this.basicEducationToolStripMenuItem.Text = "Basic Education";
+            this.basicEducationToolStripMenuItem.Click += new System.EventHandler(this.basicEducationToolStripMenuItem_Click);
+            // 
+            // highSchoolToolStripMenuItem
+            // 
+            this.highSchoolToolStripMenuItem.Name = "highSchoolToolStripMenuItem";
+            this.highSchoolToolStripMenuItem.Size = new System.Drawing.Size(182, 24);
+            this.highSchoolToolStripMenuItem.Text = "High School";
+            // 
             // depEdReportsToolStripMenuItem
             // 
             this.depEdReportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1087,28 +1109,6 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
-            // 
-            // ageProfileToolStripMenuItem
-            // 
-            this.ageProfileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.basicEducationToolStripMenuItem,
-            this.highSchoolToolStripMenuItem});
-            this.ageProfileToolStripMenuItem.Name = "ageProfileToolStripMenuItem";
-            this.ageProfileToolStripMenuItem.Size = new System.Drawing.Size(222, 24);
-            this.ageProfileToolStripMenuItem.Text = "Age Profile";
-            // 
-            // basicEducationToolStripMenuItem
-            // 
-            this.basicEducationToolStripMenuItem.Name = "basicEducationToolStripMenuItem";
-            this.basicEducationToolStripMenuItem.Size = new System.Drawing.Size(182, 24);
-            this.basicEducationToolStripMenuItem.Text = "Basic Education";
-            this.basicEducationToolStripMenuItem.Click += new System.EventHandler(this.basicEducationToolStripMenuItem_Click);
-            // 
-            // highSchoolToolStripMenuItem
-            // 
-            this.highSchoolToolStripMenuItem.Name = "highSchoolToolStripMenuItem";
-            this.highSchoolToolStripMenuItem.Size = new System.Drawing.Size(182, 24);
-            this.highSchoolToolStripMenuItem.Text = "High School";
             // 
             // Main
             // 
