@@ -1263,11 +1263,11 @@ namespace ReportCardGenerator.Controller
             {
                 variable = "AA";
             }
-            if (value >= 2 && value < 3)
+            if (value >= 1.5 && value < 3)
             {
                 variable = "A";
             }
-            if (value >= 1 && value < 2)
+            if (value >= 1 && value < 1.5)
             {
                 variable = "LA";
             }

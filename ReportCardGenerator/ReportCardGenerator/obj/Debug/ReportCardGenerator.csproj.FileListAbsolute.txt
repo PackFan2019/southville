@@ -269,3 +269,24 @@ D:\Southville project\Backup Plan\Experiment\Archive\revised\ReportCardGenerator
 D:\Southville project\Backup Plan\Experiment\Archive\revised\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.exe.manifest
 D:\Southville project\Backup Plan\Experiment\Archive\revised\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.application
 D:\Southville project\Backup Plan\Experiment\Archive\revised\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.Views.DepEd.resources
+D:\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe.config
+D:\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.exe
+D:\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.pdb
+D:\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe.manifest
+D:\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.application
+D:\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.exe
+D:\ReportCardGenerator\ReportCardGenerator\bin\Debug\ReportCardGenerator.pdb
+D:\ReportCardGenerator\ReportCardGenerator\bin\Debug\log4net.dll
+D:\ReportCardGenerator\ReportCardGenerator\bin\Debug\nunit.framework.dll
+D:\ReportCardGenerator\ReportCardGenerator\bin\Debug\nunit.mocks.dll
+D:\ReportCardGenerator\ReportCardGenerator\obj\Debug\ResolveAssemblyReference.cache
+D:\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.Properties.Resources.resources
+D:\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.Views.DepEd.resources
+D:\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.Views.Honors.resources
+D:\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.Views.Main.resources
+D:\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.Views.ProgressBar.resources
+D:\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.Views.ReportCardOption.resources
+D:\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.Views.StudReportCard.resources
+D:\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.csproj.GenerateResource.Cache
+D:\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.exe.manifest
+D:\ReportCardGenerator\ReportCardGenerator\obj\Debug\ReportCardGenerator.application

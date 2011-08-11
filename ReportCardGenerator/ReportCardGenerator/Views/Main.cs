@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 using ReportCardGenerator.Data;
 using ReportCardGenerator.Controller;
@@ -25,6 +27,9 @@ namespace ReportCardGenerator.Views
         //private DMSoft.SkinCrafterLight skinCrafter;
         ProgressBar PBar = new ProgressBar();
         IStudentController controller = FrontController.getInstance().getStudentController();
+        Assembly _assembly;
+        StreamReader _textStreamReader;
+        StreamWriter _txtStreamWriter;
         public Main()
         {
             InitializeComponent();
@@ -39,8 +44,25 @@ namespace ReportCardGenerator.Views
         }
         private void Main_Load(object sender, EventArgs e)
         {
+            try
+            {
+                _assembly = Assembly.GetExecutingAssembly();
+                _textStreamReader = new StreamReader(@"\\sisc-erelim\4_Printing\Romyr\ReportCard\days.txt");
+                String[] read = _textStreamReader.ReadLine().Split(',');
+                T1Tb.Text = read[0];
+                T2Tb.Text = read[1];
+                T3Tb.Text = read[2];
+                _textStreamReader.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Error accessing resources!");
+            }
             //Register this view with the frontcontroller   
             FrontController.getInstance().registerView(this);
+            //String myFullPath = Path.GetFullPath("days.txt");
+            //StreamReader reader = new StreamReader(myFullPath);
+            //MessageBox.Show(reader.ReadLine());
             
         }
 
@@ -73,7 +95,7 @@ namespace ReportCardGenerator.Views
             catch
             {
                 //MessageBox.Show(er.Message);
-                MessageBox.Show("Click XML path to Run Parsing!!!");
+                MessageBox.Show("Click XML path to Parse");
             }
         }
 
@@ -202,6 +224,26 @@ namespace ReportCardGenerator.Views
                         "Programmers: Mr. Romyr Reyes and Mr. Takeo Tanemura" + "\n" +
                             "Date Implemented: January 2011", "Product Info Box",
             MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void setSchoolDaysToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            T1Tb.ReadOnly = false;
+            T2Tb.ReadOnly = false;
+            T3Tb.ReadOnly = false;
+            saveBtn.Visible = true;
+        }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            using (StreamWriter sw = new StreamWriter(@"\\sisc-erelim\4_Printing\Romyr\ReportCard\days.txt"))
+            {
+                sw.Write(T1Tb.Text + "," + T2Tb.Text + "," + T3Tb.Text);
+            }
+            T1Tb.ReadOnly = true;
+            T2Tb.ReadOnly = true;
+            T3Tb.ReadOnly = true;
+            saveBtn.Visible = false;
         }
     }
 }
