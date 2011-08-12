@@ -27,6 +27,8 @@ namespace StudentInformation.Forms
         {
             EnrollmentReport rpt = new EnrollmentReport();
             DataSetStudents ds = new DataSetStudents();
+            List<String> maleList = new List<string>();
+            List<String> femaleList = new List<string>();
             foreach (Customer c in students)
             {
                 DataRow cRow = ds.Student.NewRow();
@@ -38,6 +40,9 @@ namespace StudentInformation.Forms
                 cRow["Section"] = c.Section;
                 cRow["Gender"] = c.Gender;
                 ds.Student.Rows.Add(cRow);
+                if (c.Gender.Equals("Male"))
+                    maleList.Add(c.Gender);
+                else femaleList.Add(c.Gender);
             }
             rpt.DataDefinition.FormulaFields["EnrollmentStatus"].Text = "\""+enrollmentStatus+"\"";
             rpt.DataDefinition.FormulaFields["NumberOfStudents"].Text = "\"" + numberOfStudents + "\"";

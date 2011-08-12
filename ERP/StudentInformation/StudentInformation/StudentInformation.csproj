@@ -33,7 +33,7 @@
     <UpdateUrl>\\Sisc-erelim\4_Printing\Romyr\StudentInformation\</UpdateUrl>
     <ProductName>Student Information System</ProductName>
     <PublisherName>SGEN Technology and Information Department</PublisherName>
-    <ApplicationRevision>69</ApplicationRevision>
+    <ApplicationRevision>70</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -100,6 +100,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Beans\Account.cs" />
     <Compile Include="Beans\Address.cs" />
     <Compile Include="Beans\Profile.cs" />
     <Compile Include="Beans\Customer.cs" />
@@ -127,6 +128,12 @@
     <Compile Include="Data\EConnectData.cs" />
     <Compile Include="Data\Session.cs" />
     <Compile Include="Data\SQLData.cs" />
+    <Compile Include="Forms\EditAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditAccount.Designer.cs">
+      <DependentUpon>EditAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\AgeAndAddress.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -225,6 +232,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\EditAccount.resx">
+      <DependentUpon>EditAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\AgeAndAddress.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>AgeAndAddress.cs</LastGenOutput>

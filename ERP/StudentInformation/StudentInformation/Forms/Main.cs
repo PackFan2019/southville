@@ -5,10 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Windows.Forms;
 using System.Globalization;
 using Southville.GP.Data;
 using Southville.GP.Beans;
+using StudentInformation.Beans;
  
 namespace StudentInformation.Forms
 {
@@ -33,6 +35,8 @@ namespace StudentInformation.Forms
 
         private void Main_Load(object sender, EventArgs e)
         {
+            loadAccount();
+            loginPanel.Size = new Size(268, 142);
             //idTextbox.Text = getnewStudentID("Basic Education");
             loadCustomerDetails();
             getLastSchoolAtt();
@@ -48,6 +52,14 @@ namespace StudentInformation.Forms
                 classComboBox.Items.Add(s);
             }
             STUDENTCLASS_COMBOBOXDEFAULT = 0;
+        }
+        private void loadAccount()
+        {
+            Account account = new Account();
+            using (StreamReader reader = new StreamReader(@"\\sisc-ishim\Soft_Mind\REGISTRATION OFFICIAL FOLDER\sample.txt"))
+            {
+                MessageBox.Show(reader.ReadLine());
+            }
         }
         private void loadCustomerDetails()
         {
@@ -751,6 +763,30 @@ namespace StudentInformation.Forms
                 viewer.loadAgeProfile(students);
                 loadingScreen.Hide();
                 viewer.Show();
+            }
+        }
+
+        private void adminToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loginBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Account a = Account.accountList.Find(delegate(Account acc) { return acc.Uname.Equals(unameTb.Text); });
+                if (a.Pword.Equals(pwordTb.Text))
+                {
+                    loginPanel.Visible = false;
+                    if (a.UId.Equals("1"))
+                        saveButn.Enabled = true;
+                    else saveButn.Enabled = false;
+                }
+            }
+            catch(NullReferenceException er)
+            {
+                MessageBox.Show(er.Message + "\n" + "Account not found!", "No account found");
             }
         }
 

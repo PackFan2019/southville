@@ -192,3 +192,4 @@ D:\StudentInformation\StudentInformation\bin\Release\Microsoft.VisualBasic.Power
 D:\StudentInformation\StudentInformation\obj\Release\StudentInformation.TrustInfo.xml
 D:\StudentInformation\StudentInformation\obj\Release\StudentInformation.exe.manifest
 D:\StudentInformation\StudentInformation\obj\Release\StudentInformation.application
+D:\StudentInformation\StudentInformation\obj\Release\StudentInformation.Forms.Edit_Account.resources

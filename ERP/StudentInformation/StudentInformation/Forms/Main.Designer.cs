@@ -32,15 +32,15 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.exitButn = new System.Windows.Forms.ToolStripButton();
-            this.saveButn = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.religionComboBox = new System.Windows.Forms.ComboBox();
             this.nationalityComboBox = new System.Windows.Forms.ComboBox();
             this.lastSchoolcb = new System.Windows.Forms.ComboBox();
-            this.suggestIdbtn = new System.Windows.Forms.Button();
             this.classComboBox = new System.Windows.Forms.ComboBox();
             this.label29 = new System.Windows.Forms.Label();
             this.levelCombobox = new System.Windows.Forms.ComboBox();
@@ -87,7 +87,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.emailTextbox = new System.Windows.Forms.TextBox();
             this.inactiveCheckbox = new System.Windows.Forms.CheckBox();
-            this.lookupBtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.lastnameTextbox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -114,20 +113,32 @@
             this.depEdReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enrolmentReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviceController1 = new System.ServiceProcess.ServiceController();
+            this.loginPanel = new System.Windows.Forms.Panel();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.unameTb = new System.Windows.Forms.TextBox();
+            this.pwordTb = new System.Windows.Forms.TextBox();
+            this.manageAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cancelBtn = new System.Windows.Forms.Button();
+            this.loginBtn = new System.Windows.Forms.Button();
+            this.suggestIdbtn = new System.Windows.Forms.Button();
+            this.lookupBtn = new System.Windows.Forms.Button();
+            this.exitButn = new System.Windows.Forms.ToolStripButton();
+            this.saveButn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.exitBtn = new System.Windows.Forms.ToolStripButton();
             this.clearBtn = new System.Windows.Forms.ToolStripButton();
             this.saveBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.loginPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -166,34 +177,25 @@
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // exitButn
+            // toolStripSeparator3
             // 
-            this.exitButn.Image = global::StudentInformation.Properties.Resources.cancel;
-            this.exitButn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.exitButn.Name = "exitButn";
-            this.exitButn.Size = new System.Drawing.Size(53, 24);
-            this.exitButn.Text = "Exit";
-            this.exitButn.Click += new System.EventHandler(this.exitButn_Click);
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 27);
             // 
-            // saveButn
+            // toolStripSeparator1
             // 
-            this.saveButn.Image = global::StudentInformation.Properties.Resources.save;
-            this.saveButn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.saveButn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.saveButn.Name = "saveButn";
-            this.saveButn.Size = new System.Drawing.Size(60, 24);
-            this.saveButn.Text = "Save";
-            this.saveButn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.saveButn.Click += new System.EventHandler(this.saveButn_Click);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
-            // toolStripButton2
+            // toolStripSeparator4
             // 
-            this.toolStripButton2.Image = global::StudentInformation.Properties.Resources.refresh;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(63, 24);
-            this.toolStripButton2.Text = "Clear";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // tabControl1
             // 
@@ -208,6 +210,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.loginPanel);
             this.tabPage1.Controls.Add(this.religionComboBox);
             this.tabPage1.Controls.Add(this.nationalityComboBox);
             this.tabPage1.Controls.Add(this.lastSchoolcb);
@@ -309,17 +312,6 @@
             this.lastSchoolcb.Size = new System.Drawing.Size(308, 24);
             this.lastSchoolcb.TabIndex = 12;
             this.lastSchoolcb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lastSchoolcb_KeyPress);
-            // 
-            // suggestIdbtn
-            // 
-            this.suggestIdbtn.Image = global::StudentInformation.Properties.Resources.ID;
-            this.suggestIdbtn.Location = new System.Drawing.Point(389, 43);
-            this.suggestIdbtn.Margin = new System.Windows.Forms.Padding(4);
-            this.suggestIdbtn.Name = "suggestIdbtn";
-            this.suggestIdbtn.Size = new System.Drawing.Size(37, 25);
-            this.suggestIdbtn.TabIndex = 58;
-            this.suggestIdbtn.UseVisualStyleBackColor = true;
-            this.suggestIdbtn.Click += new System.EventHandler(this.suggestIdbtn_Click);
             // 
             // classComboBox
             // 
@@ -821,17 +813,6 @@
             this.inactiveCheckbox.Text = "Inactive";
             this.inactiveCheckbox.UseVisualStyleBackColor = true;
             // 
-            // lookupBtn
-            // 
-            this.lookupBtn.Image = global::StudentInformation.Properties.Resources.folder;
-            this.lookupBtn.Location = new System.Drawing.Point(432, 43);
-            this.lookupBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.lookupBtn.Name = "lookupBtn";
-            this.lookupBtn.Size = new System.Drawing.Size(37, 25);
-            this.lookupBtn.TabIndex = 43;
-            this.lookupBtn.UseVisualStyleBackColor = true;
-            this.lookupBtn.Click += new System.EventHandler(this.lookupBtn_Click);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -965,7 +946,8 @@
             // 
             this.toolStripToolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemReports,
-            this.depEdReportsToolStripMenuItem});
+            this.depEdReportsToolStripMenuItem,
+            this.manageAccountToolStripMenuItem});
             this.toolStripToolsMenu.Name = "toolStripToolsMenu";
             this.toolStripToolsMenu.Size = new System.Drawing.Size(57, 24);
             this.toolStripToolsMenu.Text = "Tools";
@@ -980,7 +962,7 @@
             this.demographicsToolStripMenuItem,
             this.ageProfileToolStripMenuItem});
             this.toolStripMenuItemReports.Name = "toolStripMenuItemReports";
-            this.toolStripMenuItemReports.Size = new System.Drawing.Size(178, 24);
+            this.toolStripMenuItemReports.Size = new System.Drawing.Size(190, 24);
             this.toolStripMenuItemReports.Text = "Reports";
             // 
             // ToolStripMenuItemEnrollmentReport
@@ -1045,7 +1027,7 @@
             this.depEdReportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.enrolmentReportToolStripMenuItem});
             this.depEdReportsToolStripMenuItem.Name = "depEdReportsToolStripMenuItem";
-            this.depEdReportsToolStripMenuItem.Size = new System.Drawing.Size(178, 24);
+            this.depEdReportsToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
             this.depEdReportsToolStripMenuItem.Text = "DepEd Reports";
             // 
             // enrolmentReportToolStripMenuItem
@@ -1054,6 +1036,149 @@
             this.enrolmentReportToolStripMenuItem.Size = new System.Drawing.Size(191, 24);
             this.enrolmentReportToolStripMenuItem.Text = "Age and Address";
             this.enrolmentReportToolStripMenuItem.Click += new System.EventHandler(this.enrolmentReportToolStripMenuItem_Click);
+            // 
+            // loginPanel
+            // 
+            this.loginPanel.Controls.Add(this.cancelBtn);
+            this.loginPanel.Controls.Add(this.loginBtn);
+            this.loginPanel.Controls.Add(this.pwordTb);
+            this.loginPanel.Controls.Add(this.unameTb);
+            this.loginPanel.Controls.Add(this.label31);
+            this.loginPanel.Controls.Add(this.label30);
+            this.loginPanel.Location = new System.Drawing.Point(456, 105);
+            this.loginPanel.Name = "loginPanel";
+            this.loginPanel.Size = new System.Drawing.Size(268, 142);
+            this.loginPanel.TabIndex = 59;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(8, 32);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(77, 17);
+            this.label30.TabIndex = 0;
+            this.label30.Text = "Username:";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(12, 66);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(73, 17);
+            this.label31.TabIndex = 1;
+            this.label31.Text = "Password:";
+            // 
+            // unameTb
+            // 
+            this.unameTb.Location = new System.Drawing.Point(92, 32);
+            this.unameTb.Name = "unameTb";
+            this.unameTb.Size = new System.Drawing.Size(145, 22);
+            this.unameTb.TabIndex = 2;
+            // 
+            // pwordTb
+            // 
+            this.pwordTb.Location = new System.Drawing.Point(92, 63);
+            this.pwordTb.Name = "pwordTb";
+            this.pwordTb.Size = new System.Drawing.Size(145, 22);
+            this.pwordTb.TabIndex = 3;
+            // 
+            // manageAccountToolStripMenuItem
+            // 
+            this.manageAccountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adminToolStripMenuItem,
+            this.userToolStripMenuItem});
+            this.manageAccountToolStripMenuItem.Name = "manageAccountToolStripMenuItem";
+            this.manageAccountToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.manageAccountToolStripMenuItem.Text = "Manage Account";
+            // 
+            // adminToolStripMenuItem
+            // 
+            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.adminToolStripMenuItem.Text = "Admin";
+            this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
+            // 
+            // userToolStripMenuItem
+            // 
+            this.userToolStripMenuItem.Name = "userToolStripMenuItem";
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.userToolStripMenuItem.Text = "User";
+            // 
+            // cancelBtn
+            // 
+            this.cancelBtn.Image = global::StudentInformation.Properties.Resources.cancel;
+            this.cancelBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cancelBtn.Location = new System.Drawing.Point(162, 97);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(75, 25);
+            this.cancelBtn.TabIndex = 5;
+            this.cancelBtn.Text = "Cancel";
+            this.cancelBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            // 
+            // loginBtn
+            // 
+            this.loginBtn.Image = global::StudentInformation.Properties.Resources.yes;
+            this.loginBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.loginBtn.Location = new System.Drawing.Point(91, 97);
+            this.loginBtn.Name = "loginBtn";
+            this.loginBtn.Size = new System.Drawing.Size(65, 25);
+            this.loginBtn.TabIndex = 4;
+            this.loginBtn.Text = "Login";
+            this.loginBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.loginBtn.UseVisualStyleBackColor = true;
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
+            // 
+            // suggestIdbtn
+            // 
+            this.suggestIdbtn.Image = global::StudentInformation.Properties.Resources.ID;
+            this.suggestIdbtn.Location = new System.Drawing.Point(389, 43);
+            this.suggestIdbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.suggestIdbtn.Name = "suggestIdbtn";
+            this.suggestIdbtn.Size = new System.Drawing.Size(37, 25);
+            this.suggestIdbtn.TabIndex = 58;
+            this.suggestIdbtn.UseVisualStyleBackColor = true;
+            this.suggestIdbtn.Click += new System.EventHandler(this.suggestIdbtn_Click);
+            // 
+            // lookupBtn
+            // 
+            this.lookupBtn.Image = global::StudentInformation.Properties.Resources.folder;
+            this.lookupBtn.Location = new System.Drawing.Point(432, 43);
+            this.lookupBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.lookupBtn.Name = "lookupBtn";
+            this.lookupBtn.Size = new System.Drawing.Size(37, 25);
+            this.lookupBtn.TabIndex = 43;
+            this.lookupBtn.UseVisualStyleBackColor = true;
+            this.lookupBtn.Click += new System.EventHandler(this.lookupBtn_Click);
+            // 
+            // exitButn
+            // 
+            this.exitButn.Image = global::StudentInformation.Properties.Resources.cancel;
+            this.exitButn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.exitButn.Name = "exitButn";
+            this.exitButn.Size = new System.Drawing.Size(53, 24);
+            this.exitButn.Text = "Exit";
+            this.exitButn.Click += new System.EventHandler(this.exitButn_Click);
+            // 
+            // saveButn
+            // 
+            this.saveButn.Image = global::StudentInformation.Properties.Resources.save;
+            this.saveButn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.saveButn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveButn.Name = "saveButn";
+            this.saveButn.Size = new System.Drawing.Size(60, 24);
+            this.saveButn.Text = "Save";
+            this.saveButn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.saveButn.Click += new System.EventHandler(this.saveButn_Click);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.Image = global::StudentInformation.Properties.Resources.refresh;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(63, 24);
+            this.toolStripButton2.Text = "Clear";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // exitBtn
             // 
@@ -1091,26 +1216,6 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 27);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 27);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1142,6 +1247,8 @@
             this.tabPage2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.loginPanel.ResumeLayout(false);
+            this.loginPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1242,6 +1349,16 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.Panel loginPanel;
+        private System.Windows.Forms.Button cancelBtn;
+        private System.Windows.Forms.Button loginBtn;
+        private System.Windows.Forms.TextBox pwordTb;
+        private System.Windows.Forms.TextBox unameTb;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.ToolStripMenuItem manageAccountToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
     }
 }
 
