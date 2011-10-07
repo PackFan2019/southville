@@ -43,7 +43,6 @@ namespace StudentAssessment.Data
             , string uOfM)
         {
             Items items = new Items();
-
             try
             {
                 using (SqlConnection conn = new SqlConnection(connString))
