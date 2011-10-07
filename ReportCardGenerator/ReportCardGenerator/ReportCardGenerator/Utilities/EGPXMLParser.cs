@@ -51,8 +51,8 @@ namespace ReportCardGenerator.Utilities
                 Student stud = new Student();
                 String[] studentDetails = loadedString.Split('\t');
                 stud.StudentID = studentDetails[0];
-                stud.FirstName = studentDetails[1];
-                stud.LastName = studentDetails[2];
+                stud.FirstName = studentDetails[2];
+                stud.LastName = studentDetails[1];
                 stud.Level = studentDetails[5];
                 stud.Section = studentDetails[6];
                 stud.Adviser = studentDetails[7];
