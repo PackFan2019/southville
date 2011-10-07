@@ -522,9 +522,18 @@ namespace ReportCardGenerator.Controller
 
             //}
             //History
-            grow["History"] = isNotNull("HIST", tempPeriod);
-            hist1 = isNotNullNumericGrade("HIST", tempPeriod, Stud);
-            addToList(Stud, isNotNullNumericGrade("HIST", tempPeriod, Stud), "HIST", ListGrade);
+            if (isOffered("HIST", tempPeriod, Stud))
+            {
+                grow["History"] = isNotNull("HIST", tempPeriod);
+                hist1 = isNotNullNumericGrade("HIST", tempPeriod, Stud);
+                addToList(Stud, isNotNullNumericGrade("HIST", tempPeriod, Stud), "HIST", ListGrade);
+            }
+            else
+            {
+                grow["History"] = isNotNull("SLGE", tempPeriod);
+                hist1 = isNotNullNumericGrade("HIST", tempPeriod, Stud);
+                addToList(Stud, isNotNullNumericGrade("HIST", tempPeriod, Stud), "HIST", ListGrade);
+            }
 
             //Leadership
             grow["Leadership"] = isNotNull("LEAD", tempPeriod);
@@ -676,50 +685,50 @@ namespace ReportCardGenerator.Controller
             PE1 = isNotNullNumericGrade("PHED", tempPeriod, Stud);
             addToList(Stud, isNotNullNumericGrade("PHED", tempPeriod, Stud), "PHED", ListGrade);
             //Art
-            grow["Art"] = isNotNull("ART", tempPeriod);
-            Art1 = isNotNullNumericGrade("ART", tempPeriod, Stud);
-            addToList(Stud, isNotNullNumericGrade("ART", tempPeriod, Stud), "ART", ListGrade);
+            grow["Art"] = isNotNull("ARTS", tempPeriod);
+            Art1 = isNotNullNumericGrade("ARTS", tempPeriod, Stud);
+            addToList(Stud, isNotNullNumericGrade("ARTS", tempPeriod, Stud), "ARTS", ListGrade);
             //Music
             grow["Music"] = isNotNull("MUSI", tempPeriod);
             Music1 = isNotNullNumericGrade("MUSI", tempPeriod, Stud);
             addToList(Stud, isNotNullNumericGrade("MUSI", tempPeriod, Stud), "MUSI", ListGrade);
             //MAPE 
             //If PE, Music and Art are offered
-            if (isOffered("PHED", tempPeriod, Stud) && isOffered("MUSI", tempPeriod, Stud) && isOffered("ART", tempPeriod, Stud))
+            if (isOffered("PHED", tempPeriod, Stud) && isOffered("MUSI", tempPeriod, Stud) && isOffered("ARTS", tempPeriod, Stud))
             {
                 mape1 = (PE1 + Art1 + Music1) / 3;
             }
             //If Music and Art are offered
-            if (!isOffered("PHED", tempPeriod, Stud) && isOffered("MUSI", tempPeriod, Stud) && isOffered("ART", tempPeriod, Stud))
+            if (!isOffered("PHED", tempPeriod, Stud) && isOffered("MUSI", tempPeriod, Stud) && isOffered("ARTS", tempPeriod, Stud))
             {
                 mape1 = (Art1 + Music1) / 2;
             }
             //If PE and Music are offered
-            if (isOffered("PHED", tempPeriod, Stud) && isOffered("MUSI", tempPeriod, Stud) && !isOffered("ART", tempPeriod, Stud))
+            if (isOffered("PHED", tempPeriod, Stud) && isOffered("MUSI", tempPeriod, Stud) && !isOffered("ARTS", tempPeriod, Stud))
             {
                 mape1 = (PE1 + Music1) / 2;
             }
             //If PE and Art are offered                      
-            if (isOffered("PHED", tempPeriod, Stud) && isOffered("ART", tempPeriod, Stud) && !isOffered("MUSI", tempPeriod, Stud))
+            if (isOffered("PHED", tempPeriod, Stud) && isOffered("ARTS", tempPeriod, Stud) && !isOffered("MUSI", tempPeriod, Stud))
             {
                 mape1 = (PE1 + Art1) / 2;
             }
             //If Art is offered and Mustic and PE is not   
-            if (!isOffered("PHED", tempPeriod, Stud) && isOffered("ART", tempPeriod, Stud) && !isOffered("MUSI", tempPeriod, Stud))
+            if (!isOffered("PHED", tempPeriod, Stud) && isOffered("ARTS", tempPeriod, Stud) && !isOffered("MUSI", tempPeriod, Stud))
             {
                 mape1 = Art1;
             }
             //If Music is offered and Art and PE is not  
-            if (!isOffered("PHED", tempPeriod, Stud) && !isOffered("ART", tempPeriod, Stud) && isOffered("MUSI", tempPeriod, Stud))
+            if (!isOffered("PHED", tempPeriod, Stud) && !isOffered("ARTS", tempPeriod, Stud) && isOffered("MUSI", tempPeriod, Stud))
             {
                 mape1 = Music1;
             }
             //If PE is offered and Mustic and Art is not  
-            if (isOffered("PHED", tempPeriod, Stud) && !isOffered("ART", tempPeriod, Stud) && !isOffered("MUSI", tempPeriod, Stud))
+            if (isOffered("PHED", tempPeriod, Stud) && !isOffered("ARTS", tempPeriod, Stud) && !isOffered("MUSI", tempPeriod, Stud))
             {
                 mape1 = PE1;
             }
-            if (!isOffered("PHED", tempPeriod, Stud) && !isOffered("ART", tempPeriod, Stud) && !isOffered("MUSI", tempPeriod, Stud))
+            if (!isOffered("PHED", tempPeriod, Stud) && !isOffered("ARTS", tempPeriod, Stud) && !isOffered("MUSI", tempPeriod, Stud))
             {
                 mape1 = 0;
             }

@@ -27,7 +27,7 @@ namespace ReportCardGenerator.Beans
             drow["Filipino"] = ActionTakenValue(gradeController.getFinal("FILI", StudentId, tempPeriod), Level);
             drow["Computer"] = ActionTakenValue(gradeController.getFinal("COMP", StudentId, tempPeriod), Level);
             drow["Music"] = ActionTakenValue(gradeController.getFinal("MUSI", StudentId, tempPeriod), Level);
-            drow["Art"] = ActionTakenValue(gradeController.getFinal("ART", StudentId, tempPeriod), Level);
+            drow["Art"] = ActionTakenValue(gradeController.getFinal("ARTS", StudentId, tempPeriod), Level);
             drow["PE"] = ActionTakenValue(gradeController.getFinal("PHED", StudentId, tempPeriod), Level);
             drow["Forex"] = ActionTakenValue(gradeController.getFinal("FOREX", StudentId, tempPeriod), Level);
             drow["Religion"] = ActionTakenValue(gradeController.getFinal("RVED", StudentId, tempPeriod), Level);
@@ -121,7 +121,7 @@ namespace ReportCardGenerator.Beans
             drow["Filipino"] = getFinalWeight(Level, "FILI", gradeController.getFinal("FILI", Stud.StudentID, period.PeriodID), Stud.StudentID);
             drow["Computer"] = getFinalWeight(Level, "COMP", gradeController.getFinal("COMP", Stud.StudentID, period.PeriodID), Stud.StudentID);
             drow["Music"] = getFinalWeight(Level, "MUSI", gradeController.getFinal("MUSI", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["Art"] = getFinalWeight(Level, "ART", gradeController.getFinal("ART", Stud.StudentID, period.PeriodID), Stud.StudentID);
+            drow["Art"] = getFinalWeight(Level, "ART", gradeController.getFinal("ARTS", Stud.StudentID, period.PeriodID), Stud.StudentID);
             drow["PE"] = getFinalWeight(Level, "PHED", gradeController.getFinal("PHED", Stud.StudentID, period.PeriodID), Stud.StudentID);
             drow["Forex"] = getFinalWeight(Level, "FORE", gradeController.getFinal("FOREX", Stud.StudentID, period.PeriodID), Stud.StudentID);
             drow["Religion"] = getFinalWeight(Level, "RVED", gradeController.getFinal("RVED", Stud.StudentID, period.PeriodID), Stud.StudentID);

@@ -101,7 +101,7 @@ namespace ReportCardGenerator.Beans
                 HashTables.Grade1.Add("COMP", 0.25);
                 HashTables.Grade1.Add("MAPE", 1.5);
                 HashTables.Grade1.Add("MUSI", 0.5);
-                HashTables.Grade1.Add("ART", 0.5);
+                HashTables.Grade1.Add("ARTS", 0.5);
                 HashTables.Grade1.Add("PHED", 0.5);
                 HashTables.Grade1.Add("RVED", 1);
                 HashTables.Grade1.Add("HOME", 1);
@@ -116,7 +116,7 @@ namespace ReportCardGenerator.Beans
                 HashTables.Grade2.Add("COMP", 0.25);
                 HashTables.Grade2.Add("MAPE", 1.5);
                 HashTables.Grade2.Add("MUSI", 0.5);
-                HashTables.Grade2.Add("ART", 0.5);
+                HashTables.Grade2.Add("ARTS", 0.5);
                 HashTables.Grade2.Add("PHED", 0.5);
                 HashTables.Grade2.Add("RVED", 1);
                 HashTables.Grade2.Add("HOME", 1);
@@ -133,7 +133,7 @@ namespace ReportCardGenerator.Beans
                 HashTables.Grade3.Add("COMP", 0.25);
                 HashTables.Grade3.Add("MAPE", 1);
                 HashTables.Grade3.Add("MUSI", 0.25);
-                HashTables.Grade3.Add("ART", 0.25);
+                HashTables.Grade3.Add("ARTS", 0.25);
                 HashTables.Grade3.Add("PHED", 0.5);
                 HashTables.Grade3.Add("FORE", 0.25);
                 HashTables.Grade3.Add("RVED", 1);
@@ -151,7 +151,7 @@ namespace ReportCardGenerator.Beans
                 HashTables.Grade4.Add("COMP", 0.25);
                 HashTables.Grade4.Add("MAPE", 1);
                 HashTables.Grade4.Add("MUSI", 0.25);
-                HashTables.Grade4.Add("ART", 0.25);
+                HashTables.Grade4.Add("ARTS", 0.25);
                 HashTables.Grade4.Add("PHED", 0.5);
                 HashTables.Grade4.Add("FORE", 0.25);
                 HashTables.Grade4.Add("RVED", 1);
@@ -168,7 +168,7 @@ namespace ReportCardGenerator.Beans
                 HashTables.Grade5.Add("COMP", 0.25);
                 HashTables.Grade5.Add("MAPE", 1);
                 HashTables.Grade5.Add("MUSI", 0.25);
-                HashTables.Grade5.Add("ART", 0.25);
+                HashTables.Grade5.Add("ARTS", 0.25);
                 HashTables.Grade5.Add("PHED", 0.5);
                 HashTables.Grade5.Add("FORE", 0.25);
                 HashTables.Grade5.Add("RVED", 1);
@@ -185,7 +185,7 @@ namespace ReportCardGenerator.Beans
                 HashTables.Grade6.Add("COMP", 0.5);
                 HashTables.Grade6.Add("MAPE", 1.25);
                 HashTables.Grade6.Add("MUSI", 0.25);
-                HashTables.Grade6.Add("ART", 0.25);
+                HashTables.Grade6.Add("ARTS", 0.25);
                 HashTables.Grade6.Add("PHED", 0.75);
                 HashTables.Grade6.Add("FORE", 0.25);
                 HashTables.Grade6.Add("HOME", 0.25);
@@ -205,7 +205,7 @@ namespace ReportCardGenerator.Beans
                 HashTables.Grade7.Add("COMP", 0.5);
                 HashTables.Grade7.Add("MAPE", 1.25);
                 HashTables.Grade7.Add("MUSI", 0.25);
-                HashTables.Grade7.Add("ART", 0.25);
+                HashTables.Grade7.Add("ARTS", 0.25);
                 HashTables.Grade7.Add("PHED", 0.75);
                 HashTables.Grade7.Add("FORE", 0.25);
                 HashTables.Grade7.Add("HOME", 0.25);
@@ -226,7 +226,7 @@ namespace ReportCardGenerator.Beans
                 HashTables.HS1.Add("COMP", 0.5);
                 HashTables.HS1.Add("MAPE", 1.8);
                 HashTables.HS1.Add("MUSI", 0.6);
-                HashTables.HS1.Add("ART", 0.6);
+                HashTables.HS1.Add("ARTS", 0.6);
                 HashTables.HS1.Add("PHED", 0.6);
                 HashTables.HS1.Add("COIN", 0.4);
                 HashTables.HS1.Add("FORE", 0.25);
@@ -249,7 +249,7 @@ namespace ReportCardGenerator.Beans
                 HashTables.HS2.Add("COMP", 0.5);
                 HashTables.HS2.Add("MAPE", 1.2);
                 HashTables.HS2.Add("MUSI", 0.4);
-                HashTables.HS2.Add("ART", 0.4);
+                HashTables.HS2.Add("ARTS", 0.4);
                 HashTables.HS2.Add("PHED", 0.4);
                 HashTables.HS2.Add("COIN", 0.4);
                 HashTables.HS2.Add("FORE", 0.25);
@@ -270,7 +270,7 @@ namespace ReportCardGenerator.Beans
                 HashTables.HS3.Add("COMP", 0.5);
                 HashTables.HS3.Add("MAPE", 1.2);
                 HashTables.HS3.Add("MUSI", 0.4);
-                HashTables.HS3.Add("ART", 0.4);
+                HashTables.HS3.Add("ARTS", 0.4);
                 HashTables.HS3.Add("PHED", 0.4);
                 HashTables.HS3.Add("COIN", 0.4);
                 HashTables.HS3.Add("FORE", 0.25);
@@ -290,7 +290,7 @@ namespace ReportCardGenerator.Beans
                 HashTables.HS4.Add("COMP", 0.5);
                 HashTables.HS4.Add("MAPE", 1.5);
                 HashTables.HS4.Add("MUSI", 0.5);
-                HashTables.HS4.Add("ART", 0.5);
+                HashTables.HS4.Add("ARTS", 0.5);
                 HashTables.HS4.Add("PHED", 0.5);
                 HashTables.HS4.Add("COIN", 0.5);
                 HashTables.HS4.Add("FORE", 0.25);

@@ -368,6 +368,9 @@ namespace ReportCardGenerator.Utilities
             //    System.Windows.Forms.MessageBox.Show(er.Message,"Attendance catcher!!!");
             //}
             #endregion
+            double ab = 0;
+            double ex = 0;
+            double tardy = 0;
             myReader = new StreamReader(doc);
 
             String loadedString = null;
@@ -382,35 +385,21 @@ namespace ReportCardGenerator.Utilities
                 stud.FirstName = studentDetails[1];
                 stud.LastName = studentDetails[2];
 
-                if (studentDetails[3].ToString() != "" && studentDetails[4] != "")
-                {
-                    p.PeriodID = 1;
-                    p.PeriodName = "Term 1";
-                    att.DaysAbsent = Convert.ToInt32(studentDetails[3]) + Convert.ToInt32(studentDetails[4]);
-                    att.DaysTardy = Convert.ToInt32(studentDetails[5]);
-                }
-                else
-                {
-                    p.PeriodID = 1;
-                    p.PeriodName = "Term 1";
-                    att.DaysAbsent = 0;
-                    att.DaysTardy = 0;
-                }
-                //if (studentDetails[5].ToString() != " " && studentDetails[6] != "")
-                //{
-                //    p.PeriodID = 2;
-                //    p.PeriodName = "Term 2";
-                //    att.DaysAbsent = Convert.ToInt32(studentDetails[5]);
-                //    att.DaysTardy = Convert.ToInt32(studentDetails[6]);
-                //}
-                //if (studentDetails[7].ToString() != " " && studentDetails[8] != "")
-                //{
-                //    p.PeriodID = 3;
-                //    p.PeriodName = "Term 3";
-                //    att.DaysAbsent = Convert.ToInt32(studentDetails[7]);
-                //    att.DaysTardy = Convert.ToInt32(studentDetails[8]);
-                //}
-                controller.addOrUpdateAttendance(controller.getStudent(stud.StudentID),att,p);
+                if (studentDetails[3].ToString() != "") ex = Convert.ToDouble(studentDetails[3]);
+                else ex = 0;
+
+                if (studentDetails[4].ToString() != "") ab = Convert.ToDouble(studentDetails[4]);
+                else ab = 0;
+
+                if (studentDetails[5].ToString() != "") tardy = Convert.ToDouble(studentDetails[5]);
+                else tardy = 0;
+
+                p.PeriodID = 1;
+                p.PeriodName = "Term 1";
+                att.DaysAbsent = ex + ab;
+                att.DaysTardy = tardy;
+
+                controller.addOrUpdateAttendance(controller.getStudent(stud.StudentID), att, p);
             }
             myReader.Close();
 

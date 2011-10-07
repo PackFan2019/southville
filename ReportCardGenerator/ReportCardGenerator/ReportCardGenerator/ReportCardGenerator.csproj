@@ -18,7 +18,7 @@
     <SignManifests>true</SignManifests>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
-    <PublishUrl>\\sisc-erelim\4_Printing\Romyr\ReportCard\</PublishUrl>
+    <PublishUrl>\\sisc-erelim\4_Printing\Romyr\ReportCardGeneratorV2\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -28,10 +28,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl>\\sisc-erelim\4_Printing\Romyr\ReportCard\</UpdateUrl>
+    <UpdateUrl>\\sisc-erelim\4_Printing\Romyr\ReportCardGeneratorV2\</UpdateUrl>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>93</ApplicationRevision>
+    <ApplicationRevision>95</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
