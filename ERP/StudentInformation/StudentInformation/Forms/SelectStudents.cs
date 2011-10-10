@@ -29,7 +29,8 @@ namespace StudentInformation.Forms
         private String filterreligion = " ";
         private String filterNationality = " ";
         public String filterLastSchoolAtt = "All";
-
+        public static String id = null;
+        public static String name = null;
         private UpdateStudent loadUpdateScreen = new UpdateStudent();
         public Customer selectedStudent = new Customer();
         public DialogResult result;
@@ -278,6 +279,8 @@ namespace StudentInformation.Forms
                SQLData.getInstance().getExtenderDatabuffer(Constants.WINDOW_EXT_ID, Constants.LASTSCHOOL_FIELD_ID);
             Dictionary<String, DateTime> birthdays =
                 SQLData.getInstance().getExtenderDates(Constants.WINDOW_EXT_ID, Constants.BIRTHDAY_FIELD_ID);
+            Dictionary<String, DateTime> dateEnrolled =
+                SQLData.getInstance().getExtenderDates(Constants.WINDOW_EXT_ID, Constants.LASTENROLLEDDATE_FIELD_ID);
             Dictionary<String, String> nationalities =
                 SQLData.getInstance().getExtenderDatabuffer(Constants.WINDOW_EXT_ID, Constants.NATIONALITY_FIELD_ID);
             Dictionary<String, String> religions =
@@ -297,13 +300,16 @@ namespace StudentInformation.Forms
                     customer.Level = SQLData.getInstance().getExtenderDataIfExists(customer.CustomerID, levels);
                     customer.Section = SQLData.getInstance().getExtenderDataIfExists(customer.CustomerID, sections);
                     customer.EmailAddress = SQLData.getInstance().getExtenderDataIfExists(customer.CustomerID, emails);
-
+                    DateTime enrolled = SQLData.getInstance().getExtenderBdayIfExists(customer.CustomerID, dateEnrolled);
                     DateTime bday = SQLData.getInstance().getExtenderBdayIfExists(customer.CustomerID, birthdays);
                     if (bday != null)
                     {
                         customer.Birthday = Convert.ToDateTime(bday);
                     }
                     else { customer.Birthday = Convert.ToDateTime(null); }
+                    if (enrolled != null)
+                        customer.LastEnrolledDate = Convert.ToDateTime(enrolled);
+                    else customer.LastEnrolledDate = Convert.ToDateTime(null);
                     customer.LastSchAttended = SQLData.getInstance().getExtenderDataIfExists(customer.CustomerID, lastSchoolAtt);
                     customer.Nationality = SQLData.getInstance().getExtenderDataIfExists(customer.CustomerID, nationalities);
                     customer.Religion = SQLData.getInstance().getExtenderDataIfExists(customer.CustomerID, religions);
@@ -319,15 +325,15 @@ namespace StudentInformation.Forms
         }
         private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentCell != null)
-            {
-                int i = dataGridView1.CurrentCell.RowIndex;
-                String id = dataGridView1[0, i].Value.ToString();
-                String name = dataGridView1[3, i].Value.ToString();
-                selectedStudent.CustomerID = id;
-                selectedStudent.CustomerName = name;
-                label1.Text = "Current selected student: " + name;
-            }
+            //if (dataGridView1.CurrentCell != null)
+            //{
+            //    int i = dataGridView1.CurrentCell.RowIndex;
+            //    id = dataGridView1[0, i].Value.ToString();
+            //    name = dataGridView1[2, i].Value.ToString();
+            //    selectedStudent.CustomerID = id;
+            //    selectedStudent.CustomerName = name;
+            //    label1.Text = "Current selected student: " + name;
+            //}
         }
 
         private void refreshBtn_Click(object sender, EventArgs e)
@@ -586,6 +592,19 @@ namespace StudentInformation.Forms
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.CurrentCell != null)
+            {
+                int i = dataGridView1.CurrentCell.RowIndex;
+                id = dataGridView1[0, i].Value.ToString();
+                name = dataGridView1[2, i].Value.ToString();
+                selectedStudent.CustomerID = id;
+                selectedStudent.CustomerName = name;
+                label1.Text = "Current selected student: " + name;
+            }
         }
     }
 }

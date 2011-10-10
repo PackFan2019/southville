@@ -310,8 +310,6 @@ namespace StudentInformation.Datasets {
             
             private global::System.Data.DataColumn columnEmailAddress;
             
-            private global::System.Data.DataColumn columnGender;
-            
             private global::System.Data.DataColumn columnGuardians;
             
             private global::System.Data.DataColumn columnAddress;
@@ -327,6 +325,8 @@ namespace StudentInformation.Datasets {
             private global::System.Data.DataColumn columnReligion;
             
             private global::System.Data.DataColumn columnAge;
+            
+            private global::System.Data.DataColumn columnGender;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public StudentDataTable() {
@@ -415,13 +415,6 @@ namespace StudentInformation.Datasets {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn GenderColumn {
-                get {
-                    return this.columnGender;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public global::System.Data.DataColumn GuardiansColumn {
                 get {
                     return this.columnGuardians;
@@ -478,6 +471,13 @@ namespace StudentInformation.Datasets {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn GenderColumn {
+                get {
+                    return this.columnGender;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -515,7 +515,6 @@ namespace StudentInformation.Datasets {
                         string MiddleName, 
                         string LastName, 
                         string EmailAddress, 
-                        string Gender, 
                         string Guardians, 
                         string Address, 
                         string Phone1, 
@@ -523,7 +522,8 @@ namespace StudentInformation.Datasets {
                         string Nationality, 
                         string DualNationality, 
                         string Religion, 
-                        string Age) {
+                        string Age, 
+                        string Gender) {
                 StudentRow rowStudentRow = ((StudentRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CustomerID,
@@ -534,7 +534,6 @@ namespace StudentInformation.Datasets {
                         MiddleName,
                         LastName,
                         EmailAddress,
-                        Gender,
                         Guardians,
                         Address,
                         Phone1,
@@ -542,7 +541,8 @@ namespace StudentInformation.Datasets {
                         Nationality,
                         DualNationality,
                         Religion,
-                        Age};
+                        Age,
+                        Gender};
                 rowStudentRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStudentRow);
                 return rowStudentRow;
@@ -576,7 +576,6 @@ namespace StudentInformation.Datasets {
                 this.columnMiddleName = base.Columns["MiddleName"];
                 this.columnLastName = base.Columns["LastName"];
                 this.columnEmailAddress = base.Columns["EmailAddress"];
-                this.columnGender = base.Columns["Gender"];
                 this.columnGuardians = base.Columns["Guardians"];
                 this.columnAddress = base.Columns["Address"];
                 this.columnPhone1 = base.Columns["Phone1"];
@@ -585,6 +584,7 @@ namespace StudentInformation.Datasets {
                 this.columnDualNationality = base.Columns["DualNationality"];
                 this.columnReligion = base.Columns["Religion"];
                 this.columnAge = base.Columns["Age"];
+                this.columnGender = base.Columns["Gender"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -605,8 +605,6 @@ namespace StudentInformation.Datasets {
                 base.Columns.Add(this.columnLastName);
                 this.columnEmailAddress = new global::System.Data.DataColumn("EmailAddress", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEmailAddress);
-                this.columnGender = new global::System.Data.DataColumn("Gender", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnGender);
                 this.columnGuardians = new global::System.Data.DataColumn("Guardians", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGuardians);
                 this.columnAddress = new global::System.Data.DataColumn("Address", typeof(string), null, global::System.Data.MappingType.Element);
@@ -623,6 +621,8 @@ namespace StudentInformation.Datasets {
                 base.Columns.Add(this.columnReligion);
                 this.columnAge = new global::System.Data.DataColumn("Age", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAge);
+                this.columnGender = new global::System.Data.DataColumn("Gender", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGender);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCustomerID}, true));
                 this.columnCustomerID.AllowDBNull = false;
@@ -1123,21 +1123,6 @@ namespace StudentInformation.Datasets {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string Gender {
-                get {
-                    try {
-                        return ((string)(this[this.tableStudent.GenderColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Gender\' in table \'Student\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableStudent.GenderColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string Guardians {
                 get {
                     try {
@@ -1258,6 +1243,21 @@ namespace StudentInformation.Datasets {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Gender {
+                get {
+                    try {
+                        return ((string)(this[this.tableStudent.GenderColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Gender\' in table \'Student\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStudent.GenderColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsCustomerNameNull() {
                 return this.IsNull(this.tableStudent.CustomerNameColumn);
             }
@@ -1325,16 +1325,6 @@ namespace StudentInformation.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetEmailAddressNull() {
                 this[this.tableStudent.EmailAddressColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsGenderNull() {
-                return this.IsNull(this.tableStudent.GenderColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetGenderNull() {
-                this[this.tableStudent.GenderColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1415,6 +1405,16 @@ namespace StudentInformation.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetAgeNull() {
                 this[this.tableStudent.AgeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsGenderNull() {
+                return this.IsNull(this.tableStudent.GenderColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetGenderNull() {
+                this[this.tableStudent.GenderColumn] = global::System.Convert.DBNull;
             }
         }
         

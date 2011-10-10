@@ -200,6 +200,8 @@ namespace StudentInformation.Forms
             foreach (Customer c in AllStudents)
             {
                 int age = DateTime.Now.Year - c.Birthday.Year;
+                int month = DateTime.Now.Month - c.Birthday.Month;
+                
                 DataRow cRow = ds.Student.NewRow();
                 cRow["CustomerID"] = c.CustomerID;
                 cRow["FirstName"] = c.FirstName;
@@ -210,12 +212,34 @@ namespace StudentInformation.Forms
                 //cRow["Section"] = c.Section;
                 //cRow["Guardians"] = c.BillTo;
                 cRow["Address"] = c.CustomerAddress.AddressString;
-                cRow["Age"] = age;
+                if (month < 0)
+                    cRow["Age"] = (age.ToString() + " " + getFraction(getMonthValue((month = (month * 2) + month))));
+                else cRow["Age"] = (age.ToString() + " " + getFraction(getMonthValue(month)));
                 ds.Student.Rows.Add(cRow);
             }
             rpt.SetDataSource(ds);
             crystalReportViewer1.ReportSource = rpt;
             crystalReportViewer1.Refresh();
+        }
+        private int getMonthValue(int month)
+        {
+            int value;
+            if (month <= 3)
+                value = 1;
+            else if (month > 3 && month <= 6)
+                value = 2;
+            else // if (month > 6 && month <= 11)
+                value = 3;
+
+            return value;
+        }
+        private String getFraction(int value)
+        {
+            String result;
+            if (value.Equals(2))
+                result = "1/2";
+            else result = value + "/4";
+            return result;
         }
     }
 }

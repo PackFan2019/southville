@@ -55,11 +55,11 @@ namespace StudentInformation.Forms
         }
         private void loadAccount()
         {
-            Account account = new Account();
-            using (StreamReader reader = new StreamReader(@"\\sisc-ishim\Soft_Mind\REGISTRATION OFFICIAL FOLDER\sample.txt"))
-            {
-                MessageBox.Show(reader.ReadLine());
-            }
+            //Account account = new Account();
+            //using (StreamReader reader = new StreamReader(@"\\sisc-ishim\Soft_Mind\REGISTRATION OFFICIAL FOLDER\sample.txt"))
+            //{
+            //    //MessageBox.Show(reader.ReadLine());
+            //}
         }
         private void loadCustomerDetails()
         {

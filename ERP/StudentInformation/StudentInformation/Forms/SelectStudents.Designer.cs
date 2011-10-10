@@ -38,7 +38,6 @@
             this.StudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Birthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +49,7 @@
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nationality = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Religion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateEnrolled = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.searchByLastSchoolAttcb = new System.Windows.Forms.ComboBox();
@@ -113,7 +113,6 @@
             this.StudentID,
             this.LastName,
             this.FirstName,
-            this.StudentName,
             this.Birthday,
             this.Type,
             this.StudentStatus,
@@ -124,7 +123,8 @@
             this.Section,
             this.Address,
             this.Nationality,
-            this.Religion});
+            this.Religion,
+            this.DateEnrolled});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -148,6 +148,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(950, 658);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -171,13 +172,6 @@
             this.FirstName.HeaderText = "FirstName";
             this.FirstName.Name = "FirstName";
             this.FirstName.ReadOnly = true;
-            // 
-            // StudentName
-            // 
-            this.StudentName.DataPropertyName = "CustomerName";
-            this.StudentName.HeaderText = "StudentName";
-            this.StudentName.Name = "StudentName";
-            this.StudentName.ReadOnly = true;
             // 
             // Birthday
             // 
@@ -258,6 +252,13 @@
             this.Religion.HeaderText = "Religion";
             this.Religion.Name = "Religion";
             this.Religion.ReadOnly = true;
+            // 
+            // DateEnrolled
+            // 
+            this.DateEnrolled.DataPropertyName = "LastEnrolledDate";
+            this.DateEnrolled.HeaderText = "Date Enrolled";
+            this.DateEnrolled.Name = "DateEnrolled";
+            this.DateEnrolled.ReadOnly = true;
             // 
             // label1
             // 
@@ -710,7 +711,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StudentName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Birthday;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentStatus;
@@ -722,5 +722,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nationality;
         private System.Windows.Forms.DataGridViewTextBoxColumn Religion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateEnrolled;
     }
 }
