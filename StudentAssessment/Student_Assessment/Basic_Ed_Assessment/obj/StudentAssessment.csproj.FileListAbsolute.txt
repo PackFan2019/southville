@@ -141,3 +141,9 @@ D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\
 D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.frmStudentsPerSubjectParameters.resources
 D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.frmChooseForm.resources
 D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\obj\Release\StudentAssessment.frmEnrolledSubjectsParameters.resources
+D:\DATA on D\SISC\project\Southville\working folder\Student_Assessment\Basic_Ed_Assessment\bin\Release\Student Assessment.exe.config
+D:\DATA on D\SISC\project\Southville\working folder\Student_Assessment\Basic_Ed_Assessment\obj\Release\Student Assessment.exe
+D:\DATA on D\SISC\project\Southville\working folder\Student_Assessment\Basic_Ed_Assessment\obj\Release\Student Assessment.pdb
+D:\DATA on D\SISC\project\Southville\working folder\Student_Assessment\Basic_Ed_Assessment\bin\Debug\Student Assessment.exe.config
+D:\DATA on D\SISC\project\Southville\working folder\Student_Assessment\Basic_Ed_Assessment\obj\Debug\Student Assessment.exe
+D:\DATA on D\SISC\project\Southville\working folder\Student_Assessment\Basic_Ed_Assessment\obj\Debug\Student Assessment.pdb

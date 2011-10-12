@@ -218,3 +218,73 @@ ERROR 2011-04-27 14:10:03,229 [9] StudentAssessment.frmReportViewer [(null)] - S
    at StudentAssessment.frmReportViewer.displayReport(ReportClass report, KeyValuePair`2[] reportParameters) in D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\frmReportViewer.cs:line 53 - displayReport 57 
 ERROR 2011-04-27 14:10:52,177 [9] StudentAssessment.frmReportViewer [(null)] - System.Exception: Exception of type 'System.Exception' was thrown.
    at StudentAssessment.frmReportViewer.displayReport(ReportClass report, KeyValuePair`2[] reportParameters) in D:\DATA on D\SISC\project\Southville\Student_Assessment\Basic_Ed_Assessment\frmReportViewer.cs:line 53 - displayReport 57 
+ERROR 2011-10-12 06:44:51,361 [11] StudentAssessment.Data.TransactionData [(null)] - Microsoft.Dynamics.GP.eConnect.eConnectException: Sql procedure error codes returned:
+Error Number = 106  Stored Procedure taSopLineIvcInsert  Error Description = Location code does not exist in inventory
+Node Identifier Parameters: taSopLineIvcInsert                                 
+SOPNUMBE = 000010
+SOPTYPE = 3
+Related Error Code Parameters for Node : taSopLineIvcInsert                                 
+LOCNCODE = WAREHOUSE
+
+
+Error Number = 110  Stored Procedure taSopLineIvcInsert  Error Description = Item number/location code does not exist in inventory
+Node Identifier Parameters: taSopLineIvcInsert                                 
+SOPNUMBE = 000010
+SOPTYPE = 3
+Related Error Code Parameters for Node : taSopLineIvcInsert                                 
+LOCNCODE = WAREHOUSE
+NONINVEN =  Note: This parameter was not passed in, no value for the parameter will be returned. 
+ITEMNMBR = UNT-SISC-20--0004
+
+
+<taSopLineIvcInsert><SOPTYPE>3</SOPTYPE><SOPNUMBE>000010</SOPNUMBE><CUSTNMBR>TEST</CUSTNMBR><DOCDATE>10/12/2011</DOCDATE><LOCNCODE>WAREHOUSE</LOCNCODE><ITEMNMBR>UNT-SISC-20--0004</ITEMNMBR><UNITPRCE>1260.00</UNITPRCE><XTNDPRCE>3780.00</XTNDPRCE><QUANTITY>3</QUANTITY><MRKDNPCT>0.00</MRKDNPCT><PRCLEVEL>RETAIL</PRCLEVEL><ITEMDESC>GenEd Unit</ITEMDESC><DOCID>INV</DOCID><UOFM>Unit</UOFM></taSopLineIvcInsert> ---> Microsoft.Dynamics.GP.eConnect.eConnectException: Error Number = 106  Stored Procedure taSopLineIvcInsert  Error Description = Location code does not exist in inventory
+Error Number = 110  Stored Procedure taSopLineIvcInsert  Error Description = Item number/location code does not exist in inventory
+
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at Microsoft.Dynamics.GP.eConnect.eConnectMethods.eConnect_EntryPoint(String ConnectionString, ConnectionStringType ConnectionType, String sXML, SchemaValidationType ValidationType, String eConnectSchema)
+   at System.Runtime.Remoting.Messaging.StackBuilderSink._PrivateProcessMessage(IntPtr md, Object[] args, Object server, Int32 methodPtr, Boolean fExecuteInContext, Object[]& outArgs)
+   at System.Runtime.Remoting.Messaging.StackBuilderSink.PrivateProcessMessage(RuntimeMethodHandle md, Object[] args, Object server, Int32 methodPtr, Boolean fExecuteInContext, Object[]& outArgs)
+   at System.Runtime.Remoting.Messaging.StackBuilderSink.SyncProcessMessage(IMessage msg, Int32 methodPtr, Boolean fExecuteInContext)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Microsoft.Dynamics.GP.eConnect.eConnectMethods.eConnect_EntryPoint(String ConnectionString, ConnectionStringType ConnectionType, String sXML, SchemaValidationType ValidationType, String eConnectSchema)
+   at StudentAssessment.Data.TransactionData.saveToSOP(Transaction assessment, String documentID, String defaultSiteID) in C:\Documents and Settings\Administrator\Desktop\working folder\Student_Assessment\Data\TransactionData.cs:line 122 - saveToSOP 129 
+ERROR 2011-10-12 06:44:51,962 [11] StudentAssessment.frmAssessment [(null)] - Microsoft.Dynamics.GP.eConnect.eConnectException: Sql procedure error codes returned:
+Error Number = 106  Stored Procedure taSopLineIvcInsert  Error Description = Location code does not exist in inventory
+Node Identifier Parameters: taSopLineIvcInsert                                 
+SOPNUMBE = 000010
+SOPTYPE = 3
+Related Error Code Parameters for Node : taSopLineIvcInsert                                 
+LOCNCODE = WAREHOUSE
+
+
+Error Number = 110  Stored Procedure taSopLineIvcInsert  Error Description = Item number/location code does not exist in inventory
+Node Identifier Parameters: taSopLineIvcInsert                                 
+SOPNUMBE = 000010
+SOPTYPE = 3
+Related Error Code Parameters for Node : taSopLineIvcInsert                                 
+LOCNCODE = WAREHOUSE
+NONINVEN =  Note: This parameter was not passed in, no value for the parameter will be returned. 
+ITEMNMBR = UNT-SISC-20--0004
+
+
+<taSopLineIvcInsert><SOPTYPE>3</SOPTYPE><SOPNUMBE>000010</SOPNUMBE><CUSTNMBR>TEST</CUSTNMBR><DOCDATE>10/12/2011</DOCDATE><LOCNCODE>WAREHOUSE</LOCNCODE><ITEMNMBR>UNT-SISC-20--0004</ITEMNMBR><UNITPRCE>1260.00</UNITPRCE><XTNDPRCE>3780.00</XTNDPRCE><QUANTITY>3</QUANTITY><MRKDNPCT>0.00</MRKDNPCT><PRCLEVEL>RETAIL</PRCLEVEL><ITEMDESC>GenEd Unit</ITEMDESC><DOCID>INV</DOCID><UOFM>Unit</UOFM></taSopLineIvcInsert> ---> Microsoft.Dynamics.GP.eConnect.eConnectException: Error Number = 106  Stored Procedure taSopLineIvcInsert  Error Description = Location code does not exist in inventory
+Error Number = 110  Stored Procedure taSopLineIvcInsert  Error Description = Item number/location code does not exist in inventory
+
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at Microsoft.Dynamics.GP.eConnect.eConnectMethods.eConnect_EntryPoint(String ConnectionString, ConnectionStringType ConnectionType, String sXML, SchemaValidationType ValidationType, String eConnectSchema)
+   at System.Runtime.Remoting.Messaging.StackBuilderSink._PrivateProcessMessage(IntPtr md, Object[] args, Object server, Int32 methodPtr, Boolean fExecuteInContext, Object[]& outArgs)
+   at System.Runtime.Remoting.Messaging.StackBuilderSink.PrivateProcessMessage(RuntimeMethodHandle md, Object[] args, Object server, Int32 methodPtr, Boolean fExecuteInContext, Object[]& outArgs)
+   at System.Runtime.Remoting.Messaging.StackBuilderSink.SyncProcessMessage(IMessage msg, Int32 methodPtr, Boolean fExecuteInContext)
+
+Exception rethrown at [0]: 
+   at StudentAssessment.Data.TransactionData.saveToSOP(Transaction assessment, String documentID, String defaultSiteID) in C:\Documents and Settings\Administrator\Desktop\working folder\Student_Assessment\Data\TransactionData.cs:line 130
+   at StudentAssessment.Data.TransactionData.SaveTransaction(Transaction assessment, String documentID, String defaultSiteID) in C:\Documents and Settings\Administrator\Desktop\working folder\Student_Assessment\Data\TransactionData.cs:line 136
+   at StudentAssessment.Adapter.TransactionAdapter.SaveTransaction(Transaction transaction, String documentID, String defaultSiteID) in C:\Documents and Settings\Administrator\Desktop\working folder\Student_Assessment\Adapter\TransactionAdapter.cs:line 39
+   at StudentAssessment.frmAssessment.btnPrint_Click(Object sender, EventArgs e) in C:\Documents and Settings\Administrator\Desktop\working folder\Student_Assessment\Basic_Ed_Assessment\frmAssessment.cs:line 493 - btnPrint_Click 536 
