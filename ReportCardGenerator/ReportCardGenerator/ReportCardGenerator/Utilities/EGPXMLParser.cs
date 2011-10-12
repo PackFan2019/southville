@@ -230,7 +230,7 @@ namespace ReportCardGenerator.Utilities
                     period.PeriodID = 1;
                     period.PeriodName = "Term 1";
                     controller.addOrUpdatePeriod(controller.getStudent(stud.StudentID), period);
-                    if (studentDetails[8] != "")
+                    if (studentDetails[8] != "" && studentDetails[9] != "")
                     {
                         Grade.SubjectID = studentDetails[4].Substring(0, 4);
                         //Grade.SubjectID = studentDetails[4];
@@ -241,7 +241,7 @@ namespace ReportCardGenerator.Utilities
                     {
                         Grade.SubjectID = studentDetails[4].Substring(0, 4);
                         //Grade.SubjectID = studentDetails[4];
-                        Grade.LetterGrade = ""; 
+                        Grade.LetterGrade = "N/A"; 
                         Grade.NumericGrade = 0; 
                     }
                     controller.addOrUpdateGrade(controller.getStudent(stud.StudentID), Grade, controller.getPeriod(controller.getStudent(stud), period.PeriodID));

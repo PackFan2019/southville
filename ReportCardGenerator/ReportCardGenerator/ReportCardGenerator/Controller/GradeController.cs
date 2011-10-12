@@ -592,29 +592,29 @@ namespace ReportCardGenerator.Controller
             //    addToList(Stud, isNotNullNumericGrade("HOME", tempPeriod, Stud), "HOME", ListGrade);
             //}
             //Economics and Investments
-            grow["EntrepAcc"] = isNotNull("ECON", tempPeriod);
-            entrep1 = isNotNullNumericGrade("ECON", tempPeriod, Stud);
-            addToList(Stud, isNotNullNumericGrade("ECON", tempPeriod, Stud), "ECON", ListGrade);
+            grow["EntrepAcc"] = isNotNull("BUSI", tempPeriod);
+            entrep1 = isNotNullNumericGrade("BUSI", tempPeriod, Stud);
+            addToList(Stud, isNotNullNumericGrade("BUSI", tempPeriod, Stud), "BUSI", ListGrade);
 
             if (StudReportCard.source != "Upper School III-ILC" || StudReportCard.source != "Upper School IV-ILC" || StudReportCard.source != "Upper School II-ILC" || StudReportCard.source != "Upper School I-ILC")
             {
-                if (isOffered("ECON", tempPeriod, Stud) && !isOffered("COMP", tempPeriod, Stud) && !isOffered("HOME", tempPeriod, Stud))
+                if (isOffered("BUSI", tempPeriod, Stud) && !isOffered("COMP", tempPeriod, Stud) && !isOffered("HOME", tempPeriod, Stud))
                 {
                     BTA1 = entrep1;
                 }
-                else if (isOffered("COMP", tempPeriod, Stud) && !isOffered("ECON", tempPeriod, Stud) && !isOffered("HOME", tempPeriod, Stud))
+                else if (isOffered("COMP", tempPeriod, Stud) && !isOffered("BUSI", tempPeriod, Stud) && !isOffered("HOME", tempPeriod, Stud))
                 {
                     BTA1 = comp1;
                 }
-                else if (isOffered("HOME", tempPeriod, Stud) && !isOffered("ECON", tempPeriod, Stud) && !isOffered("COMP", tempPeriod, Stud))
+                else if (isOffered("HOME", tempPeriod, Stud) && !isOffered("BUSI", tempPeriod, Stud) && !isOffered("COMP", tempPeriod, Stud))
                 {
                     BTA1 = homeEco1;
                 }
-                else if (isOffered("ECON", tempPeriod, Stud) && isOffered("COMP", tempPeriod, Stud))
+                else if (isOffered("BUSI", tempPeriod, Stud) && isOffered("COMP", tempPeriod, Stud))
                 {
                     BTA1 = (entrep1 + comp1) / 2;
                 }
-                else if (isOffered("ECON", tempPeriod, Stud) && isOffered("HOME", tempPeriod, Stud))
+                else if (isOffered("BUSI", tempPeriod, Stud) && isOffered("HOME", tempPeriod, Stud))
                 {
                     BTA1 = (entrep1 + homeEco1) / 2;
                 }
@@ -622,7 +622,7 @@ namespace ReportCardGenerator.Controller
                 {
                     BTA1 = (comp1 + homeEco1) / 2;
                 }
-                else if (!isOffered("COMP", tempPeriod, Stud) && !isOffered("HOME", tempPeriod, Stud) && !isOffered("ECON", tempPeriod, Stud))
+                else if (!isOffered("COMP", tempPeriod, Stud) && !isOffered("HOME", tempPeriod, Stud) && !isOffered("BUSI", tempPeriod, Stud))
                 {
                     BTA1 = 0;
                 }
@@ -755,18 +755,18 @@ namespace ReportCardGenerator.Controller
             //Religion/Values
             if (tempPeriod.Grades.Find(delegate(Grade g) { return g.SubjectID.Equals("RVED1"); }) != null)
             {
-                grow["Religion"] = isNotNull("RVED1", tempPeriod);
-                addToList(Stud, isNotNullNumericGrade("RVED1", tempPeriod, Stud), "RVED", ListGrade);
+                grow["Religion"] = isNotNull("RVED", tempPeriod);
+                addToList(Stud, isNotNullNumericGrade("RVED", tempPeriod, Stud), "RVED", ListGrade);
             }
-            if (tempPeriod.Grades.Find(delegate(Grade g) { return g.SubjectID.Equals("RVED2"); }) != null)
+            if (tempPeriod.Grades.Find(delegate(Grade g) { return g.SubjectID.Equals("RVED"); }) != null)
             {
-                grow["Religion"] = isNotNull("RVED2", tempPeriod);
-                addToList(Stud, isNotNullNumericGrade("RVED2", tempPeriod, Stud), "RVED", ListGrade);
+                grow["Religion"] = isNotNull("RVED", tempPeriod);
+                addToList(Stud, isNotNullNumericGrade("RVED", tempPeriod, Stud), "RVED", ListGrade);
             }
-            if (tempPeriod.Grades.Find(delegate(Grade g) { return g.SubjectID.Equals("RVED3"); }) != null)
+            if (tempPeriod.Grades.Find(delegate(Grade g) { return g.SubjectID.Equals("RVED"); }) != null)
             {
-                grow["Religion"] = isNotNull("RVED3", tempPeriod);
-                addToList(Stud, isNotNullNumericGrade("RVED3", tempPeriod, Stud), "RVED", ListGrade);
+                grow["Religion"] = isNotNull("RVED", tempPeriod);
+                addToList(Stud, isNotNullNumericGrade("RVED", tempPeriod, Stud), "RVED", ListGrade);
             }
 
             //Religion for Grade 1 and Grade 2
@@ -781,15 +781,15 @@ namespace ReportCardGenerator.Controller
             addToList(Stud, isNotNullNumericGrade("DEPO", tempPeriod, Stud), "DEPO", ListGrade);
 
             //FOREX
-            if (tempPeriod.Grades.Find(delegate(Grade g) { return g.SubjectID.Equals("CHIN"); }) != null)
+            if (tempPeriod.Grades.Find(delegate(Grade g) { return g.SubjectID.Equals("FORE"); }) != null)
             {
-                grow["Forex"] = isNotNull("CHIN", tempPeriod);
-                addToList(Stud, isNotNullNumericGrade("CHIN", tempPeriod, Stud), "FOREX", ListGrade);
+                grow["Forex"] = isNotNull("FORE", tempPeriod);
+                addToList(Stud, isNotNullNumericGrade("FORE", tempPeriod, Stud), "FOREX", ListGrade);
             }
-            if (tempPeriod.Grades.Find(delegate(Grade g) { return g.SubjectID.Equals("FREN"); }) != null)
+            if (tempPeriod.Grades.Find(delegate(Grade g) { return g.SubjectID.Equals("FORE"); }) != null)
             {
-                grow["Forex"] = isNotNull("FREN", tempPeriod);
-                addToList(Stud, isNotNullNumericGrade("FREN", tempPeriod, Stud), "FOREX", ListGrade);
+                grow["Forex"] = isNotNull("FORE", tempPeriod);
+                addToList(Stud, isNotNullNumericGrade("FORE", tempPeriod, Stud), "FOREX", ListGrade);
             }
             //Physics
             grow["Physics"] = isNotNull("PHYS", tempPeriod);
