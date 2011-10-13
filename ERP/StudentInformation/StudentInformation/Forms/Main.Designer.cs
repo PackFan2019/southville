@@ -446,7 +446,6 @@
             // 
             // levelCombobox
             // 
-            this.levelCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.levelCombobox.FormattingEnabled = true;
             this.levelCombobox.Items.AddRange(new object[] {
             "Not applicable",
