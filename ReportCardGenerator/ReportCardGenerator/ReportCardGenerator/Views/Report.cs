@@ -326,7 +326,6 @@ namespace ReportCardGenerator.Views
             }
             this.Text = GradeSec + " " + "Report Card";
         }
-
         private void crystalReportViewer1_Load(object sender, EventArgs e)
         {
             SubjectUnit.loadUnit();
@@ -388,7 +387,7 @@ namespace ReportCardGenerator.Views
 
                                 DataRow SkillTerm2Row = DS.Skillterm2.NewRow();
                                 DS.Skillterm2.Rows.Add(gradeController.loadSkills(tempPeriod, Stud.StudentID, SkillTerm2Row, FinalComp.ListSkillTerm2));
-                                
+
 
                                 honorController.ComputeTermsHonors(DS.HonorsTerm2, Stud.StudentID, Stud.Level, FinalComp.ListGradeTerm2, tempPeriod.PeriodID);
                                 honorController.ComputeTermsFormat(DS.HonorsFormat2, tempPeriod.PeriodID, Stud.Level, Stud.StudentID);
@@ -405,7 +404,7 @@ namespace ReportCardGenerator.Views
 
                                 DataRow SkillFinalCompRow = DS.SkillFinal.NewRow();
                                 DS.SkillFinal.Rows.Add(gradeController.SkillsFinalComputation(Stud.StudentID,SkillFinalCompRow));
-                                
+
                                 honorController.ComputeTermsHonors(DS.HonorsFinals, Stud.StudentID, Stud.Level, FinalComp.ListGradeFinal, tempPeriod.PeriodID);
                                 honorController.ComputeTermsFormat(DS.HonorsFormat3, tempPeriod.PeriodID, Stud.Level, Stud.StudentID);
 
@@ -1420,7 +1419,7 @@ namespace ReportCardGenerator.Views
                     break;
                 case "MUSI": result = "Music";
                     break;
-                case "ART": result = "Art";
+                case "ARTS": result = "Art";
                     break;
                 case "PHED": result = "PE";
                     break;
@@ -1785,6 +1784,62 @@ namespace ReportCardGenerator.Views
             DepEd menu = new DepEd();
             menu.loadDepEdReport(rpt);
             menu.ShowDialog();
+        }
+
+        private void gradeSchoolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void termGradeDistributionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            List<String> subject = new List<string>();
+            subject.Add("MATH");
+            subject.Add("SCIE");
+            subject.Add("ENGL");
+            subject.Add("SLGE");
+            subject.Add("HIST");
+            subject.Add("LEAD");
+            subject.Add("FILI");
+            subject.Add("BTA");
+            subject.Add("ECON");
+            subject.Add("COMP");
+            subject.Add("MAPE");
+            subject.Add("MUSI");
+            subject.Add("ARTS");
+            subject.Add("PHED");
+            subject.Add("COIN");
+            subject.Add("FORE");
+            subject.Add("HOME");
+            subject.Add("RVED");
+            subject.Add("SHOP");
+            subject.Add("HRLI");
+            subject.Add("PHYS");
+
+            getCount(subject);
+
+            GWA rpt = new GWA();
+            DepEd menu = new DepEd();
+            menu.loadDepEdReport(rpt);
+            menu.ShowDialog();
+
+        }
+        private void getCount(List<String> subjectList)
+        {
+            int a = 0;
+            
+            foreach (String s in subjectList)
+            {
+                DataRow gRow = DS.GWA.NewRow();
+                gRow["SubjectId"] = Translate(s);
+                gRow["VS"] = gwa.gradeList.FindAll(delegate(gwa g) { return g.SubjectId.Equals(s) && g.SubjectGrade.Equals("VS"); }).Count.ToString();
+                gRow["S"] = gwa.gradeList.FindAll(delegate(gwa g) { return g.SubjectId.Equals(s) && g.SubjectGrade.Equals("S"); }).Count.ToString();
+                gRow["AA"] = gwa.gradeList.FindAll(delegate(gwa g) { return g.SubjectId.Equals(s) && g.SubjectGrade.Equals("AA"); }).Count.ToString();
+                gRow["A"] = gwa.gradeList.FindAll(delegate(gwa g) { return g.SubjectId.Equals(s) && g.SubjectGrade.Equals("A"); }).Count.ToString();
+                gRow["LA"] = gwa.gradeList.FindAll(delegate(gwa g) { return g.SubjectId.Equals(s) && g.SubjectGrade.Equals("LA"); }).Count.ToString();
+                gRow["P"] = gwa.gradeList.FindAll(delegate(gwa g) { return g.SubjectId.Equals(s) && g.SubjectGrade.Equals("P"); }).Count.ToString();
+                DS.GWA.Rows.Add(gRow);
+            }
         }
     }
 }

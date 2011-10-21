@@ -530,9 +530,10 @@ namespace ReportCardGenerator.Controller
             }
             else
             {
+                //EDITED OCTOBER 20, 2011 HIST TO SLGE
                 grow["History"] = isNotNull("SLGE", tempPeriod);
-                hist1 = isNotNullNumericGrade("HIST", tempPeriod, Stud);
-                addToList(Stud, isNotNullNumericGrade("HIST", tempPeriod, Stud), "HIST", ListGrade);
+                hist1 = isNotNullNumericGrade("SLGE", tempPeriod, Stud);
+                addToList(Stud, isNotNullNumericGrade("SLGE", tempPeriod, Stud), "SLGE", ListGrade);
             }
 
             //Leadership
@@ -583,7 +584,8 @@ namespace ReportCardGenerator.Controller
             {
                 grow["HomeEco"] = isNotNull("SHOP", tempPeriod);
                 homeEco1 = isNotNullNumericGrade("SHOP", tempPeriod, Stud);
-                addToList(Stud, isNotNullNumericGrade("HOME", tempPeriod, Stud), "HOME", ListGrade);
+                //modification 10/20/11 HOME to SHOP
+                addToList(Stud, isNotNullNumericGrade("SHOP", tempPeriod, Stud), "SHOP", ListGrade);
             }
             //else
             //{
@@ -735,11 +737,18 @@ namespace ReportCardGenerator.Controller
             grow["MAPE"] = checker(Math.Round(mape1, 2), tempPeriod.PeriodID);
             addToList(Stud, mape1, "MAPE", ListGrade);
             //Co-Curricular
-            grow["Co-curricular"] = isNotNull("COIN", tempPeriod);
-            cocur1 = isNotNullNumericGrade("COIN", tempPeriod, Stud);
-            addToList(Stud, isNotNullNumericGrade("COIN", tempPeriod, Stud), "COIN", ListGrade);
-
-
+            //if (!isOffered("HRLI", tempPeriod, Stud))
+            //{
+                grow["Co-curricular"] = isNotNull("COIN", tempPeriod);
+                cocur1 = isNotNullNumericGrade("COIN", tempPeriod, Stud);
+                addToList(Stud, isNotNullNumericGrade("COIN", tempPeriod, Stud), "COIN", ListGrade);
+            //}
+            //else
+            //{
+            //    grow["Co-curricular"] = isNotNull("HRLI", tempPeriod);
+            //    cocur1 = isNotNullNumericGrade("HRLI", tempPeriod, Stud);
+            //    addToList(Stud, isNotNullNumericGrade("HRLI", tempPeriod, Stud), "HRLI", ListGrade);
+            //}
 
             //Homeroom Life
             grow["Life"] = isNotNull("HRLI", tempPeriod);
@@ -1084,9 +1093,13 @@ namespace ReportCardGenerator.Controller
         }
         private String isNotNull(String SubjectCat, Period p)
         {
+            gwa gw = new gwa();
+            gw.SubjectId = SubjectCat;
             if (p.Grades.Find(delegate(Grade g) { return g.SubjectID.Equals(SubjectCat); }) != null)
             {
                 String value = p.Grades.Find(delegate(Grade g) { return g.SubjectID.Equals(SubjectCat); }).LetterGrade;
+                gw.SubjectGrade = value;
+                gwa.gradeList.Add(gw);
                 return value;
             }
             else if (p.PeriodID != 4)
@@ -1094,7 +1107,7 @@ namespace ReportCardGenerator.Controller
                 return "N/A"; 
             }
             else { return ""; }
-
+            
         }
         private Double isNotNullNumericGrade(String SubjectCat, Period p, Student Stud)
         {
@@ -1181,7 +1194,7 @@ namespace ReportCardGenerator.Controller
                     break;
                 case "MUSI": result = "Music";
                     break;
-                case "ART": result = "Art";
+                case "ARTS": result = "Art";
                     break;
                 case "PHED": result = "PE";
                     break;

@@ -31,7 +31,7 @@
     <UpdateUrl>\\sisc-erelim\4_Printing\Romyr\ReportCardGeneratorV2\</UpdateUrl>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>106</ApplicationRevision>
+    <ApplicationRevision>126</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -117,6 +117,7 @@
     <Compile Include="Beans\DatasetClass.cs" />
     <Compile Include="Beans\FinalComp.cs" />
     <Compile Include="Beans\Grade.cs" />
+    <Compile Include="Beans\gwa.cs" />
     <Compile Include="Beans\HashTables.cs" />
     <Compile Include="Beans\HonorsComputationFormula.cs" />
     <Compile Include="Beans\HonorsFormat.cs" />
@@ -159,6 +160,12 @@
     <Compile Include="Data\Term1.cs" />
     <Compile Include="Interfaces\IGradeController.cs" />
     <Compile Include="Interfaces\IHonorController.cs" />
+    <Compile Include="Reports\GWA.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GWA.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\HSIV.cs">
       <DependentUpon>HSIV.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -589,6 +596,10 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="days.txt" />
+    <EmbeddedResource Include="Reports\GWA.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GWA.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\HSIV.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>HSIV.cs</LastGenOutput>

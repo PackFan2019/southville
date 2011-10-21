@@ -64,6 +64,7 @@
             this.gr6ILCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gr7ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gr7ILCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.termGradeDistributionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -159,7 +160,8 @@
             // 
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.honorsToolStripMenuItem,
-            this.depEdToolStripMenuItem});
+            this.depEdToolStripMenuItem,
+            this.termGradeDistributionToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
             this.reportsToolStripMenuItem.Text = "Reports";
@@ -167,7 +169,7 @@
             // honorsToolStripMenuItem
             // 
             this.honorsToolStripMenuItem.Name = "honorsToolStripMenuItem";
-            this.honorsToolStripMenuItem.Size = new System.Drawing.Size(126, 24);
+            this.honorsToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
             this.honorsToolStripMenuItem.Text = "Honors";
             this.honorsToolStripMenuItem.Click += new System.EventHandler(this.honorsToolStripMenuItem_Click);
             // 
@@ -177,7 +179,7 @@
             this.hSIVToolStripMenuItem,
             this.gradeSchoolToolStripMenuItem});
             this.depEdToolStripMenuItem.Name = "depEdToolStripMenuItem";
-            this.depEdToolStripMenuItem.Size = new System.Drawing.Size(126, 24);
+            this.depEdToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
             this.depEdToolStripMenuItem.Text = "DepEd";
             this.depEdToolStripMenuItem.Click += new System.EventHandler(this.depEdToolStripMenuItem_Click);
             // 
@@ -199,56 +201,56 @@
             // hSIToolStripMenuItem
             // 
             this.hSIToolStripMenuItem.Name = "hSIToolStripMenuItem";
-            this.hSIToolStripMenuItem.Size = new System.Drawing.Size(140, 24);
+            this.hSIToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.hSIToolStripMenuItem.Text = "HS I";
             this.hSIToolStripMenuItem.Click += new System.EventHandler(this.hSIToolStripMenuItem_Click);
             // 
             // hSIILCToolStripMenuItem
             // 
             this.hSIILCToolStripMenuItem.Name = "hSIILCToolStripMenuItem";
-            this.hSIILCToolStripMenuItem.Size = new System.Drawing.Size(140, 24);
+            this.hSIILCToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.hSIILCToolStripMenuItem.Text = "HS I-ILC";
             this.hSIILCToolStripMenuItem.Click += new System.EventHandler(this.hSIILCToolStripMenuItem_Click);
             // 
             // hSIIToolStripMenuItem
             // 
             this.hSIIToolStripMenuItem.Name = "hSIIToolStripMenuItem";
-            this.hSIIToolStripMenuItem.Size = new System.Drawing.Size(140, 24);
+            this.hSIIToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.hSIIToolStripMenuItem.Text = "HS II";
             this.hSIIToolStripMenuItem.Click += new System.EventHandler(this.hSIIToolStripMenuItem_Click);
             // 
             // hSIILCToolStripMenuItem1
             // 
             this.hSIILCToolStripMenuItem1.Name = "hSIILCToolStripMenuItem1";
-            this.hSIILCToolStripMenuItem1.Size = new System.Drawing.Size(140, 24);
+            this.hSIILCToolStripMenuItem1.Size = new System.Drawing.Size(152, 24);
             this.hSIILCToolStripMenuItem1.Text = "HS II-ILC";
             this.hSIILCToolStripMenuItem1.Click += new System.EventHandler(this.hSIILCToolStripMenuItem1_Click);
             // 
             // hSIIIToolStripMenuItem
             // 
             this.hSIIIToolStripMenuItem.Name = "hSIIIToolStripMenuItem";
-            this.hSIIIToolStripMenuItem.Size = new System.Drawing.Size(140, 24);
+            this.hSIIIToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.hSIIIToolStripMenuItem.Text = "HS III";
             this.hSIIIToolStripMenuItem.Click += new System.EventHandler(this.hSIIIToolStripMenuItem_Click);
             // 
             // hSIIIILCToolStripMenuItem
             // 
             this.hSIIIILCToolStripMenuItem.Name = "hSIIIILCToolStripMenuItem";
-            this.hSIIIILCToolStripMenuItem.Size = new System.Drawing.Size(140, 24);
+            this.hSIIIILCToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.hSIIIILCToolStripMenuItem.Text = "HS III-ILC";
             this.hSIIIILCToolStripMenuItem.Click += new System.EventHandler(this.hSIIIILCToolStripMenuItem_Click);
             // 
             // hSIVToolStripMenuItem1
             // 
             this.hSIVToolStripMenuItem1.Name = "hSIVToolStripMenuItem1";
-            this.hSIVToolStripMenuItem1.Size = new System.Drawing.Size(140, 24);
+            this.hSIVToolStripMenuItem1.Size = new System.Drawing.Size(152, 24);
             this.hSIVToolStripMenuItem1.Text = "HS IV";
             this.hSIVToolStripMenuItem1.Click += new System.EventHandler(this.hSIVToolStripMenuItem1_Click);
             // 
             // hSIVILCToolStripMenuItem
             // 
             this.hSIVILCToolStripMenuItem.Name = "hSIVILCToolStripMenuItem";
-            this.hSIVILCToolStripMenuItem.Size = new System.Drawing.Size(140, 24);
+            this.hSIVILCToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.hSIVILCToolStripMenuItem.Text = "HS IV-ILC";
             this.hSIVILCToolStripMenuItem.Click += new System.EventHandler(this.hSIVILCToolStripMenuItem_Click);
             // 
@@ -270,6 +272,7 @@
             this.gradeSchoolToolStripMenuItem.Name = "gradeSchoolToolStripMenuItem";
             this.gradeSchoolToolStripMenuItem.Size = new System.Drawing.Size(167, 24);
             this.gradeSchoolToolStripMenuItem.Text = "Grade School";
+            this.gradeSchoolToolStripMenuItem.Click += new System.EventHandler(this.gradeSchoolToolStripMenuItem_Click);
             // 
             // gr1ToolStripMenuItem
             // 
@@ -355,6 +358,13 @@
             this.gr7ILCToolStripMenuItem.Text = "Gr 7-ILC";
             this.gr7ILCToolStripMenuItem.Click += new System.EventHandler(this.gr7ILCToolStripMenuItem_Click);
             // 
+            // termGradeDistributionToolStripMenuItem
+            // 
+            this.termGradeDistributionToolStripMenuItem.Name = "termGradeDistributionToolStripMenuItem";
+            this.termGradeDistributionToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
+            this.termGradeDistributionToolStripMenuItem.Text = "Term Grade Distribution";
+            this.termGradeDistributionToolStripMenuItem.Click += new System.EventHandler(this.termGradeDistributionToolStripMenuItem_Click);
+            // 
             // StudReportCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -414,5 +424,6 @@
         private System.Windows.Forms.ToolStripMenuItem gr6ILCToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gr7ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gr7ILCToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem termGradeDistributionToolStripMenuItem;
     }
 }

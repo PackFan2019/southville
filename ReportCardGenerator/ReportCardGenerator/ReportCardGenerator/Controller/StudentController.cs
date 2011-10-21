@@ -50,21 +50,25 @@ namespace ReportCardGenerator.Controller
         
         public void addOrUpdateGrade(Student stud, Grade g, Period p)
         {
-
-           
-            Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
-            if (period != null)
+            try
             {
-                if (g != null)
+                Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
+                if (period != null)
                 {
-                    Grade grade = new Grade();
-                    grade = period.Grades.Find(delegate(Grade gr) { return gr.SubjectID.Equals(g.SubjectID); });
-                    if (grade == null)
+                    if (g != null)
                     {
-                        period.Grades.Add(g);
+                        Grade grade = new Grade();
+                        grade = period.Grades.Find(delegate(Grade gr) { return gr.SubjectID.Equals(g.SubjectID); });
+                        if (grade == null)
+                        {
+                            period.Grades.Add(g);
+                        }
                     }
                 }
-            }   
+            }
+            catch
+            {
+            }
         }
         public void addOrUpdateComment(Student stud, Comment c, Period p)
         {
@@ -86,38 +90,56 @@ namespace ReportCardGenerator.Controller
         }
         public void addOrUpdatePeriod(Student stud, Period per)
         {
-            Period periods;// = new Period();
-            periods = stud.RptCard.Periods.Find(delegate(Period p) { return p.PeriodID.Equals(per.PeriodID); });
-            if (periods == null)
+            try
             {
-                stud.RptCard.Periods.Add(per);
+                Period periods;// = new Period();
+                periods = stud.RptCard.Periods.Find(delegate(Period p) { return p.PeriodID.Equals(per.PeriodID); });
+                if (periods == null)
+                {
+                    stud.RptCard.Periods.Add(per);
+                }
+            }
+            catch
+            {
             }
         }
         public void addOrUpdateSkill(Student stud, Skill s, Period p)
         {
-            Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
-            if (period != null)
+            try
             {
-                if (s != null)
+                Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
+                if (period != null)
                 {
-                    Skill sk = period.Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(s.SkillID); });
-                    if (sk == null)
+                    if (s != null)
                     {
-                        period.Skills.Add(s);
+                        Skill sk = period.Skills.Find(delegate(Skill skill) { return skill.SkillID.Equals(s.SkillID); });
+                        if (sk == null)
+                        {
+                            period.Skills.Add(s);
+                        }
                     }
                 }
-            }    
+            }
+            catch
+            {
+            }
         }
         public void addOrUpdateAttendance(Student stud, Attendance a, Period p)
         {
-            Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
-            //change p to null
-            if (period != null)
+            try
             {
-                if (a != null)
+                Period period = stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
+                //change p to null
+                if (period != null)
                 {
-                    period.PeriodAttendance.Add(a);
+                    if (a != null)
+                    {
+                        period.PeriodAttendance.Add(a);
+                    }
                 }
+            }
+            catch
+            {
             }
             
         }
@@ -151,14 +173,21 @@ namespace ReportCardGenerator.Controller
         }
         public Period getPeriod(Student student, int periodID)
         {
-            Period period = student.RptCard.Periods.Find(delegate(Period p) { return p.PeriodID.Equals(periodID); });
-            if (period != null)
+            try
             {
-                return period;          
+                Period period = student.RptCard.Periods.Find(delegate(Period p) { return p.PeriodID.Equals(periodID); });
+                if (period != null)
+                {
+                    return period;
+                }
+                else
+                {
+                    return null;
+                }
             }
-            else
+            catch
             {
-                return null; 
+                return null;
             }
             
         }

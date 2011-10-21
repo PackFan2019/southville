@@ -19,7 +19,7 @@ namespace ReportCardGenerator.Beans
             }
             else if (termPeriod.Equals(2))
             {
-                drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (Art*" + SubjectUnit.getWeight(Level, "ART") + ")]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "ART"));
+                drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (Art*" + SubjectUnit.getWeight(Level, "ARTS") + ")]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "ART"));
             }
             else
             {
@@ -34,7 +34,7 @@ namespace ReportCardGenerator.Beans
             DataRow drow = HonorsTable.NewRow();
             drow["Cluster1Format"] = "[(Math*" + SubjectUnit.getWeight(Level, "MATH") + ") + (Science*" + SubjectUnit.getWeight(Level, "SCIE") + ") + English*" + SubjectUnit.getWeight(Level, "ENGL") + "]/" + (SubjectUnit.getWeight(Level, "MATH") + SubjectUnit.getWeight(Level, "SCIE") + SubjectUnit.getWeight(Level, "ENGL"));
             drow["Cluster2Format"] = "[(SLGE*" + SubjectUnit.getWeight(Level, "SLGE") + ") + (Computer*" + SubjectUnit.getWeight(Level, "COMP") + ") + (RVED*" + SubjectUnit.getWeight(Level, "RVED") + ")]/" + (SubjectUnit.getWeight(Level, "SLGE") + SubjectUnit.getWeight(Level, "COMP") + SubjectUnit.getWeight(Level, "RVED"));
-            drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (Music*" + SubjectUnit.getWeight(Level, "MUSI") + ") + (Art*" + SubjectUnit.getWeight(Level, "ART") + ")]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "MUSI") + SubjectUnit.getWeight(Level, "ART"));
+            drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (Art*" + SubjectUnit.getWeight(Level, "ARTS") + ") + (Music*" + SubjectUnit.getWeight(Level, "MUSI") + ")]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "ARTS") + SubjectUnit.getWeight(Level, "MUSI"));
             drow["StudentId"] = StudentId;
             HonorsTable.Rows.Add(drow);
         }
@@ -45,11 +45,11 @@ namespace ReportCardGenerator.Beans
             drow["Cluster2Format"] = "[(SLGE*" + SubjectUnit.getWeight(Level, "SLGE") + ") + (Computer*" + SubjectUnit.getWeight(Level, "COMP") + ") + (RVED*" + SubjectUnit.getWeight(Level, "RVED") + ")]/" + (SubjectUnit.getWeight(Level, "SLGE") + SubjectUnit.getWeight(Level, "COMP") + SubjectUnit.getWeight(Level, "RVED"));
             if (termPeriod.Equals(1))
             {
-                drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (HE*" + SubjectUnit.getWeight(Level, "HOME") + ") + (Art*" + SubjectUnit.getWeight(Level, "ART") + ")]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "HOME") + SubjectUnit.getWeight(Level, "ART"));
+                drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (Art*" + SubjectUnit.getWeight(Level, "ARTS") + ") + (HE*" + SubjectUnit.getWeight(Level, "HOME") + ")]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "ARTS") + SubjectUnit.getWeight(Level, "HOME"));
             }
             else if (termPeriod.Equals(2))
             {
-                drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (Music*" + SubjectUnit.getWeight(Level, "MUSI") + ") + (Art*" + SubjectUnit.getWeight(Level, "ART") + ")]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "MUSI") + SubjectUnit.getWeight(Level, "ART"));
+                drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (Music*" + SubjectUnit.getWeight(Level, "MUSI") + ") + (Art*" + SubjectUnit.getWeight(Level, "ARTS") + ")]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "MUSI") + SubjectUnit.getWeight(Level, "ARTS"));
             }
             else
             {
@@ -59,7 +59,7 @@ namespace ReportCardGenerator.Beans
                 }
                 else
                 {
-                    drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (Music*" + SubjectUnit.getWeight(Level, "MUSI") + ") + (Art*" + SubjectUnit.getWeight(Level, "ART") + ")]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "MUSI") + SubjectUnit.getWeight(Level, "ART"));
+                    drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (Music*" + SubjectUnit.getWeight(Level, "MUSI") + ") + (Art*" + SubjectUnit.getWeight(Level, "ARTS") + ")]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "MUSI") + SubjectUnit.getWeight(Level, "ARTS"));
                 }
             }
             drow["StudentId"] = StudentId;
@@ -76,11 +76,11 @@ namespace ReportCardGenerator.Beans
             }
             if (termPeriod.Equals(2))
             {
-                drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (RVED*" + SubjectUnit.getWeight(Level, "RVED") + ") + (HE*" + SubjectUnit.getWeight(Level, "HOME") + ") + (Art*" + SubjectUnit.getWeight(Level, "ART") + ") ]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "RVED") + SubjectUnit.getWeight(Level, "HOME") + SubjectUnit.getWeight(Level, "ART"));
+                drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (RVED*" + SubjectUnit.getWeight(Level, "RVED") + ") + (HE*" + SubjectUnit.getWeight(Level, "HOME") + ") + (Art*" + SubjectUnit.getWeight(Level, "ARTS") + ") ]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "RVED") + SubjectUnit.getWeight(Level, "HOME") + SubjectUnit.getWeight(Level, "ARTS"));
             }
             if (termPeriod.Equals(3))
             {
-                drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (RVED*" + SubjectUnit.getWeight(Level, "RVED") + ") + (HE*" + SubjectUnit.getWeight(Level, "HOME") + ") + (Art*" + SubjectUnit.getWeight(Level, "ART") + ") ]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "RVED") + SubjectUnit.getWeight(Level, "HOME") + SubjectUnit.getWeight(Level, "ART"));
+                drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (RVED*" + SubjectUnit.getWeight(Level, "RVED") + ") + (HE*" + SubjectUnit.getWeight(Level, "HOME") + ") + (Art*" + SubjectUnit.getWeight(Level, "ARTS") + ") ]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "RVED") + SubjectUnit.getWeight(Level, "HOME") + SubjectUnit.getWeight(Level, "ARTS"));
             }
             drow["StudentId"] = StudentId;
             HonorsTable.Rows.Add(drow);
@@ -92,11 +92,11 @@ namespace ReportCardGenerator.Beans
             drow["Cluster2Format"] = "[(SLGE*" + SubjectUnit.getWeight(Level, "SLGE") + ") + (Investmet*" + SubjectUnit.getWeight(Level, "ECON") + ") + (Computer*" + SubjectUnit.getWeight(Level, "COMP") + ")]/" + (SubjectUnit.getWeight(Level, "SLGE") + SubjectUnit.getWeight(Level, "ECON") + SubjectUnit.getWeight(Level, "COMP"));
             if (termPeriod.Equals(1))
             {
-                drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (RVED*" + SubjectUnit.getWeight(Level, "RVED") + ") + (HE*" + SubjectUnit.getWeight(Level, "HOME") + ") + (Art*" + SubjectUnit.getWeight(Level, "ART") + ") ]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "RVED") + SubjectUnit.getWeight(Level, "HOME") + SubjectUnit.getWeight(Level, "ART"));
+                drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (RVED*" + SubjectUnit.getWeight(Level, "RVED") + ") + (Art*" + SubjectUnit.getWeight(Level, "ARTS") + ") + (HE*" + SubjectUnit.getWeight(Level, "HOME") + ") ]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "RVED") + SubjectUnit.getWeight(Level, "ARTS") + SubjectUnit.getWeight(Level, "HOME"));
             }
             if (termPeriod.Equals(2))
             {
-                drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (RVED*" + SubjectUnit.getWeight(Level, "RVED") + ") + (Shop*" + SubjectUnit.getWeight(Level, "SHOP") + ") + (Art*" + SubjectUnit.getWeight(Level, "ART") + ") ]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "RVED") + SubjectUnit.getWeight(Level, "SHOP") + SubjectUnit.getWeight(Level, "ART"));
+                drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (RVED*" + SubjectUnit.getWeight(Level, "RVED") + ") + (Shop*" + SubjectUnit.getWeight(Level, "SHOP") + ") + (Art*" + SubjectUnit.getWeight(Level, "ARTS") + ") ]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "RVED") + SubjectUnit.getWeight(Level, "SHOP") + SubjectUnit.getWeight(Level, "ARTS"));
             }
             if (termPeriod.Equals(3))
             {
@@ -108,11 +108,12 @@ namespace ReportCardGenerator.Beans
         public static void HS4(DataTable HonorsTable, int termPeriod, String StudentId, String Level)
         {
             DataRow drow = HonorsTable.NewRow();
-            drow["Cluster1Format"] = "[(Math*" + SubjectUnit.getWeight(Level, "MATH") + ") + (Science*" + SubjectUnit.getWeight(Level, "SCIE") + ") + English*" + SubjectUnit.getWeight(Level, "ENGL") + "]/" + (SubjectUnit.getWeight(Level, "MATH") + SubjectUnit.getWeight(Level, "SCIE") + SubjectUnit.getWeight(Level, "ENGL"));
+            drow["Cluster1Format"] = "[(Math*" + SubjectUnit.getWeight(Level, "MATH") + ") + (Science*" + SubjectUnit.getWeight(Level, "PHYS") + ") + English*" + SubjectUnit.getWeight(Level, "ENGL") + "]/" + (SubjectUnit.getWeight(Level, "MATH") + SubjectUnit.getWeight(Level, "PHYS") + SubjectUnit.getWeight(Level, "ENGL"));
             drow["Cluster2Format"] = "[(SLGE*" + SubjectUnit.getWeight(Level, "SLGE") + ") + (Economics*" + SubjectUnit.getWeight(Level, "ECON") + ") + (Computer*" + SubjectUnit.getWeight(Level, "COMP") + ")]/" + (SubjectUnit.getWeight(Level, "SLGE") + SubjectUnit.getWeight(Level, "ECON") + SubjectUnit.getWeight(Level, "COMP"));
             if (termPeriod.Equals(1))
             {
-                drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (CAT/CAS*" + SubjectUnit.getWeight(Level, "COIN") + ") + (RVED*" + SubjectUnit.getWeight(Level, "RVED") + ") + (HE*" + SubjectUnit.getWeight(Level, "HOME") + ") + (Art*" + SubjectUnit.getWeight(Level, "ART") + ") ]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "COIN") + SubjectUnit.getWeight(Level, "RVED") + SubjectUnit.getWeight(Level, "HOME") + SubjectUnit.getWeight(Level, "ART"));
+                //modification 10/20/11 HOME to SHOP
+                drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (CAT/CAS*" + SubjectUnit.getWeight(Level, "COIN") + ") + (RVED*" + SubjectUnit.getWeight(Level, "RVED") + ") + (HE*" + SubjectUnit.getWeight(Level, "SHOP") + ") + (Art*" + SubjectUnit.getWeight(Level, "ARTS") + ") ]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "COIN") + SubjectUnit.getWeight(Level, "RVED") + SubjectUnit.getWeight(Level, "SHOP") + SubjectUnit.getWeight(Level, "ARTS"));
             }
             if (termPeriod.Equals(2))
             {

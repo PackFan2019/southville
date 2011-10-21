@@ -49,5 +49,10 @@ namespace ReportCardGenerator.Views
             FinaltermReport.SetDataSource(StudReportCard.DS);
             crystalReportViewer4.ReportSource = FinaltermReport;
         }
+
+        private void Honors_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

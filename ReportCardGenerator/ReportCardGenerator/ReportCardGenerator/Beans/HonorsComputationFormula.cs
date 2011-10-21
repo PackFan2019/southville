@@ -21,14 +21,12 @@ namespace ReportCardGenerator.Beans
         {
             DataRow Grade6termsRow = HonorsTable.NewRow();
             cluster1 = getCluster1and2NumericGrade1and2("MATH", "SCIE", "ENGL", Level, StudentId, listGrades);
-            cluster2 = getCluster1and2Numeric("HIST", "RVED", "", Level, StudentId, listGrades);
-           
-
+            cluster2 = getCluster1and2Numeric("SLGE", "RVED", "", Level, StudentId, listGrades);
             Double ave = 0;
             Grade6termsRow["Cluster1"] = getCluster1and2StringGrade1("MATH", "SCIE", "ENGL", Level, StudentId, listGrades);
             Grade6termsRow["Cluster1Ans"] = getCluster1and2NumericGrade1and2("MATH", "SCIE", "ENGL", Level, StudentId, listGrades);
-            Grade6termsRow["Cluster2"] = getCluster1and2String("HIST", "RVED", "", Level, StudentId, listGrades);
-            Grade6termsRow["Cluster2Ans"] = getCluster1and2Numeric("HIST", "RVED", "", Level, StudentId, listGrades);
+            Grade6termsRow["Cluster2"] = getCluster1and2String("SLGE", "RVED", "", Level, StudentId, listGrades);
+            Grade6termsRow["Cluster2Ans"] = getCluster1and2Numeric("SLGE", "RVED", "", Level, StudentId, listGrades);
             if (termPeriod.Equals(1))
             {
                 cluster3 = getCluster3Numeric("PHED", "MUSI", "", "", "", Level, StudentId, listGrades,termPeriod);
@@ -37,9 +35,9 @@ namespace ReportCardGenerator.Beans
             }
             else if (termPeriod.Equals(2))
             {
-                cluster3 = getCluster3Numeric("PHED", "ART", "", "", "", Level, StudentId, listGrades, termPeriod);
-                Grade6termsRow["Cluster3"] = getCluster3String("PHED", "ART", "", "", "", Level, StudentId, listGrades, termPeriod);
-                Grade6termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "ART", "", "", "", Level, StudentId, listGrades, termPeriod);
+                cluster3 = getCluster3Numeric("PHED", "ARTS", "", "", "", Level, StudentId, listGrades, termPeriod);
+                Grade6termsRow["Cluster3"] = getCluster3String("PHED", "ARTS", "", "", "", Level, StudentId, listGrades, termPeriod);
+                Grade6termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "ARTS", "", "", "", Level, StudentId, listGrades, termPeriod);
             }
             else
             {
@@ -57,14 +55,14 @@ namespace ReportCardGenerator.Beans
             DataRow termsRow = HonorsTable.NewRow();
             cluster1 = getCluster1and2Numeric("MATH", "SCIE", "ENGL", Level, StudentId, listGrades);
             cluster2 = getCluster1and2Numeric("SLGE", "COMP", "RVED", Level, StudentId, listGrades);
-            cluster3 = getCluster3Numeric("PHED", "ART", "HOME", "", "", Level, StudentId, listGrades, termPeriod);
+            cluster3 = getCluster3Numeric("PHED", "ARTS", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
 
             termsRow["Cluster1"] = getCluster1and2String("MATH", "SCIE", "ENGL", Level, StudentId, listGrades);
             termsRow["Cluster1Ans"] = getCluster1and2Numeric("MATH", "SCIE", "ENGL", Level, StudentId, listGrades);
             termsRow["Cluster2"] = getCluster1and2String("SLGE", "COMP", "RVED", Level, StudentId, listGrades);
             termsRow["Cluster2Ans"] = getCluster1and2Numeric("SLGE", "COMP", "RVED", Level, StudentId, listGrades);
-            termsRow["Cluster3"] = getCluster3String("PHED", "ART", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
-            termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "ART", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
+            termsRow["Cluster3"] = getCluster3String("PHED", "ARTS", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
+            termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "ARTS", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
             termsRow["Average"] = Math.Round((cluster1 * 0.7) + (cluster2 * 0.2) + (cluster3 * 0.1), 3);
             termsRow["Award"] = ConvertToAward((cluster1 * .7) + (cluster2 * .2) + (cluster3 * .1));
             termsRow["StudentId"] = StudentId;
@@ -85,17 +83,17 @@ namespace ReportCardGenerator.Beans
             
             if (termPeriod.Equals(1))
             {
-                cluster3 = getCluster3Numeric("PHED", "ART", "HOME", "", "", Level, StudentId, listGrades, termPeriod);
-                Grade6termsRow["Cluster3"] = getCluster3String("PHED", "ART", "HOME", "", "", Level, StudentId, listGrades, termPeriod);
-                Grade6termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "ART", "HOME", "", "", Level, StudentId, listGrades, termPeriod);
+                cluster3 = getCluster3Numeric("PHED", "ARTS", "HOME", "", "", Level, StudentId, listGrades, termPeriod);
+                Grade6termsRow["Cluster3"] = getCluster3String("PHED", "ARTS", "HOME", "", "", Level, StudentId, listGrades, termPeriod);
+                Grade6termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "ARTS", "HOME", "", "", Level, StudentId, listGrades, termPeriod);
             }
             else if (termPeriod.Equals(2))
             {
                 if (Level.Equals("Grade 6"))
                 {
                     cluster3 = getCluster3Numeric("PHED", "ART", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
-                    Grade6termsRow["Cluster3"] = getCluster3String("PHED", "ART", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
-                    Grade6termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "ART", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
+                    Grade6termsRow["Cluster3"] = getCluster3String("PHED", "ARTS", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
+                    Grade6termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "ARTS", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
                 }
                 else
                 {
@@ -114,9 +112,9 @@ namespace ReportCardGenerator.Beans
                 }
                 else
                 {
-                    cluster3 = getCluster3Numeric("PHED", "ART", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
-                    Grade6termsRow["Cluster3"] = getCluster3String("PHED", "ART", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
-                    Grade6termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "ART", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
+                    cluster3 = getCluster3Numeric("PHED", "ARTS", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
+                    Grade6termsRow["Cluster3"] = getCluster3String("PHED", "ARTS", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
+                    Grade6termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "ARTS", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
                 }
             }
             Grade6termsRow["Average"] = ave = Math.Round((cluster1 * 0.7) + (cluster2 * 0.2) + (cluster3 * 0.1), 3);
@@ -131,17 +129,18 @@ namespace ReportCardGenerator.Beans
             cluster2 = getCluster1and2Numeric("SLGE", "ECON", "COMP", Level, StudentId, listGrades);
 
 
-            termsRow["Cluster1"] = getCluster1and2String("MATH", "SCIE", "ENGL", Level, StudentId, listGrades);
-            termsRow["Cluster1Ans"] = getCluster1and2Numeric("MATH", "SCIE", "ENGL", Level, StudentId, listGrades);
+            termsRow["Cluster1"] = getCluster1and2String("MATH", "PHYS", "ENGL", Level, StudentId, listGrades);
+            termsRow["Cluster1Ans"] = getCluster1and2Numeric("MATH", "PHYS", "ENGL", Level, StudentId, listGrades);
             termsRow["Cluster2"] = getCluster1and2String("SLGE", "COMP", "RVED", Level, StudentId, listGrades);
             termsRow["Cluster2Ans"] = getCluster1and2Numeric("SLGE", "COMP", "RVED", Level, StudentId, listGrades);
             if (Level.Equals("HS IV"))
             {
                 if (termPeriod.Equals(1))
                 {
-                    cluster3 = getCluster3Numeric("PHED", "COIN", "RVED", "HOME", "ART", Level, StudentId, listGrades, termPeriod);
-                    termsRow["Cluster3"] = getCluster3String("PHED", "COIN", "RVED", "HOME", "ART", Level, StudentId, listGrades, termPeriod);
-                    termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "COIN", "RVED", "HOME", "ART", Level, StudentId, listGrades, termPeriod);
+                    //modification 10/20/11 HOME to SHOP
+                    cluster3 = getCluster3Numeric("PHED", "COIN", "RVED", "SHOP", "ARTS", Level, StudentId, listGrades, termPeriod);
+                    termsRow["Cluster3"] = getCluster3String("PHED", "COIN", "RVED", "SHOP", "ARTS", Level, StudentId, listGrades, termPeriod);
+                    termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "COIN", "RVED", "SHOP", "ARTS", Level, StudentId, listGrades, termPeriod);
                 }
                 else if (termPeriod.Equals(2))
                 {
@@ -160,15 +159,15 @@ namespace ReportCardGenerator.Beans
             {
                 if (termPeriod.Equals(1))
                 {
-                    cluster3 = getCluster3Numeric("PHED", "RVED", "ART", "HOME", "", Level, StudentId, listGrades, termPeriod);
-                    termsRow["Cluster3"] = getCluster3String("PHED", "RVED", "ART", "HOME", "", Level, StudentId, listGrades, termPeriod);
-                    termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "RVED", "ART", "HOME", "", Level, StudentId, listGrades, termPeriod);
+                    cluster3 = getCluster3Numeric("PHED", "RVED", "ARTS", "HOME", "", Level, StudentId, listGrades, termPeriod);
+                    termsRow["Cluster3"] = getCluster3String("PHED", "RVED", "ARTS", "HOME", "", Level, StudentId, listGrades, termPeriod);
+                    termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "RVED", "ARTS", "HOME", "", Level, StudentId, listGrades, termPeriod);
                 }
                 else if (termPeriod.Equals(2))
                 {
-                    cluster3 = getCluster3Numeric("PHED", "RVED", "ART", "SHOP", "", Level, StudentId, listGrades, termPeriod);
-                    termsRow["Cluster3"] = getCluster3String("PHED", "RVED", "ART", "SHOP", "", Level, StudentId, listGrades, termPeriod);
-                    termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "RVED", "ART", "SHOP", "", Level, StudentId, listGrades, termPeriod);
+                    cluster3 = getCluster3Numeric("PHED", "RVED", "ARTS", "SHOP", "", Level, StudentId, listGrades, termPeriod);
+                    termsRow["Cluster3"] = getCluster3String("PHED", "RVED", "ARTS", "SHOP", "", Level, StudentId, listGrades, termPeriod);
+                    termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "RVED", "ARTS", "SHOP", "", Level, StudentId, listGrades, termPeriod);
                 }
                 else
                 {
@@ -187,15 +186,15 @@ namespace ReportCardGenerator.Beans
                 }
                 else if (termPeriod.Equals(2))
                 {
-                    cluster3 = getCluster3Numeric("PHED", "RVED", "ART", "HOME", "", Level, StudentId, listGrades, termPeriod);
-                    termsRow["Cluster3"] = getCluster3String("PHED", "RVED", "ART", "HOME", "", Level, StudentId, listGrades, termPeriod);
-                    termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "RVED", "ART", "HOME", "", Level, StudentId, listGrades, termPeriod);
+                    cluster3 = getCluster3Numeric("PHED", "RVED", "ARTS", "HOME", "", Level, StudentId, listGrades, termPeriod);
+                    termsRow["Cluster3"] = getCluster3String("PHED", "RVED", "ARTS", "HOME", "", Level, StudentId, listGrades, termPeriod);
+                    termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "RVED", "ARTS", "HOME", "", Level, StudentId, listGrades, termPeriod);
                 }
                 else
                 {
-                    cluster3 = getCluster3Numeric("PHED", "RVED", "ART", "HOME", "", Level, StudentId, listGrades, termPeriod);
-                    termsRow["Cluster3"] = getCluster3String("PHED", "RVED", "ART", "HOME", "", Level, StudentId, listGrades, termPeriod);
-                    termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "RVED", "ART", "HOME", "", Level, StudentId, listGrades, termPeriod);
+                    cluster3 = getCluster3Numeric("PHED", "RVED", "ARTS", "HOME", "", Level, StudentId, listGrades, termPeriod);
+                    termsRow["Cluster3"] = getCluster3String("PHED", "RVED", "ARTS", "HOME", "", Level, StudentId, listGrades, termPeriod);
+                    termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "RVED", "ARTS", "HOME", "", Level, StudentId, listGrades, termPeriod);
                 }
             }
             termsRow["Average"] = Math.Round((cluster1 * 0.7) + (cluster2 * 0.2) + (cluster3 * 0.1), 3);

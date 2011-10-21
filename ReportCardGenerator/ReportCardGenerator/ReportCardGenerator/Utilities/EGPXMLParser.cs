@@ -42,23 +42,38 @@ namespace ReportCardGenerator.Utilities
             //    controller.addOrUpdateStudent(stud);
             //}
             #endregion
-            myReader = new StreamReader(doc);
-
-            String loadedString = null;
-
-            while ((loadedString = myReader.ReadLine()) != null)
+            try
             {
-                Student stud = new Student();
-                String[] studentDetails = loadedString.Split('\t');
-                stud.StudentID = studentDetails[0];
-                stud.FirstName = studentDetails[2];
-                stud.LastName = studentDetails[1];
-                stud.Level = studentDetails[5];
-                stud.Section = studentDetails[6];
-                stud.Adviser = studentDetails[7];
-                controller.addOrUpdateStudent(stud);
+                myReader = new StreamReader(doc);
             }
-            myReader.Close();
+            catch (Exception er)
+            {
+                System.Windows.Forms.MessageBox.Show(er.Message, "Unable to run the File");
+            }
+            try
+            {
+                String loadedString = null;
+
+                while ((loadedString = myReader.ReadLine()) != null)
+                {
+                    Student stud = new Student();
+                    String[] studentDetails = loadedString.Split('\t');
+                    stud.StudentID = studentDetails[0];
+                    stud.FirstName = studentDetails[2];
+                    stud.LastName = studentDetails[1];
+                    if (studentDetails[5] != "" && studentDetails[6] != "" && studentDetails[7] != "")
+                    {
+                        stud.Level = studentDetails[5];
+                        stud.Section = studentDetails[6];
+                        stud.Adviser = studentDetails[7];
+                    }
+                    controller.addOrUpdateStudent(stud);
+                }
+                myReader.Close();
+            }
+            catch
+            {
+            }
         }
 
         private static void addSkillsFromXML(IStudentController controller, String doc)
@@ -135,8 +150,14 @@ namespace ReportCardGenerator.Utilities
             //    }
             //}
 #endregion
-            myReader = new StreamReader(doc);
-
+            try
+            {
+                myReader = new StreamReader(doc);
+            }
+            catch (Exception er)
+            {
+                System.Windows.Forms.MessageBox.Show(er.Message, "Unable to run the File");
+            }
             String loadedString = null;
             Student stud = new Student();
 
@@ -166,7 +187,7 @@ namespace ReportCardGenerator.Utilities
                         else
                         {
                             //Grade.SubjectID = studentDetails[4].Substring(0, 4);
-                            Skill.LetterGrade = "";
+                            Skill.LetterGrade = "N/A";
                             Skill.NumericGrade = 0;
                         }
                     }
@@ -214,85 +235,92 @@ namespace ReportCardGenerator.Utilities
             //    }
             //}
             #endregion
-            myReader = new StreamReader(doc);
-
-            String loadedString = null;
-            Student stud = new Student();
-           
-            while ((loadedString = myReader.ReadLine()) != null)
+            try
             {
-                String[] studentDetails = loadedString.Split('\t');
-                stud.StudentID = studentDetails[0];
-                Grade Grade = new Grade();
-                Period period = new Period();
-                if (studentDetails[9] != null)
+                myReader = new StreamReader(doc);
+
+                String loadedString = null;
+                Student stud = new Student();
+
+                while ((loadedString = myReader.ReadLine()) != null)
                 {
-                    period.PeriodID = 1;
-                    period.PeriodName = "Term 1";
-                    controller.addOrUpdatePeriod(controller.getStudent(stud.StudentID), period);
-                    if (studentDetails[8] != "" && studentDetails[9] != "")
+                    String[] studentDetails = loadedString.Split('\t');
+                    stud.StudentID = studentDetails[0];
+                    Grade Grade = new Grade();
+                    Period period = new Period();
+                    if (studentDetails[9] != null)
                     {
-                        Grade.SubjectID = studentDetails[4].Substring(0, 4);
-                        //Grade.SubjectID = studentDetails[4];
-                        Grade.LetterGrade = studentDetails[9];
-                        Grade.NumericGrade = Convert.ToDouble(studentDetails[8]);
+                        period.PeriodID = 1;
+                        period.PeriodName = "Term 1";
+                        controller.addOrUpdatePeriod(controller.getStudent(stud.StudentID), period);
+                        if (studentDetails[8] != "" && studentDetails[9] != "")
+                        {
+                            Grade.SubjectID = studentDetails[4].Substring(0, 4);
+                            //Grade.SubjectID = studentDetails[4];
+                            Grade.LetterGrade = studentDetails[9];
+                            Grade.NumericGrade = Convert.ToDouble(studentDetails[8]);
+                        }
+                        else
+                        {
+                            Grade.SubjectID = studentDetails[4].Substring(0, 4);
+                            //Grade.SubjectID = studentDetails[4];
+                            Grade.LetterGrade = "N/A";
+                            Grade.NumericGrade = 0;
+                        }
+                        controller.addOrUpdateGrade(controller.getStudent(stud.StudentID), Grade, controller.getPeriod(controller.getStudent(stud), period.PeriodID));
                     }
-                    else
-                    {
-                        Grade.SubjectID = studentDetails[4].Substring(0, 4);
-                        //Grade.SubjectID = studentDetails[4];
-                        Grade.LetterGrade = "N/A"; 
-                        Grade.NumericGrade = 0; 
-                    }
-                    controller.addOrUpdateGrade(controller.getStudent(stud.StudentID), Grade, controller.getPeriod(controller.getStudent(stud), period.PeriodID));
+
+                    //if (studentDetails[11] != null)
+                    //{
+                    //    period.PeriodID = 2;
+                    //    period.PeriodName = "Term 2";
+                    //    controller.addOrUpdatePeriod(controller.getStudent(stud.StudentID), period);
+                    //    if (studentDetails[10] != "")
+                    //    {
+                    //        //Grade.SubjectID = studentDetails[4].Substring(0, 4);
+                    //        Grade.SubjectID = studentDetails[4];
+                    //        Grade.LetterGrade = studentDetails[11];
+                    //        Grade.NumericGrade = Convert.ToDouble(studentDetails[10]);
+                    //    }
+                    //    else
+                    //    {
+                    //        //Grade.SubjectID = studentDetails[4].Substring(0, 4);
+                    //        Grade.SubjectID = studentDetails[4];
+                    //        Grade.LetterGrade = "";
+                    //        Grade.NumericGrade = 0;
+                    //    }
+                    //    controller.addOrUpdateGrade(controller.getStudent(stud.StudentID), Grade, controller.getPeriod(controller.getStudent(stud), period.PeriodID));
+                    //}
+
+                    //if (studentDetails[13] != null)
+                    //{
+                    //    period.PeriodID = 3;
+                    //    period.PeriodName = "Term 3";
+                    //    controller.addOrUpdatePeriod(controller.getStudent(stud.StudentID), period);
+                    //    if (studentDetails[12] != "")
+                    //    {
+                    //        //Grade.SubjectID = studentDetails[4].Substring(0, 4);
+                    //        Grade.SubjectID = studentDetails[4];
+                    //        Grade.LetterGrade = studentDetails[13];
+                    //        Grade.NumericGrade = Convert.ToDouble(studentDetails[12]);
+                    //    }
+                    //    else
+                    //    {
+                    //        //Grade.SubjectID = studentDetails[4].Substring(0, 4);
+                    //        Grade.SubjectID = studentDetails[4];
+                    //        Grade.LetterGrade = "";
+                    //        Grade.NumericGrade = 0;
+                    //    }
+                    //    controller.addOrUpdateGrade(controller.getStudent(stud.StudentID), Grade, controller.getPeriod(controller.getStudent(stud), period.PeriodID));
+                    //}
+
                 }
-
-                //if (studentDetails[11] != null)
-                //{
-                //    period.PeriodID = 2;
-                //    period.PeriodName = "Term 2";
-                //    controller.addOrUpdatePeriod(controller.getStudent(stud.StudentID), period);
-                //    if (studentDetails[10] != "")
-                //    {
-                //        //Grade.SubjectID = studentDetails[4].Substring(0, 4);
-                //        Grade.SubjectID = studentDetails[4];
-                //        Grade.LetterGrade = studentDetails[11];
-                //        Grade.NumericGrade = Convert.ToDouble(studentDetails[10]);
-                //    }
-                //    else
-                //    {
-                //        //Grade.SubjectID = studentDetails[4].Substring(0, 4);
-                //        Grade.SubjectID = studentDetails[4];
-                //        Grade.LetterGrade = "";
-                //        Grade.NumericGrade = 0;
-                //    }
-                //    controller.addOrUpdateGrade(controller.getStudent(stud.StudentID), Grade, controller.getPeriod(controller.getStudent(stud), period.PeriodID));
-                //}
-
-                //if (studentDetails[13] != null)
-                //{
-                //    period.PeriodID = 3;
-                //    period.PeriodName = "Term 3";
-                //    controller.addOrUpdatePeriod(controller.getStudent(stud.StudentID), period);
-                //    if (studentDetails[12] != "")
-                //    {
-                //        //Grade.SubjectID = studentDetails[4].Substring(0, 4);
-                //        Grade.SubjectID = studentDetails[4];
-                //        Grade.LetterGrade = studentDetails[13];
-                //        Grade.NumericGrade = Convert.ToDouble(studentDetails[12]);
-                //    }
-                //    else
-                //    {
-                //        //Grade.SubjectID = studentDetails[4].Substring(0, 4);
-                //        Grade.SubjectID = studentDetails[4];
-                //        Grade.LetterGrade = "";
-                //        Grade.NumericGrade = 0;
-                //    }
-                //    controller.addOrUpdateGrade(controller.getStudent(stud.StudentID), Grade, controller.getPeriod(controller.getStudent(stud), period.PeriodID));
-                //}
-                
+                myReader.Close();
             }
-            myReader.Close();
+            catch (Exception er)
+            {
+                System.Windows.Forms.MessageBox.Show(er.Message, "Unable to run the File");
+            }
         }
         private static void addAttendanceFromXML(IStudentController controller, String doc)
         {
@@ -371,37 +399,45 @@ namespace ReportCardGenerator.Utilities
             double ab = 0;
             double ex = 0;
             double tardy = 0;
-            myReader = new StreamReader(doc);
-
-            String loadedString = null;
-
-            while ((loadedString = myReader.ReadLine()) != null)
+            try
             {
-                Student stud = new Student();
-                Attendance att = new Attendance();
-                Period p = new Period();
-                String[] studentDetails = loadedString.Split('\t');
-                stud.StudentID = studentDetails[0];
-                stud.FirstName = studentDetails[1];
-                stud.LastName = studentDetails[2];
+                myReader = new StreamReader(doc);
 
-                if (studentDetails[3].ToString() != "") ex = Convert.ToDouble(studentDetails[3]);
-                else ex = 0;
 
-                if (studentDetails[4].ToString() != "") ab = Convert.ToDouble(studentDetails[4]);
-                else ab = 0;
+                String loadedString = null;
 
-                if (studentDetails[5].ToString() != "") tardy = Convert.ToDouble(studentDetails[5]);
-                else tardy = 0;
+                while ((loadedString = myReader.ReadLine()) != null)
+                {
+                    Student stud = new Student();
+                    Attendance att = new Attendance();
+                    Period p = new Period();
+                    String[] studentDetails = loadedString.Split('\t');
+                    stud.StudentID = studentDetails[0];
+                    stud.FirstName = studentDetails[1];
+                    stud.LastName = studentDetails[2];
 
-                p.PeriodID = 1;
-                p.PeriodName = "Term 1";
-                att.DaysAbsent = ex + ab;
-                att.DaysTardy = tardy;
+                    if (studentDetails[3].ToString() != "") ex = Convert.ToDouble(studentDetails[3]);
+                    else ex = 0;
 
-                controller.addOrUpdateAttendance(controller.getStudent(stud.StudentID), att, p);
+                    if (studentDetails[4].ToString() != "") ab = Convert.ToDouble(studentDetails[4]);
+                    else ab = 0;
+
+                    if (studentDetails[5].ToString() != "") tardy = Convert.ToDouble(studentDetails[5]);
+                    else tardy = 0;
+
+                    p.PeriodID = 1;
+                    p.PeriodName = "Term 1";
+                    att.DaysAbsent = ex + ab;
+                    att.DaysTardy = tardy;
+
+                    controller.addOrUpdateAttendance(controller.getStudent(stud.StudentID), att, p);
+                }
+                myReader.Close();
             }
-            myReader.Close();
+            catch (Exception er)
+            {
+                System.Windows.Forms.MessageBox.Show(er.Message, "Unable to run the File");
+            }
 
         }
         private static void addCommentsFromXML(IStudentController controller, String doc)
@@ -440,50 +476,62 @@ namespace ReportCardGenerator.Utilities
             //    }
             //}
             #endregion
-            myReader = new StreamReader(doc);
-
-            String loadedString = null;
-
-            while ((loadedString = myReader.ReadLine()) != null)
+            try
             {
-                Student stud = new Student();
-                Period p = new Period();
-                Comment cmt = new Comment();
-                String[] studentDetails = loadedString.Split('\t');
-                stud.StudentID = studentDetails[0];
-                stud.FirstName = studentDetails[1];
-                stud.LastName = studentDetails[2];
-
-                if (studentDetails[3] != null)
-                {
-                    p.PeriodID = 1;
-                    p.PeriodName = "Term 1";
-                    cmt.CommentText = studentDetails[3];
-                    controller.addOrUpdatePeriod(controller.getStudent(stud.StudentID), p);
-                    controller.getPeriod(controller.getStudent(stud.StudentID), p.PeriodID).PeriodComment.Add(cmt);
-                }
+                myReader = new StreamReader(doc);
             }
-            myReader.Close();
+            catch (Exception er)
+            {
+                System.Windows.Forms.MessageBox.Show(er.Message, "Unable to run the File");
+            }
+            try
+            {
+                String loadedString = null;
+
+                while ((loadedString = myReader.ReadLine()) != null)
+                {
+                    Student stud = new Student();
+                    Period p = new Period();
+                    Comment cmt = new Comment();
+                    String[] studentDetails = loadedString.Split('\t');
+                    stud.StudentID = studentDetails[0];
+                    stud.FirstName = studentDetails[1];
+                    stud.LastName = studentDetails[2];
+
+                    if (studentDetails[3] != null)
+                    {
+                        p.PeriodID = 1;
+                        p.PeriodName = "Term 1";
+                        cmt.CommentText = studentDetails[3];
+                        controller.addOrUpdatePeriod(controller.getStudent(stud.StudentID), p);
+                        controller.getPeriod(controller.getStudent(stud.StudentID), p.PeriodID).PeriodComment.Add(cmt);
+                    }
+                }
+                myReader.Close();
+            }
+            catch
+            {
+            }
         }
 
 
         public static void parseHomeroomXML(IStudentController controller, String doc)
         {
-            //addStudentsFromXML(controller, doc);
+            addStudentsFromXML(controller, doc);
             addSkillsFromXML(controller, doc);
             //addCommentsFromXML(controller, doc);
             //addAttendanceFromXML(controller, doc);
         }
         public static void parseAttendanceXML(IStudentController controller, String doc)
         {
-            //addStudentsFromXML(controller, doc);
+            addStudentsFromXML(controller, doc);
             //addSkillsFromXML(controller, doc);
             //addCommentsFromXML(controller, doc);
             addAttendanceFromXML(controller, doc);
         }
         public static void parseCommentXML(IStudentController controller, String doc)
         {
-            //addStudentsFromXML(controller, doc);
+            addStudentsFromXML(controller, doc);
             //addSkillsFromXML(controller, doc);
             addCommentsFromXML(controller, doc);
             //addAttendanceFromXML(controller, doc);
