@@ -112,33 +112,67 @@ namespace ReportCardGenerator.Beans
         }
         public static DataRow UnitsEarned(DataRow drow, String Level, Period period, Student Stud)
         {
-            drow["Math"] = getFinalWeight(Level, "MATH", gradeController.getFinal("MATH",Stud.StudentID,period.PeriodID),Stud.StudentID);
-            drow["Science"] = getFinalWeight(Level, "SCIE", gradeController.getFinal("SCIE", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["Reading"] = getFinalWeight(Level, "READ", gradeController.getFinal("READ", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["Language"] = getFinalWeight(Level, "LANG", gradeController.getFinal("LANG", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["History"] = getFinalWeight(Level, "HIST", gradeController.getFinal("HIST", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["Leadership"] = getFinalWeight(Level, "LEAD", gradeController.getFinal("LEAD", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["Filipino"] = getFinalWeight(Level, "FILI", gradeController.getFinal("FILI", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["Computer"] = getFinalWeight(Level, "COMP", gradeController.getFinal("COMP", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["Music"] = getFinalWeight(Level, "MUSI", gradeController.getFinal("MUSI", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["Art"] = getFinalWeight(Level, "ART", gradeController.getFinal("ARTS", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["PE"] = getFinalWeight(Level, "PHED", gradeController.getFinal("PHED", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["Forex"] = getFinalWeight(Level, "FORE", gradeController.getFinal("FOREX", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["Religion"] = getFinalWeight(Level, "RVED", gradeController.getFinal("RVED", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["Life"] = getFinalWeight(Level, "HRLI", gradeController.getFinal("HRLI", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["Co-curricular"] = getFinalWeight(Level, "COIN", gradeController.getFinal("COIN", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["Deport"] = getFinalWeight(Level, "DEPO", gradeController.getFinal("DEPO", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["EntrepAcc"] = getFinalWeight(Level, "ECON", gradeController.getFinal("ECON", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["HomeEco"] = getFinalWeight(Level, "HOME", gradeController.getFinal("HOME", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["Shop"] = getFinalWeight(Level, "SHOP", gradeController.getFinal("SHOP", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["SLGE"] = getFinalWeight(Level, "SLGE", gradeController.getFinal("SLGE", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["Conduct"] = getFinalWeight(Level, "COND", gradeController.getFinal("COND", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["English"] = getFinalWeight(Level, "ENGL", gradeController.getFinal("ENGL", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["MAPE"] = getFinalWeight(Level, "MAPE", gradeController.getFinal("MAPE", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["CAS"] = getFinalWeight(Level, "CAS", gradeController.getFinal("CAS", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["BTA"] = getFinalWeight(Level, "BTA", gradeController.getFinal("BTA", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["Physics"] = getFinalWeight(Level, "PHYS", gradeController.getFinal("PHYS", Stud.StudentID, period.PeriodID), Stud.StudentID);
-            drow["StudentId"] = Stud.StudentID;
+            if (!period.PeriodID.Equals(1) && !period.PeriodID.Equals(2))
+            {
+                drow["Math"] = getFinalWeight(Level, "MATH", gradeController.getFinal("MATH", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["Science"] = getFinalWeight(Level, "SCIE", gradeController.getFinal("SCIE", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["Reading"] = getFinalWeight(Level, "READ", gradeController.getFinal("READ", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["Language"] = getFinalWeight(Level, "LANG", gradeController.getFinal("LANG", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["History"] = getFinalWeight(Level, "HIST", gradeController.getFinal("HIST", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["Leadership"] = getFinalWeight(Level, "LEAD", gradeController.getFinal("LEAD", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["Filipino"] = getFinalWeight(Level, "FILI", gradeController.getFinal("FILI", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["Computer"] = getFinalWeight(Level, "COMP", gradeController.getFinal("COMP", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["Music"] = getFinalWeight(Level, "MUSI", gradeController.getFinal("MUSI", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["Art"] = getFinalWeight(Level, "ART", gradeController.getFinal("ARTS", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["PE"] = getFinalWeight(Level, "PHED", gradeController.getFinal("PHED", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["Forex"] = getFinalWeight(Level, "FORE", gradeController.getFinal("FOREX", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["Religion"] = getFinalWeight(Level, "RVED", gradeController.getFinal("RVED", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["Life"] = getFinalWeight(Level, "HRLI", gradeController.getFinal("HRLI", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["Co-curricular"] = getFinalWeight(Level, "COIN", gradeController.getFinal("COIN", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["Deport"] = getFinalWeight(Level, "DEPO", gradeController.getFinal("DEPO", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["EntrepAcc"] = getFinalWeight(Level, "ECON", gradeController.getFinal("ECON", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["HomeEco"] = getFinalWeight(Level, "HOME", gradeController.getFinal("HOME", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["Shop"] = getFinalWeight(Level, "SHOP", gradeController.getFinal("SHOP", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["SLGE"] = getFinalWeight(Level, "SLGE", gradeController.getFinal("SLGE", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["Conduct"] = getFinalWeight(Level, "COND", gradeController.getFinal("COND", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["English"] = getFinalWeight(Level, "ENGL", gradeController.getFinal("ENGL", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["MAPE"] = getFinalWeight(Level, "MAPE", gradeController.getFinal("MAPE", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["CAS"] = getFinalWeight(Level, "CAS", gradeController.getFinal("CAS", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["BTA"] = getFinalWeight(Level, "BTA", gradeController.getFinal("BTA", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["Physics"] = getFinalWeight(Level, "PHYS", gradeController.getFinal("PHYS", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["StudentId"] = Stud.StudentID;
+            }
+            else
+            {
+                drow["Math"] = getWeight(Level, "MATH");
+                drow["Science"] = getWeight(Level, "SCIE");
+                drow["Reading"] = getWeight(Level, "READ");
+                drow["Language"] = getWeight(Level, "LANG");
+                drow["History"] = getWeight(Level, "HIST");
+                drow["Leadership"] = getWeight(Level, "LEAD");
+                drow["Filipino"] = getWeight(Level, "FILI");
+                drow["Computer"] = getWeight(Level, "COMP");
+                drow["Music"] = getWeight(Level, "MUSI");
+                drow["Art"] = getWeight(Level, "ART");
+                drow["PE"] = getWeight(Level, "PHED");
+                drow["Forex"] = getWeight(Level, "FORE");
+                drow["Religion"] = getWeight(Level, "RVED");
+                drow["Life"] = getWeight(Level, "HRLI");
+                drow["Co-curricular"] = getWeight(Level, "COIN");
+                drow["Deport"] = getWeight(Level, "DEPO");
+                drow["EntrepAcc"] = getWeight(Level, "ECON");
+                drow["HomeEco"] = getWeight(Level, "HOME");
+                drow["Shop"] = getWeight(Level, "SHOP");
+                drow["SLGE"] = getWeight(Level, "SLGE");
+                drow["Conduct"] = getWeight(Level, "COND");
+                drow["English"] = getWeight(Level, "ENGL");
+                drow["MAPE"] = getWeight(Level, "MAPE");
+                drow["CAS"] = getWeight(Level, "CAS");
+                drow["BTA"] = getWeight(Level, "BTA");
+                drow["Physics"] = getWeight(Level, "PHYS");
+                drow["StudentId"] = Stud.StudentID;
+                drow["Total"] = getWeight(Level, "Total");
+            }
             return drow;
         }
     }

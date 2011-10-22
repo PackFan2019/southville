@@ -819,6 +819,37 @@ namespace ReportCardGenerator.Controller
             #endregion
             return grow;
         }
+        public DataRow TermGradeDistribution(DataRow drow,Period period, Student Stud, List<FinalComp> listGrades)
+        {
+            drow["Math"] = HonorsComputationFormula.getValue("MATH", Stud.StudentID, listGrades);
+            drow["Science"] = HonorsComputationFormula.getValue("SCIE", Stud.StudentID, listGrades);
+            drow["Reading"] = HonorsComputationFormula.getValue("READ", Stud.StudentID, listGrades);
+            drow["Language"] = HonorsComputationFormula.getValue("LANG", Stud.StudentID, listGrades);
+            drow["History"] = HonorsComputationFormula.getValue("HIST", Stud.StudentID, listGrades);
+            drow["Leadership"] = HonorsComputationFormula.getValue("LEAD", Stud.StudentID, listGrades);
+            drow["Filipino"] = HonorsComputationFormula.getValue("FILI", Stud.StudentID, listGrades);
+            drow["Computer"] = HonorsComputationFormula.getValue("COMP", Stud.StudentID, listGrades);
+            drow["Music"] = HonorsComputationFormula.getValue("MUSI", Stud.StudentID, listGrades);
+            drow["Art"] = HonorsComputationFormula.getValue("ARTS", Stud.StudentID, listGrades);
+            drow["PE"] = HonorsComputationFormula.getValue("PHED", Stud.StudentID, listGrades);
+            drow["Forex"] = HonorsComputationFormula.getValue("FORE", Stud.StudentID, listGrades);
+            drow["Religion"] = HonorsComputationFormula.getValue("RELI", Stud.StudentID, listGrades);
+            drow["Life"] = HonorsComputationFormula.getValue("HRLI", Stud.StudentID, listGrades);
+            drow["Co-curricular"] = HonorsComputationFormula.getValue("COIN", Stud.StudentID, listGrades);
+            drow["Deport"] = HonorsComputationFormula.getValue("DEPO", Stud.StudentID, listGrades);
+            drow["EntrepAcc"] = HonorsComputationFormula.getValue("ECON", Stud.StudentID, listGrades);
+            drow["HomeEco"] = HonorsComputationFormula.getValue("HOME", Stud.StudentID, listGrades);
+            drow["Shop"] = HonorsComputationFormula.getValue("SHOP", Stud.StudentID, listGrades);
+            drow["SLGE"] = HonorsComputationFormula.getValue("SLGE", Stud.StudentID, listGrades);
+            drow["Conduct"] = HonorsComputationFormula.getValue("COND", Stud.StudentID, listGrades);
+            drow["English"] = HonorsComputationFormula.getValue("ENGL", Stud.StudentID, listGrades);
+            drow["MAPE"] = HonorsComputationFormula.getValue("MAPE", Stud.StudentID, listGrades);
+            drow["BTA"] = HonorsComputationFormula.getValue("BUSI", Stud.StudentID, listGrades);
+            drow["Physics"] = HonorsComputationFormula.getValue("PHYS", Stud.StudentID, listGrades);
+            drow["StudentId"] = Stud.StudentID;
+
+            return drow;
+        }
         public DataRow FinalComputation(String StudentId, int termPeriod, DataRow drow)
         {
             #region loading of grade to final table from list

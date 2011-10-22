@@ -128,9 +128,16 @@ namespace ReportCardGenerator.Beans
             cluster1 = getCluster1and2Numeric("MATH", "SCIE", "ENGL", Level, StudentId, listGrades);
             cluster2 = getCluster1and2Numeric("SLGE", "ECON", "COMP", Level, StudentId, listGrades);
 
-
-            termsRow["Cluster1"] = getCluster1and2String("MATH", "PHYS", "ENGL", Level, StudentId, listGrades);
-            termsRow["Cluster1Ans"] = getCluster1and2Numeric("MATH", "PHYS", "ENGL", Level, StudentId, listGrades);
+            if (Level.Equals("HS IV"))
+            {
+                termsRow["Cluster1"] = getCluster1and2String("MATH", "PHYS", "ENGL", Level, StudentId, listGrades);
+                termsRow["Cluster1Ans"] = getCluster1and2Numeric("MATH", "PHYS", "ENGL", Level, StudentId, listGrades);
+            }
+            else
+            {
+                termsRow["Cluster1"] = getCluster1and2String("MATH", "SCIE", "ENGL", Level, StudentId, listGrades);
+                termsRow["Cluster1Ans"] = getCluster1and2Numeric("MATH", "SCIE", "ENGL", Level, StudentId, listGrades);
+            }
             termsRow["Cluster2"] = getCluster1and2String("SLGE", "COMP", "RVED", Level, StudentId, listGrades);
             termsRow["Cluster2Ans"] = getCluster1and2Numeric("SLGE", "COMP", "RVED", Level, StudentId, listGrades);
             if (Level.Equals("HS IV"))
@@ -337,7 +344,7 @@ namespace ReportCardGenerator.Beans
             }
         }
         
-        private static Double getValue(String SubjectId, String StudentID, List<FinalComp> listGrades)
+        public static Double getValue(String SubjectId, String StudentID, List<FinalComp> listGrades)
         {
             //try
             //{
@@ -379,7 +386,7 @@ namespace ReportCardGenerator.Beans
             }
             return Award;
         }
-        private static Double ConvertToGradePoints(Double value)
+        public static Double ConvertToGradePoints(Double value)
         {
             Double variable = 0;
             if (value > 95 && value <= 100)

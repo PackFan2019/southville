@@ -379,8 +379,17 @@ namespace ReportCardGenerator.Views
                                 DataRow SkillTerm1Row = DS.Skillterm1.NewRow();
                                 DS.Skillterm1.Rows.Add(gradeController.loadSkills(tempPeriod, Stud.StudentID, SkillTerm1Row, FinalComp.ListSkillTerm1));
 
+                                DataRow TGDTerm1Row = DS.TGDGradeterm1.NewRow();
+                                DS.TGDGradeterm1.Rows.Add(gradeController.TermGradeDistribution(TGDTerm1Row,tempPeriod,Stud,FinalComp.ListGradeTerm1));
+                                if (Stud.RptCard.Periods.Count.Equals(1))
+                                {
+                                    DataRow unitsEarnedRow1 = DS.TGD.NewRow();
+                                    DS.TGD.Rows.Add(ActionTakenUnitsEarned.UnitsEarned(unitsEarnedRow1, Stud.Level, tempPeriod, Stud));
+                                }
                                 honorController.ComputeTermsHonors(DS.HonorsTerm1, Stud.StudentID, Stud.Level, FinalComp.ListGradeTerm1, tempPeriod.PeriodID);
                                 honorController.ComputeTermsFormat(DS.HonorsFormat, tempPeriod.PeriodID, Stud.Level,Stud.StudentID);
+
+                                
                                 break;
                             case 2: DataRow term2Drow = DS.Gradeterm2.NewRow();
                                 DS.Gradeterm2.Rows.Add(gradeController.loadGrade(tempPeriod, Stud, term2Drow, FinalComp.ListGradeTerm2));
@@ -434,7 +443,7 @@ namespace ReportCardGenerator.Views
                         }
                         else
                         {
-                          }
+                        }
                         
                     } 
                 }
@@ -1792,37 +1801,41 @@ namespace ReportCardGenerator.Views
         }
         private void termGradeDistributionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            List<String> subject = new List<string>();
-            subject.Add("MATH");
-            subject.Add("SCIE");
-            subject.Add("ENGL");
-            subject.Add("SLGE");
-            subject.Add("HIST");
-            subject.Add("LEAD");
-            subject.Add("FILI");
-            subject.Add("BTA");
-            subject.Add("ECON");
-            subject.Add("COMP");
-            subject.Add("MAPE");
-            subject.Add("MUSI");
-            subject.Add("ARTS");
-            subject.Add("PHED");
-            subject.Add("COIN");
-            subject.Add("FORE");
-            subject.Add("HOME");
-            subject.Add("RVED");
-            subject.Add("SHOP");
-            subject.Add("HRLI");
-            subject.Add("PHYS");
+            #region
+            //List<String> subject = new List<string>();
+            //subject.Add("MATH");
+            //subject.Add("SCIE");
+            //subject.Add("ENGL");
+            //subject.Add("SLGE");
+            //subject.Add("HIST");
+            //subject.Add("LEAD");
+            //subject.Add("FILI");
+            //subject.Add("BTA");
+            //subject.Add("ECON");
+            //subject.Add("COMP");
+            //subject.Add("MAPE");
+            //subject.Add("MUSI");
+            //subject.Add("ARTS");
+            //subject.Add("PHED");
+            //subject.Add("COIN");
+            //subject.Add("FORE");
+            //subject.Add("HOME");
+            //subject.Add("RVED");
+            //subject.Add("SHOP");
+            //subject.Add("HRLI");
+            //subject.Add("PHYS");
 
-            getCount(subject);
+            //getCount(subject);
 
-            GWA rpt = new GWA();
+            //GWA rpt = new GWA();
+            //DepEd menu = new DepEd();
+            //menu.loadDepEdReport(rpt);
+            //menu.ShowDialog();
+            #endregion
+            Term1TestDist rpt = new Term1TestDist();
             DepEd menu = new DepEd();
             menu.loadDepEdReport(rpt);
             menu.ShowDialog();
-
         }
         private void getCount(List<String> subjectList)
         {

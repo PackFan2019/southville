@@ -24,9 +24,9 @@ namespace ReportCardGenerator.Beans
                     return Convert.ToDouble(GradeUnit[SubjectID]);
                 }
             }
-            catch(Exception er)
+            catch (Exception er)
             {
-                System.Windows.Forms.MessageBox.Show(er.Message);
+                //System.Windows.Forms.MessageBox.Show(er.Message, "this is");
                 //System.Windows.Forms.MessageBox.Show("Level " + Level + " is not in the list. \n" + "Please correct or complete the Information in the Gradebook Computer", 
                 //    "Incomplete Level Information", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
                 return 0;
@@ -95,7 +95,7 @@ namespace ReportCardGenerator.Beans
             {
                 HashTables.Grade1.Add("MATH", 1);
                 HashTables.Grade1.Add("SCIE", 0.6);
-                HashTables.Grade1.Add("ENGL", 1);
+                HashTables.Grade1.Add("ENGL", 1.8);
                 HashTables.Grade1.Add("SLGE", 0.4);
                 HashTables.Grade1.Add("HIST", 0.4);
                 HashTables.Grade1.Add("FILI", 0.4);
@@ -108,10 +108,11 @@ namespace ReportCardGenerator.Beans
                 HashTables.Grade1.Add("HOME", 0);
                 HashTables.Grade1.Add("HRLI", 0.4);
                 HashTables.Grade1.Add("COND", 0.5);
+                //HashTables.Grade1.Add("Total", 7.1);
 
                 HashTables.Grade2.Add("MATH", 1);
                 HashTables.Grade2.Add("SCIE", 0.6);
-                HashTables.Grade2.Add("ENGL", 1);
+                HashTables.Grade2.Add("ENGL", 1.8);
                 HashTables.Grade2.Add("SLGE", 0.4);
                 HashTables.Grade2.Add("HIST", 0.4);
                 HashTables.Grade2.Add("FILI", 0.4);
@@ -124,6 +125,7 @@ namespace ReportCardGenerator.Beans
                 HashTables.Grade2.Add("HOME", 0);
                 HashTables.Grade2.Add("HRLI", 0.4);
                 HashTables.Grade2.Add("COND", 0.5);
+                //HashTables.Grade2.Add("Total", 7.1);
 
                 HashTables.Grade3.Add("MATH", 1.25);
                 HashTables.Grade3.Add("SCIE", 1.25);
@@ -142,6 +144,7 @@ namespace ReportCardGenerator.Beans
                 HashTables.Grade3.Add("HOME", 0.25);
                 HashTables.Grade3.Add("LANG", 1);
                 HashTables.Grade3.Add("READ", 1);
+                //HashTables.Grade3.Add("Total", 7.1);
 
                 HashTables.Grade4.Add("MATH", 1.25);
                 HashTables.Grade4.Add("SCIE", 1.25);
@@ -160,6 +163,7 @@ namespace ReportCardGenerator.Beans
                 HashTables.Grade4.Add("HOME", 0.25);
                 HashTables.Grade4.Add("LANG", 1);
                 HashTables.Grade4.Add("READ", 1);
+                //HashTables.Grade5.Add("Total", 7.1);
 
                 HashTables.Grade5.Add("MATH", 1.25);
                 HashTables.Grade5.Add("SCIE", 1.25);
@@ -178,6 +182,7 @@ namespace ReportCardGenerator.Beans
                 HashTables.Grade5.Add("HOME", 0.25);
                 HashTables.Grade5.Add("LANG", 1);
                 HashTables.Grade5.Add("READ", 1);
+                //HashTables.Grade5.Add("Total", 7.1);
 
                 HashTables.Grade6.Add("MATH", 1.25);
                 HashTables.Grade6.Add("SCIE", 1.25);
@@ -198,6 +203,7 @@ namespace ReportCardGenerator.Beans
                 HashTables.Grade6.Add("LANG", 1);
                 HashTables.Grade6.Add("READ", 1);
                 HashTables.Grade6.Add("SHOP", 0.25);
+                //HashTables.Grade6.Add("Total", 11.5);
 
                 HashTables.Grade7.Add("MATH", 1.25);
                 HashTables.Grade7.Add("SCIE", 1.25);
@@ -218,6 +224,7 @@ namespace ReportCardGenerator.Beans
                 HashTables.Grade7.Add("LANG", 1);
                 HashTables.Grade7.Add("READ", 1);
                 HashTables.Grade7.Add("SHOP", 0.25);
+                //HashTables.Grade7.Add("Total", 11.5);
 
                 HashTables.HS1.Add("MATH", 1.8);
                 HashTables.HS1.Add("SCIE", 2);
@@ -227,12 +234,12 @@ namespace ReportCardGenerator.Beans
                 HashTables.HS1.Add("LEAD", 1.05);
                 HashTables.HS1.Add("FILI", 0.6);
                 HashTables.HS1.Add("BTA", 1.5);
-                HashTables.HS1.Add("ECON", 0.5);
-                HashTables.HS1.Add("COMP", 0.5);
+                HashTables.HS1.Add("ECON", 0.75);
+                HashTables.HS1.Add("COMP", 0.45);
                 HashTables.HS1.Add("MAPE", 1.8);
-                HashTables.HS1.Add("MUSI", 0.6);
+                HashTables.HS1.Add("MUSI", 0.3);
                 HashTables.HS1.Add("ARTS", 0.6);
-                HashTables.HS1.Add("PHED", 0.6);
+                HashTables.HS1.Add("PHED", 0.3);
                 HashTables.HS1.Add("COIN", 0.4);
                 HashTables.HS1.Add("FORE", 0.3);
                 HashTables.HS1.Add("HOME", 0.3);
@@ -241,6 +248,7 @@ namespace ReportCardGenerator.Beans
                 HashTables.HS1.Add("READ", 1.8);
                 HashTables.HS1.Add("SHOP", 0.3);
                 HashTables.HS1.Add("HRLI", 0.3);
+                //HashTables.HS1.Add("Total", 18.1);
 
                 HashTables.HS2.Add("MATH", 1.8);
                 HashTables.HS2.Add("SCIE", 2);
@@ -250,18 +258,19 @@ namespace ReportCardGenerator.Beans
                 HashTables.HS2.Add("LEAD", 1.05);
                 HashTables.HS2.Add("FILI", 0.6);
                 HashTables.HS2.Add("BTA", 1.5);
-                HashTables.HS2.Add("ECON", 0.5);
-                HashTables.HS2.Add("COMP", 0.5);
+                HashTables.HS2.Add("ECON", 0.75);
+                HashTables.HS2.Add("COMP", 0.45);
                 HashTables.HS2.Add("MAPE", 1.8);
-                HashTables.HS2.Add("MUSI", 0.6);
+                HashTables.HS2.Add("MUSI", 0.3);
                 HashTables.HS2.Add("ARTS", 0.6);
-                HashTables.HS2.Add("PHED", 0.6);
+                HashTables.HS2.Add("PHED", 0.3);
                 HashTables.HS2.Add("COIN", 0.4);
                 HashTables.HS2.Add("FORE", 0.3);
                 HashTables.HS2.Add("HOME", 0.3);
                 HashTables.HS2.Add("RVED", 0.3);
                 HashTables.HS2.Add("SHOP", 0.3);
                 HashTables.HS2.Add("HRLI", 0.3);
+                //HashTables.HS2.Add("Total", 18.1);
 
                 HashTables.HS3.Add("MATH", 1.8);
                 HashTables.HS3.Add("SCIE", 2);
@@ -271,18 +280,19 @@ namespace ReportCardGenerator.Beans
                 HashTables.HS3.Add("LEAD", 1.05);
                 HashTables.HS3.Add("FILI", 0.6);
                 HashTables.HS3.Add("BTA", 1.5);
-                HashTables.HS3.Add("ECON", 0.5);
-                HashTables.HS3.Add("COMP", 0.5);
+                HashTables.HS3.Add("ECON", 0.75);
+                HashTables.HS3.Add("COMP", 0.45);
                 HashTables.HS3.Add("MAPE", 1.8);
-                HashTables.HS3.Add("MUSI", 0.6);
+                HashTables.HS3.Add("MUSI", 0.3);
                 HashTables.HS3.Add("ARTS", 0.6);
-                HashTables.HS3.Add("PHED", 0.6);
+                HashTables.HS3.Add("PHED", 0.3);
                 HashTables.HS3.Add("COIN", 0.4);
                 HashTables.HS3.Add("FORE", 0.3);
                 HashTables.HS3.Add("HOME", 0.3);
                 HashTables.HS3.Add("RVED", 0.3);
                 HashTables.HS3.Add("SHOP", 0.3);
                 HashTables.HS3.Add("HRLI", 0.3);
+                HashTables.HS3.Add("Total", 18.1);
 
                 HashTables.HS4.Add("MATH", 1.8);
                 HashTables.HS4.Add("SCIE", 2);
@@ -292,12 +302,12 @@ namespace ReportCardGenerator.Beans
                 HashTables.HS4.Add("LEAD", 1.05);
                 HashTables.HS4.Add("FILI", 0.6);
                 HashTables.HS4.Add("BTA", 1.5);
-                HashTables.HS4.Add("ECON", 0.5);
-                HashTables.HS4.Add("COMP", 0.5);
+                HashTables.HS4.Add("ECON", 0.75);
+                HashTables.HS4.Add("COMP", 0.45);
                 HashTables.HS4.Add("MAPE", 1.8);
-                HashTables.HS4.Add("MUSI", 0.6);
+                HashTables.HS4.Add("MUSI", 0.3);
                 HashTables.HS4.Add("ARTS", 0.6);
-                HashTables.HS4.Add("PHED", 0.6);
+                HashTables.HS4.Add("PHED", 0.3);
                 HashTables.HS4.Add("COIN", 0.4);
                 HashTables.HS4.Add("FORE", 0.3);
                 HashTables.HS4.Add("HOME", 0.3);
@@ -305,6 +315,7 @@ namespace ReportCardGenerator.Beans
                 HashTables.HS4.Add("SHOP", 0.3);
                 HashTables.HS4.Add("HRLI", 0.3);
                 HashTables.HS4.Add("PHYS", 2);
+                //HashTables.HS4.Add("Total", 20.1);
 
                 loadGradeUnit();
             }

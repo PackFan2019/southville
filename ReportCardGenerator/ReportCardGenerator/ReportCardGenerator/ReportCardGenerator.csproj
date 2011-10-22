@@ -31,7 +31,7 @@
     <UpdateUrl>\\sisc-erelim\4_Printing\Romyr\ReportCardGeneratorV2\</UpdateUrl>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>126</ApplicationRevision>
+    <ApplicationRevision>129</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -278,6 +278,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HonorsTerm1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Term1TestDist.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Term1TestDist.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Upper4.cs">
@@ -647,6 +653,10 @@
     <EmbeddedResource Include="Reports\G7.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>G7.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Term1TestDist.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Term1TestDist.cs</LastGenOutput>
     </EmbeddedResource>
     <Content Include="favicon.ico" />
     <Content Include="Resources\cancel.png" />
