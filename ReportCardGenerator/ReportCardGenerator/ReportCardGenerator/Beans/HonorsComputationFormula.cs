@@ -138,8 +138,8 @@ namespace ReportCardGenerator.Beans
                 termsRow["Cluster1"] = getCluster1and2String("MATH", "SCIE", "ENGL", Level, StudentId, listGrades);
                 termsRow["Cluster1Ans"] = getCluster1and2Numeric("MATH", "SCIE", "ENGL", Level, StudentId, listGrades);
             }
-            termsRow["Cluster2"] = getCluster1and2String("SLGE", "COMP", "RVED", Level, StudentId, listGrades);
-            termsRow["Cluster2Ans"] = getCluster1and2Numeric("SLGE", "COMP", "RVED", Level, StudentId, listGrades);
+            termsRow["Cluster2"] = getCluster1and2String("SLGE", "BUSI", "COMP", Level, StudentId, listGrades);
+            termsRow["Cluster2Ans"] = getCluster1and2Numeric("SLGE", "BUSI", "COMP", Level, StudentId, listGrades);
             if (Level.Equals("HS IV"))
             {
                 if (termPeriod.Equals(1))
@@ -344,7 +344,7 @@ namespace ReportCardGenerator.Beans
             }
         }
         
-        public static Double getValue(String SubjectId, String StudentID, List<FinalComp> listGrades)
+        public  static Double getValue(String SubjectId, String StudentID, List<FinalComp> listGrades)
         {
             //try
             //{

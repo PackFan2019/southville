@@ -3,6 +3,10 @@
     
     public partial class RPdata
     {
+        partial class TotalDataTable
+        {
+        }
+    
         partial class DataTable1DataTable
         {
             

@@ -381,6 +381,12 @@ namespace ReportCardGenerator.Views
 
                                 DataRow TGDTerm1Row = DS.TGDGradeterm1.NewRow();
                                 DS.TGDGradeterm1.Rows.Add(gradeController.TermGradeDistribution(TGDTerm1Row,tempPeriod,Stud,FinalComp.ListGradeTerm1));
+
+                                DataRow TGDSubTotal = DS.SubTotal.NewRow();
+                                DS.SubTotal.Rows.Add(gradeController.TermGradeDistributionSubTotal(TGDSubTotal,tempPeriod,Stud,FinalComp.ListGradeTerm1, Stud.Level));
+
+                                DataRow TGDTotal = DS.Total.NewRow();
+                                DS.Total.Rows.Add(gradeController.TermGradeDistributionTotal(TGDTotal, tempPeriod, Stud, FinalComp.ListGradeTerm1, Stud.Level));
                                 if (Stud.RptCard.Periods.Count.Equals(1))
                                 {
                                     DataRow unitsEarnedRow1 = DS.TGD.NewRow();

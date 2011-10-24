@@ -26,6 +26,8 @@ namespace ReportCardGenerator.Interfaces
         DataRow getAttendanceFinalComp(String StudentId, DataRow drow);
         DataRow SkillsFinalComputation(String StudId, DataRow srow);
         DataRow TermGradeDistribution(DataRow drow, Period period, Student Stud, List<FinalComp> listGrades);
+        DataRow TermGradeDistributionSubTotal(DataRow drow, Period period, Student Stud, List<FinalComp> listGrades,String Level);
+        DataRow TermGradeDistributionTotal(DataRow drow, Period period, Student Stud, List<FinalComp> listGrades, String Level);
         Double getSkillFinal(String SkillId, String StudId);
         Double getFinal(String SubjectId, String StudentID, int termPeriod);
         void UpdateFinalGrade(DataTable TermFinal, DataTable ActionTaken, String StudentId, int termPeriod);

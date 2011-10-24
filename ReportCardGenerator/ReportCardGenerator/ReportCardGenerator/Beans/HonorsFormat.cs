@@ -69,7 +69,7 @@ namespace ReportCardGenerator.Beans
         {
             DataRow drow = HonorsTable.NewRow();
             drow["Cluster1Format"] = "[(Math*" + SubjectUnit.getWeight(Level, "MATH") + ") + (Science*" + SubjectUnit.getWeight(Level, "SCIE") + ") + English*" + SubjectUnit.getWeight(Level, "ENGL") + "]/" + (SubjectUnit.getWeight(Level, "MATH") + SubjectUnit.getWeight(Level, "SCIE") + SubjectUnit.getWeight(Level, "ENGL"));
-            drow["Cluster2Format"] = "[(SLGE*" + SubjectUnit.getWeight(Level, "SLGE") + ") + (Acctg*" + SubjectUnit.getWeight(Level, "ECON") + ") + (Computer*" + SubjectUnit.getWeight(Level, "COMP") + ")]/" + (SubjectUnit.getWeight(Level, "SLGE") + SubjectUnit.getWeight(Level, "ECON") + SubjectUnit.getWeight(Level, "COMP"));
+            drow["Cluster2Format"] = "[(SLGE*" + SubjectUnit.getWeight(Level, "SLGE") + ") + (Acctg*" + SubjectUnit.getWeight(Level, "BUSI") + ") + (Computer*" + SubjectUnit.getWeight(Level, "COMP") + ")]/" + (SubjectUnit.getWeight(Level, "SLGE") + SubjectUnit.getWeight(Level, "BUSI") + SubjectUnit.getWeight(Level, "COMP"));
             if (termPeriod.Equals(1))
             {
                 drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (RVED*" + SubjectUnit.getWeight(Level, "RVED") + ") + (Shop*" + SubjectUnit.getWeight(Level, "SHOP") + ") + (Music*" + SubjectUnit.getWeight(Level, "MUSI") + ") ]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "RVED") + SubjectUnit.getWeight(Level, "SHOP") + SubjectUnit.getWeight(Level, "MUSI"));
@@ -89,7 +89,7 @@ namespace ReportCardGenerator.Beans
         {
             DataRow drow = HonorsTable.NewRow();
             drow["Cluster1Format"] = "[(Math*" + SubjectUnit.getWeight(Level, "MATH") + ") + (Science*" + SubjectUnit.getWeight(Level, "SCIE") + ") + English*" + SubjectUnit.getWeight(Level, "ENGL") + "]/" + (SubjectUnit.getWeight(Level, "MATH") + SubjectUnit.getWeight(Level, "SCIE") + SubjectUnit.getWeight(Level, "ENGL"));
-            drow["Cluster2Format"] = "[(SLGE*" + SubjectUnit.getWeight(Level, "SLGE") + ") + (Investmet*" + SubjectUnit.getWeight(Level, "ECON") + ") + (Computer*" + SubjectUnit.getWeight(Level, "COMP") + ")]/" + (SubjectUnit.getWeight(Level, "SLGE") + SubjectUnit.getWeight(Level, "ECON") + SubjectUnit.getWeight(Level, "COMP"));
+            drow["Cluster2Format"] = "[(SLGE*" + SubjectUnit.getWeight(Level, "SLGE") + ") + (Investmet*" + SubjectUnit.getWeight(Level, "BUSI") + ") + (Computer*" + SubjectUnit.getWeight(Level, "COMP") + ")]/" + (SubjectUnit.getWeight(Level, "SLGE") + SubjectUnit.getWeight(Level, "BUSI") + SubjectUnit.getWeight(Level, "COMP"));
             if (termPeriod.Equals(1))
             {
                 drow["Cluster3Format"] = "[(PE*" + SubjectUnit.getWeight(Level, "PHED") + ") + (RVED*" + SubjectUnit.getWeight(Level, "RVED") + ") + (Art*" + SubjectUnit.getWeight(Level, "ARTS") + ") + (HE*" + SubjectUnit.getWeight(Level, "HOME") + ") ]/" + (SubjectUnit.getWeight(Level, "PHED") + SubjectUnit.getWeight(Level, "RVED") + SubjectUnit.getWeight(Level, "ARTS") + SubjectUnit.getWeight(Level, "HOME"));
@@ -109,7 +109,7 @@ namespace ReportCardGenerator.Beans
         {
             DataRow drow = HonorsTable.NewRow();
             drow["Cluster1Format"] = "[(Math*" + SubjectUnit.getWeight(Level, "MATH") + ") + (Science*" + SubjectUnit.getWeight(Level, "PHYS") + ") + English*" + SubjectUnit.getWeight(Level, "ENGL") + "]/" + (SubjectUnit.getWeight(Level, "MATH") + SubjectUnit.getWeight(Level, "PHYS") + SubjectUnit.getWeight(Level, "ENGL"));
-            drow["Cluster2Format"] = "[(SLGE*" + SubjectUnit.getWeight(Level, "SLGE") + ") + (Economics*" + SubjectUnit.getWeight(Level, "ECON") + ") + (Computer*" + SubjectUnit.getWeight(Level, "COMP") + ")]/" + (SubjectUnit.getWeight(Level, "SLGE") + SubjectUnit.getWeight(Level, "ECON") + SubjectUnit.getWeight(Level, "COMP"));
+            drow["Cluster2Format"] = "[(SLGE*" + SubjectUnit.getWeight(Level, "SLGE") + ") + (Economics*" + SubjectUnit.getWeight(Level, "BUSI") + ") + (Computer*" + SubjectUnit.getWeight(Level, "COMP") + ")]/" + (SubjectUnit.getWeight(Level, "SLGE") + SubjectUnit.getWeight(Level, "BUSI") + SubjectUnit.getWeight(Level, "COMP"));
             if (termPeriod.Equals(1))
             {
                 //modification 10/20/11 HOME to SHOP

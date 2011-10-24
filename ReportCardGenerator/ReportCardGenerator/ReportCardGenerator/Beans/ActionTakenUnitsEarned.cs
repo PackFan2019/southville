@@ -123,7 +123,7 @@ namespace ReportCardGenerator.Beans
                 drow["Filipino"] = getFinalWeight(Level, "FILI", gradeController.getFinal("FILI", Stud.StudentID, period.PeriodID), Stud.StudentID);
                 drow["Computer"] = getFinalWeight(Level, "COMP", gradeController.getFinal("COMP", Stud.StudentID, period.PeriodID), Stud.StudentID);
                 drow["Music"] = getFinalWeight(Level, "MUSI", gradeController.getFinal("MUSI", Stud.StudentID, period.PeriodID), Stud.StudentID);
-                drow["Art"] = getFinalWeight(Level, "ART", gradeController.getFinal("ARTS", Stud.StudentID, period.PeriodID), Stud.StudentID);
+                drow["Art"] = getFinalWeight(Level, "ARTS", gradeController.getFinal("ARTS", Stud.StudentID, period.PeriodID), Stud.StudentID);
                 drow["PE"] = getFinalWeight(Level, "PHED", gradeController.getFinal("PHED", Stud.StudentID, period.PeriodID), Stud.StudentID);
                 drow["Forex"] = getFinalWeight(Level, "FORE", gradeController.getFinal("FOREX", Stud.StudentID, period.PeriodID), Stud.StudentID);
                 drow["Religion"] = getFinalWeight(Level, "RVED", gradeController.getFinal("RVED", Stud.StudentID, period.PeriodID), Stud.StudentID);
@@ -153,7 +153,7 @@ namespace ReportCardGenerator.Beans
                 drow["Filipino"] = getWeight(Level, "FILI");
                 drow["Computer"] = getWeight(Level, "COMP");
                 drow["Music"] = getWeight(Level, "MUSI");
-                drow["Art"] = getWeight(Level, "ART");
+                drow["Art"] = getWeight(Level, "ARTS");
                 drow["PE"] = getWeight(Level, "PHED");
                 drow["Forex"] = getWeight(Level, "FORE");
                 drow["Religion"] = getWeight(Level, "RVED");

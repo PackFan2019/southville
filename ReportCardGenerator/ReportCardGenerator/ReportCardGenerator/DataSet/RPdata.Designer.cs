@@ -79,6 +79,10 @@ namespace ReportCardGenerator.DataSet {
         
         private TGDGradeterm1DataTable tableTGDGradeterm1;
         
+        private SubTotalDataTable tableSubTotal;
+        
+        private TotalDataTable tableTotal;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -189,6 +193,12 @@ namespace ReportCardGenerator.DataSet {
                 }
                 if ((ds.Tables["TGDGradeterm1"] != null)) {
                     base.Tables.Add(new TGDGradeterm1DataTable(ds.Tables["TGDGradeterm1"]));
+                }
+                if ((ds.Tables["SubTotal"] != null)) {
+                    base.Tables.Add(new SubTotalDataTable(ds.Tables["SubTotal"]));
+                }
+                if ((ds.Tables["Total"] != null)) {
+                    base.Tables.Add(new TotalDataTable(ds.Tables["Total"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -453,6 +463,24 @@ namespace ReportCardGenerator.DataSet {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public SubTotalDataTable SubTotal {
+            get {
+                return this.tableSubTotal;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public TotalDataTable Total {
+            get {
+                return this.tableTotal;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -592,6 +620,12 @@ namespace ReportCardGenerator.DataSet {
                 }
                 if ((ds.Tables["TGDGradeterm1"] != null)) {
                     base.Tables.Add(new TGDGradeterm1DataTable(ds.Tables["TGDGradeterm1"]));
+                }
+                if ((ds.Tables["SubTotal"] != null)) {
+                    base.Tables.Add(new SubTotalDataTable(ds.Tables["SubTotal"]));
+                }
+                if ((ds.Tables["Total"] != null)) {
+                    base.Tables.Add(new TotalDataTable(ds.Tables["Total"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -785,6 +819,18 @@ namespace ReportCardGenerator.DataSet {
                     this.tableTGDGradeterm1.InitVars();
                 }
             }
+            this.tableSubTotal = ((SubTotalDataTable)(base.Tables["SubTotal"]));
+            if ((initTable == true)) {
+                if ((this.tableSubTotal != null)) {
+                    this.tableSubTotal.InitVars();
+                }
+            }
+            this.tableTotal = ((TotalDataTable)(base.Tables["Total"]));
+            if ((initTable == true)) {
+                if ((this.tableTotal != null)) {
+                    this.tableTotal.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -848,6 +894,10 @@ namespace ReportCardGenerator.DataSet {
             base.Tables.Add(this.tableTGD);
             this.tableTGDGradeterm1 = new TGDGradeterm1DataTable();
             base.Tables.Add(this.tableTGDGradeterm1);
+            this.tableSubTotal = new SubTotalDataTable();
+            base.Tables.Add(this.tableSubTotal);
+            this.tableTotal = new TotalDataTable();
+            base.Tables.Add(this.tableTotal);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -986,6 +1036,16 @@ namespace ReportCardGenerator.DataSet {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializeSubTotal() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializeTotal() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -1096,6 +1156,10 @@ namespace ReportCardGenerator.DataSet {
         public delegate void TGDRowChangeEventHandler(object sender, TGDRowChangeEvent e);
         
         public delegate void TGDGradeterm1RowChangeEventHandler(object sender, TGDGradeterm1RowChangeEvent e);
+        
+        public delegate void SubTotalRowChangeEventHandler(object sender, SubTotalRowChangeEvent e);
+        
+        public delegate void TotalRowChangeEventHandler(object sender, TotalRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -13344,6 +13408,1270 @@ namespace ReportCardGenerator.DataSet {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class SubTotalDataTable : global::System.Data.TypedTableBase<SubTotalRow> {
+            
+            private global::System.Data.DataColumn columnMath;
+            
+            private global::System.Data.DataColumn columnScience;
+            
+            private global::System.Data.DataColumn columnReading;
+            
+            private global::System.Data.DataColumn columnLanguage;
+            
+            private global::System.Data.DataColumn columnHistory;
+            
+            private global::System.Data.DataColumn columnLeadership;
+            
+            private global::System.Data.DataColumn columnFilipino;
+            
+            private global::System.Data.DataColumn columnComputer;
+            
+            private global::System.Data.DataColumn columnMusic;
+            
+            private global::System.Data.DataColumn columnArt;
+            
+            private global::System.Data.DataColumn columnPE;
+            
+            private global::System.Data.DataColumn columnForex;
+            
+            private global::System.Data.DataColumn columnReligion;
+            
+            private global::System.Data.DataColumn columnLife;
+            
+            private global::System.Data.DataColumn _columnCo_curricular;
+            
+            private global::System.Data.DataColumn columnDeport;
+            
+            private global::System.Data.DataColumn columnEntrepAcc;
+            
+            private global::System.Data.DataColumn columnHomeEco;
+            
+            private global::System.Data.DataColumn columnShop;
+            
+            private global::System.Data.DataColumn columnRELA;
+            
+            private global::System.Data.DataColumn columnSLGE;
+            
+            private global::System.Data.DataColumn columnConduct;
+            
+            private global::System.Data.DataColumn columnInterest;
+            
+            private global::System.Data.DataColumn columnEnglish;
+            
+            private global::System.Data.DataColumn columnMAPE;
+            
+            private global::System.Data.DataColumn columnCAS;
+            
+            private global::System.Data.DataColumn columnBTA;
+            
+            private global::System.Data.DataColumn columnPhysics;
+            
+            private global::System.Data.DataColumn columnSpecialFil;
+            
+            private global::System.Data.DataColumn columnStudentId;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SubTotalDataTable() {
+                this.TableName = "SubTotal";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal SubTotalDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected SubTotalDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn MathColumn {
+                get {
+                    return this.columnMath;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ScienceColumn {
+                get {
+                    return this.columnScience;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ReadingColumn {
+                get {
+                    return this.columnReading;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn LanguageColumn {
+                get {
+                    return this.columnLanguage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn HistoryColumn {
+                get {
+                    return this.columnHistory;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn LeadershipColumn {
+                get {
+                    return this.columnLeadership;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn FilipinoColumn {
+                get {
+                    return this.columnFilipino;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ComputerColumn {
+                get {
+                    return this.columnComputer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn MusicColumn {
+                get {
+                    return this.columnMusic;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ArtColumn {
+                get {
+                    return this.columnArt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn PEColumn {
+                get {
+                    return this.columnPE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ForexColumn {
+                get {
+                    return this.columnForex;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ReligionColumn {
+                get {
+                    return this.columnReligion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn LifeColumn {
+                get {
+                    return this.columnLife;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _Co_curricularColumn {
+                get {
+                    return this._columnCo_curricular;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DeportColumn {
+                get {
+                    return this.columnDeport;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn EntrepAccColumn {
+                get {
+                    return this.columnEntrepAcc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn HomeEcoColumn {
+                get {
+                    return this.columnHomeEco;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ShopColumn {
+                get {
+                    return this.columnShop;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn RELAColumn {
+                get {
+                    return this.columnRELA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn SLGEColumn {
+                get {
+                    return this.columnSLGE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ConductColumn {
+                get {
+                    return this.columnConduct;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn InterestColumn {
+                get {
+                    return this.columnInterest;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn EnglishColumn {
+                get {
+                    return this.columnEnglish;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn MAPEColumn {
+                get {
+                    return this.columnMAPE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn CASColumn {
+                get {
+                    return this.columnCAS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn BTAColumn {
+                get {
+                    return this.columnBTA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn PhysicsColumn {
+                get {
+                    return this.columnPhysics;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn SpecialFilColumn {
+                get {
+                    return this.columnSpecialFil;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn StudentIdColumn {
+                get {
+                    return this.columnStudentId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SubTotalRow this[int index] {
+                get {
+                    return ((SubTotalRow)(this.Rows[index]));
+                }
+            }
+            
+            public event SubTotalRowChangeEventHandler SubTotalRowChanging;
+            
+            public event SubTotalRowChangeEventHandler SubTotalRowChanged;
+            
+            public event SubTotalRowChangeEventHandler SubTotalRowDeleting;
+            
+            public event SubTotalRowChangeEventHandler SubTotalRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddSubTotalRow(SubTotalRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SubTotalRow AddSubTotalRow(
+                        string Math, 
+                        string Science, 
+                        string Reading, 
+                        string Language, 
+                        string History, 
+                        string Leadership, 
+                        string Filipino, 
+                        string Computer, 
+                        string Music, 
+                        string Art, 
+                        string PE, 
+                        string Forex, 
+                        string Religion, 
+                        string Life, 
+                        string _Co_curricular, 
+                        string Deport, 
+                        string EntrepAcc, 
+                        string HomeEco, 
+                        string Shop, 
+                        string RELA, 
+                        string SLGE, 
+                        string Conduct, 
+                        string Interest, 
+                        string English, 
+                        string MAPE, 
+                        string CAS, 
+                        string BTA, 
+                        string Physics, 
+                        string SpecialFil, 
+                        string StudentId) {
+                SubTotalRow rowSubTotalRow = ((SubTotalRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Math,
+                        Science,
+                        Reading,
+                        Language,
+                        History,
+                        Leadership,
+                        Filipino,
+                        Computer,
+                        Music,
+                        Art,
+                        PE,
+                        Forex,
+                        Religion,
+                        Life,
+                        _Co_curricular,
+                        Deport,
+                        EntrepAcc,
+                        HomeEco,
+                        Shop,
+                        RELA,
+                        SLGE,
+                        Conduct,
+                        Interest,
+                        English,
+                        MAPE,
+                        CAS,
+                        BTA,
+                        Physics,
+                        SpecialFil,
+                        StudentId};
+                rowSubTotalRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSubTotalRow);
+                return rowSubTotalRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                SubTotalDataTable cln = ((SubTotalDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new SubTotalDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnMath = base.Columns["Math"];
+                this.columnScience = base.Columns["Science"];
+                this.columnReading = base.Columns["Reading"];
+                this.columnLanguage = base.Columns["Language"];
+                this.columnHistory = base.Columns["History"];
+                this.columnLeadership = base.Columns["Leadership"];
+                this.columnFilipino = base.Columns["Filipino"];
+                this.columnComputer = base.Columns["Computer"];
+                this.columnMusic = base.Columns["Music"];
+                this.columnArt = base.Columns["Art"];
+                this.columnPE = base.Columns["PE"];
+                this.columnForex = base.Columns["Forex"];
+                this.columnReligion = base.Columns["Religion"];
+                this.columnLife = base.Columns["Life"];
+                this._columnCo_curricular = base.Columns["Co-curricular"];
+                this.columnDeport = base.Columns["Deport"];
+                this.columnEntrepAcc = base.Columns["EntrepAcc"];
+                this.columnHomeEco = base.Columns["HomeEco"];
+                this.columnShop = base.Columns["Shop"];
+                this.columnRELA = base.Columns["RELA"];
+                this.columnSLGE = base.Columns["SLGE"];
+                this.columnConduct = base.Columns["Conduct"];
+                this.columnInterest = base.Columns["Interest"];
+                this.columnEnglish = base.Columns["English"];
+                this.columnMAPE = base.Columns["MAPE"];
+                this.columnCAS = base.Columns["CAS"];
+                this.columnBTA = base.Columns["BTA"];
+                this.columnPhysics = base.Columns["Physics"];
+                this.columnSpecialFil = base.Columns["SpecialFil"];
+                this.columnStudentId = base.Columns["StudentId"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnMath = new global::System.Data.DataColumn("Math", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMath);
+                this.columnScience = new global::System.Data.DataColumn("Science", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnScience);
+                this.columnReading = new global::System.Data.DataColumn("Reading", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReading);
+                this.columnLanguage = new global::System.Data.DataColumn("Language", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLanguage);
+                this.columnHistory = new global::System.Data.DataColumn("History", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHistory);
+                this.columnLeadership = new global::System.Data.DataColumn("Leadership", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLeadership);
+                this.columnFilipino = new global::System.Data.DataColumn("Filipino", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFilipino);
+                this.columnComputer = new global::System.Data.DataColumn("Computer", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnComputer);
+                this.columnMusic = new global::System.Data.DataColumn("Music", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMusic);
+                this.columnArt = new global::System.Data.DataColumn("Art", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnArt);
+                this.columnPE = new global::System.Data.DataColumn("PE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPE);
+                this.columnForex = new global::System.Data.DataColumn("Forex", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnForex);
+                this.columnReligion = new global::System.Data.DataColumn("Religion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReligion);
+                this.columnLife = new global::System.Data.DataColumn("Life", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLife);
+                this._columnCo_curricular = new global::System.Data.DataColumn("Co-curricular", typeof(string), null, global::System.Data.MappingType.Element);
+                this._columnCo_curricular.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnCo_curricular");
+                this._columnCo_curricular.ExtendedProperties.Add("Generator_UserColumnName", "Co-curricular");
+                base.Columns.Add(this._columnCo_curricular);
+                this.columnDeport = new global::System.Data.DataColumn("Deport", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDeport);
+                this.columnEntrepAcc = new global::System.Data.DataColumn("EntrepAcc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEntrepAcc);
+                this.columnHomeEco = new global::System.Data.DataColumn("HomeEco", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHomeEco);
+                this.columnShop = new global::System.Data.DataColumn("Shop", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnShop);
+                this.columnRELA = new global::System.Data.DataColumn("RELA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRELA);
+                this.columnSLGE = new global::System.Data.DataColumn("SLGE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSLGE);
+                this.columnConduct = new global::System.Data.DataColumn("Conduct", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConduct);
+                this.columnInterest = new global::System.Data.DataColumn("Interest", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInterest);
+                this.columnEnglish = new global::System.Data.DataColumn("English", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEnglish);
+                this.columnMAPE = new global::System.Data.DataColumn("MAPE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMAPE);
+                this.columnCAS = new global::System.Data.DataColumn("CAS", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCAS);
+                this.columnBTA = new global::System.Data.DataColumn("BTA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBTA);
+                this.columnPhysics = new global::System.Data.DataColumn("Physics", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPhysics);
+                this.columnSpecialFil = new global::System.Data.DataColumn("SpecialFil", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSpecialFil);
+                this.columnStudentId = new global::System.Data.DataColumn("StudentId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStudentId);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SubTotalRow NewSubTotalRow() {
+                return ((SubTotalRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new SubTotalRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(SubTotalRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.SubTotalRowChanged != null)) {
+                    this.SubTotalRowChanged(this, new SubTotalRowChangeEvent(((SubTotalRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.SubTotalRowChanging != null)) {
+                    this.SubTotalRowChanging(this, new SubTotalRowChangeEvent(((SubTotalRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.SubTotalRowDeleted != null)) {
+                    this.SubTotalRowDeleted(this, new SubTotalRowChangeEvent(((SubTotalRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.SubTotalRowDeleting != null)) {
+                    this.SubTotalRowDeleting(this, new SubTotalRowChangeEvent(((SubTotalRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemoveSubTotalRow(SubTotalRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                RPdata ds = new RPdata();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "SubTotalDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class TotalDataTable : global::System.Data.TypedTableBase<TotalRow> {
+            
+            private global::System.Data.DataColumn columnMath;
+            
+            private global::System.Data.DataColumn columnScience;
+            
+            private global::System.Data.DataColumn columnReading;
+            
+            private global::System.Data.DataColumn columnLanguage;
+            
+            private global::System.Data.DataColumn columnHistory;
+            
+            private global::System.Data.DataColumn columnLeadership;
+            
+            private global::System.Data.DataColumn columnFilipino;
+            
+            private global::System.Data.DataColumn columnComputer;
+            
+            private global::System.Data.DataColumn columnMusic;
+            
+            private global::System.Data.DataColumn columnArt;
+            
+            private global::System.Data.DataColumn columnPE;
+            
+            private global::System.Data.DataColumn columnForex;
+            
+            private global::System.Data.DataColumn columnReligion;
+            
+            private global::System.Data.DataColumn columnLife;
+            
+            private global::System.Data.DataColumn _columnCo_curricular;
+            
+            private global::System.Data.DataColumn columnDeport;
+            
+            private global::System.Data.DataColumn columnEntrepAcc;
+            
+            private global::System.Data.DataColumn columnHomeEco;
+            
+            private global::System.Data.DataColumn columnShop;
+            
+            private global::System.Data.DataColumn columnRELA;
+            
+            private global::System.Data.DataColumn columnSLGE;
+            
+            private global::System.Data.DataColumn columnConduct;
+            
+            private global::System.Data.DataColumn columnInterest;
+            
+            private global::System.Data.DataColumn columnEnglish;
+            
+            private global::System.Data.DataColumn columnMAPE;
+            
+            private global::System.Data.DataColumn columnCAS;
+            
+            private global::System.Data.DataColumn columnBTA;
+            
+            private global::System.Data.DataColumn columnPhysics;
+            
+            private global::System.Data.DataColumn columnSpecialFil;
+            
+            private global::System.Data.DataColumn columnStudentId;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public TotalDataTable() {
+                this.TableName = "Total";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal TotalDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected TotalDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn MathColumn {
+                get {
+                    return this.columnMath;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ScienceColumn {
+                get {
+                    return this.columnScience;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ReadingColumn {
+                get {
+                    return this.columnReading;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn LanguageColumn {
+                get {
+                    return this.columnLanguage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn HistoryColumn {
+                get {
+                    return this.columnHistory;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn LeadershipColumn {
+                get {
+                    return this.columnLeadership;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn FilipinoColumn {
+                get {
+                    return this.columnFilipino;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ComputerColumn {
+                get {
+                    return this.columnComputer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn MusicColumn {
+                get {
+                    return this.columnMusic;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ArtColumn {
+                get {
+                    return this.columnArt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn PEColumn {
+                get {
+                    return this.columnPE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ForexColumn {
+                get {
+                    return this.columnForex;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ReligionColumn {
+                get {
+                    return this.columnReligion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn LifeColumn {
+                get {
+                    return this.columnLife;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _Co_curricularColumn {
+                get {
+                    return this._columnCo_curricular;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DeportColumn {
+                get {
+                    return this.columnDeport;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn EntrepAccColumn {
+                get {
+                    return this.columnEntrepAcc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn HomeEcoColumn {
+                get {
+                    return this.columnHomeEco;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ShopColumn {
+                get {
+                    return this.columnShop;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn RELAColumn {
+                get {
+                    return this.columnRELA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn SLGEColumn {
+                get {
+                    return this.columnSLGE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ConductColumn {
+                get {
+                    return this.columnConduct;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn InterestColumn {
+                get {
+                    return this.columnInterest;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn EnglishColumn {
+                get {
+                    return this.columnEnglish;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn MAPEColumn {
+                get {
+                    return this.columnMAPE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn CASColumn {
+                get {
+                    return this.columnCAS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn BTAColumn {
+                get {
+                    return this.columnBTA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn PhysicsColumn {
+                get {
+                    return this.columnPhysics;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn SpecialFilColumn {
+                get {
+                    return this.columnSpecialFil;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn StudentIdColumn {
+                get {
+                    return this.columnStudentId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public TotalRow this[int index] {
+                get {
+                    return ((TotalRow)(this.Rows[index]));
+                }
+            }
+            
+            public event TotalRowChangeEventHandler TotalRowChanging;
+            
+            public event TotalRowChangeEventHandler TotalRowChanged;
+            
+            public event TotalRowChangeEventHandler TotalRowDeleting;
+            
+            public event TotalRowChangeEventHandler TotalRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddTotalRow(TotalRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public TotalRow AddTotalRow(
+                        string Math, 
+                        string Science, 
+                        string Reading, 
+                        string Language, 
+                        string History, 
+                        string Leadership, 
+                        string Filipino, 
+                        string Computer, 
+                        string Music, 
+                        string Art, 
+                        string PE, 
+                        string Forex, 
+                        string Religion, 
+                        string Life, 
+                        string _Co_curricular, 
+                        string Deport, 
+                        string EntrepAcc, 
+                        string HomeEco, 
+                        string Shop, 
+                        string RELA, 
+                        string SLGE, 
+                        string Conduct, 
+                        string Interest, 
+                        string English, 
+                        string MAPE, 
+                        string CAS, 
+                        string BTA, 
+                        string Physics, 
+                        string SpecialFil, 
+                        string StudentId) {
+                TotalRow rowTotalRow = ((TotalRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Math,
+                        Science,
+                        Reading,
+                        Language,
+                        History,
+                        Leadership,
+                        Filipino,
+                        Computer,
+                        Music,
+                        Art,
+                        PE,
+                        Forex,
+                        Religion,
+                        Life,
+                        _Co_curricular,
+                        Deport,
+                        EntrepAcc,
+                        HomeEco,
+                        Shop,
+                        RELA,
+                        SLGE,
+                        Conduct,
+                        Interest,
+                        English,
+                        MAPE,
+                        CAS,
+                        BTA,
+                        Physics,
+                        SpecialFil,
+                        StudentId};
+                rowTotalRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowTotalRow);
+                return rowTotalRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                TotalDataTable cln = ((TotalDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new TotalDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnMath = base.Columns["Math"];
+                this.columnScience = base.Columns["Science"];
+                this.columnReading = base.Columns["Reading"];
+                this.columnLanguage = base.Columns["Language"];
+                this.columnHistory = base.Columns["History"];
+                this.columnLeadership = base.Columns["Leadership"];
+                this.columnFilipino = base.Columns["Filipino"];
+                this.columnComputer = base.Columns["Computer"];
+                this.columnMusic = base.Columns["Music"];
+                this.columnArt = base.Columns["Art"];
+                this.columnPE = base.Columns["PE"];
+                this.columnForex = base.Columns["Forex"];
+                this.columnReligion = base.Columns["Religion"];
+                this.columnLife = base.Columns["Life"];
+                this._columnCo_curricular = base.Columns["Co-curricular"];
+                this.columnDeport = base.Columns["Deport"];
+                this.columnEntrepAcc = base.Columns["EntrepAcc"];
+                this.columnHomeEco = base.Columns["HomeEco"];
+                this.columnShop = base.Columns["Shop"];
+                this.columnRELA = base.Columns["RELA"];
+                this.columnSLGE = base.Columns["SLGE"];
+                this.columnConduct = base.Columns["Conduct"];
+                this.columnInterest = base.Columns["Interest"];
+                this.columnEnglish = base.Columns["English"];
+                this.columnMAPE = base.Columns["MAPE"];
+                this.columnCAS = base.Columns["CAS"];
+                this.columnBTA = base.Columns["BTA"];
+                this.columnPhysics = base.Columns["Physics"];
+                this.columnSpecialFil = base.Columns["SpecialFil"];
+                this.columnStudentId = base.Columns["StudentId"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnMath = new global::System.Data.DataColumn("Math", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMath);
+                this.columnScience = new global::System.Data.DataColumn("Science", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnScience);
+                this.columnReading = new global::System.Data.DataColumn("Reading", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReading);
+                this.columnLanguage = new global::System.Data.DataColumn("Language", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLanguage);
+                this.columnHistory = new global::System.Data.DataColumn("History", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHistory);
+                this.columnLeadership = new global::System.Data.DataColumn("Leadership", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLeadership);
+                this.columnFilipino = new global::System.Data.DataColumn("Filipino", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFilipino);
+                this.columnComputer = new global::System.Data.DataColumn("Computer", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnComputer);
+                this.columnMusic = new global::System.Data.DataColumn("Music", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMusic);
+                this.columnArt = new global::System.Data.DataColumn("Art", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnArt);
+                this.columnPE = new global::System.Data.DataColumn("PE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPE);
+                this.columnForex = new global::System.Data.DataColumn("Forex", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnForex);
+                this.columnReligion = new global::System.Data.DataColumn("Religion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReligion);
+                this.columnLife = new global::System.Data.DataColumn("Life", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLife);
+                this._columnCo_curricular = new global::System.Data.DataColumn("Co-curricular", typeof(string), null, global::System.Data.MappingType.Element);
+                this._columnCo_curricular.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnCo_curricular");
+                this._columnCo_curricular.ExtendedProperties.Add("Generator_UserColumnName", "Co-curricular");
+                base.Columns.Add(this._columnCo_curricular);
+                this.columnDeport = new global::System.Data.DataColumn("Deport", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDeport);
+                this.columnEntrepAcc = new global::System.Data.DataColumn("EntrepAcc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEntrepAcc);
+                this.columnHomeEco = new global::System.Data.DataColumn("HomeEco", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHomeEco);
+                this.columnShop = new global::System.Data.DataColumn("Shop", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnShop);
+                this.columnRELA = new global::System.Data.DataColumn("RELA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRELA);
+                this.columnSLGE = new global::System.Data.DataColumn("SLGE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSLGE);
+                this.columnConduct = new global::System.Data.DataColumn("Conduct", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConduct);
+                this.columnInterest = new global::System.Data.DataColumn("Interest", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInterest);
+                this.columnEnglish = new global::System.Data.DataColumn("English", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEnglish);
+                this.columnMAPE = new global::System.Data.DataColumn("MAPE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMAPE);
+                this.columnCAS = new global::System.Data.DataColumn("CAS", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCAS);
+                this.columnBTA = new global::System.Data.DataColumn("BTA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBTA);
+                this.columnPhysics = new global::System.Data.DataColumn("Physics", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPhysics);
+                this.columnSpecialFil = new global::System.Data.DataColumn("SpecialFil", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSpecialFil);
+                this.columnStudentId = new global::System.Data.DataColumn("StudentId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStudentId);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public TotalRow NewTotalRow() {
+                return ((TotalRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new TotalRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(TotalRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.TotalRowChanged != null)) {
+                    this.TotalRowChanged(this, new TotalRowChangeEvent(((TotalRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.TotalRowChanging != null)) {
+                    this.TotalRowChanging(this, new TotalRowChangeEvent(((TotalRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.TotalRowDeleted != null)) {
+                    this.TotalRowDeleted(this, new TotalRowChangeEvent(((TotalRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.TotalRowDeleting != null)) {
+                    this.TotalRowDeleting(this, new TotalRowChangeEvent(((TotalRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemoveTotalRow(TotalRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                RPdata ds = new RPdata();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "TotalDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -25534,6 +26862,1536 @@ namespace ReportCardGenerator.DataSet {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class SubTotalRow : global::System.Data.DataRow {
+            
+            private SubTotalDataTable tableSubTotal;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal SubTotalRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableSubTotal = ((SubTotalDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Math {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.MathColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Math\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.MathColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Science {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.ScienceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Science\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.ScienceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Reading {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.ReadingColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Reading\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.ReadingColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Language {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.LanguageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Language\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.LanguageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string History {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.HistoryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'History\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.HistoryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Leadership {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.LeadershipColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Leadership\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.LeadershipColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Filipino {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.FilipinoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Filipino\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.FilipinoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Computer {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.ComputerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Computer\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.ComputerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Music {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.MusicColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Music\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.MusicColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Art {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.ArtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Art\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.ArtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string PE {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.PEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PE\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.PEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Forex {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.ForexColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Forex\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.ForexColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Religion {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.ReligionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Religion\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.ReligionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Life {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.LifeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Life\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.LifeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string _Co_curricular {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal._Co_curricularColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Co-curricular\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal._Co_curricularColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Deport {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.DeportColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Deport\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.DeportColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string EntrepAcc {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.EntrepAccColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'EntrepAcc\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.EntrepAccColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string HomeEco {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.HomeEcoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HomeEco\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.HomeEcoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Shop {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.ShopColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Shop\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.ShopColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string RELA {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.RELAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RELA\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.RELAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string SLGE {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.SLGEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SLGE\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.SLGEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Conduct {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.ConductColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Conduct\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.ConductColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Interest {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.InterestColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Interest\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.InterestColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string English {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.EnglishColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'English\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.EnglishColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string MAPE {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.MAPEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MAPE\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.MAPEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string CAS {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.CASColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CAS\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.CASColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string BTA {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.BTAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BTA\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.BTAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Physics {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.PhysicsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Physics\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.PhysicsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string SpecialFil {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.SpecialFilColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SpecialFil\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.SpecialFilColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string StudentId {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubTotal.StudentIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'StudentId\' in table \'SubTotal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubTotal.StudentIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsMathNull() {
+                return this.IsNull(this.tableSubTotal.MathColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetMathNull() {
+                this[this.tableSubTotal.MathColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsScienceNull() {
+                return this.IsNull(this.tableSubTotal.ScienceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetScienceNull() {
+                this[this.tableSubTotal.ScienceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsReadingNull() {
+                return this.IsNull(this.tableSubTotal.ReadingColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetReadingNull() {
+                this[this.tableSubTotal.ReadingColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsLanguageNull() {
+                return this.IsNull(this.tableSubTotal.LanguageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetLanguageNull() {
+                this[this.tableSubTotal.LanguageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsHistoryNull() {
+                return this.IsNull(this.tableSubTotal.HistoryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetHistoryNull() {
+                this[this.tableSubTotal.HistoryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsLeadershipNull() {
+                return this.IsNull(this.tableSubTotal.LeadershipColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetLeadershipNull() {
+                this[this.tableSubTotal.LeadershipColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsFilipinoNull() {
+                return this.IsNull(this.tableSubTotal.FilipinoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetFilipinoNull() {
+                this[this.tableSubTotal.FilipinoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsComputerNull() {
+                return this.IsNull(this.tableSubTotal.ComputerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetComputerNull() {
+                this[this.tableSubTotal.ComputerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsMusicNull() {
+                return this.IsNull(this.tableSubTotal.MusicColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetMusicNull() {
+                this[this.tableSubTotal.MusicColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsArtNull() {
+                return this.IsNull(this.tableSubTotal.ArtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetArtNull() {
+                this[this.tableSubTotal.ArtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsPENull() {
+                return this.IsNull(this.tableSubTotal.PEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetPENull() {
+                this[this.tableSubTotal.PEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsForexNull() {
+                return this.IsNull(this.tableSubTotal.ForexColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetForexNull() {
+                this[this.tableSubTotal.ForexColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsReligionNull() {
+                return this.IsNull(this.tableSubTotal.ReligionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetReligionNull() {
+                this[this.tableSubTotal.ReligionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsLifeNull() {
+                return this.IsNull(this.tableSubTotal.LifeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetLifeNull() {
+                this[this.tableSubTotal.LifeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_Co_curricularNull() {
+                return this.IsNull(this.tableSubTotal._Co_curricularColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_Co_curricularNull() {
+                this[this.tableSubTotal._Co_curricularColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDeportNull() {
+                return this.IsNull(this.tableSubTotal.DeportColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDeportNull() {
+                this[this.tableSubTotal.DeportColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsEntrepAccNull() {
+                return this.IsNull(this.tableSubTotal.EntrepAccColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetEntrepAccNull() {
+                this[this.tableSubTotal.EntrepAccColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsHomeEcoNull() {
+                return this.IsNull(this.tableSubTotal.HomeEcoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetHomeEcoNull() {
+                this[this.tableSubTotal.HomeEcoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsShopNull() {
+                return this.IsNull(this.tableSubTotal.ShopColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetShopNull() {
+                this[this.tableSubTotal.ShopColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsRELANull() {
+                return this.IsNull(this.tableSubTotal.RELAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetRELANull() {
+                this[this.tableSubTotal.RELAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsSLGENull() {
+                return this.IsNull(this.tableSubTotal.SLGEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetSLGENull() {
+                this[this.tableSubTotal.SLGEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsConductNull() {
+                return this.IsNull(this.tableSubTotal.ConductColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetConductNull() {
+                this[this.tableSubTotal.ConductColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsInterestNull() {
+                return this.IsNull(this.tableSubTotal.InterestColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetInterestNull() {
+                this[this.tableSubTotal.InterestColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsEnglishNull() {
+                return this.IsNull(this.tableSubTotal.EnglishColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetEnglishNull() {
+                this[this.tableSubTotal.EnglishColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsMAPENull() {
+                return this.IsNull(this.tableSubTotal.MAPEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetMAPENull() {
+                this[this.tableSubTotal.MAPEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsCASNull() {
+                return this.IsNull(this.tableSubTotal.CASColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetCASNull() {
+                this[this.tableSubTotal.CASColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsBTANull() {
+                return this.IsNull(this.tableSubTotal.BTAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetBTANull() {
+                this[this.tableSubTotal.BTAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsPhysicsNull() {
+                return this.IsNull(this.tableSubTotal.PhysicsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetPhysicsNull() {
+                this[this.tableSubTotal.PhysicsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsSpecialFilNull() {
+                return this.IsNull(this.tableSubTotal.SpecialFilColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetSpecialFilNull() {
+                this[this.tableSubTotal.SpecialFilColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsStudentIdNull() {
+                return this.IsNull(this.tableSubTotal.StudentIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetStudentIdNull() {
+                this[this.tableSubTotal.StudentIdColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class TotalRow : global::System.Data.DataRow {
+            
+            private TotalDataTable tableTotal;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal TotalRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableTotal = ((TotalDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Math {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.MathColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Math\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.MathColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Science {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.ScienceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Science\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.ScienceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Reading {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.ReadingColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Reading\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.ReadingColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Language {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.LanguageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Language\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.LanguageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string History {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.HistoryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'History\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.HistoryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Leadership {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.LeadershipColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Leadership\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.LeadershipColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Filipino {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.FilipinoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Filipino\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.FilipinoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Computer {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.ComputerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Computer\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.ComputerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Music {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.MusicColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Music\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.MusicColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Art {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.ArtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Art\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.ArtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string PE {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.PEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PE\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.PEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Forex {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.ForexColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Forex\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.ForexColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Religion {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.ReligionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Religion\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.ReligionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Life {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.LifeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Life\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.LifeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string _Co_curricular {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal._Co_curricularColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Co-curricular\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal._Co_curricularColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Deport {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.DeportColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Deport\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.DeportColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string EntrepAcc {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.EntrepAccColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'EntrepAcc\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.EntrepAccColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string HomeEco {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.HomeEcoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HomeEco\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.HomeEcoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Shop {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.ShopColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Shop\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.ShopColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string RELA {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.RELAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RELA\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.RELAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string SLGE {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.SLGEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SLGE\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.SLGEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Conduct {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.ConductColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Conduct\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.ConductColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Interest {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.InterestColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Interest\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.InterestColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string English {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.EnglishColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'English\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.EnglishColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string MAPE {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.MAPEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MAPE\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.MAPEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string CAS {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.CASColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CAS\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.CASColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string BTA {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.BTAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BTA\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.BTAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Physics {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.PhysicsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Physics\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.PhysicsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string SpecialFil {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.SpecialFilColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SpecialFil\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.SpecialFilColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string StudentId {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotal.StudentIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'StudentId\' in table \'Total\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotal.StudentIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsMathNull() {
+                return this.IsNull(this.tableTotal.MathColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetMathNull() {
+                this[this.tableTotal.MathColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsScienceNull() {
+                return this.IsNull(this.tableTotal.ScienceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetScienceNull() {
+                this[this.tableTotal.ScienceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsReadingNull() {
+                return this.IsNull(this.tableTotal.ReadingColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetReadingNull() {
+                this[this.tableTotal.ReadingColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsLanguageNull() {
+                return this.IsNull(this.tableTotal.LanguageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetLanguageNull() {
+                this[this.tableTotal.LanguageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsHistoryNull() {
+                return this.IsNull(this.tableTotal.HistoryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetHistoryNull() {
+                this[this.tableTotal.HistoryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsLeadershipNull() {
+                return this.IsNull(this.tableTotal.LeadershipColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetLeadershipNull() {
+                this[this.tableTotal.LeadershipColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsFilipinoNull() {
+                return this.IsNull(this.tableTotal.FilipinoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetFilipinoNull() {
+                this[this.tableTotal.FilipinoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsComputerNull() {
+                return this.IsNull(this.tableTotal.ComputerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetComputerNull() {
+                this[this.tableTotal.ComputerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsMusicNull() {
+                return this.IsNull(this.tableTotal.MusicColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetMusicNull() {
+                this[this.tableTotal.MusicColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsArtNull() {
+                return this.IsNull(this.tableTotal.ArtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetArtNull() {
+                this[this.tableTotal.ArtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsPENull() {
+                return this.IsNull(this.tableTotal.PEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetPENull() {
+                this[this.tableTotal.PEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsForexNull() {
+                return this.IsNull(this.tableTotal.ForexColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetForexNull() {
+                this[this.tableTotal.ForexColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsReligionNull() {
+                return this.IsNull(this.tableTotal.ReligionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetReligionNull() {
+                this[this.tableTotal.ReligionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsLifeNull() {
+                return this.IsNull(this.tableTotal.LifeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetLifeNull() {
+                this[this.tableTotal.LifeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_Co_curricularNull() {
+                return this.IsNull(this.tableTotal._Co_curricularColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_Co_curricularNull() {
+                this[this.tableTotal._Co_curricularColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDeportNull() {
+                return this.IsNull(this.tableTotal.DeportColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDeportNull() {
+                this[this.tableTotal.DeportColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsEntrepAccNull() {
+                return this.IsNull(this.tableTotal.EntrepAccColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetEntrepAccNull() {
+                this[this.tableTotal.EntrepAccColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsHomeEcoNull() {
+                return this.IsNull(this.tableTotal.HomeEcoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetHomeEcoNull() {
+                this[this.tableTotal.HomeEcoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsShopNull() {
+                return this.IsNull(this.tableTotal.ShopColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetShopNull() {
+                this[this.tableTotal.ShopColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsRELANull() {
+                return this.IsNull(this.tableTotal.RELAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetRELANull() {
+                this[this.tableTotal.RELAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsSLGENull() {
+                return this.IsNull(this.tableTotal.SLGEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetSLGENull() {
+                this[this.tableTotal.SLGEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsConductNull() {
+                return this.IsNull(this.tableTotal.ConductColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetConductNull() {
+                this[this.tableTotal.ConductColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsInterestNull() {
+                return this.IsNull(this.tableTotal.InterestColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetInterestNull() {
+                this[this.tableTotal.InterestColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsEnglishNull() {
+                return this.IsNull(this.tableTotal.EnglishColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetEnglishNull() {
+                this[this.tableTotal.EnglishColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsMAPENull() {
+                return this.IsNull(this.tableTotal.MAPEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetMAPENull() {
+                this[this.tableTotal.MAPEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsCASNull() {
+                return this.IsNull(this.tableTotal.CASColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetCASNull() {
+                this[this.tableTotal.CASColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsBTANull() {
+                return this.IsNull(this.tableTotal.BTAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetBTANull() {
+                this[this.tableTotal.BTAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsPhysicsNull() {
+                return this.IsNull(this.tableTotal.PhysicsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetPhysicsNull() {
+                this[this.tableTotal.PhysicsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsSpecialFilNull() {
+                return this.IsNull(this.tableTotal.SpecialFilColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetSpecialFilNull() {
+                this[this.tableTotal.SpecialFilColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsStudentIdNull() {
+                return this.IsNull(this.tableTotal.StudentIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetStudentIdNull() {
+                this[this.tableTotal.StudentIdColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -26357,6 +29215,68 @@ namespace ReportCardGenerator.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public TGDGradeterm1Row Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class SubTotalRowChangeEvent : global::System.EventArgs {
+            
+            private SubTotalRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SubTotalRowChangeEvent(SubTotalRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public SubTotalRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class TotalRowChangeEvent : global::System.EventArgs {
+            
+            private TotalRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public TotalRowChangeEvent(TotalRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public TotalRow Row {
                 get {
                     return this.eventRow;
                 }

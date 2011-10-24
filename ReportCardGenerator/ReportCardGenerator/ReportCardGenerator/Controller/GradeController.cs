@@ -850,6 +850,68 @@ namespace ReportCardGenerator.Controller
 
             return drow;
         }
+        public DataRow TermGradeDistributionSubTotal(DataRow drow, Period period, Student Stud, List<FinalComp> listGrades, String Level)
+        {
+            drow["Math"] = Math.Round(HonorsComputationFormula.getValue("MATH", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level,"MATH"),3);
+            drow["Science"] = Math.Round(HonorsComputationFormula.getValue("SCIE", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "SCIE"),3);
+            drow["Reading"] = Math.Round(HonorsComputationFormula.getValue("READ", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"READ"),3);
+            drow["Language"] = Math.Round(HonorsComputationFormula.getValue("LANG", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"LANG"),3);
+            drow["History"] = Math.Round(HonorsComputationFormula.getValue("HIST", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"HIST"),3);
+            drow["Leadership"] = Math.Round(HonorsComputationFormula.getValue("LEAD", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"LEAD"),3);
+            drow["Filipino"] = Math.Round(HonorsComputationFormula.getValue("FILI", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"FILI"),3);
+            drow["Computer"] = Math.Round(HonorsComputationFormula.getValue("COMP", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"COMP"),3);
+            drow["Music"] = Math.Round(HonorsComputationFormula.getValue("MUSI", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"MUSI"),3);
+            drow["Art"] = Math.Round(HonorsComputationFormula.getValue("ARTS", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"ARTS"),3);
+            drow["PE"] = Math.Round(HonorsComputationFormula.getValue("PHED", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"PHED"),3);
+            drow["Forex"] = Math.Round(HonorsComputationFormula.getValue("FORE", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"FORE"),3);
+            drow["Religion"] = Math.Round(HonorsComputationFormula.getValue("RELI", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"RELI"),3);
+            drow["Life"] = Math.Round(HonorsComputationFormula.getValue("HRLI", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"HRLI"),3);
+            drow["Co-curricular"] = Math.Round(HonorsComputationFormula.getValue("COIN", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"COIN"),3);
+            drow["Deport"] = Math.Round(HonorsComputationFormula.getValue("DEPO", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"DEPO"),3);
+            drow["EntrepAcc"] = Math.Round(HonorsComputationFormula.getValue("ECON", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"ECON"),3);
+            drow["HomeEco"] = Math.Round(HonorsComputationFormula.getValue("HOME", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"HOME"),3);
+            drow["Shop"] = Math.Round(HonorsComputationFormula.getValue("SHOP", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"SHOP"),3);
+            drow["SLGE"] = Math.Round(HonorsComputationFormula.getValue("SLGE", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"SLGE"),3);
+            drow["Conduct"] = Math.Round(HonorsComputationFormula.getValue("COND", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"COND"),3);
+            drow["English"] = Math.Round(HonorsComputationFormula.getValue("ENGL", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"ENGL"),3);
+            drow["MAPE"] = Math.Round(HonorsComputationFormula.getValue("MAPE", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"MAPE"),3);
+            drow["BTA"] = Math.Round(HonorsComputationFormula.getValue("BUSI", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"BUSI"),3);
+            drow["Physics"] = Math.Round(HonorsComputationFormula.getValue("PHYS", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"PHYS"),3);
+            drow["StudentId"] = Stud.StudentID;
+
+            return drow;
+        }
+        public DataRow TermGradeDistributionTotal(DataRow drow, Period period, Student Stud, List<FinalComp> listGrades, String Level)
+        {
+            drow["Math"] = Math.Round(HonorsComputationFormula.getValue("MATH", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "MATH")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["Science"] = Math.Round(HonorsComputationFormula.getValue("SCIE", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "SCIE")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["Reading"] = Math.Round(HonorsComputationFormula.getValue("READ", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "READ")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["Language"] = Math.Round(HonorsComputationFormula.getValue("LANG", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "LANG")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["History"] = Math.Round(HonorsComputationFormula.getValue("HIST", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "HIST")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["Leadership"] = Math.Round(HonorsComputationFormula.getValue("LEAD", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "LEAD")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["Filipino"] = Math.Round(HonorsComputationFormula.getValue("FILI", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "FILI")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["Computer"] = Math.Round(HonorsComputationFormula.getValue("COMP", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "COMP")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["Music"] = Math.Round(HonorsComputationFormula.getValue("MUSI", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "MUSI")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["Art"] = Math.Round(HonorsComputationFormula.getValue("ARTS", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "ARTS")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["PE"] = Math.Round(HonorsComputationFormula.getValue("PHED", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "PHED")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["Forex"] = Math.Round(HonorsComputationFormula.getValue("FORE", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "FORE")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["Religion"] = Math.Round(HonorsComputationFormula.getValue("RELI", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "RELI")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["Life"] = Math.Round(HonorsComputationFormula.getValue("HRLI", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "HRLI")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["Co-curricular"] = Math.Round(HonorsComputationFormula.getValue("COIN", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "COIN")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["Deport"] = Math.Round(HonorsComputationFormula.getValue("DEPO", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "DEPO")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["EntrepAcc"] = Math.Round(HonorsComputationFormula.getValue("ECON", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "ECON")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["HomeEco"] = Math.Round(HonorsComputationFormula.getValue("HOME", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "HOME")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["Shop"] = Math.Round(HonorsComputationFormula.getValue("SHOP", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "SHOP")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["SLGE"] = Math.Round(HonorsComputationFormula.getValue("SLGE", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "SLGE")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["Conduct"] = Math.Round(HonorsComputationFormula.getValue("COND", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "COND")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["English"] = Math.Round(HonorsComputationFormula.getValue("ENGL", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "ENGL")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["MAPE"] = Math.Round(HonorsComputationFormula.getValue("MAPE", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "MAPE")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["BTA"] = Math.Round(HonorsComputationFormula.getValue("BUSI", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "BUSI")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["Physics"] = Math.Round(HonorsComputationFormula.getValue("PHYS", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "PHYS")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["StudentId"] = Stud.StudentID;
+
+            return drow;
+        }
         public DataRow FinalComputation(String StudentId, int termPeriod, DataRow drow)
         {
             #region loading of grade to final table from list
