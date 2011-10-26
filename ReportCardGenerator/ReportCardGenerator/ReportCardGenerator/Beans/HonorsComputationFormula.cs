@@ -14,21 +14,38 @@ namespace ReportCardGenerator.Beans
 {
     class HonorsComputationFormula:SubjectUnit
     {
+        static GradeController gradecontroller = new GradeController();
        static Double cluster1 = 0;
        static Double cluster2 = 0;
        static Double cluster3 = 0;
+       static Period p = new Period();
+       static Student stud = new Student();
         public static void Grade1And2(DataTable HonorsTable, String StudentId, String Level, List<FinalComp> listGrades, int termPeriod)
         {
             DataRow Grade6termsRow = HonorsTable.NewRow();
             cluster1 = getCluster1and2NumericGrade1and2("MATH", "SCIE", "ENGL", Level, StudentId, listGrades);
-            cluster2 = getCluster1and2Numeric("SLGE", "RVED", "", Level, StudentId, listGrades);
+           
             Double ave = 0;
             Grade6termsRow["Cluster1"] = getCluster1and2StringGrade1("MATH", "SCIE", "ENGL", Level, StudentId, listGrades);
             Grade6termsRow["Cluster1Ans"] = getCluster1and2NumericGrade1and2("MATH", "SCIE", "ENGL", Level, StudentId, listGrades);
-            Grade6termsRow["Cluster2"] = getCluster1and2String("SLGE", "RVED", "", Level, StudentId, listGrades);
-            Grade6termsRow["Cluster2Ans"] = getCluster1and2Numeric("SLGE", "RVED", "", Level, StudentId, listGrades);
+            
+            p.PeriodID = termPeriod;
+            stud.StudentID = StudentId;
+            
             if (termPeriod.Equals(1))
             {
+                if (FinalComp.ListGradeTerm1.Exists(delegate(FinalComp f){return f.SubjectId.Equals("RVED");}) == true)
+                {
+                    cluster2 = getCluster1and2Numeric("SLGE", "RVED", "", Level, StudentId, listGrades);
+                    Grade6termsRow["Cluster2"] = getCluster1and2String("SLGE", "RVED", "", Level, StudentId, listGrades);
+                    Grade6termsRow["Cluster2Ans"] = getCluster1and2Numeric("SLGE", "RVED", "", Level, StudentId, listGrades);
+                }
+                else
+                {
+                    cluster2 = getCluster1and2Numeric("SLGE", "HRLI", "", Level, StudentId, listGrades);
+                    Grade6termsRow["Cluster2"] = getCluster1and2String("SLGE", "HRLI", "", Level, StudentId, listGrades);
+                    Grade6termsRow["Cluster2Ans"] = getCluster1and2Numeric("SLGE", "HRLI", "", Level, StudentId, listGrades);
+                }
                 cluster3 = getCluster3Numeric("PHED", "MUSI", "", "", "", Level, StudentId, listGrades,termPeriod);
                 Grade6termsRow["Cluster3"] = getCluster3String("PHED", "MUSI", "", "", "", Level, StudentId, listGrades, termPeriod);
                 Grade6termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "MUSI", "", "", "", Level, StudentId, listGrades, termPeriod);
@@ -55,14 +72,14 @@ namespace ReportCardGenerator.Beans
             DataRow termsRow = HonorsTable.NewRow();
             cluster1 = getCluster1and2Numeric("MATH", "SCIE", "ENGL", Level, StudentId, listGrades);
             cluster2 = getCluster1and2Numeric("SLGE", "COMP", "RVED", Level, StudentId, listGrades);
-            cluster3 = getCluster3Numeric("PHED", "ARTS", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
+            cluster3 = getCluster3Numeric("PHED", "MUSI", "", "", "", Level, StudentId, listGrades, termPeriod);
 
             termsRow["Cluster1"] = getCluster1and2String("MATH", "SCIE", "ENGL", Level, StudentId, listGrades);
             termsRow["Cluster1Ans"] = getCluster1and2Numeric("MATH", "SCIE", "ENGL", Level, StudentId, listGrades);
             termsRow["Cluster2"] = getCluster1and2String("SLGE", "COMP", "RVED", Level, StudentId, listGrades);
             termsRow["Cluster2Ans"] = getCluster1and2Numeric("SLGE", "COMP", "RVED", Level, StudentId, listGrades);
-            termsRow["Cluster3"] = getCluster3String("PHED", "ARTS", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
-            termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "ARTS", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
+            termsRow["Cluster3"] = getCluster3String("PHED", "MUSI", "", "", "", Level, StudentId, listGrades, termPeriod);
+            termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "MUSI", "", "", "", Level, StudentId, listGrades, termPeriod);
             termsRow["Average"] = Math.Round((cluster1 * 0.7) + (cluster2 * 0.2) + (cluster3 * 0.1), 3);
             termsRow["Award"] = ConvertToAward((cluster1 * .7) + (cluster2 * .2) + (cluster3 * .1));
             termsRow["StudentId"] = StudentId;
@@ -83,9 +100,9 @@ namespace ReportCardGenerator.Beans
             
             if (termPeriod.Equals(1))
             {
-                cluster3 = getCluster3Numeric("PHED", "ARTS", "HOME", "", "", Level, StudentId, listGrades, termPeriod);
-                Grade6termsRow["Cluster3"] = getCluster3String("PHED", "ARTS", "HOME", "", "", Level, StudentId, listGrades, termPeriod);
-                Grade6termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "ARTS", "HOME", "", "", Level, StudentId, listGrades, termPeriod);
+                cluster3 = getCluster3Numeric("PHED", "HOME", "", "", "", Level, StudentId, listGrades, termPeriod);
+                Grade6termsRow["Cluster3"] = getCluster3String("PHED", "HOME", "", "", "", Level, StudentId, listGrades, termPeriod);
+                Grade6termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "HOME", "", "", "", Level, StudentId, listGrades, termPeriod);
             }
             else if (termPeriod.Equals(2))
             {
@@ -130,6 +147,7 @@ namespace ReportCardGenerator.Beans
 
             if (Level.Equals("HS IV"))
             {
+                cluster1 = getCluster1and2Numeric("MATH", "PHYS", "ENGL", Level, StudentId, listGrades);
                 termsRow["Cluster1"] = getCluster1and2String("MATH", "PHYS", "ENGL", Level, StudentId, listGrades);
                 termsRow["Cluster1Ans"] = getCluster1and2Numeric("MATH", "PHYS", "ENGL", Level, StudentId, listGrades);
             }
@@ -145,9 +163,9 @@ namespace ReportCardGenerator.Beans
                 if (termPeriod.Equals(1))
                 {
                     //modification 10/20/11 HOME to SHOP
-                    cluster3 = getCluster3Numeric("PHED", "COIN", "RVED", "SHOP", "ARTS", Level, StudentId, listGrades, termPeriod);
-                    termsRow["Cluster3"] = getCluster3String("PHED", "COIN", "RVED", "SHOP", "ARTS", Level, StudentId, listGrades, termPeriod);
-                    termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "COIN", "RVED", "SHOP", "ARTS", Level, StudentId, listGrades, termPeriod);
+                    cluster3 = getCluster3Numeric("PHED", "COIN", "RVED", "SHOP", "", Level, StudentId, listGrades, termPeriod);
+                    termsRow["Cluster3"] = getCluster3String("PHED", "COIN", "RVED", "SHOP", "", Level, StudentId, listGrades, termPeriod);
+                    termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "COIN", "RVED", "SHOP", "", Level, StudentId, listGrades, termPeriod);
                 }
                 else if (termPeriod.Equals(2))
                 {
@@ -166,9 +184,9 @@ namespace ReportCardGenerator.Beans
             {
                 if (termPeriod.Equals(1))
                 {
-                    cluster3 = getCluster3Numeric("PHED", "RVED", "ARTS", "HOME", "", Level, StudentId, listGrades, termPeriod);
-                    termsRow["Cluster3"] = getCluster3String("PHED", "RVED", "ARTS", "HOME", "", Level, StudentId, listGrades, termPeriod);
-                    termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "RVED", "ARTS", "HOME", "", Level, StudentId, listGrades, termPeriod);
+                    cluster3 = getCluster3Numeric("PHED", "RVED", "ARTS", "", "", Level, StudentId, listGrades, termPeriod);
+                    termsRow["Cluster3"] = getCluster3String("PHED", "RVED", "ARTS", "", "", Level, StudentId, listGrades, termPeriod);
+                    termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "RVED", "ARTS", "", "", Level, StudentId, listGrades, termPeriod);
                 }
                 else if (termPeriod.Equals(2))
                 {
@@ -187,9 +205,18 @@ namespace ReportCardGenerator.Beans
             {
                 if (termPeriod.Equals(1))
                 {
-                    cluster3 = getCluster3Numeric("PHED", "RVED", "SHOP", "MUSI", "", Level, StudentId, listGrades, termPeriod);
-                    termsRow["Cluster3"] = getCluster3String("PHED", "RVED", "SHOP", "MUSI", "", Level, StudentId, listGrades, termPeriod);
-                    termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "RVED", "SHOP", "MUSI", "", Level, StudentId, listGrades, termPeriod);
+                    if (Level.Equals("HS I"))
+                    {
+                        cluster3 = getCluster3Numeric("PHED", "RVED", "HOME", "MUSI", "", Level, StudentId, listGrades, termPeriod);
+                        termsRow["Cluster3"] = getCluster3String("PHED", "RVED", "HOME", "MUSI", "", Level, StudentId, listGrades, termPeriod);
+                        termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "RVED", "HOME", "MUSI", "", Level, StudentId, listGrades, termPeriod);
+                    }
+                    else
+                    {
+                        cluster3 = getCluster3Numeric("PHED", "RVED", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
+                        termsRow["Cluster3"] = getCluster3String("PHED", "RVED", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
+                        termsRow["Cluster3Ans"] = getCluster3Numeric("PHED", "RVED", "MUSI", "", "", Level, StudentId, listGrades, termPeriod);
+                    }
                 }
                 else if (termPeriod.Equals(2))
                 {
@@ -246,19 +273,21 @@ namespace ReportCardGenerator.Beans
                 }
                 else
                 {
-                    return Math.Round(((getValue(Subject1, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject1)) +
+                    double temp;
+                    return temp = Math.Round(((getValue(Subject1, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject1)) +
                     (getValue(Subject2, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject2)))
                     / (SubjectUnit.getWeight(Level, Subject1) + SubjectUnit.getWeight(Level, Subject2)), 3);
                 }
             }
             else if (Level.Equals("Grade 3") || Level.Equals("Grade 4") || Level.Equals("Grade 5") || Level.Equals("Grade 6") || Level.Equals("Grade 7"))
             {
-                return Math.Round(((getValue(Subject1, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject1)) +
-                 (getValue(Subject2, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject2)) +
-                (getValue(Subject3, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject3)))
-               / (SubjectUnit.getWeight(Level, Subject1) + SubjectUnit.getWeight(Level, Subject2) + SubjectUnit.getWeight(Level, Subject3)), 3);
+                double temp;
+                temp =  Math.Round(((getValue(Subject1, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject1)) +
+                 (getValue(Subject2, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject2))) 
+               / (SubjectUnit.getWeight(Level, Subject1) + SubjectUnit.getWeight(Level, Subject2)), 3);
+                return temp;
             }
-            else if (Level.Equals("HS I") || Level.Equals("HS II") || Level.Equals("HS III"))
+            else if (Level.Equals("HS I") || Level.Equals("HS III"))
             {
                 return Math.Round(((getValue(Subject1, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject1)) +
                  (getValue(Subject2, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject2)) +
@@ -266,14 +295,27 @@ namespace ReportCardGenerator.Beans
                 (getValue(Subject4, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject4)))
                / (SubjectUnit.getWeight(Level, Subject1) + SubjectUnit.getWeight(Level, Subject2) + SubjectUnit.getWeight(Level, Subject3) + SubjectUnit.getWeight(Level, Subject4)), 3);
             }
+            else if (Level.Equals("HS II"))
+            {
+                return Math.Round(((getValue(Subject1, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject1)) +
+                (getValue(Subject2, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject2)) +
+               (getValue(Subject3, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject3))) 
+              / (SubjectUnit.getWeight(Level, Subject1) + SubjectUnit.getWeight(Level, Subject2) + SubjectUnit.getWeight(Level, Subject3)), 3);            
+            }
+            else if (Level.Equals("HS III"))
+            {
+                return Math.Round(((getValue(Subject1, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject1)) +
+                 (getValue(Subject2, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject2)) +
+                (getValue(Subject3, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject3)))
+               / (SubjectUnit.getWeight(Level, Subject1) + SubjectUnit.getWeight(Level, Subject2) + SubjectUnit.getWeight(Level, Subject3)), 3);
+            }
             else
             {
                 return Math.Round(((getValue(Subject1, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject1)) +
                  (getValue(Subject2, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject2)) +
                 (getValue(Subject3, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject3)) +
-                (getValue(Subject4, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject4)) +
-                (getValue(Subject5, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject5)))
-               / (SubjectUnit.getWeight(Level, Subject1) + SubjectUnit.getWeight(Level, Subject2) + SubjectUnit.getWeight(Level, Subject3) + SubjectUnit.getWeight(Level, Subject4) + SubjectUnit.getWeight(Level, Subject5)), 3);
+                (getValue(Subject4, StudentId, listGrades) * SubjectUnit.getWeight(Level, Subject4)))
+               / (SubjectUnit.getWeight(Level, Subject1) + SubjectUnit.getWeight(Level, Subject2) + SubjectUnit.getWeight(Level, Subject3) + SubjectUnit.getWeight(Level, Subject4)), 3);
             }
         }
 
@@ -291,7 +333,7 @@ namespace ReportCardGenerator.Beans
             if (Level.Equals("Grade 1") || Level.Equals("Grade 2"))
             {
                 return "[" + "(" + getValue(Subject1, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject1) + ") + " +
-                   "(" + getValue(Subject2, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject2) + ") + " +
+                   "(" + getValue(Subject2, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject2) + ")" +
                    "]/" + (SubjectUnit.getWeight(Level, Subject1) + SubjectUnit.getWeight(Level, Subject2));
             }
             else
@@ -321,11 +363,10 @@ namespace ReportCardGenerator.Beans
             else if (Level.Equals("Grade 3") || Level.Equals("Grade 4") || Level.Equals("Grade 5") || Level.Equals("Grade 6") || Level.Equals("Grade 7"))
             {
                 return "[" + "(" + getValue(Subject1, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject1) + ") + " +
-              "(" + getValue(Subject2, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject2) + ") + " +
-              "(" + getValue(Subject3, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject3) + ")" +
-              "]/" + (SubjectUnit.getWeight(Level, Subject1) + SubjectUnit.getWeight(Level, Subject2) + SubjectUnit.getWeight(Level, Subject3));
+              "(" + getValue(Subject2, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject2) + ")" +
+              "]/" + (SubjectUnit.getWeight(Level, Subject1) + SubjectUnit.getWeight(Level, Subject2));
             }
-            else if (Level.Equals("HS I") || Level.Equals("HS II") || Level.Equals("HS III"))
+            else if (Level.Equals("HS I"))
             {
                 return "[" + "(" + getValue(Subject1, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject1) + ") + " +
               "(" + getValue(Subject2, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject2) + ") + " +
@@ -333,14 +374,27 @@ namespace ReportCardGenerator.Beans
               "(" + getValue(Subject4, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject4) + ")" +
               "]/" + (SubjectUnit.getWeight(Level, Subject1) + SubjectUnit.getWeight(Level, Subject2) + SubjectUnit.getWeight(Level, Subject3) + SubjectUnit.getWeight(Level, Subject4));
             }
+            else if (Level.Equals("HS II"))
+            {
+                return "[" + "(" + getValue(Subject1, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject1) + ") + " +
+           "(" + getValue(Subject2, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject2) + ") + " +
+           "(" + getValue(Subject3, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject3) + ") + " +
+           "]/" + (SubjectUnit.getWeight(Level, Subject1) + SubjectUnit.getWeight(Level, Subject2) + SubjectUnit.getWeight(Level, Subject3));
+            }
+            else if (Level.Equals("HS III"))
+            {
+                return "[" + "(" + getValue(Subject1, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject1) + ") + " +
+              "(" + getValue(Subject2, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject2) + ") + " +
+              "(" + getValue(Subject3, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject3) + ") + " +
+              "]/" + (SubjectUnit.getWeight(Level, Subject1) + SubjectUnit.getWeight(Level, Subject2) + SubjectUnit.getWeight(Level, Subject3));
+            }
             else
             {
                 return "[" + "(" + getValue(Subject1, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject1) + ") + " +
              "(" + getValue(Subject2, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject2) + ") + " +
              "(" + getValue(Subject3, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject3) + ") + " +
-             "(" + getValue(Subject4, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject4) + ") + " +
-             "(" + getValue(Subject5, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject5) + ")" +
-             "]/" + (SubjectUnit.getWeight(Level, Subject1) + SubjectUnit.getWeight(Level, Subject2) + SubjectUnit.getWeight(Level, Subject3) + SubjectUnit.getWeight(Level, Subject4) + SubjectUnit.getWeight(Level, Subject5));
+             "(" + getValue(Subject4, StudentId, listGrades) + "*" + SubjectUnit.getWeight(Level, Subject4) + ")" +
+             "]/" + (SubjectUnit.getWeight(Level, Subject1) + SubjectUnit.getWeight(Level, Subject2) + SubjectUnit.getWeight(Level, Subject3) + SubjectUnit.getWeight(Level, Subject4));
             }
         }
         

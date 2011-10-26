@@ -762,29 +762,20 @@ namespace ReportCardGenerator.Controller
 
 
             //Religion/Values
-            if (tempPeriod.Grades.Find(delegate(Grade g) { return g.SubjectID.Equals("RVED1"); }) != null)
-            {
-                grow["Religion"] = isNotNull("RVED", tempPeriod);
-                addToList(Stud, isNotNullNumericGrade("RVED", tempPeriod, Stud), "RVED", ListGrade);
-            }
-            if (tempPeriod.Grades.Find(delegate(Grade g) { return g.SubjectID.Equals("RVED"); }) != null)
-            {
-                grow["Religion"] = isNotNull("RVED", tempPeriod);
-                addToList(Stud, isNotNullNumericGrade("RVED", tempPeriod, Stud), "RVED", ListGrade);
-            }
-            if (tempPeriod.Grades.Find(delegate(Grade g) { return g.SubjectID.Equals("RVED"); }) != null)
-            {
-                grow["Religion"] = isNotNull("RVED", tempPeriod);
-                addToList(Stud, isNotNullNumericGrade("RVED", tempPeriod, Stud), "RVED", ListGrade);
-            }
-
-            //Religion for Grade 1 and Grade 2
             if (StudReportCard.source == "Grade 1" || StudReportCard.source == "Grade 2")
             {
                 reli1 = (life1 + conduct1) / 2;
                 grow["Religion"] = checker(reli1, tempPeriod.PeriodID);
                 addToList(Stud, reli1, "RVED", ListGrade);
             }
+            else
+            //if (tempPeriod.Grades.Find(delegate(Grade g) { return g.SubjectID.Equals("RVED"); }) != null)
+            {
+                grow["Religion"] = isNotNull("RVED", tempPeriod);
+                addToList(Stud, isNotNullNumericGrade("RVED", tempPeriod, Stud), "RVED", ListGrade);
+            }
+            //Religion for Grade 1 and Grade 2
+            
             //Deportment
             grow["Deport"] = isNotNull("DEPO", tempPeriod);
             addToList(Stud, isNotNullNumericGrade("DEPO", tempPeriod, Stud), "DEPO", ListGrade);
@@ -802,17 +793,7 @@ namespace ReportCardGenerator.Controller
             }
             //Physics
             grow["Physics"] = isNotNull("PHYS", tempPeriod);
-            addToList(Stud, isNotNullNumericGrade("PHYS", tempPeriod, Stud), "PHYS", ListGrade);
-
-            //if (tempPeriod.Grades.Find(delegate(Grade g) { return g.SubjectID.Equals("SCIE"); }) == null)
-            //{
-            //    grow["Science"] = isNotNull("PHYS", tempPeriod);
-            //    addToList(Stud, isNotNullNumericGrade("PHYS", tempPeriod, Stud), "SCIE", ListGrade);
-            //}
-            //CAS
-            //grow["Physics"] = isNotNull("PHYS", tempPeriod,Stud);
-            //read1 = isNotNullNumericGrade("PHYS", tempPeriod,Stud);  
-
+            addToList(Stud, isNotNullNumericGrade("PHYS", tempPeriod, Stud), "PHYS", ListGrade); 
 
             //Student ID
             grow["StudentId"] = Stud.StudentID;
@@ -833,7 +814,7 @@ namespace ReportCardGenerator.Controller
             drow["Art"] = HonorsComputationFormula.getValue("ARTS", Stud.StudentID, listGrades);
             drow["PE"] = HonorsComputationFormula.getValue("PHED", Stud.StudentID, listGrades);
             drow["Forex"] = HonorsComputationFormula.getValue("FORE", Stud.StudentID, listGrades);
-            drow["Religion"] = HonorsComputationFormula.getValue("RELI", Stud.StudentID, listGrades);
+            drow["Religion"] = HonorsComputationFormula.getValue("RVED", Stud.StudentID, listGrades);
             drow["Life"] = HonorsComputationFormula.getValue("HRLI", Stud.StudentID, listGrades);
             drow["Co-curricular"] = HonorsComputationFormula.getValue("COIN", Stud.StudentID, listGrades);
             drow["Deport"] = HonorsComputationFormula.getValue("DEPO", Stud.StudentID, listGrades);
@@ -864,7 +845,7 @@ namespace ReportCardGenerator.Controller
             drow["Art"] = Math.Round(HonorsComputationFormula.getValue("ARTS", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"ARTS"),3);
             drow["PE"] = Math.Round(HonorsComputationFormula.getValue("PHED", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"PHED"),3);
             drow["Forex"] = Math.Round(HonorsComputationFormula.getValue("FORE", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"FORE"),3);
-            drow["Religion"] = Math.Round(HonorsComputationFormula.getValue("RELI", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"RELI"),3);
+            drow["Religion"] = Math.Round(HonorsComputationFormula.getValue("RVED", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"RVED"),3);
             drow["Life"] = Math.Round(HonorsComputationFormula.getValue("HRLI", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"HRLI"),3);
             drow["Co-curricular"] = Math.Round(HonorsComputationFormula.getValue("COIN", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"COIN"),3);
             drow["Deport"] = Math.Round(HonorsComputationFormula.getValue("DEPO", Stud.StudentID, listGrades)* SubjectUnit.getWeight(Level,"DEPO"),3);
@@ -895,7 +876,7 @@ namespace ReportCardGenerator.Controller
             drow["Art"] = Math.Round(HonorsComputationFormula.getValue("ARTS", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "ARTS")/SubjectUnit.getWeight(Level,"Total"),3);
             drow["PE"] = Math.Round(HonorsComputationFormula.getValue("PHED", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "PHED")/SubjectUnit.getWeight(Level,"Total"),3);
             drow["Forex"] = Math.Round(HonorsComputationFormula.getValue("FORE", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "FORE")/SubjectUnit.getWeight(Level,"Total"),3);
-            drow["Religion"] = Math.Round(HonorsComputationFormula.getValue("RELI", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "RELI")/SubjectUnit.getWeight(Level,"Total"),3);
+            drow["Religion"] = Math.Round(HonorsComputationFormula.getValue("RVED", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "RVED")/SubjectUnit.getWeight(Level,"Total"),3);
             drow["Life"] = Math.Round(HonorsComputationFormula.getValue("HRLI", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "HRLI")/SubjectUnit.getWeight(Level,"Total"),3);
             drow["Co-curricular"] = Math.Round(HonorsComputationFormula.getValue("COIN", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "COIN")/SubjectUnit.getWeight(Level,"Total"),3);
             drow["Deport"] = Math.Round(HonorsComputationFormula.getValue("DEPO", Stud.StudentID, listGrades) * SubjectUnit.getWeight(Level, "DEPO")/SubjectUnit.getWeight(Level,"Total"),3);
@@ -1212,7 +1193,7 @@ namespace ReportCardGenerator.Controller
             else return 0;
 
         }
-        private Boolean isOffered(String SubjectID, Period p, Student Stud)
+        public Boolean isOffered(String SubjectID, Period p, Student Stud)
         {
             Period period = new Period();
             period = Stud.RptCard.Periods.Find(delegate(Period per) { return per.PeriodID.Equals(p.PeriodID); });
