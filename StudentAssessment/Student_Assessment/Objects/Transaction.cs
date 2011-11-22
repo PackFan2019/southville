@@ -88,6 +88,24 @@ namespace StudentAssessment.Objects
             }
             set { installmentFee = value; }
         }
+        public void RecomputeInstallmentFee()
+        {
+            decimal percentage = 0;
+            decimal grossTotal = 0;
+            decimal instfee = 0;
+
+            if (plan.NoOfPayments > 1)
+            {
+                percentage = Convert.ToDecimal(plan.InstallmentFeePercentage);
+                foreach (Item item in items)
+                {
+                    grossTotal += item.ExtendedPrice;
+                }
+            }
+            instfee = grossTotal * (percentage / 100);
+            installmentFee = instfee;
+        }
+
 
         public void RecomputeInstallmentFee(string miscFee
             , string miscFeeOptional
