@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Objects", "Objects\Objects.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{0DAE7324-C787-4C57-A498-59CA050E1BCE}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "StudentAssessmentSetup", "StudentAssessmentSetup\StudentAssessmentSetup.vdproj", "{C130A022-4267-401F-BE37-FA9020F08F35}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,8 @@ Global
 		{0DAE7324-C787-4C57-A498-59CA050E1BCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DAE7324-C787-4C57-A498-59CA050E1BCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DAE7324-C787-4C57-A498-59CA050E1BCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C130A022-4267-401F-BE37-FA9020F08F35}.Debug|Any CPU.ActiveCfg = Debug
+		{C130A022-4267-401F-BE37-FA9020F08F35}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
