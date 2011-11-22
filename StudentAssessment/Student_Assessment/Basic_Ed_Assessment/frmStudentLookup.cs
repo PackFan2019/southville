@@ -9,6 +9,7 @@ using System.Reflection;
 using StudentAssessment.Common;
 using StudentAssessment.Objects;
 using StudentAssessment.Adapter;
+using StudentAssessment.Data;
 using log4net;
 
 namespace StudentAssessment
@@ -17,9 +18,11 @@ namespace StudentAssessment
     {
         protected static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-        Students students;
-        string customerNumber;
         
+        string customerNumber;
+        string id;
+        string name;
+
         public frmStudentLookup(string custnmbr)
         {
             InitializeComponent();
@@ -32,12 +35,13 @@ namespace StudentAssessment
         {
             this.Close();
         }
-
-        private void frmStudentLookup_Load(object sender, EventArgs e)
+        private void loadStudents()
         {
             try
             {
-                students = StudentAdapter.Instance.GetStudents();
+                if (Cache.students == null)
+                    Cache.students = StudentAdapter.Instance.GetStudents();
+
                 txtStudentID.Text = customerNumber;
                 addItems(customerNumber);
             }
@@ -46,8 +50,12 @@ namespace StudentAssessment
                 log.Error(ex);
                 //Error.ShowMessage(ex.Message);
                 throw ex;
-            }           
-            
+            }
+        }
+        private void frmStudentLookup_Load(object sender, EventArgs e)
+        {
+            //Only get the students once unless refreshed
+            loadStudents();
         }
 
         private void txtStudentID_TextChanged(object sender, EventArgs e)
@@ -57,47 +65,78 @@ namespace StudentAssessment
 
         public string GetCustomerNumber()
         {
-            return customerNumber;
+            return id;
         }
 
-        private void addItems(string custnmbr)
+        private void addItems(string name)
         {
-            try
+            if (name == null || name.Equals(""))
             {
-                lstStudentList.Items.Clear();
-
-                foreach (Student stud in students)
+                dataGridView1.DataSource = null;
+                dataGridView1.AutoGenerateColumns = false;
+                dataGridView1.DataSource = Cache.students;
+            }
+            else
+            {
+                dataGridView1.DataSource = null;
+                dataGridView1.AutoGenerateColumns = false;
+                Students tempStudents = new Students();
+                foreach (Student stud in Cache.students)
                 {
-                    if (stud.StudentID.ToUpper().StartsWith(custnmbr.ToUpper()))
-                    {
-                        lstStudentList.Items.Add(
-                            new ListViewItem(
-                            new string[] { stud.StudentID
-                                , stud.Fullname
-                                , stud.GradeLevel }));
-                    }
+                    if (stud.Fullname.ToUpper().Contains(name.ToUpper()))
+                        tempStudents.Add(stud);
+
                 }
-
+                dataGridView1.DataSource = tempStudents;
             }
-            catch (Exception ex)
-            {
-                log.Error(ex);
-                Prompt.ShowError(ex.Message);
-            }
-            
+    
         }
 
-        private void lstStudentList_SelectedIndexChanged(object sender, EventArgs e)
+
+
+        private void btnRefresh_Click(object sender, EventArgs e)
         {
-            if (lstStudentList.SelectedItems.Count == 1)
-            {
-                customerNumber = lstStudentList.SelectedItems[0].Text;
-            }            
+                Cache.students = StudentAdapter.Instance.GetStudents();
+                loadStudents();
         }
 
-        private void lstStudentList_DoubleClick(object sender, EventArgs e)
+        private void selectStudent()
         {
-            btnOK_Click(sender, e);
+            int i = dataGridView1.CurrentCell.RowIndex;
+            id = dataGridView1[0, i].Value.ToString();
+            name = dataGridView1[1, i].Value.ToString();
+            label1.Text = "Current selected student: " + name;
+        }
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.CurrentCell != null)
+            {
+                selectStudent();
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.CurrentCell != null)
+            {
+                selectStudent();
+            }
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dataGridView1.CurrentCell != null)
+            {
+                selectStudent();
+            }
+        }
+
+        private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentCell != null)
+            {
+                selectStudent();
+            }
         }
     }
 }

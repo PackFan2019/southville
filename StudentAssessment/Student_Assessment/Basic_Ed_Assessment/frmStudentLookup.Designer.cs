@@ -30,66 +30,36 @@ namespace StudentAssessment
         {
             this.lblStudentID = new System.Windows.Forms.Label();
             this.txtStudentID = new System.Windows.Forms.TextBox();
-            this.lstStudentList = new System.Windows.Forms.ListView();
-            this.clmStudentID = new System.Windows.Forms.ColumnHeader();
-            this.clmName = new System.Windows.Forms.ColumnHeader();
-            this.clmLevel = new System.Windows.Forms.ColumnHeader();
             this.btnOK = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.StudentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblStudentID
             // 
             this.lblStudentID.AutoSize = true;
-            this.lblStudentID.Location = new System.Drawing.Point(5, 15);
+            this.lblStudentID.Location = new System.Drawing.Point(74, 15);
             this.lblStudentID.Name = "lblStudentID";
-            this.lblStudentID.Size = new System.Drawing.Size(98, 13);
+            this.lblStudentID.Size = new System.Drawing.Size(75, 13);
             this.lblStudentID.TabIndex = 0;
-            this.lblStudentID.Text = "Find by Student ID:";
+            this.lblStudentID.Text = "Find by Name:";
             // 
             // txtStudentID
             // 
-            this.txtStudentID.Location = new System.Drawing.Point(109, 12);
+            this.txtStudentID.Location = new System.Drawing.Point(155, 12);
             this.txtStudentID.Name = "txtStudentID";
-            this.txtStudentID.Size = new System.Drawing.Size(100, 20);
+            this.txtStudentID.Size = new System.Drawing.Size(196, 20);
             this.txtStudentID.TabIndex = 1;
             this.txtStudentID.TextChanged += new System.EventHandler(this.txtStudentID_TextChanged);
             // 
-            // lstStudentList
-            // 
-            this.lstStudentList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.clmStudentID,
-            this.clmName,
-            this.clmLevel});
-            this.lstStudentList.FullRowSelect = true;
-            this.lstStudentList.Location = new System.Drawing.Point(8, 38);
-            this.lstStudentList.MultiSelect = false;
-            this.lstStudentList.Name = "lstStudentList";
-            this.lstStudentList.Size = new System.Drawing.Size(384, 178);
-            this.lstStudentList.Sorting = System.Windows.Forms.SortOrder.Ascending;
-            this.lstStudentList.TabIndex = 2;
-            this.lstStudentList.UseCompatibleStateImageBehavior = false;
-            this.lstStudentList.View = System.Windows.Forms.View.Details;
-            this.lstStudentList.SelectedIndexChanged += new System.EventHandler(this.lstStudentList_SelectedIndexChanged);
-            this.lstStudentList.DoubleClick += new System.EventHandler(this.lstStudentList_DoubleClick);
-            // 
-            // clmStudentID
-            // 
-            this.clmStudentID.Text = "Student ID";
-            this.clmStudentID.Width = 80;
-            // 
-            // clmName
-            // 
-            this.clmName.Text = "Name";
-            this.clmName.Width = 220;
-            // 
-            // clmLevel
-            // 
-            this.clmLevel.Text = "Level";
-            this.clmLevel.Width = 80;
-            // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(322, 222);
+            this.btnOK.Location = new System.Drawing.Point(324, 359);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 3;
@@ -97,14 +67,69 @@ namespace StudentAssessment
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(243, 360);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.StudentId,
+            this.FullName,
+            this.Level});
+            this.dataGridView1.Location = new System.Drawing.Point(8, 44);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(389, 276);
+            this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // StudentId
+            // 
+            this.StudentId.DataPropertyName = "studentID";
+            this.StudentId.HeaderText = "Student ID";
+            this.StudentId.Name = "StudentId";
+            // 
+            // FullName
+            // 
+            this.FullName.DataPropertyName = "fullname";
+            this.FullName.HeaderText = "Full Name";
+            this.FullName.Name = "FullName";
+            // 
+            // Level
+            // 
+            this.Level.DataPropertyName = "gradeLevel";
+            this.Level.HeaderText = "Level";
+            this.Level.Name = "Level";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 335);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(136, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Currently Selected Student:";
+            // 
             // frmStudentLookup
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 252);
+            this.ClientSize = new System.Drawing.Size(433, 410);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.lstStudentList);
             this.Controls.Add(this.txtStudentID);
             this.Controls.Add(this.lblStudentID);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -115,6 +140,7 @@ namespace StudentAssessment
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Student Lookup";
             this.Load += new System.EventHandler(this.frmStudentLookup_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,10 +150,12 @@ namespace StudentAssessment
 
         private System.Windows.Forms.Label lblStudentID;
         private System.Windows.Forms.TextBox txtStudentID;
-        private System.Windows.Forms.ListView lstStudentList;
-        private System.Windows.Forms.ColumnHeader clmStudentID;
-        private System.Windows.Forms.ColumnHeader clmName;
-        private System.Windows.Forms.ColumnHeader clmLevel;
         private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Level;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -36,6 +36,7 @@ namespace StudentAssessment
             this.clmUnitPrice = new System.Windows.Forms.ColumnHeader();
             this.txtItemNo = new System.Windows.Forms.TextBox();
             this.lblItemNo = new System.Windows.Forms.Label();
+            this.chkCollegeSubjs = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnOK
@@ -104,6 +105,17 @@ namespace StudentAssessment
             this.lblItemNo.TabIndex = 4;
             this.lblItemNo.Text = "Find by Item No.:";
             // 
+            // chkCollegeSubjs
+            // 
+            this.chkCollegeSubjs.AutoSize = true;
+            this.chkCollegeSubjs.Location = new System.Drawing.Point(13, 224);
+            this.chkCollegeSubjs.Name = "chkCollegeSubjs";
+            this.chkCollegeSubjs.Size = new System.Drawing.Size(159, 17);
+            this.chkCollegeSubjs.TabIndex = 8;
+            this.chkCollegeSubjs.Text = "Show College Subjects Only";
+            this.chkCollegeSubjs.UseVisualStyleBackColor = true;
+            this.chkCollegeSubjs.CheckedChanged += new System.EventHandler(this.chkCollegeSubjs_CheckedChanged);
+            // 
             // frmItemLookup
             // 
             this.AcceptButton = this.btnOK;
@@ -111,6 +123,7 @@ namespace StudentAssessment
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnOK;
             this.ClientSize = new System.Drawing.Size(404, 252);
+            this.Controls.Add(this.chkCollegeSubjs);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.lstItemList);
             this.Controls.Add(this.txtItemNo);
@@ -139,5 +152,6 @@ namespace StudentAssessment
         private System.Windows.Forms.TextBox txtItemNo;
         private System.Windows.Forms.Label lblItemNo;
         private System.Windows.Forms.ColumnHeader clmClassID;
+        private System.Windows.Forms.CheckBox chkCollegeSubjs;
     }
 }

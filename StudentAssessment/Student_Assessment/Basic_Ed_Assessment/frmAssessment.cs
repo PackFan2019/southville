@@ -147,10 +147,17 @@ namespace StudentAssessment
                 , config["Direct_Cost"].ToString()
                 , config["Direct_Cost_Optional"].ToString()
                 , config["Additional_Fee"].ToString());
+
+            /*
+             *  Code to compute Installment fee based on Miscellaneous and Direct Cost
             transaction.RecomputeInstallmentFee(config["Miscellaneous_Fee"].ToString()
                 , config["Miscellaneous_Fee_Optional"].ToString()
                 , config["Direct_Cost"].ToString()
                 , config["Direct_Cost_Optional"].ToString());
+            */
+
+            //Recompute Gross Amount for Installment Fee
+            transaction.RecomputeInstallmentFee();
 
             txtTuitionFee.Text = Convert.ToString(transaction.TotalTuition);
             txtMiscellaneousFees.Text = Convert.ToString(transaction.TotalMiscellaneousFees);

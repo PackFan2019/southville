@@ -79,8 +79,16 @@ namespace StudentAssessment
 
                 foreach (Item item in items)
                 {
-                    if (item.ItemNo.ToString().ToUpper().
-                        StartsWith(itemNo.ToUpper()))
+                    //Added 11/21/2011
+                    bool showCondition = true;
+
+                    if (!item.ItemNo.ToString().ToUpper().
+                        StartsWith(itemNo.ToUpper())) showCondition = false;
+
+                    if (chkCollegeSubjs.Checked && item.ItemType != ItemType.Kit)
+                        showCondition = false;
+                    
+                    if (showCondition)
                     {
                         //added 20101007 - don't show the price if the item is a kit
                         if (item.ItemType == ItemType.Kit) 
@@ -169,6 +177,11 @@ namespace StudentAssessment
         private void frmItemLookup_FormClosing(object sender, FormClosingEventArgs e)
         {
             itemSelected = false;
+        }
+
+        private void chkCollegeSubjs_CheckedChanged(object sender, EventArgs e)
+        {
+            addItems(txtItemNo.Text);
         }
     }
 }

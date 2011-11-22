@@ -533,7 +533,6 @@ namespace StudentAssessment
             this.txtInstallmentFee.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInstallmentFee.Location = new System.Drawing.Point(101, 68);
             this.txtInstallmentFee.Name = "txtInstallmentFee";
-            this.txtInstallmentFee.ReadOnly = true;
             this.txtInstallmentFee.Size = new System.Drawing.Size(101, 20);
             this.txtInstallmentFee.TabIndex = 9;
             this.txtInstallmentFee.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
