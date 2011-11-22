@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cache.cs" />
     <Compile Include="DiscountData.cs" />
     <Compile Include="ItemData.cs" />
     <Compile Include="PlanData.cs" />
