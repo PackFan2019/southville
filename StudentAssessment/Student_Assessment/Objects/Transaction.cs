@@ -559,14 +559,22 @@ namespace StudentAssessment.Objects
                     due = new Due();
                     due = plan.Breakdown.GetDue(i);
 
-                    due.Amount = netAmount * (due.Percent / 100);
+                    //Original
+                    //due.Amount = netAmount * (due.Percent / 100);
+
+                    //Edited - 5/4/12
+                    due.Amount = (netAmount + installmentFee) * (due.Percent / 100);
 
                     totalComputed += due.Amount;
                     sked.Add(due);
                 }
                 due = new Due();
                 due = plan.Breakdown.GetDue(plan.Breakdown.Count - 1);
-                due.Amount = netAmount - totalComputed;
+                //Original
+                //due.Amount = netAmount - totalComputed;
+
+                //Edited - 5/4/12
+                due.Amount = (netAmount + installmentFee) - totalComputed;
                 sked.Add(due);                
             }
             else
@@ -580,7 +588,11 @@ namespace StudentAssessment.Objects
                     }
 
                     due.Date = instalmentDate;
-                    due.Amount = netAmount / plan.NoOfPayments;
+                    //Original
+                    //due.Amount = netAmount / plan.NoOfPayments;
+
+                    //Edited - 5/4/12
+                    due.Amount = (netAmount + installmentFee) / plan.NoOfPayments;
 
                     totalComputed += due.Amount;
                     sked.Add(due);
@@ -588,7 +600,11 @@ namespace StudentAssessment.Objects
                 }
                 due = new Due();
                 due.Date = instalmentDate;
-                due.Amount = netAmount - totalComputed;
+                //Original
+                //due.Amount = netAmount - totalComputed;
+
+                //Edited - 5/4/12
+                due.Amount = (netAmount + installmentFee) - totalComputed;
                 if (plan.NoOfPayments == 1)
                 {
                     due.Date = instalmentDate.AddDays(plan.DaysFromFirstPayment);
@@ -597,7 +613,10 @@ namespace StudentAssessment.Objects
                 
             }
             //add installment fee to the first payment
-            sked.GetDue(0).Amount += this.installmentFee;
+            //Original
+            //sked.GetDue(0).Amount += this.installmentFee;
+
+            //Edited - 5/4/12
 
             this.schedule = sked;
         }

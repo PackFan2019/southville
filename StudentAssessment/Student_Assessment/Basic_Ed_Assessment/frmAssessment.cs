@@ -497,6 +497,13 @@ namespace StudentAssessment
                         transaction.CurrencyID = txtCurrencyID.Text;
                         transaction.Comments = txtRemarks.Text;
 
+                        //Added code 5/4/12
+                        transaction.InstallmentFee = Convert.ToDecimal(txtInstallmentFee.Text);
+
+                        //Added Code 5/7/12
+                        transaction.RecalculatePaymentSchedules();
+                        //transaction.totalMiscellaneousFees = Convert.ToDecimal(txtInstallmentFee.Text) + Convert.ToDecimal(txtMiscellaneousFees.Text);
+
                         TransactionAdapter.Instance.SaveTransaction(transaction
                             , documentID
                             , config["Default_Site_ID"].ToString());
