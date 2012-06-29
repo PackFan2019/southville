@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{2039728B-E75C-404C-8A36-8EC22A723FDD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -110,6 +110,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Prompt.cs" />
+    <Compile Include="frmStatementOfAccountParameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStatementOfAccountParameters.Designer.cs">
+      <DependentUpon>frmStatementOfAccountParameters.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStudentsPerSubjectParameters.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmStatementOfAccountParameters.resx">
+      <DependentUpon>frmStatementOfAccountParameters.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmStudentsPerSubjectParameters.resx">
       <DependentUpon>frmStudentsPerSubjectParameters.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -307,6 +316,11 @@
       <LastGenOutput>rptAssessment.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptStatementOfAccount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptStatementOfAccount.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptStudentsPerSubject.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptStudentsPerSubject.cs</LastGenOutput>
@@ -333,6 +347,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptAssessment.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptStatementOfAccount.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptStatementOfAccount.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\rptStudentsPerSubject.cs">

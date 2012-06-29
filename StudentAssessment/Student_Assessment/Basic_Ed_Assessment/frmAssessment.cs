@@ -1074,5 +1074,14 @@ namespace StudentAssessment
             }
             
         }
+
+        private void txtInstallmentFee_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                txtNetAmountToPay.Text = (Convert.ToDecimal(txtSubtotal.Text) + Convert.ToDecimal(txtInstallmentFee.Text)).ToString();
+            }
+            catch { }
+        }
     }
 }

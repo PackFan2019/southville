@@ -12,6 +12,7 @@ namespace StudentAssessment
         static frmAssessmentsByStudent AssessmentsByStudent;
         static frmEnrolledSubjectsParameters EnrolledSubjectsParameters;
         static frmStudentsPerSubjectParameters StudentsPerSubjectParameters;
+        static frmStatementOfAccountParameters StatementOfAccountParameters;
 
         public frmMain()
         {
@@ -115,7 +116,23 @@ namespace StudentAssessment
             StudentsPerSubjectParameters.Activate();
         }
 
+        private void statementOfAccountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (StatementOfAccountParameters == null)
+            {
+                StatementOfAccountParameters = new frmStatementOfAccountParameters();
+            }
+            else
+            {
+                if (StatementOfAccountParameters.Created == false)
+                {
+                    StatementOfAccountParameters = new frmStatementOfAccountParameters();
+                }
+            }
 
-       
+            StatementOfAccountParameters.MdiParent = this;
+            StatementOfAccountParameters.Show();
+            StatementOfAccountParameters.Activate();
+        }       
     }
 }

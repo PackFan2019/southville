@@ -40,6 +40,7 @@ namespace StudentAssessment
             this.enrolledSubjectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentsPerSubjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.statementOfAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,7 +110,8 @@ namespace StudentAssessment
             // 
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.enrolledSubjectsToolStripMenuItem,
-            this.studentsPerSubjectToolStripMenuItem});
+            this.studentsPerSubjectToolStripMenuItem,
+            this.statementOfAccountToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.reportsToolStripMenuItem.Text = "&Reports";
@@ -131,6 +133,13 @@ namespace StudentAssessment
             this.studentsPerSubjectToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
             this.studentsPerSubjectToolStripMenuItem.Text = "Students per Subject";
             this.studentsPerSubjectToolStripMenuItem.Click += new System.EventHandler(this.studentsPerSubjectToolStripMenuItem_Click);
+            // 
+            // statementOfAccountToolStripMenuItem
+            // 
+            this.statementOfAccountToolStripMenuItem.Name = "statementOfAccountToolStripMenuItem";
+            this.statementOfAccountToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
+            this.statementOfAccountToolStripMenuItem.Text = "Statement Of &Account";
+            this.statementOfAccountToolStripMenuItem.Click += new System.EventHandler(this.statementOfAccountToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -164,6 +173,7 @@ namespace StudentAssessment
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enrolledSubjectsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem studentsPerSubjectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem statementOfAccountToolStripMenuItem;
     }
 }
 

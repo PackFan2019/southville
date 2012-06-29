@@ -536,6 +536,7 @@ namespace StudentAssessment
             this.txtInstallmentFee.Size = new System.Drawing.Size(101, 20);
             this.txtInstallmentFee.TabIndex = 9;
             this.txtInstallmentFee.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtInstallmentFee.TextChanged += new System.EventHandler(this.txtInstallmentFee_TextChanged);
             // 
             // btnExpandDiscount
             // 
