@@ -207,7 +207,7 @@ namespace StudentAssessment.Data
             try
             {                
                 using (SqlConnection conn = new SqlConnection(connString))
-                using (SqlCommand comm = new SqlCommand("usp_GetItemsByLevel", conn))
+                using (SqlCommand comm = new SqlCommand("usp_GetItemsByLevelAndItemNumber", conn))
                 {
                     comm.CommandType = CommandType.StoredProcedure;
 
@@ -215,6 +215,7 @@ namespace StudentAssessment.Data
                     comm.Parameters.Add(new SqlParameter("@UofM", uOfM));
                     comm.Parameters.Add(new SqlParameter("@Currency", currency));
                     comm.Parameters.Add(new SqlParameter("@Level", priceLevel));
+                    comm.Parameters.Add(new SqlParameter("@Item_Number", itemNumber));
 
                     conn.Open();
 
@@ -222,16 +223,16 @@ namespace StudentAssessment.Data
                     {
                         while (dr.Read())
                         {
-                            if (dr.HasRows
-                                && dr["Item Number"].ToString().Equals(itemNumber))
-                            {
+                            //if (dr.HasRows
+                            //    && dr["Item Number"].ToString().Equals(itemNumber))
+                            //{
                                 item = new Item(dr["Item Number"].ToString()
                                                 , dr["Item Description"].ToString()
                                                 , dr["Item Class Code"].ToString()
                                                 , dr["U of M"].ToString()
                                                 , Convert.ToDecimal(dr["Unit Price"].ToString()));
                                 item.ItemType = (ItemType)Convert.ToInt32(dr["Item Type"]);
-                            }
+                            //}
                         }
                     }                    
                 }                
