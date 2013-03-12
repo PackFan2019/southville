@@ -22,20 +22,21 @@ namespace StudentAssessment
         NameValueCollection config = (NameValueCollection)ConfigurationManager.AppSettings;
         Items items;
         string itemNumber = "";
+        List<string> selectedItems = new List<string>();
         string level;
         string currency;
         bool itemSelected = false;
         bool subjectsOnly = false;
 
-        public string GetItemNumber()
+        public string[] GetSelectedItems()
         {
             if (itemSelected)
             {
-                return itemNumber;
+                return selectedItems.ToArray();
             }
             else
             {
-                return "";
+                return null;
             }
             
         }
@@ -139,8 +140,13 @@ namespace StudentAssessment
 
         private void lstItemList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lstItemList.SelectedItems.Count == 1)
+            selectedItems.Clear();
+            if (lstItemList.SelectedItems.Count >= 1)
             {
+                for (int i = 0; i <= lstItemList.SelectedItems.Count - 1; i++)
+                {
+                    selectedItems.Add(lstItemList.SelectedItems[i].SubItems[1].Text);
+                }
                 itemNumber = lstItemList.SelectedItems[0].SubItems[1].Text;
             }
         }

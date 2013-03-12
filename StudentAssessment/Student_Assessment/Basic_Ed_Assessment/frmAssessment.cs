@@ -604,16 +604,20 @@ namespace StudentAssessment
                 using (frmItemLookup itemLookup = new frmItemLookup(transaction.PriceLevel, transaction.CurrencyID))
                 {
                     itemLookup.ShowDialog();
-                    if (itemLookup.GetItemNumber().Length > 0)
+                    string[] selectedItems = itemLookup.GetSelectedItems();
+                    if (selectedItems != null && selectedItems.Length > 0)
                     {
-                        Item item = ItemAdapter.Instance.GetItem(transaction.PriceLevel, transaction.CurrencyID, itemLookup.GetItemNumber(), config["Default_U_of_M"].ToString());
-                        if (item != null)
-                            if (item.ItemType == ItemType.Service)
-                                addItem(item);
-                            else
-                                if (item.ItemType == ItemType.Kit)
-                                    foreach (Item component in getKitComponents(item))
-                                        addItem(component);
+                        for (int i = 0; i <= selectedItems.Length - 1; i++)
+                        {
+                            Item item = ItemAdapter.Instance.GetItem(transaction.PriceLevel, transaction.CurrencyID, selectedItems[i], config["Default_U_of_M"].ToString());
+                            if (item != null)
+                                if (item.ItemType == ItemType.Service)
+                                    addItem(item);
+                                else
+                                    if (item.ItemType == ItemType.Kit)
+                                        foreach (Item component in getKitComponents(item))
+                                            addItem(component);
+                        }
                     }
                 }
 

@@ -42,7 +42,7 @@ namespace StudentAssessment
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnOK.Location = new System.Drawing.Point(318, 219);
+            this.btnOK.Location = new System.Drawing.Point(386, 224);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 7;
@@ -59,9 +59,8 @@ namespace StudentAssessment
             this.clmUnitPrice});
             this.lstItemList.FullRowSelect = true;
             this.lstItemList.Location = new System.Drawing.Point(9, 35);
-            this.lstItemList.MultiSelect = false;
             this.lstItemList.Name = "lstItemList";
-            this.lstItemList.Size = new System.Drawing.Size(384, 178);
+            this.lstItemList.Size = new System.Drawing.Size(452, 178);
             this.lstItemList.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.lstItemList.TabIndex = 6;
             this.lstItemList.UseCompatibleStateImageBehavior = false;
@@ -122,7 +121,7 @@ namespace StudentAssessment
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnOK;
-            this.ClientSize = new System.Drawing.Size(404, 252);
+            this.ClientSize = new System.Drawing.Size(469, 252);
             this.Controls.Add(this.chkCollegeSubjs);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.lstItemList);

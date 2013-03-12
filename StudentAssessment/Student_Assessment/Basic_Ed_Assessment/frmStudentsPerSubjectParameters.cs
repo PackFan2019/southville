@@ -29,7 +29,7 @@ namespace StudentAssessment
             {
                 itemLookup.ShowDialog();
 
-                txtCourse.Text = itemLookup.GetItemNumber();
+                txtCourse.Text = itemLookup.GetSelectedItems()[1];
             }
         }
 
